@@ -1,0 +1,65 @@
+.content
+  .descr
+    .descr-img
+        width: 100%
+  .block_progress
+    width: auto
+    height: 2px
+    background-color: #F2F2F6
+    flex-grow: 1
+    margin-bottom: 30px
+  .block_top
+    display: flex
+    flex-direction: row
+    align-items: center
+  .content-descr
+    @include font(18px, 24px)
+    color: $font-color-nav
+    margin: 10px auto 30px
+    text-align: center
+
+.content-theory
+  h1
+    text-align: center
+
+.content-safety
+  .descr
+    display: flex
+    flex-direction: column
+    .content-descr
+      text-align: left
+    .descr-img
+      order: 1
+    div
+      order: 2
+
+.content-exercise
+  .descr
+    display: flex
+    flex-direction: column
+    .descr-img
+      order: 1
+    div
+      order: 2
+
+
+@media (min-width: 640px)
+  .content-theory
+    .content-descr
+      margin: 10px 150px 30px
+
+  .content-safety
+    .descr
+      display: flex
+      flex-direction: row
+      div
+        max-width: 553px
+        margin-right: auto
+      .descr-img
+        order: 3
+
+
+@media (min-width: 1200px)
+  .content-theory
+    .content-descr
+      margin: 10px 300px 30px

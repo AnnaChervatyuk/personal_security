@@ -1,0 +1,65 @@
+.cards
+  display: flex
+  flex-direction: column
+  .card
+    margin: 20px 0
+    border: $border
+    border-radius: 3px
+    padding: 20px
+    display: flex
+    flex-direction: column
+    position: relative
+    .type,
+    .date
+      color: $font-color-nav
+      @include font(11px, 13px)
+    .type-threat
+      color: $font-color-error
+      text-align: center
+    .title
+      @include title()
+    .title-threat
+      text-align: center
+    .text
+      margin-bottom: 20px
+    .text-threat
+      text-align: center
+    .add-text
+      height: 80px
+      background: url('../public/images/bg_cards_advice.png') no-repeat
+      background-size: contain
+      background-position-x: right
+    .card_img
+      margin-bottom: 10px
+      img
+        width: 100%
+        object-fit: contain
+
+  .card_advice
+    background-color: $color-bg-card
+
+  .card_task
+    background: url('../public/images/bg_cards_task.png') no-repeat
+    background-size: 80px 80px
+    background-position: right bottom
+    background-color: $color-bg-task
+    padding-bottom: 80px
+
+.all_cards
+  @include font(19px, 24px)
+  font-weight: bold
+  text-align: center
+  color: $font-color-gray
+  margin: 20px auto
+
+@media (min-width: 768px)
+  .cards
+    flex-direction: row
+    flex-wrap: wrap
+    .card
+      width: calc(50% - 15px)
+      box-sizing: border-box
+      &:nth-child(odd)
+        margin-right: 30px
+  .all_cards
+    display: none

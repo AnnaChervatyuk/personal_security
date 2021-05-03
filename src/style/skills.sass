@@ -1,0 +1,48 @@
+.content-theory
+  .skills
+    .skill
+      margin: 10px 0
+      border-radius: 20px
+      color: #ffffff
+      padding: 30px
+      display: block
+      h3
+        color: #ffffff
+    .skill-one
+      background-color: #13B881
+    .skill-two
+      background-color: #2C28C2
+    .skill-three
+      background-color: #0F7DA1
+      .amount
+        display: none
+
+@media (min-width: 640px)
+  .content-theory
+    .skills
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      margin-left: -15px
+      margin-right: -15px
+      // justify-content: space-between
+      .skill
+        max-width: 360px
+        width: auto
+        height: 500px
+        box-sizing: border-box
+        margin: 10px 15px
+        display: flex
+        flex-direction: column
+        padding: 50px 37px
+        .amount
+          display: block
+          margin-top: auto
+          .number
+            @include font(70px, 55px)
+
+
+        // &:first-child
+        //   margin-left: 0
+        // &:last-child
+        //   margin-right: 0

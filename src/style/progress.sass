@@ -1,0 +1,57 @@
+.progress
+  border: $border
+  border-radius: 3px
+  margin: 0
+  margin-top: 20px
+  padding: 20px
+  .progress_inner
+    .btn
+      @include btn()
+      width: auto
+    h2
+      margin: 20px 0
+    .progress_about
+      margin: 20px 0
+      .progress_line // доделать
+        width: auto
+        height: 6px
+        background: #F3F3F6
+        border-radius: 3px
+      .progress_descr
+        @include font(14px, 19px)
+        margin: 5px 0
+  .progress_skills
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-between
+    @include font(12px, 16px)
+    .skill
+      padding: 0 3px
+      text-align: center
+    .skill-one
+      color: $font-color-one
+    .skill-two
+      color: $font-color-two
+    .skill-three
+      color: $font-color-three
+
+
+@media (min-width: 768px)
+  .progress
+    display: flex
+    flex-direction: row
+    padding: 30px
+    .progress_inner
+      order: 1
+      width: 50%
+      margin-right: 30px
+      .btn
+        display: inline
+        margin-right: auto
+        margin-top: 30px
+      .progress_about
+        margin-bottom: 30px
+    .progress_skills
+      order: 2
+      width: 50%

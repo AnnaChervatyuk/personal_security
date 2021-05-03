@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+  </head>
+    <body class="container container-main">
+      <section class="navigator navigator-main">
+        <div class="nav_logo">
+          <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security"></a>
+        </div>
+        <ul class="nav_list">
+          <li class="nav_item">Тренировки</li>
+          <li class="nav_item"><a href="theory.html">Теория</a></li>
+          <li class="nav_item">Ситуации</li>
+        </ul>
+        <div class="nav_el nav_menu">
+          <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+             <use xlink:href="sprite.svg#icon-menu"></use>
+          </svg>
+        </div>
+        <div class="nav_list">
+          <div class="nav_el nav_search">
+            <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <use xlink:href="sprite.svg#icon-search"></use>
+            </svg>
+          </div>
+          <div class="nav_el nav_profile">
+            <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <use xlink:href="sprite.svg#icon-profile"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="progress progress-main">
+          <div class="progress_skills">
+            <div class="skill skill-one">Цифровая безопасность</div>
+            <div class="skill skill-two">Личная безопасность</div>
+            <div class="skill skill-three">Финансовая безопасность</div>
+          </div>
+          <div class="progress_inner">
+            <h2>Тренировки</h2>
+            <div class="progress_about">
+              <div class="progress_line"></div>
+              <div class="progress_descr">Пройдено 6% курса</div>
+            </div>
+            <div class="btn btn-go-training">К тренировке</div>
+          </div>
+        </div>
+
+        <div class="cards cards-main">
+          <div class="card card_advice">
+            <div class="type type-advice">Совет</div>
+            <div class="title title-advice">«Яндекс» выявил внутреннюю утечку данных около 5 тыс. почтовых ящиков. Смените пароль.</div>
+            <div class="text text-advice">Нормального русского перевода у термина нет, поэтому их также называют софт-скиллами, гибкими или мягкими навыками.</div>
+            <div class="add-text add-text-advice">
+              <div class="date">22 янв 2019</div>
+            </div>
+            <a href="article.html" class="link"></a>
+          </div>
+          <div class="card card_situation">
+            <div class="card_img">
+              <img src="./images/img_example/image_1.png" />
+            </div>
+            <div class="type type-situation">Ситуация</div>
+            <div class="title title-situation">Как найти и отключить самые потайные настройки слежения в Facebook</div>
+            <a href="article.html" class="link"></a>
+          </div>
+          <div class="card card_situation">
+            <div class="card_img">
+              <img src="./images/img_example/image_2.png" />
+            </div>
+            <div class="type type-situation">Ситуация</div>
+            <div class="title title-situation">«Яндекс» выявил внутреннюю утечку данных около 5 тыс. почтовых ящиков. Смените пароль.</div>
+            <a href="article.html" class="link"></a>
+          </div>
+          <div class="card card_situation">
+            <div class="card_img">
+              <img src="./images/img_example/image_3.png" />
+            </div>
+            <div class="type type-situation">Ситуация</div>
+            <div class="title title-situation">«Яндекс» выявил внутреннюю утечку данных около 5 тыс. почтовых ящиков. Смените пароль.</div>
+            <a href="article.html" class="link"></a>
+          </div>
+          <div class="card card_task">
+            <div class="type type-task">Задача</div>
+            <div class="title title-task">Установить менеджер паролей</div>
+            <div class="text text-task">Установить менеджер паролей</div>
+            <a href="exercise.html" class="link"></a>
+          </div>
+          <div class="card card_threat">
+            <div class="card_img">
+              <img src="./images/img_example/image_4.png" />
+            </div>
+            <div class="type type-threat">Угроза</div>
+            <div class="title title-threat">Печальная старость</div>
+            <div class="text text-threat">Её можно избежать. Продолжите тренировки, чтобы узнать, как с ней справиться.</div>
+            <a href="article.html" class="link"></a>
+          </div>
+        </div>
+        <div class="all_cards">На этом пока всё</div>
+      </section>
+
+
+
+      <section class="footer footer-main">
+        <div class="footer_logo">
+          <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Personal security"></a>
+        </div>
+        <ul class="footer_list">
+          <li class="footer_item">Контакты</li>
+          <li class="footer_item">Предложить новость</li>
+        </ul>
+      </section>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script defer src="bundle.js"></script></body>
+</html>

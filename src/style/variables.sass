@@ -1,0 +1,52 @@
+$font-color: #2E2E38
+$font-color-hover: #2E2E38
+$font-color-nav: #787882
+$font-color-footer: #17171C
+$font-color-error: #FF3B30
+$font-color-gray: #C7C7CC
+
+$font-color-one: #21AF73
+$font-color-two: #5C59EB
+$font-color-three: #1299C6
+
+$border: 1px solid #F3F3F6
+
+$color-bg-block: #F9F9FB
+$color-bg-card: #F6F6F9
+$color-bg-task: #E8E8FA
+
+
+
+@mixin font($size, $height)
+  font-size: $size
+  line-height: $height
+
+@mixin icons ()
+  fill: $font-color
+  stroke: none
+  &:hover
+    fill:  $font-color-hover
+  &:active
+    fill:  $font-color-hover
+
+
+@mixin btn ()
+  background-color: $font-color-footer
+  color: #FFFFFF
+  font-size: 16px
+  line-height: 22px
+  padding: 14px 80px
+  border-radius: 4px
+  text-align: center
+
+@mixin title ()
+  font-weight: bold
+  font-size: 21px
+  line-height: 26px
+  color: $font-color-footer
+  margin: 10px 0
+
+@mixin bg-navigator ()
+  background-color: rgba(255, 255, 255, 0.9)
+  -webkit-backdrop-filter: blur(4px)
+  backdrop-filter: blur(4px)

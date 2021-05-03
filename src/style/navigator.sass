@@ -1,0 +1,59 @@
+.navigator
+  @include bg-navigator()
+  color: $font-color-nav
+  font-weight: bold
+  padding: 15px 20px
+  margin: 0
+  display: flex
+  flex-wrap: nowrap
+  align-items: center
+  justify-content: space-between
+  position: fixed
+  bottom: 0
+  order: 10
+  width: 100vw
+  z-index: 100
+  .nav_logo
+    width: 18px
+    height: 20px
+  .nav_list
+    display: flex
+    flex-wrap: nowrap
+    margin: 0
+    padding: 0
+    .nav_item
+      list-style-type: none
+      margin: 0 13px
+      @include font(13px, 19px)
+  .nav_menu
+    height: 20px
+    width: 20px
+    .icons
+      fill: none
+      stroke: $font-color
+  .nav_search,
+  .nav_profile
+    display: none
+
+@media (min-width: 640px)
+  .navigator
+    order: -1
+    position: relative
+    background-color: none
+    width: auto
+    color: $font-color-footer
+    .nav_menu
+      display: none
+    .nav_logo
+      width: 134px
+      height: 30px
+    .nav_search,
+    .nav_profile
+      display: block
+      width: 24px
+      height: 24px
+    .nav_search
+      margin-right: 20px
+    .nav_list
+      .nav_item
+        @include font(19px, 24px)
