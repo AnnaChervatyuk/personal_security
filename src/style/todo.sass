@@ -1,0 +1,95 @@
+.todo-list_wrapper
+  border: $border
+  border-radius: 4px
+  margin-bottom: 10px
+  &:last-child
+    margin-bottom: 0
+  .todo-list-header
+    width: 100%
+    border-bottom: $border
+    display: flex
+    padding: 20px
+    box-sizing: border-box
+    h5
+      flex-grow: 1
+    .list-amount
+      @include font(19px, 24px)
+      color: #007AFF
+  .todo-list
+    margin: 20px
+    padding: 0
+    .todo-el
+      @include font(16px, 22px)
+      list-style: none
+      .el_row
+        display: flex
+        flex-direction: row
+        margin-bottom: 15px
+        &:last-child
+          margin-bottom: 0
+        .el_task
+          display: flex
+          flex-direction: column
+          align-items: flex-start
+          margin-top: 4px
+          .el_how-do_btn
+            @include font(12px, 16px)
+            color: #AEAEB2
+        .el_check
+          width: 30px
+          height: 30px
+          border: 1px solid $font-color-footer
+          box-sizing: border-box
+          border-radius: 4px
+          margin: 0
+          margin-right: 10px
+          min-width: 30px
+        .el_check-warning
+          border-color: $font-color-error
+  &.todo-done
+    .todo-list
+      .todo-el
+        .el_row
+          position: relative
+          .el_check
+            &::before
+              content: ""
+              position: absolute
+              display: inline-block
+              width: 2px
+              height: 17px
+              background-color: #007AFF
+              left: 17px
+              top: 6px
+              transform: rotate(45deg)
+            &::after
+              content: ""
+              position: absolute
+              display: inline-block
+              width: 2px
+              height: 9px
+              background-color: #007AFF
+              left: 8px
+              top: 12px
+              transform: rotate(-45deg)
+          .el_task
+            .el_header
+              text-decoration: line-through
+            .el_how-do_btn
+              display: none
+
+@media (min-width: 768px)
+  .todo-list_wrapper
+    .todo-list
+      .todo-el
+        width: 100%
+        .el_row
+          width: 100%
+          .el_task
+            flex-direction: row
+            align-items: baseline
+            flex-grow: 1
+            .el_header
+              margin-right: auto
+            .el_how-do_btn
+              margin-left: 10px

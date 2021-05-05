@@ -98,6 +98,10 @@ module.exports = {
         filename: 'article.html',
         template: 'src/public/article.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: 'todo.html',
+        template: 'src/public/todo.html'
+        }),
 
   ],
 
