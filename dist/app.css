@@ -38,6 +38,16 @@ a:hover {
   color: #2E2E38;
 }
 
+.btn {
+  background-color: #17171C;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 14px 80px;
+  border-radius: 4px;
+  text-align: center;
+}
+
 .link {
   position: absolute;
   top: 0;
@@ -711,24 +721,31 @@ h5 {
 }
 .todo-list_wrapper .todo-list .todo-el .el_row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: 15px;
 }
 .todo-list_wrapper .todo-list .todo-el .el_row:last-child {
   margin-bottom: 0;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .el_task {
+.todo-list_wrapper .todo-list .todo-el .el_row .description {
+  display: flex;
+  flex-direction: row;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .description .el_task {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 4px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .el_task .el_how-do_btn {
+.todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_how-do_btn {
   font-size: 12px;
   line-height: 16px;
   color: #AEAEB2;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .el_check {
+.todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_how-do_btn:hover {
+  cursor: pointer;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .description .el_check {
   width: 30px;
   height: 30px;
   border: 1px solid #17171C;
@@ -738,13 +755,60 @@ h5 {
   margin-right: 10px;
   min-width: 30px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .el_check-warning {
+.todo-list_wrapper .todo-list .todo-el .el_row .description .el_check-warning {
   border-color: #FF3B30;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction {
+  background-color: #F3F3F6;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: auto;
+  border-bottom: 1px solid #C7C7CC;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .btn {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 10px;
+  width: 150px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks .risks-text {
+  color: #8D8D94;
+  font-size: 12px;
+  line-height: 16px;
+  max-width: 250px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks .risks-btn {
+  background-color: #FFFFFF;
+  border: 1px solid #C7C7CC;
+  color: #2E2E38;
+  margin-right: 10px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-content .instruction-content__header {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-content .exercises {
+  margin-bottom: 20px;
 }
 .todo-list_wrapper.todo-done .todo-list .todo-el .el_row {
   position: relative;
 }
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .el_check::before {
+.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_check::before {
   content: "";
   position: absolute;
   display: inline-block;
@@ -755,7 +819,7 @@ h5 {
   top: 6px;
   transform: rotate(45deg);
 }
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .el_check::after {
+.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_check::after {
   content: "";
   position: absolute;
   display: inline-block;
@@ -766,10 +830,10 @@ h5 {
   top: 12px;
   transform: rotate(-45deg);
 }
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .el_task .el_header {
+.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_task .el_header {
   text-decoration: line-through;
 }
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .el_task .el_how-do_btn {
+.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_task .el_how-do_btn {
   display: none;
 }
 
@@ -780,15 +844,35 @@ h5 {
   .todo-list_wrapper .todo-list .todo-el .el_row {
     width: 100%;
   }
-  .todo-list_wrapper .todo-list .todo-el .el_row .el_task {
+  .todo-list_wrapper .todo-list .todo-el .el_row .description .el_task {
     flex-direction: row;
     align-items: baseline;
     flex-grow: 1;
   }
-  .todo-list_wrapper .todo-list .todo-el .el_row .el_task .el_header {
+  .todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_header {
     margin-right: auto;
   }
-  .todo-list_wrapper .todo-list .todo-el .el_row .el_task .el_how-do_btn {
+  .todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_how-do_btn {
     margin-left: 10px;
+  }
+  .todo-list_wrapper .todo-list .todo-el .el_row .instruction {
+    width: calc(100% - 38px);
+    margin: 15px 0 15px auto;
+    position: relative;
+  }
+  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .btn {
+    margin-bottom: 0;
+  }
+  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks {
+    flex-wrap: nowrap;
+  }
+  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .instruction-btn {
+    margin-right: 40px;
   }
 }
