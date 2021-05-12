@@ -102,6 +102,10 @@ module.exports = {
         filename: 'todo.html',
         template: 'src/public/todo.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: 'first_page.html',
+        template: 'src/public/first_page.html'
+        }),
 
   ],
 

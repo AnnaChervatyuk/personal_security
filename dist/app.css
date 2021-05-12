@@ -876,3 +876,35 @@ h5 {
     margin-right: 40px;
   }
 }
+.container-first_page .content {
+  max-width: 652px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.container-first_page .content .header img {
+  width: 100%;
+}
+.container-first_page .content .header h1 {
+  font-size: 40px;
+  line-height: 45px;
+  color: #4478FA;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.container-first_page .content .header .first_descr {
+  color: #4478FA;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media (min-width: 768px) {
+  .container-first_page .content .header h1 {
+    font-size: 65px;
+    line-height: 70px;
+  }
+  .container-first_page .content .header .first_descr {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
