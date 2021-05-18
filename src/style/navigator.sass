@@ -1,6 +1,5 @@
 .navigator
   @include bg-navigator()
-  color: $font-color-nav
   font-weight: bold
   padding: 15px 20px
   margin: 0
@@ -11,8 +10,10 @@
   position: fixed
   bottom: 0
   order: 10
-  width: 100vw
+  width: 100%
   z-index: 100
+  color: $black-50
+  box-sizing: border-box
   .nav_logo
     width: 18px
     height: 20px
@@ -25,15 +26,49 @@
       list-style-type: none
       margin: 0 13px
       @include font(13px, 19px)
-  .nav_menu
-    height: 20px
-    width: 20px
-    .icons
-      fill: none
-      stroke: $font-color
-  .nav_search,
-  .nav_profile
-    display: none
+    .nav_item > a
+      color: $black-50
+    .nav_item.active > a
+      color: $black-100
+    .nav_item:hover > a
+      color: $black-100
+  .menu__wrapper
+    position: relative
+    .nav_menu-btn
+      height: 20px
+      width: 20px
+      .icons
+        fill: none
+        stroke: $grey-100
+        &:hover
+          stroke: $black-100
+    .nav_menu-btn:hover
+      cursor: pointer
+    .nav_list-menu
+      flex-direction: column
+      position: absolute
+      right: 0
+      bottom: 50px
+      display: flex
+      padding: 32px
+      align-items: flex-start
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)
+      border-radius: 4px
+      background-color: $white
+      .nav_el
+        display: flex
+        margin-bottom: 22px
+        color: $grey-100
+        &:last-child
+          margin-bottom: 0
+        .nav_list-text
+          margin-left: 22px
+      a.nav_el:hover
+          cursor: pointer
+          .nav_list-text
+            color: $black-100
+          .icons
+            fill: $black-100
 
 @media (min-width: 640px)
   .navigator
@@ -41,19 +76,32 @@
     position: relative
     background-color: none
     width: auto
-    color: $font-color-footer
-    .nav_menu
-      display: none
+    color: $black-100
     .nav_logo
       width: 134px
       height: 30px
-    .nav_search,
-    .nav_profile
-      display: block
-      width: 24px
-      height: 24px
-    .nav_search
-      margin-right: 20px
     .nav_list
       .nav_item
         @include font(19px, 24px)
+    .menu__wrapper
+      .nav_menu
+        display: none
+      .nav_list-menu
+        flex-direction: row
+        position: relative
+        padding: 0
+        box-shadow: none
+        border-radius: 0
+        bottom: 0
+        .nav_el
+          margin-bottom: 0
+          margin-right: 20px
+          &:last-child
+            margin-right: 0
+          .nav_search,
+          .nav_profile
+            display: block
+            width: 24px
+            height: 24px
+          .nav_list-text
+            display: none

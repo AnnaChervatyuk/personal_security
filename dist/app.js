@@ -72,28 +72,12 @@ $(document).ready(function() {
     })
   }
 
-
-  let progressData = 73 // будет приходить с сервера
-  $("#progress_line > .progress_line-inner").css("width", progressData + "%")
-  $("#progress").text(progressData)
-
-
-
   onChangeWidth();
   toggleMenuVisibility()
-
 
 
 
   $(window).on("resize", function (e) {
     onChangeWidth();
   })
-})
-
-$(document).ready(function() {
-  // отрисовка общего прогресса на главной
-  let progressData = 73 // будет приходить с сервера
-  $("#progress_line > .progress_line-inner").css("width", progressData + "%")
-  $("#progress").text(progressData)
-
 })

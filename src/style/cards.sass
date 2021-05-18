@@ -1,6 +1,7 @@
 .cards
-  display: flex
-  flex-direction: column
+  display: grid
+  grid-template-columns: repeat(1, 1fr)
+  grid-auto-rows: 1fr
   .card
     margin: 20px 0
     border: $border
@@ -9,6 +10,9 @@
     display: flex
     flex-direction: column
     position: relative
+    background-color: $white
+    .text-advice
+      margin-bottom: auto
     .type,
     .date
       color: $font-color-nav
@@ -20,8 +24,6 @@
       @include title()
     .title-threat
       text-align: center
-    .text
-      margin-bottom: 20px
     .text-threat
       text-align: center
     .add-text
@@ -29,6 +31,9 @@
       background: url('../public/images/bg_cards_advice.png') no-repeat
       background-size: contain
       background-position-x: right
+      display: flex
+      .date
+        margin-top: auto
     .card_img
       margin-bottom: 10px
       img
@@ -54,12 +59,26 @@
 
 @media (min-width: 768px)
   .cards
-    flex-direction: row
-    flex-wrap: wrap
+    // display: grid
+    grid-template-columns: repeat(2, 1fr)
     .card
-      width: calc(50% - 15px)
-      box-sizing: border-box
       &:nth-child(odd)
         margin-right: 30px
+      &:hover::before
+          content: ""
+          position: absolute
+          width: 100%
+          height: 100%
+          top: 0
+          left: 0
+          border-radius: 4px
+          transform: rotate(1.63deg)
+          z-index: -1
+    .card_advice:hover::before
+        background: $accent
+    .card_situation:hover::before
+        background: $alert-secondary
+
+
   .all_cards
     display: none

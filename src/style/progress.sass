@@ -6,17 +6,27 @@
   padding: 20px
   .progress_inner
     .btn
-      @include btn()
       width: auto
     h2
       margin: 20px 0
     .progress_about
       margin: 20px 0
-      .progress_line // доделать
+      .progress_line
         width: auto
         height: 6px
-        background: #F3F3F6
+        background: $grey-20
         border-radius: 3px
+        position: relative
+        .progress_line-inner
+          position: absolute
+          width: 0
+          height: 6px
+          left: 0
+          top: 0
+          background-color: $correct
+          border-radius: 3px
+          -webkit-transition: width 2s
+          transition: width 2s
       .progress_descr
         @include font(14px, 19px)
         margin: 5px 0

@@ -1,5 +1,5 @@
 .footer
-  color: $font-color-footer
+  color: $black-100
   background: $color-bg-block
   padding: 35px
   margin-bottom: 50px
@@ -17,11 +17,18 @@
     .footer_item
       list-style-type: none
       margin: 0 15px
+    .footer_item > a
+      color: $black-50
+    .footer_item.active > a
+      color: $black-100
+    .footer_item:hover > a
+      color: $black-100
+
 
 @media (min-width: 640px)
   .footer
     margin-bottom: 0
-    
+
 @media (min-width: 768px)
   .footer
     display: flex

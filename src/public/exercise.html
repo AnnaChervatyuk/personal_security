@@ -11,25 +11,30 @@
           <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security"></a>
         </div>
         <ul class="nav_list">
-          <li class="nav_item">Тренировки</li>
-          <li class="nav_item">Теория</li>
-          <li class="nav_item">Ситуации</li>
+          <li class="nav_item"><a href="/">Тренировки</a></li>
+          <li class="nav_item"><a href="theory.html">Теория</a></li>
+          <li class="nav_item"><a href="/">Ситуации</a></li>
         </ul>
-        <div class="nav_el nav_menu">
-          <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-             <use xlink:href="sprite.svg#icon-menu"></use>
-          </svg>
-        </div>
-        <div class="nav_list">
-          <div class="nav_el nav_search">
-            <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-               <use xlink:href="sprite.svg#icon-search"></use>
-            </svg>
+        <div class="nav_list menu__wrapper">
+          <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+              <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <use xlink:href="sprite.svg#icon-menu"></use>
+              </svg>
           </div>
-          <div class="nav_el nav_profile">
-            <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-               <use xlink:href="sprite.svg#icon-profile"></use>
-            </svg>
+
+          <div class="nav_list nav_list-menu hide" id="menu-nav">
+            <a class="nav_el nav_search">
+              <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-search"></use>
+              </svg>
+              <div class="nav_list-text">Поиск</div>
+            </a>
+            <a class="nav_el nav_profile">
+              <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-profile"></use>
+              </svg>
+              <div class="nav_list-text">Аккаунт</div>
+            </a>
           </div>
         </div>
       </section>
@@ -159,8 +164,8 @@
           <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Personal security"></a>
         </div>
         <ul class="footer_list">
-          <li class="footer_item">Контакты</li>
-          <li class="footer_item">Предложить новость</li>
+          <li class="footer_item"><a href="/">Контакты</a></li>
+          <li class="footer_item"><a href="/">Предложить новость</a></li>
         </ul>
       </section>
 

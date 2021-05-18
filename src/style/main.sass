@@ -4,12 +4,12 @@ body
     font-weight: normal
     font-size: 16px
     line-height: 22px
-    color: $font-color
+    color: $black-70
     overflow-x: auto
     margin: 0 auto
     padding: 0
     box-sizing: border-box
-    width: 100vw
+    // width: 100vw
     // width: calc(100vw - 30px)
 
 // img
@@ -18,14 +18,20 @@ body
   // object-fit: contain
 
 a
-  color: $font-color
+  color: $black-70
   text-decoration: none
   &:hover
     color: $font-color-hover
 
+a.btn
 .btn
   @include btn()
-    
+  &:hover
+    cursor: pointer
+    background-color: $black-70
+    color: $white
+
+
 .link
   position: absolute
   top: 0
@@ -46,35 +52,35 @@ a
     padding: 0
     margin: 0
 .hide
-  display: none
+  display: none !important
 h1
   @include font(50px, 55px)
   font-weight: bold
-  color: $font-color-footer
+  color: $black-100
   margin: 0
 
 h2
   @include font(32px, 36px)
   font-weight: bold
-  color: $font-color-footer
+  color: $black-100
   margin: 0
 
 h3
   @include font(27px, 33px)
   font-weight: bold
-  color: $font-color-footer
+  color: $black-100
   margin: 0
 
 h4
   @include font(21px, 26px)
   font-weight: bold
-  color: $font-color-footer
+  color: $black-100
   margin: 0
 
 h5
   @include font(19px, 24px)
   font-weight: bold
-  color: $font-color-footer
+  color: $black-100
   margin: 0
 
 
@@ -88,4 +94,5 @@ h5
 
 @media (min-width: 1200px)
   .container
-    width: 1200px
+      max-width: 1200px
+      width: auto

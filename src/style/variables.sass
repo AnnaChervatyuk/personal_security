@@ -1,7 +1,5 @@
-$font-color: #2E2E38
 $font-color-hover: #2E2E38
 $font-color-nav: #787882
-$font-color-footer: #17171C
 $font-color-error: #FF3B30
 $font-color-gray: #C7C7CC
 
@@ -9,13 +7,25 @@ $font-color-one: #21AF73
 $font-color-two: #5C59EB
 $font-color-three: #1299C6
 
-$border: 1px solid #F3F3F6
 
 $color-bg-block: #F9F9FB
 $color-bg-card: #F6F6F9
 $color-bg-task: #E8E8FA
-$color-bg-instruction: #F3F3F6
 
+$grey-100: #8D8D94
+$grey-20: #F3F3F6
+
+$black-100: #17171C
+$black-70: #2E2E38
+$black-50: #787882
+
+$accent: #007AFF
+$alert-secondary: #F7DA64
+
+$white: #fff
+$correct: #34C759
+
+$border: 1px solid $grey-20
 
 
 @mixin font($size, $height)
@@ -23,17 +33,17 @@ $color-bg-instruction: #F3F3F6
   line-height: $height
 
 @mixin icons ()
-  fill: $font-color
+  fill: $grey-100
   stroke: none
   &:hover
-    fill:  $font-color-hover
+    fill: $black-100
   &:active
-    fill:  $font-color-hover
+    fill: $black-100
 
 
 @mixin btn ()
-  background-color: $font-color-footer
-  color: #FFFFFF
+  background-color: $black-100
+  color: $white
   font-size: 16px
   line-height: 22px
   padding: 14px 80px
@@ -44,7 +54,7 @@ $color-bg-instruction: #F3F3F6
   font-weight: bold
   font-size: 21px
   line-height: 26px
-  color: $font-color-footer
+  color: $black-100
   margin: 10px 0
 
 @mixin bg-navigator ()
