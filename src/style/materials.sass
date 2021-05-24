@@ -28,10 +28,14 @@
       .time
         @include font(11px, 13px)
         margin: 10px 0
-      .border
-        height: 3px
-        width: 100%
-        background-color: $grey-20
+        margin-bottom: 0
+    .material-el-digital > .img
+      background: $font-color-digital
+    .material-el-personal > .img
+      background: $font-color-personal
+    .material-el-financial > .img
+      background: $font-color-financial
+
 
 .article > .related_lessons > .material-list
   margin-top: 30px
@@ -59,6 +63,35 @@
         .img
           width: 201px
 
+.material-list
+  .material-el
+    .img
+      position: relative
+      img
+        width: 101%
+        height: 101%
+        display: block
+        border-radius: 20px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        object-fit: cover
+
+.container-search
+  .materials-safety.materials
+    .material
+      .material-list
+        flex-wrap: wrap
+        overflow: hidden
+        .material-el
+          width: 100%
+          margin-bottom: 40px
+          .img
+            width: 100%
+          &:last-child
+            margin-bottom: 0
+
 
 @media (min-width: 640px)
   .materials.materials-safety > .material,
@@ -72,3 +105,31 @@
         .material-el
           width: min-content
           margin: 20px 15px
+
+  .materials-safety
+    .material
+      .material-list
+        .material-el
+          width: 262px
+          margin-bottom: 0
+          .img
+            width: 201px
+
+  .container-search
+    .materials-safety.materials
+      .material
+        .material-list
+          .material-el
+            width: 262px
+            margin-bottom: 0
+            .img
+              width: 201px
+
+.container-article
+  .related_lessons
+    .material-list
+      .material-el
+        width: 262px
+        margin-bottom: 0
+        .img
+          width: 201px

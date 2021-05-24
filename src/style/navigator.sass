@@ -48,7 +48,7 @@
       flex-direction: column
       position: absolute
       right: 0
-      bottom: 50px
+      bottom: 35px
       display: flex
       padding: 32px
       align-items: flex-start
@@ -63,12 +63,42 @@
           margin-bottom: 0
         .nav_list-text
           margin-left: 22px
+      .nav_search:hover
+        cursor: pointer
+        .nav_list-text
+          color: $black-100
+        .icons
+          fill: $black-100
       a.nav_el:hover
           cursor: pointer
           .nav_list-text
             color: $black-100
           .icons
             fill: $black-100
+  .search-panel
+    position: fixed
+    left: 0
+    bottom: 50px
+    width: 100%
+    height: 60px
+    box-sizing: border-box
+    padding: 12px 20px
+    @include bg-navigator()
+    font-weight: bold
+    margin: 0
+    display: flex
+    flex-wrap: nowrap
+    align-items: center
+    justify-content: space-between
+    order: 10
+    z-index: 100
+    color: $black-50
+    border-bottom: 1px solid $grey-20
+    .search-panel-close
+      height: 20px
+      &:hover
+        cursor: pointer
+
 
 @media (min-width: 640px)
   .navigator
@@ -105,3 +135,9 @@
             height: 24px
           .nav_list-text
             display: none
+    .search-panel
+      left: 0
+      top: 60px
+      bottom: 0
+      border-top: 1px solid $grey-20
+      height: 80px

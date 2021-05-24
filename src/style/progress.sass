@@ -5,8 +5,10 @@
   margin-top: 20px
   padding: 20px
   .progress_inner
+    display: flex
+    flex-direction: column
     .btn
-      width: auto
+      width: fit-content
     h2
       margin: 20px 0
     .progress_about
@@ -34,17 +36,48 @@
     display: flex
     flex-direction: row
     flex-wrap: nowrap
-    justify-content: space-between
-    @include font(12px, 16px)
-    .skill
-      padding: 0 3px
+    justify-content: space-around
+    @include font(23px, 30px)
+    .skill-title
+      @include font(12px, 16px)
       text-align: center
-    .skill-one
-      color: $font-color-one
-    .skill-two
-      color: $font-color-two
-    .skill-three
-      color: $font-color-three
+      margin-top: 12px
+    .skill-one_wrapper
+      padding: 0
+      margin: 0
+    .skill
+      width: 80px
+      height: 80px
+      margin: 0
+      border: 5px solid transparent
+      border-radius: 50%
+      position: relative
+      display: flex
+      justify-content: center
+      align-items: center
+      box-sizing: border-box
+    .skill_wrapper
+      width: 80px
+      position: relative
+      height: fit-content
+      &:hover
+        cursor: pointer
+        .skill div
+          opacity: 80%
+        .skill-title
+        opacity: 80%
+    .skill-one_wrapper
+      color: #21AF73
+      .skill-one
+        background: linear-gradient(white, white) padding-box, conic-gradient(#21AF73 (0%), #D8EDE4 (0%)) border-box
+    .skill-two_wrapper
+      color: #5C59EB
+      .skill-two
+        background: linear-gradient(white, white) padding-box, conic-gradient(#5C59EB (0%), #D9D9EE (0%)) border-box
+    .skill-three_wrapper
+      color: #1299C6
+      .skill-three
+        background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 (0%), #D9E9EE (0%)) border-box
 
 
 @media (min-width: 768px)
@@ -65,3 +98,25 @@
     .progress_skills
       order: 2
       width: 50%
+      .skill
+        width: 100px
+        height: 100px
+      .skill_wrapper
+        width: 100px
+
+@media (min-width: 1200px)
+  .progress
+    .progress_skills
+      .skill
+        width: 156px
+        height: 156px
+        border: 9px solid transparent
+        display: flex
+        flex-direction: column
+        .percent
+          @include font(52px, 52px)
+        .skill-title
+          width: 95px
+          margin-top: 0
+      .skill_wrapper
+        width: 156px

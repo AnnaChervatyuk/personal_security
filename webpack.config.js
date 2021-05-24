@@ -106,6 +106,14 @@ module.exports = {
         filename: 'first_page.html',
         template: 'src/public/first_page.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: 'search.html',
+        template: 'src/public/search.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'situation.html',
+        template: 'src/public/situation.html'
+        }),
 
   ],
 

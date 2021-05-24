@@ -1,0 +1,72 @@
+.search-input_wrapper
+  flex-grow: 1
+  margin-right: 15px
+  position: relative
+  align-items: center
+  .search__input
+    width: 100%
+  .search-btn
+    position: absolute
+    top: 7px
+    right: 15px
+    &:hover
+      cursor: pointer
+
+
+
+.container-search
+  .content-search
+    .search-input_wrapper
+      margin-top: 30px
+      margin-bottom: 20px
+      position: relative
+
+  .search-toggle__wrapper
+    background: $color-bg-block
+    display: flex
+    margin: 30px auto
+    border-radius: 20px
+    padding: 8px 15px
+    width: fit-content
+
+  .search-toggle__wrapper input[type=radio]
+    display: none
+
+  .search-toggle__wrapper label
+    cursor: pointer
+    padding: 5px 5px
+    margin: 0 5px
+    user-select: none
+    color: $black-50
+    display: block
+
+  .search-toggle__wrapper input[type=radio]:checked + label
+    border-bottom: 2px solid $black-100
+    color: $black-100
+
+  .search-toggle__wrapper label:hover
+    color: $black-100
+
+  .search-non-found
+    display: flex
+    flex-direction: column
+    align-items: center
+    .search-non-found_img
+      width: 121px
+      height: auto
+      margin-bottom: 24px
+    .search-non-found_text
+      font-weight: bold
+      @include font(19px, 24px)
+      color: $grey-60
+      margin-bottom: 24px
+
+
+@media (min-width: 640px)
+  .search-input_wrapper
+    .search-btn
+      top: 13px
+  .container-search
+    .content-search
+      .search-input_wrapper
+        margin-top: 70px

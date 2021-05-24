@@ -1,5 +1,8 @@
 .content-theory
   .skills
+    display: grid
+    grid-template-columns: repeat(1, 1fr)
+    grid-auto-rows: 1fr
     .skill
       margin: 10px 0
       border-radius: 20px
@@ -8,14 +11,16 @@
       display: block
       h3
         color: $white
-    .skill-one
+    .skill-digital
       background-color: #13B881
-    .skill-two
+    .skill-personal
       background-color: #2C28C2
-    .skill-three
+    .skill-financial
       background-color: #0F7DA1
-      .amount
-        display: none
+    .amount
+      display: none
+    .text
+      opacity: 0.8
 
 @media (min-width: 640px)
   .content-theory
@@ -24,25 +29,29 @@
       flex-direction: row
       flex-wrap: wrap
       margin-left: -15px
-      margin-right: -15px
-      // justify-content: space-between
+      grid-template-columns: none
       .skill
         max-width: 360px
         width: auto
+        min-width: 285px
         height: 500px
         box-sizing: border-box
         margin: 10px 15px
         display: flex
         flex-direction: column
         padding: 50px 37px
+        &:last-child
+          margin-right: 0
         .amount
           display: block
           margin-top: auto
           .number
             @include font(70px, 55px)
 
-
-        // &:first-child
-        //   margin-left: 0
-        // &:last-child
-        //   margin-right: 0
+@media (min-width: 1200px)
+  .content-theory
+    .skills
+      justify-content: space-between
+      .skill
+        max-width: 360px
+        width: auto
