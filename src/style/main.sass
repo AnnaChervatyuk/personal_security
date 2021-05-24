@@ -35,7 +35,15 @@ a.btn
     cursor: pointer
     background-color: $black-70
     color: $white
-
+    
+.btn.btn-white
+  background-color: $white
+  color: $black-70
+  border: 1px solid $grey-60
+  width: fit-content
+  &:hover,
+  &:focus
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1)
 
 .link
   position: absolute
@@ -43,6 +51,75 @@ a.btn
   left: 0
   height: 100%
   width: 100%
+
+.link_mail
+  text-decoration: underline
+  &:hover
+    color: $accent-secondary
+
+.link_btn
+  color: $accent
+  &:hover
+    color: $accent-secondary
+    text-decoration: underline
+    cursor: pointer
+
+.el_check
+  width: 30px
+  height: 30px
+  border: 1px solid $black-50
+  box-sizing: border-box
+  border-radius: 4px
+  margin: 0
+  margin-right: 10px
+  min-width: 30px
+  position: relative
+.el_check:hover
+  cursor: pointer
+  border: 1px solid $black-100
+  background-color: $color-bg-block
+  &::before
+    content: ""
+    position: absolute
+    display: inline-block
+    width: 2px
+    height: 17px
+    background-color: #007AFF
+    left: 17px
+    top: 6px
+    transform: rotate(45deg)
+  &::after
+    content: ""
+    position: absolute
+    display: inline-block
+    width: 2px
+    height: 9px
+    background-color: #007AFF
+    left: 8px
+    top: 12px
+    transform: rotate(-45deg)
+
+.el_check.el_checked
+  &::before
+    content: ""
+    position: absolute
+    display: inline-block
+    width: 2px
+    height: 17px
+    background-color: #007AFF
+    left: 17px
+    top: 6px
+    transform: rotate(45deg)
+  &::after
+    content: ""
+    position: absolute
+    display: inline-block
+    width: 2px
+    height: 9px
+    background-color: #007AFF
+    left: 8px
+    top: 12px
+    transform: rotate(-45deg)
 
 .container
   display: flex

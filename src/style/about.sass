@@ -1,0 +1,41 @@
+.container-about
+  .content_inner
+    max-width: 750px
+    display: flex
+    flex-direction: column
+    margin: 0 auto
+    img
+      width: 100%
+    h1
+      margin-bottom: 30px
+      text-align: center
+    .about_descr
+      margin-bottom: 30px
+      p
+        margin: 0
+        padding: 0
+        margin-bottom: 30px
+    .contacts
+      h2
+        text-align: center
+      .border
+        border: 1px solid $grey-60
+        width: 100%
+        margin: 60px 0
+      .contacts-section
+        margin: 10px 0
+    .rks
+      text-align: center
+      @include font(14px, 19px)
+      color: $grey-100
+      margin-bottom: 60px
+      div
+        margin-bottom: 17px
+
+
+
+@media (min-width: 768px)
+  .container-main
+    .content_inner
+      h1
+        margin-bottom: 70px

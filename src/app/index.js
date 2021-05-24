@@ -80,6 +80,9 @@ $(document).ready(function() {
   // ------ туду конец-------
 
 
+
+
+
   // ------ поиск начало ------
   let panelSearch = $("#search-panel")
   let btnOpenSearch = $("#open-search-btn")

@@ -57,12 +57,101 @@ a:hover {
   color: #fff;
 }
 
+.btn.btn-white {
+  background-color: #fff;
+  color: #2E2E38;
+  border: 1px solid #C7C7CC;
+  width: fit-content;
+}
+.btn.btn-white:hover, .btn.btn-white:focus {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
 .link {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+.link_mail {
+  text-decoration: underline;
+}
+.link_mail:hover {
+  color: #3D95F5;
+}
+
+.link_btn {
+  color: #007AFF;
+}
+.link_btn:hover {
+  color: #3D95F5;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.el_check {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #787882;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin: 0;
+  margin-right: 10px;
+  min-width: 30px;
+  position: relative;
+}
+
+.el_check:hover {
+  cursor: pointer;
+  border: 1px solid #17171C;
+  background-color: #F9F9FB;
+}
+.el_check:hover::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 17px;
+  background-color: #007AFF;
+  left: 17px;
+  top: 6px;
+  transform: rotate(45deg);
+}
+.el_check:hover::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 9px;
+  background-color: #007AFF;
+  left: 8px;
+  top: 12px;
+  transform: rotate(-45deg);
+}
+
+.el_check.el_checked::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 17px;
+  background-color: #007AFF;
+  left: 17px;
+  top: 6px;
+  transform: rotate(45deg);
+}
+.el_check.el_checked::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 9px;
+  background-color: #007AFF;
+  left: 8px;
+  top: 12px;
+  transform: rotate(-45deg);
 }
 
 .container {
@@ -1108,47 +1197,6 @@ footer {
 .todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_how-do_btn:hover {
   cursor: pointer;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_check {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #787882;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin: 0;
-  margin-right: 10px;
-  min-width: 30px;
-  position: relative;
-}
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_check-warning {
-  border-color: #FF3B30;
-}
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_check:hover {
-  cursor: pointer;
-  border: 1px solid #17171C;
-  background-color: #F9F9FB;
-}
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_check:hover::before {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  width: 2px;
-  height: 17px;
-  background-color: #007AFF;
-  left: 17px;
-  top: 6px;
-  transform: rotate(45deg);
-}
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_check:hover::after {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  width: 2px;
-  height: 9px;
-  background-color: #007AFF;
-  left: 8px;
-  top: 12px;
-  transform: rotate(-45deg);
-}
 .todo-list_wrapper .todo-list .todo-el .el_row .instruction {
   background-color: #F3F3F6;
   border-radius: 4px;
@@ -1198,28 +1246,6 @@ footer {
 }
 .todo-list_wrapper.todo-done .todo-list .todo-el .el_row {
   position: relative;
-}
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_check::before {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  width: 2px;
-  height: 17px;
-  background-color: #007AFF;
-  left: 17px;
-  top: 6px;
-  transform: rotate(45deg);
-}
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_check::after {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  width: 2px;
-  height: 9px;
-  background-color: #007AFF;
-  left: 8px;
-  top: 12px;
-  transform: rotate(-45deg);
 }
 .todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_task .el_header {
   text-decoration: line-through;
@@ -1372,6 +1398,141 @@ footer {
   }
 
   .container-search .content-search .search-input_wrapper {
+    margin-top: 70px;
+  }
+}
+.container-about .content_inner {
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.container-about .content_inner img {
+  width: 100%;
+}
+.container-about .content_inner h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.container-about .content_inner .about_descr {
+  margin-bottom: 30px;
+}
+.container-about .content_inner .about_descr p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+}
+.container-about .content_inner .contacts h2 {
+  text-align: center;
+}
+.container-about .content_inner .contacts .border {
+  border: 1px solid #C7C7CC;
+  width: 100%;
+  margin: 60px 0;
+}
+.container-about .content_inner .contacts .contacts-section {
+  margin: 10px 0;
+}
+.container-about .content_inner .rks {
+  text-align: center;
+  font-size: 14px;
+  line-height: 19px;
+  color: #8D8D94;
+  margin-bottom: 60px;
+}
+.container-about .content_inner .rks div {
+  margin-bottom: 17px;
+}
+
+@media (min-width: 768px) {
+  .container-main .content_inner h1 {
+    margin-bottom: 70px;
+  }
+}
+.container-profile .content .header-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+.container-profile .content .border {
+  border: 1px solid #F3F3F6;
+  margin: 20px 0;
+  width: 100%;
+}
+.container-profile .content .setting-mail,
+.container-profile .content .setting-personal {
+  display: flex;
+  flex-direction: column;
+}
+.container-profile .content .setting-name {
+  color: #787882;
+  margin-bottom: 20px;
+}
+.container-profile .content .setting-el {
+  display: flex;
+  flex-direction: column;
+}
+.container-profile .content .setting-el .btn {
+  margin: 10px 0;
+}
+.container-profile .content .setting-el .email__input {
+  width: 100%;
+  height: 50px;
+}
+.container-profile .content .setting-el .text-error {
+  color: #FF3B30;
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 5px;
+}
+.container-profile .content .setting-el .after-save {
+  margin-top: 20px;
+}
+.container-profile .content .notification {
+  margin-top: 40px;
+}
+.container-profile .content .setting-notification {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container-profile .content .setting-notification .notification-title {
+  margin-right: 10px;
+}
+.container-profile .content .delete-profile {
+  font-size: 11px;
+  line-height: 13px;
+  margin-top: 60px;
+  text-align: right;
+  color: #787882;
+}
+.container-profile .content .delete-profile:hover {
+  cursor: pointer;
+  color: #3D95F5;
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .container-profile .content .header-profile {
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: 20px;
+  }
+  .container-profile .content .setting-mail,
+.container-profile .content .setting-personal,
+.container-profile .content .setting-notification {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container-profile .content .setting-name {
+    color: #17171C;
+  }
+  .container-profile .content .notification {
+    margin-top: 60px;
+  }
+  .container-profile .content .delete-profile {
     margin-top: 70px;
   }
 }

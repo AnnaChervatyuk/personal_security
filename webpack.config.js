@@ -114,6 +114,14 @@ module.exports = {
         filename: 'situation.html',
         template: 'src/public/situation.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: 'about.html',
+        template: 'src/public/about.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'profile.html',
+        template: 'src/public/profile.html'
+        }),
 
   ],
 

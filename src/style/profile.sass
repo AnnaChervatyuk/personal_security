@@ -1,0 +1,71 @@
+.container-profile
+  .content
+    .header-profile
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      align-items: flex-start
+      margin-bottom: 30px
+    .border
+      border: 1px solid $grey-20
+      margin: 20px 0
+      width: 100%
+    .setting-mail,
+    .setting-personal
+      display: flex
+      flex-direction: column
+    .setting-name
+      color: $black-50
+      margin-bottom: 20px
+    .setting-el
+      display: flex
+      flex-direction: column
+      .btn
+        margin: 10px 0
+      .email__input
+        width: 100%
+        height: 50px
+      .text-error
+        color: $error
+        @include font(14px, 19px)
+        margin-top: 5px
+      .after-save
+        margin-top: 20px
+
+    .notification
+      margin-top: 40px
+    .setting-notification
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      .notification-title
+        margin-right: 10px
+    .delete-profile
+      @include font(11px, 13px)
+      margin-top: 60px
+      text-align: right
+      color: $black-50
+      &:hover
+        cursor: pointer
+        color: $accent-secondary
+        text-decoration: underline
+
+@media (min-width: 640px)
+  .container-profile
+    .content
+      .header-profile
+        align-items: center
+        margin-bottom: 60px
+        margin-top: 20px
+      .setting-mail,
+      .setting-personal,
+      .setting-notification
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+      .setting-name
+        color: $black-100
+      .notification
+        margin-top: 60px
+
+      .delete-profile
+        margin-top: 70px
