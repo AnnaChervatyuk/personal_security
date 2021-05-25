@@ -122,8 +122,18 @@ module.exports = {
         filename: 'profile.html',
         template: 'src/public/profile.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: 'course_not_started.html',
+        template: 'src/public/course_not_started.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'course_ready.html',
+        template: 'src/public/course_ready.html'
+        }),
 
   ],
+
+
 
   devServer: {  // configuration for webpack-dev-server
       contentBase: './src/public',  //source of static assets

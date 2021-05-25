@@ -24,6 +24,70 @@ $(document).ready(function() {
   //----менять стили в футере при ховере конец--------
 
 
+  //----переход между вопросами в тесте начало--------
+  // .test_inner - весь блок
+  // .block_return назад
+  // progress_line вся линия
+  // progress_test сколько закрасить
+
+
+  let arrQuestions = $(".block_question") // весь список вопросов
+  let activeQuestion = 0 // активный сейчас вопрос. 0 по умолчанию
+  let btnNext = $(".btn-next")
+  let btnReturn = $(".block_return")
+  let progressLine = $(".progress_line") // вся линия
+  let widthProgressLine = progressLine.width() // вся линия
+
+  let progressTest = $(".progress_question") // закрашенная линия в зависимости от номера выбранного вопроса
+  let widthProgressQuestion = widthProgressLine / arrQuestions.length
+
+  function setProgress () {
+    let width = (activeQuestion + 1) * widthProgressQuestion
+    progressTest.css("width", width + "px")
+  }
+
+  btnNext.on("click", function (e) {
+    e.stopPropagation();
+    if (activeQuestion >= (arrQuestions.length - 1)) {
+      var url = "course_ready.html";
+      $(location).attr('href',url);
+    }
+    if (activeQuestion < (arrQuestions.length - 1)) {
+      arrQuestions.eq(activeQuestion).addClass("hide");
+      activeQuestion += 1;
+      arrQuestions.eq(activeQuestion).removeClass("hide");
+      if (activeQuestion == (arrQuestions.length - 1)) {
+        btnNext.text("Готово")
+      }
+    }
+    setProgress()
+  })
+
+  btnReturn.on("click", function (e) {
+    e.stopPropagation();
+    if (activeQuestion > 0) {
+      arrQuestions.eq(activeQuestion).addClass("hide");
+      activeQuestion -= 1;
+      arrQuestions.eq(activeQuestion).removeClass("hide");
+      if (activeQuestion != (arrQuestions.length - 1)) {
+        btnNext.text("Дальше")
+      }
+      setProgress()
+    }
+  })
+
+  setProgress()
+
+  $(window).on("resize", function (e) {
+    widthProgressLine = progressLine.width() // вся линия
+    widthProgressQuestion = widthProgressLine / arrQuestions.length
+    setProgress();
+  })
+
+
+  //----переход между вопросами в тесте  конец--------
+
+
 // ------ туду начало-------
   let todoHeaderNotDo = $("#todo-not-do");
   let todoHeaderDone = $("#todo-done");

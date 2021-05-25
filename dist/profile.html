@@ -148,9 +148,9 @@
         return re.test(inputEmail.val());
       }
 
-      inputEmail.change(function() {
+      inputEmail.on('change paste keyup', function() {
         if (!blockErrorEmail.hasClass("hide")) {
-          blockErrorEmail.removeClass("hide");
+          blockErrorEmail.addClass("hide");
         };
       });
 

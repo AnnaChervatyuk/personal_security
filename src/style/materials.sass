@@ -92,6 +92,23 @@
           &:last-child
             margin-bottom: 0
 
+.materials.materials-threats
+  .material
+    .material-list
+      flex-wrap: wrap
+      overflow: hidden
+      margin-left: 0
+      .material-el
+        width: 100%
+        margin: 0
+        margin-bottom: 40px
+        h5
+          @include font(16px, 22px)
+        .img
+          width: 100%
+          background: #FED1D1
+
+
 
 @media (min-width: 640px)
   .materials.materials-safety > .material,
@@ -125,11 +142,22 @@
             .img
               width: 201px
 
-.container-article
-  .related_lessons
-    .material-list
-      .material-el
-        width: 262px
-        margin-bottom: 0
-        .img
-          width: 201px
+  .container-article
+    .related_lessons
+      .material-list
+        .material-el
+          width: 262px
+          margin-bottom: 0
+          .img
+            width: 201px
+
+  .materials.materials-threats
+    .material
+      .material-list
+        .material-el
+          width: 260px
+          margin-right: 30px
+          &:last-child
+            margin-right: 0
+          .img
+            width: 201px

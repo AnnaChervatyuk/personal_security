@@ -22,6 +22,7 @@ $(document).ready(function() {
   //----менять стили в футере при ховере конец--------
 
 
+
 // ------ туду начало-------
   let todoHeaderNotDo = $("#todo-not-do");
   let todoHeaderDone = $("#todo-done");
