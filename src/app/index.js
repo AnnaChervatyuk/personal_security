@@ -46,21 +46,78 @@ $(document).ready(function() {
     progressTest.css("width", width + "px")
   }
 
+  function setCheckbox() {
+    var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
+    var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
+    btnNothing.change(function () {
+        if (this.checked) {
+            others.prop('checked', false)
+            if (btnNothing.hasClass('version')) {
+                btnNothing.find($('textarea')).removeClass("hide");
+            }
+        }
+    });
+    others.change(function () {
+        if (this.checked) {
+            btnNothing.prop('checked', false)
+            if (btnNothing.hasClass('version')) {
+              if (!btnNothing.find($('textarea')).hasClass('version')) {
+                btnNothing.find($('textarea')).addClass("hide");
+              }
+            }
+        }
+    })
+  }
+
   btnNext.on("click", function (e) {
     e.stopPropagation();
-    if (activeQuestion >= (arrQuestions.length - 1)) {
-      var url = "course_ready.html";
-      $(location).attr('href',url);
-    }
-    if (activeQuestion < (arrQuestions.length - 1)) {
-      arrQuestions.eq(activeQuestion).addClass("hide");
-      activeQuestion += 1;
-      arrQuestions.eq(activeQuestion).removeClass("hide");
-      if (activeQuestion == (arrQuestions.length - 1)) {
-        btnNext.text("Готово")
+
+      if (activeQuestion >= (arrQuestions.length - 1)) {
+        let inputEmail = $("#email-address")
+
+        function validateEmail() {
+          var re = /\S+@\S+\.\S+/;
+          return re.test(inputEmail.val());
+        }
+
+        if (validateEmail()) {
+          var url = "course_ready.html";
+          $(location).attr('href',url);
+        } else {
+          $('.notification').text("Некорректный email")
+          $('.notification').css("display", "block")
+          $('.notification').fadeOut(4000);
+        }
+
       }
-    }
-    setProgress()
+
+      if (activeQuestion < (arrQuestions.length - 1)) {
+
+        var checkedAnswers = arrQuestions.eq(activeQuestion).find($('input:checked'))
+
+        if (checkedAnswers.length == 0) {
+          $('.notification').text("Выберите хотя бы один вариант")
+          $('.notification').css("display", "block")
+          $('.notification').fadeOut(4000);
+        } else if (arrQuestions.eq(activeQuestion).find($('.nothing')).hasClass('version') && arrQuestions.eq(activeQuestion).find($('input.nothing')).prop('checked') && $('.question__txt').val() == "") {
+          $('.notification').text("Расскажите о своих проблемах")
+          $('.notification').css("display", "block")
+          $('.notification').fadeOut(4000);
+        } else {
+          arrQuestions.eq(activeQuestion).addClass("hide");
+          activeQuestion += 1;
+          arrQuestions.eq(activeQuestion).removeClass("hide");
+        }
+
+        if (activeQuestion == (arrQuestions.length - 1)) {
+          btnNext.text("Готово")
+        }
+
+      }
+
+      setProgress()
+      setCheckbox()
+
   })
 
   btnReturn.on("click", function (e) {
@@ -77,6 +134,10 @@ $(document).ready(function() {
   })
 
   setProgress()
+  setCheckbox()
+
+
+
 
   $(window).on("resize", function (e) {
     widthProgressLine = progressLine.width() // вся линия

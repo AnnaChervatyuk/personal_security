@@ -180,11 +180,18 @@ input
 input:active,
 input:focus,
 input:hover,
-input:focus-visible
+input:focus-visible,
+textarea:active,
+textarea:focus,
+textarea:hover,
+textarea:focus-visible
   border: 1px solid $black-50
 input::-webkit-input-placeholder,
 input::-moz-placeholder,
-input::placeholder
+input::placeholder,
+textarea::-webkit-input-placeholder,
+textarea::-moz-placeholder,
+textarea::placeholder
   color: $gray-80
 
 @media (min-width: 640px)

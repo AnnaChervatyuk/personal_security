@@ -1,0 +1,95 @@
+.content-course
+  .test_wrapper
+    .test_inner
+      .block_question
+        border-top: 1px solid  $grey-20
+        border-bottom: 1px solid  $grey-20
+        box-sizing: border-box
+        padding: 32px
+        margin-bottom: 34px
+        margin-left: -20px
+        margin-right: -20px
+        .question-number
+          background: $accent
+          border-radius: 20px
+          color: $white
+          @include font(19px, 24px)
+          padding: 5px 8px
+          width: fit-content
+          margin-bottom: 24px
+        .question-title
+          color: $black-70
+          font-weight: bold
+          @include font(21px, 26px)
+          margin-bottom: 10px
+        .question-descr
+          color: $black-70
+          @include font(18px, 24px)
+        .question-variants
+          margin: 20px 0
+          .question-item
+            position: relative
+            color: $black-70
+            .checkbox-inner
+              padding: 20px
+              margin: 10px 0
+              padding-right: 12px
+              height: 100%
+              width: 100%
+              display: flex
+              flex-direction: row
+              border: 1px solid $grey-60
+              box-sizing: border-box
+              border-radius: 4px
+              .question-item_img
+                margin-right: 20px
+          .question-item.nothing
+            .checkbox-inner
+              margin-top: 30px
+          .question-item.nothing.version
+            .checkbox-inner
+              flex-wrap: wrap
+              .question__txt
+                width: 100%
+                margin-top: 20px
+                background: $white
+                border: 1px solid $grey-60
+                box-sizing: border-box
+                border-radius: 4px
+                padding: 10px 15px
+                @include font(16px, 22px)
+                color: $black-100
+                font-family: 'PT Root UI', 'Arial', sans-serif
+
+          .question-item:hover .checkbox-inner
+              box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1)
+              -webkit-transition: 0.1s ease-out
+              transition: 0.1s ease-out
+              cursor: pointer
+          .question-item input[type=checkbox]
+            z-index: -1
+            opacity: 0
+            display: block
+            width: 0
+            height: 0
+            position: absolute
+
+          .question-item input[type=checkbox]:checked + .checkbox-inner
+            background: $lightblue
+            border: 1px solid $accent
+
+
+
+@media (min-width: 640px)
+  .content-course
+    .test_wrapper
+      .test_inner
+        .block_question
+          border: 1px solid  $grey-20
+          width: 100%
+          margin-left: 0
+          margin-right: 0
+          .question-variants
+            .question-item
+              .checkbox-inner
+                align-items: center

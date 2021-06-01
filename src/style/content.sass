@@ -90,12 +90,12 @@
             top: 0
             left: 0
             background: $accent
-      .block_question
-        border: 1px solid  $grey-20
-        box-sizing: border-box
-        padding: 32px
-        width: 100%
-        margin-bottom: 34px
+      // .block_question
+        // border: 1px solid  $grey-20
+        // box-sizing: border-box
+        // padding: 32px
+        // width: 100%
+        // margin-bottom: 34px
   .threats
     .content-descr
       text-align: left
@@ -110,7 +110,7 @@
         left: 0
         height: 100%
         width: 100%
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 87.86%)
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)
 
 
 @media (min-width: 640px)
@@ -137,6 +137,11 @@
         .progress_test
           .block_return
             margin-right: 32px
+
+    .threats-not-ready
+      .materials-threats
+        &::after
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 87.86%)
 
 
 @media (min-width: 1200px)

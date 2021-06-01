@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
   let windowWidth = $('body').innerWidth()
@@ -21,6 +22,130 @@ $(document).ready(function() {
   });
   //----менять стили в футере при ховере конец--------
 
+
+  //----переход между вопросами в тесте начало--------
+  // .test_inner - весь блок
+  // .block_return назад
+  // progress_line вся линия
+  // progress_test сколько закрасить
+
+
+  let arrQuestions = $(".block_question") // весь список вопросов
+  let activeQuestion = 0 // активный сейчас вопрос. 0 по умолчанию
+  let btnNext = $(".btn-next")
+  let btnReturn = $(".block_return")
+  let progressLine = $(".progress_line") // вся линия
+  let widthProgressLine = progressLine.width() // вся линия
+
+  let progressTest = $(".progress_question") // закрашенная линия в зависимости от номера выбранного вопроса
+  let widthProgressQuestion = widthProgressLine / arrQuestions.length
+
+  function setProgress () {
+    let width = (activeQuestion + 1) * widthProgressQuestion
+    progressTest.css("width", width + "px")
+  }
+
+  function setCheckbox() {
+    var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
+    var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
+    btnNothing.change(function () {
+        if (this.checked) {
+            others.prop('checked', false)
+            if (btnNothing.hasClass('version')) {
+                btnNothing.find($('textarea')).removeClass("hide");
+            }
+        }
+    });
+    others.change(function () {
+        if (this.checked) {
+            btnNothing.prop('checked', false)
+            if (btnNothing.hasClass('version')) {
+              if (!btnNothing.find($('textarea')).hasClass('version')) {
+                btnNothing.find($('textarea')).addClass("hide");
+              }
+            }
+        }
+    })
+  }
+
+  btnNext.on("click", function (e) {
+    e.stopPropagation();
+
+      if (activeQuestion >= (arrQuestions.length - 1)) {
+        let inputEmail = $("#email-address")
+
+        function validateEmail() {
+          var re = /\S+@\S+\.\S+/;
+          return re.test(inputEmail.val());
+        }
+
+        if (validateEmail()) {
+          var url = "course_ready.html";
+          $(location).attr('href',url);
+        } else {
+          $('.notification').text("Некорректный email")
+          $('.notification').css("display", "block")
+          $('.notification').fadeOut(4000);
+        }
+
+      }
+
+      if (activeQuestion < (arrQuestions.length - 1)) {
+
+        var checkedAnswers = arrQuestions.eq(activeQuestion).find($('input:checked'))
+
+        if (checkedAnswers.length == 0) {
+          $('.notification').text("Выберите хотя бы один вариант")
+          $('.notification').css("display", "block")
+          $('.notification').fadeOut(4000);
+        } else if (arrQuestions.eq(activeQuestion).find($('.nothing')).hasClass('version') && arrQuestions.eq(activeQuestion).find($('input.nothing')).prop('checked') && $('.question__txt').val() == "") {
+          $('.notification').text("Расскажите о своих проблемах")
+          $('.notification').css("display", "block")
+          $('.notification').fadeOut(4000);
+        } else {
+          arrQuestions.eq(activeQuestion).addClass("hide");
+          activeQuestion += 1;
+          arrQuestions.eq(activeQuestion).removeClass("hide");
+        }
+
+        if (activeQuestion == (arrQuestions.length - 1)) {
+          btnNext.text("Готово")
+        }
+
+      }
+
+      setProgress()
+      setCheckbox()
+
+  })
+
+  btnReturn.on("click", function (e) {
+    e.stopPropagation();
+    if (activeQuestion > 0) {
+      arrQuestions.eq(activeQuestion).addClass("hide");
+      activeQuestion -= 1;
+      arrQuestions.eq(activeQuestion).removeClass("hide");
+      if (activeQuestion != (arrQuestions.length - 1)) {
+        btnNext.text("Дальше")
+      }
+      setProgress()
+    }
+  })
+
+  setProgress()
+  setCheckbox()
+
+
+
+
+  $(window).on("resize", function (e) {
+    widthProgressLine = progressLine.width() // вся линия
+    widthProgressQuestion = widthProgressLine / arrQuestions.length
+    setProgress();
+  })
+
+
+  //----переход между вопросами в тесте  конец--------
 
 
 // ------ туду начало-------
