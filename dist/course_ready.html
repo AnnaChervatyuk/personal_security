@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Personal security</title>
-  <script defer src="app.js"></script><link href="app.css" rel="stylesheet"></head>
+  <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
     <body>
       <div class="container container-safety">
         <section class="navigator">
@@ -60,7 +60,17 @@
           <div class="content_inner">
             <img src="./images/exercise_img.png" alt="Personal security">
             <h1>Персональная тренировка готова!</h1>
-            <div class="content-descr">Все уроки lorem вот одна из задачек с этого экзамена. Её задавали на экзамене 2019 года. На рисунке вы видите треугольник. Также известна длина некоторых частей треугольника.</div>
+
+            <div class="course_descr"> <!-- показывать это -->
+              <div class="">Нужен текст, чтобы заняться персональными тренировками по безопасности. Безопасность в безопасной опасности без пасек и пчёл. Так-то всё - ерунда, кроме пчёл.</div>
+            </div>
+
+            <div class="user_problems"> <!-- или показывать это, если пользователь хотя бы один раз на предыдущем шаге выбрал ответ "ничго" -->
+              <div class="do_test">Пройти тест <a href="course_not_started.html" class="link_txt">ещё раз</a> и выбрать другие ответы. Можно и позже в настройках аккаунта.</div>
+              <div class="textarea_descr">Опишите, с какими иными проблемами и угрозами вы хотите научиться справляться?</div>
+              <textarea type="text" class="question__txt"></textarea>
+            </div>
+
             <div class="btn btn-start">Приступим</div>
 
 

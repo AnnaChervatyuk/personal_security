@@ -75,10 +75,12 @@ a:hover {
   width: 100%;
 }
 
-.link_mail {
+.link_mail,
+.link_txt {
   text-decoration: underline;
 }
-.link_mail:hover {
+.link_mail:hover,
+.link_txt:hover {
   color: #3D95F5;
 }
 
@@ -831,6 +833,7 @@ footer {
   flex-direction: column;
   margin: 0 auto;
   margin-bottom: 100px;
+  color: #17171C;
 }
 .content-course-ready .content_inner .btn-start {
   width: fit-content;
@@ -843,6 +846,36 @@ footer {
 .content-course-ready .content_inner h1 {
   margin-bottom: 30px;
   text-align: center;
+}
+.content-course-ready .content_inner .course_descr {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.content-course-ready .content_inner .user_problems .do_test {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.content-course-ready .content_inner .user_problems .textarea_descr {
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 10px;
+}
+.content-course-ready .content_inner .user_problems .question__txt {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #C7C7CC;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin-bottom: 40px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #17171C;
+  font-family: "PT Root UI", "Arial", sans-serif;
 }
 
 .content-course .test_wrapper {
@@ -1704,6 +1737,9 @@ footer {
 .content-course .test_wrapper .test_inner .block_question .question-variants {
   margin: 20px 0;
 }
+.content-course .test_wrapper .test_inner .block_question .question-variants .mail-address .email__input {
+  width: 100%;
+}
 .content-course .test_wrapper .test_inner .block_question .question-variants .question-item {
   position: relative;
   color: #2E2E38;
@@ -1725,22 +1761,6 @@ footer {
 }
 .content-course .test_wrapper .test_inner .block_question .question-variants .question-item.nothing .checkbox-inner {
   margin-top: 30px;
-}
-.content-course .test_wrapper .test_inner .block_question .question-variants .question-item.nothing.version .checkbox-inner {
-  flex-wrap: wrap;
-}
-.content-course .test_wrapper .test_inner .block_question .question-variants .question-item.nothing.version .checkbox-inner .question__txt {
-  width: 100%;
-  margin-top: 20px;
-  background: #fff;
-  border: 1px solid #C7C7CC;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 10px 15px;
-  font-size: 16px;
-  line-height: 22px;
-  color: #17171C;
-  font-family: "PT Root UI", "Arial", sans-serif;
 }
 .content-course .test_wrapper .test_inner .block_question .question-variants .question-item:hover .checkbox-inner {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -1770,6 +1790,10 @@ footer {
   }
   .content-course .test_wrapper .test_inner .block_question .question-variants .question-item .checkbox-inner {
     align-items: center;
+  }
+  .content-course .test_wrapper .test_inner .block_question .question-variants .mail-address .email__input {
+    width: 100%;
+    max-width: 420px;
   }
 }
 .notification {

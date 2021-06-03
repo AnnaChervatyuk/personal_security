@@ -51,6 +51,7 @@
     flex-direction: column
     margin: 0 auto
     margin-bottom: 100px
+    color: $black-100
     .btn-start
       width: fit-content
       margin-left: auto
@@ -60,6 +61,29 @@
     h1
       margin-bottom: 30px
       text-align: center
+    .course_descr
+      @include font(18px, 24px)
+      margin-bottom: 40px
+      text-align: center
+    .user_problems
+      .do_test
+        @include font(18px, 24px)
+        margin-bottom: 40px
+        text-align: center
+      .textarea_descr
+        @include font(14px, 19px)
+        margin-bottom: 10px
+      .question__txt
+        width: 100%
+        background: $white
+        border: 1px solid $grey-60
+        box-sizing: border-box
+        border-radius: 4px
+        padding: 10px 15px
+        margin-bottom: 40px
+        @include font(16px, 22px)
+        color: $black-100
+        font-family: 'PT Root UI', 'Arial', sans-serif
 
 
 .content-course

@@ -46,25 +46,30 @@ $(document).ready(function() {
     progressTest.css("width", width + "px")
   }
 
+  let chooseNothing = false;
+
   function setCheckbox() {
+
     var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
     var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
     btnNothing.change(function () {
         if (this.checked) {
             others.prop('checked', false)
-            if (btnNothing.hasClass('version')) {
-                btnNothing.find($('textarea')).removeClass("hide");
-            }
+            chooseNothing = true
+            // if (btnNothing.hasClass('version')) {
+            //     btnNothing.find($('textarea')).removeClass("hide");
+            // }
         }
     });
     others.change(function () {
         if (this.checked) {
             btnNothing.prop('checked', false)
-            if (btnNothing.hasClass('version')) {
-              if (!btnNothing.find($('textarea')).hasClass('version')) {
-                btnNothing.find($('textarea')).addClass("hide");
-              }
-            }
+            chooseNothing = false
+            // if (btnNothing.hasClass('version')) {
+            //   if (!btnNothing.find($('textarea')).hasClass('version')) {
+            //     btnNothing.find($('textarea')).addClass("hide");
+            //   }
+            // }
         }
     })
   }
@@ -99,10 +104,10 @@ $(document).ready(function() {
           $('.notification').text("Выберите хотя бы один вариант")
           $('.notification').css("display", "block")
           $('.notification').fadeOut(4000);
-        } else if (arrQuestions.eq(activeQuestion).find($('.nothing')).hasClass('version') && arrQuestions.eq(activeQuestion).find($('input.nothing')).prop('checked') && $('.question__txt').val() == "") {
-          $('.notification').text("Расскажите о своих проблемах")
-          $('.notification').css("display", "block")
-          $('.notification').fadeOut(4000);
+        // } else if (arrQuestions.eq(activeQuestion).find($('.nothing')).hasClass('version') && arrQuestions.eq(activeQuestion).find($('input.nothing')).prop('checked') && $('.question__txt').val() == "") {
+        //   $('.notification').text("Расскажите о своих проблемах")
+        //   $('.notification').css("display", "block")
+        //   $('.notification').fadeOut(4000);
         } else {
           arrQuestions.eq(activeQuestion).addClass("hide");
           activeQuestion += 1;

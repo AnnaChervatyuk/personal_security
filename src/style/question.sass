@@ -27,6 +27,9 @@
           @include font(18px, 24px)
         .question-variants
           margin: 20px 0
+          .mail-address
+            .email__input
+              width: 100%
           .question-item
             position: relative
             color: $black-70
@@ -46,20 +49,6 @@
           .question-item.nothing
             .checkbox-inner
               margin-top: 30px
-          .question-item.nothing.version
-            .checkbox-inner
-              flex-wrap: wrap
-              .question__txt
-                width: 100%
-                margin-top: 20px
-                background: $white
-                border: 1px solid $grey-60
-                box-sizing: border-box
-                border-radius: 4px
-                padding: 10px 15px
-                @include font(16px, 22px)
-                color: $black-100
-                font-family: 'PT Root UI', 'Arial', sans-serif
 
           .question-item:hover .checkbox-inner
               box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1)
@@ -93,3 +82,7 @@
             .question-item
               .checkbox-inner
                 align-items: center
+            .mail-address
+              .email__input
+                width: 100%
+                max-width: 420px
