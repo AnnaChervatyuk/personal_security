@@ -46,9 +46,14 @@
                    <use xlink:href="sprite.svg#icon-search"></use>
                 </svg>
               </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-close"></use>
+                </svg>
+              </div>
             </div>
             <div class="search-panel-close" id="close-search-btn">
-              <svg class="icons icons--close" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                  <use xlink:href="sprite.svg#icon-close"></use>
               </svg>
             </div>
@@ -58,11 +63,16 @@
         <section class="content content-search content-theory">
           <h1>Вот что нашлось</h1>
 
-          <div class="search-input_wrapper ">
+          <div class="search-input_wrapper">
             <input type="text" class="search__input" placeholder="Поиск" id="search_input-in-page">
             <div class="search-btn" id="search-btn-in-page">
               <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                  <use xlink:href="sprite.svg#icon-search"></use>
+              </svg>
+            </div>
+            <div class="clear-btn hide" id="clear-btn-in-page">
+              <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-close"></use>
               </svg>
             </div>
           </div>
@@ -70,15 +80,15 @@
 
           <div class="search-toggle__wrapper">
           	<div class="search-toggl-item">
-          		<input id="all" type="radio" name="search-toggle" value="all" checked>
+          		<input id="all" type="radio" name="search-toggle" value="all" checked onclick="showArticle('all')">
           		<label for="all">Всё</label>
           	</div>
           	<div class="search-toggl-item">
-          		<input id="theory" type="radio" name="search-toggle" value="theory">
+          		<input id="theory" type="radio" name="search-toggle" value="theory" onclick="showArticle('theory')">
           		<label for="theory">Теория</label>
           	</div>
           	<div class="search-toggl-item">
-          		<input id="situations" type="radio" name="search-toggle" value="situations">
+          		<input id="situations" type="radio" name="search-toggle" value="situations" onclick="showArticle('situations')">
           		<label for="situations">Ситуации</label>
           	</div>
           </div>
@@ -124,7 +134,7 @@
 
           <div class="search-non-found">
             <img class="search-non-found_img" src="./images/search_not_found.svg" />
-            <div class="search-non-found_text">А, ничего не нашлось</div<
+            <div class="search-non-found_text">А, ничего не нашлось</div>
           </div>
 
         </section>
@@ -142,4 +152,19 @@
       </footer>
 
     </body>
+    <script>
+      function showArticle (props) {
+        switch (props) {
+          case "theory":
+            console.log("показывать теорию")
+            break;
+          case "situations":
+            console.log("показывать ситуации")
+            break;
+          default:
+            console.log("показывать все")
+            break;
+        }
+      }
+    </script>
 </html>

@@ -224,6 +224,11 @@ $(document).ready(function() {
   let btnCloseSearch = $("#close-search-btn")
   let btnSearch = $("#search-btn")
   let searchInput = $("#search_input")
+  let clearBtn = $("#clear-btn")
+
+  let clearBtnInPage = $("#clear-btn-in-page")
+  let searchBtnInPage = $("#search-btn-in-page")
+  let searchInputInPage = $("#search_input-in-page")
 
   function toggleSearchVisibility() { // показать, скрыть поиск
     if (panelSearch.hasClass("hide")) {
@@ -238,14 +243,41 @@ $(document).ready(function() {
     $(location).attr('href',url);
   }
 
-  function clearSearchInput() { // очистить инпут с поиском
-    searchInput.val("");
+  function clearSearchInput(input,btn) { // очистить инпут с поиском
+    input.val("");
+    btn.addClass("hide")
   }
+
+  clearBtnInPage.on("click", function (e) {
+    e.stopPropagation();
+    clearSearchInput(searchInputInPage, clearBtnInPage)
+  })
+
+  clearBtn.on("click", function (e) {
+    e.stopPropagation();
+    clearSearchInput(searchInput, clearBtn)
+  })
+
+  searchInput.on('change paste keyup', function() {
+    clearBtn.removeClass("hide")
+  });
+
+  searchInputInPage.on('change paste keyup', function() {
+    clearBtnInPage.removeClass("hide")
+  });
 
   searchInput.keypress(function(e) { // выполнить поиск по клику на ентер
     if(e.which == 13) {
       openSearchPage()
-      clearSearchInput()
+      clearSearchInput(searchInput, clearBtn)
+    }
+    e.stopPropagation();
+  })
+
+  searchInputInPage.keypress(function(e) { // выполнить поиск по клику на ентер
+    if(e.which == 13) {
+      openSearchPage()
+      clearSearchInput(searchInputInPage, clearBtnInPage)
     }
     e.stopPropagation();
   })
@@ -285,7 +317,7 @@ $(document).ready(function() {
       logoImg.attr("src", "./images/logo_small.svg");
         menuNav.addClass("hide");
     }
-    clearSearchInput()
+    clearSearchInput(searchInput, clearBtn)
   }
 
   function toggleMenuVisibility() { // меняет видимость меню. используется для мобилы
@@ -306,7 +338,7 @@ $(document).ready(function() {
         }
       if (!panelSearch.hasClass("hide")) { //закрыть поиск при клике в любое место. используется для мобилы
           toggleSearchVisibility()
-          clearSearchInput()
+          clearSearchInput(searchInput, clearBtn)
         }
         e.stopPropagation();
   })
@@ -360,7 +392,10 @@ $(document).ready(function() {
 
 
   onChangeWidth();
-  clearSearchInput();
+  clearSearchInput(searchInput, clearBtn);
+  if (searchInputInPage) {
+    clearSearchInput(searchInputInPage, clearBtnInPage)
+  }
 
   $(window).on("resize", function (e) {
     windowWidth = $('body').innerWidth()

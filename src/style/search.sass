@@ -5,13 +5,19 @@
   align-items: center
   .search__input
     width: 100%
+    padding-left: 50px
   .search-btn
     position: absolute
     top: 7px
-    right: 15px
+    left: 15px
     &:hover
       cursor: pointer
-
+  .clear-btn
+    position: absolute
+    top: 7px
+    right: 9px
+    &:hover
+      cursor: pointer
 
 
 .container-search
@@ -19,8 +25,15 @@
     .search-input_wrapper
       margin-top: 30px
       margin-bottom: 20px
+      margin-right: 0
       position: relative
-
+      .search__input
+        padding-left: 15px
+      .search-btn
+        right: 15px
+        left: auto
+      .clear-btn
+        right: 50px
   .search-toggle__wrapper
     background: $color-bg-block
     display: flex
@@ -66,6 +79,8 @@
   .search-input_wrapper
     .search-btn
       top: 13px
+    .clear-btn
+      top: 17px
   .container-search
     .content-search
       .search-input_wrapper
