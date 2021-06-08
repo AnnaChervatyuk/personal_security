@@ -55,6 +55,8 @@ a:hover {
   cursor: pointer;
   background-color: #2E2E38;
   color: #fff;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .btn.btn-white {
@@ -331,6 +333,8 @@ textarea::placeholder {
 }
 .navigator .nav_list .nav_item:hover > a {
   color: #17171C;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 .navigator .menu__wrapper {
   position: relative;
@@ -345,9 +349,13 @@ textarea::placeholder {
 }
 .navigator .menu__wrapper .nav_menu-btn .icons:hover {
   stroke: #17171C;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 .navigator .menu__wrapper .nav_menu-btn:hover {
   cursor: pointer;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 .navigator .menu__wrapper .nav_list-menu {
   flex-direction: column;
@@ -374,6 +382,8 @@ textarea::placeholder {
 }
 .navigator .menu__wrapper .nav_list-menu .nav_search:hover {
   cursor: pointer;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 .navigator .menu__wrapper .nav_list-menu .nav_search:hover .nav_list-text {
   color: #17171C;
@@ -383,6 +393,8 @@ textarea::placeholder {
 }
 .navigator .menu__wrapper .nav_list-menu a.nav_el:hover {
   cursor: pointer;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 .navigator .menu__wrapper .nav_list-menu a.nav_el:hover .nav_list-text {
   color: #17171C;
@@ -503,6 +515,8 @@ footer {
 }
 .footer .footer_list .footer_item:hover > a {
   color: #17171C;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 
 @media (min-width: 640px) {
@@ -911,6 +925,8 @@ footer {
   top: 0;
   left: 0;
   background: #007AFF;
+  -webkit-transition: width 2s;
+  transition: width 2s;
 }
 .content-course .threats .content-descr {
   text-align: left;
@@ -1278,6 +1294,8 @@ footer {
 }
 .block_return:hover {
   cursor: pointer;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 .block_return a {
   display: flex;

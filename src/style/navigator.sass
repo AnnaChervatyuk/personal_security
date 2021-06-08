@@ -32,6 +32,8 @@
       color: $black-100
     .nav_item:hover > a
       color: $black-100
+      -webkit-transition: 0.1s ease-out
+      transition: 0.1s ease-out
   .menu__wrapper
     position: relative
     .nav_menu-btn
@@ -42,8 +44,12 @@
         stroke: $grey-100
         &:hover
           stroke: $black-100
+          -webkit-transition: 0.1s ease-out
+          transition: 0.1s ease-out
     .nav_menu-btn:hover
       cursor: pointer
+      -webkit-transition: 0.1s ease-out
+      transition: 0.1s ease-out
     .nav_list-menu
       flex-direction: column
       position: absolute
@@ -65,12 +71,16 @@
           margin-left: 22px
       .nav_search:hover
         cursor: pointer
+        -webkit-transition: 0.1s ease-out
+        transition: 0.1s ease-out
         .nav_list-text
           color: $black-100
         .icons
           fill: $black-100
       a.nav_el:hover
           cursor: pointer
+          -webkit-transition: 0.1s ease-out
+          transition: 0.1s ease-out
           .nav_list-text
             color: $black-100
           .icons
@@ -98,6 +108,7 @@
       height: 20px
       &:hover
         cursor: pointer
+        
 
 
 @media (min-width: 640px)
