@@ -18,7 +18,7 @@
     margin: 10px auto 30px
     text-align: center
 
-.content-theory
+.content-theory,
 .content-situation
   h1
     text-align: center
@@ -44,6 +44,13 @@
     div
       order: 2
 
+.content-my-course
+  .content_inner
+    h1
+      margin-bottom: 60px
+      margin-top: 60px
+      text-align: center
+
 .content-course-ready
   .content_inner
     max-width: 750px
@@ -60,6 +67,7 @@
       width: 100%
     h1
       margin-bottom: 30px
+      margin-top: 60px
       text-align: center
     .course_descr
       @include font(18px, 24px)
@@ -140,7 +148,7 @@
 
 
 @media (min-width: 640px)
-  .content-theory
+  .content-theory,
   .content-situation
     .content-descr
       margin: 10px 150px 30px
@@ -171,7 +179,7 @@
 
 
 @media (min-width: 1200px)
-  .content-theory
+  .content-theory,
   .content-situation
     .content-descr
       margin: 10px 300px 30px

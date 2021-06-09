@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+    <script defer src="bundle.js"></script>
+    <link href="app.css" rel="stylesheet">
+  </head>
+    <body>
+      <div class="container">
+        <section class="navigator">
+          <div class="nav_logo">
+            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security"></a>
+          </div>
+          <ul class="nav_list">
+            <li class="nav_item active"><a href="course.html">Тренировки</a></li>
+            <li class="nav_item"><a href="theory.html">Теория</a></li>
+            <li class="nav_item"><a href="situation.html">Ситуации</a></li>
+          </ul>
+          <div class="nav_list menu__wrapper">
+            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="sprite.svg#icon-menu"></use>
+                </svg>
+            </div>
+            <div class="nav_list nav_list-menu hide" id="menu-nav">
+              <div class="nav_el nav_search" id="open-search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-search"></use>
+                </svg>
+                <div class="nav_list-text">Поиск</div>
+              </div>
+              <a class="nav_el nav_profile" href="profile.html">
+                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-profile"></use>
+                </svg>
+                <div class="nav_list-text">Аккаунт</div>
+              </a>
+            </div>
+          </div>
+          <div class="search-panel hide" id="search-panel">
+            <div class="search-input_wrapper">
+              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+              <div class="search-btn" id="search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="search-panel-close" id="close-search-btn">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="content content-my-course">
+
+          <div class="content_inner">
+            <h1>Тренировки</h1>
+
+            <div class="section-toggle__wrapper">
+            	<div class="section-toggle-item">
+            		<input id="theory" type="radio" name="section-toggle" value="theory" checked onclick="showArticle('theory')">
+            		<label for="theory">Курс теории</label>
+            	</div>
+            	<div class="section-toggle-item">
+            		<input id="tasks" type="radio" name="section-toggle" value="tasks" onclick="showArticle('tasks')">
+            		<label for="tasks">Задания <sup class="tasks">12</sup></label>
+            	</div>
+            	<div class="section-toggle-item">
+            		<input id="progress" type="radio" name="section-toggle" value="progress" onclick="showArticle('progress')">
+            		<label for="progress">Достижения</label>
+            	</div>
+            	<div class="section-toggle-item">
+            		<input id="threats" type="radio" name="section-toggle" value="threats" onclick="showArticle('threats')">
+            		<label for="threats">Угрозы <sup class="threats">4</sup></label>
+            	</div>
+            </div>
+
+
+
+            <div class="section-theory progress" id="progress_theory">
+              <div class="progress_inner">
+                <h2>Занятия</h2>
+                <div class="progress_about">
+                  <div class="progress_line" id="progress_line"><div class="progress_line-inner"></div></div>
+                  <div class="progress_descr">Пройдено <span id="progress_course"></span>% курса</div>
+                </div>
+                <a class="btn btn-go-training" href="/">Продолжить</a>
+              </div>
+            </div>
+
+            <div class="materials materials-course" id="materials-course">
+              <div class="material">
+                <div class="material-list">
+                  <div class="material-el">
+                    <div class="img">
+                      <img src="./images/img_example/image_5.png" />
+                    </div>
+                    <div class="type">Цифровая безопасность</div>
+                    <h5>Настройки конфиденциальности в соцсетях</h5>
+                    <div class="time">3 мин</div>
+                    <a href="exercise.html" class="link"></a>
+                  </div>
+                  <div class="material-el">
+                    <div class="img">
+                      <img src="./images/img_example/image_6.png" />
+                    </div>
+                    <div class="type">Личная безопасность</div>
+                    <h5>Слежка</h5>
+                    <div class="time">5 мин</div>
+                    <a href="exercise.html" class="link"></a>
+                  </div>
+                  <div class="material-el">
+                    <div class="img">
+                      <img src="./images/img_example/image_7.png" />
+                    </div>
+                    <div class="type">Финансовая безопасность</div>
+                    <h5>Лимиты в мобильных приложениях</h5>
+                    <div class="time">55 мин</div>
+                    <a href="exercise.html" class="link"></a>
+                  </div>
+                  <div class="material-el material-last">
+                    <h5>Весь курс</h5>
+                    <div class="quantity_materials"></div>
+                    <div class="arrow"></div>
+                    <a href="exercises.html" class="link"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="todo-list_course" id="todo_list">
+              <h2>Туду-лист</h2>
+              <div class="content-descr">Вы получаете их во время тренировок. Надо придумать причину, зачем людям их выполнять.</div>
+
+              <div class="todo-list_wrapper">
+                <ol class="todo-list">
+                  <li class="todo-el">
+                    <div class="el_row">
+                      <div class="description">
+                        <div class="el_check el_check-warning"></div>
+                        <div class="el_task">
+                          <div class="el_header">Установить менеджер паролей</div>
+                          <div class="el_how-do_btn" id="how-do_btn">Как это сделать</div>
+                        </div>
+                      </div>
+                      <div class="instruction hide" >
+                        <div class="instruction-top">
+                          <div class="instruction-top_inner">
+                            <div class="btn instruction-btn">Инструкция</div>
+                            <div class="risks">
+                              <div class="btn risks-btn">Принимаю риски</div>
+                              <div class="risks-text">Не хочу это делать, с некоторыми рисками можно смириться.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="instruction-content">
+                          <div class="exercises">
+                            <div class="instruction-content__header">Занятия</div>
+                            <div>//TODO добавить блок с Занятиями после верстки страницы тренировки</div>
+                          </div>
+                          <div class="danger">
+                            <div class="instruction-content__header">Угрозы, с которыми это поможет справиться</div>
+                            <div>//TODO добавить блок с угрозами после верстки страницы тренировки</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="todo-el">
+                    <div class="el_row">
+                      <div class="description">
+                        <div class="el_check"></div>
+                        <div class="el_task">
+                          <div class="el_header">Установить</div>
+                          <div class="el_how-do_btn">Как это сделать</div>
+                        </div>
+                      </div>
+                      <div class="instruction hide" >
+                        <div class="instruction-top">
+                          <div class="instruction-top_inner">
+                            <div class="btn instruction-btn">Инструкция</div>
+                            <div class="risks">
+                              <div class="btn risks-btn">Принимаю риски</div>
+                              <div class="risks-text">Не хочу это делать, с некоторыми рисками можно смириться.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="instruction-content">
+                          <div class="exercises">
+                            <div class="instruction-content__header">Занятия</div>
+                            <div>//TODO добавить блок с Занятиями после верстки страницы тренировки</div>
+                          </div>
+                          <div class="danger">
+                            <div class="instruction-content__header">Угрозы, с которыми это поможет справиться</div>
+                            <div>//TODO добавить блок с угрозами после верстки страницы тренировки</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="todo-el">
+                    <div class="el_row">
+                      <div class="description">
+                        <div class="el_check"></div>
+                        <div class="el_task">
+                          <div class="el_header">Установить менеджер паролей</div>
+                          <div class="el_how-do_btn">Как это сделать</div>
+                        </div>
+                      </div>
+                      <div class="instruction hide" >
+                        <div class="instruction-top">
+                          <div class="instruction-top_inner">
+                            <div class="btn instruction-btn">Инструкция</div>
+                            <div class="risks">
+                              <div class="btn risks-btn">Принимаю риски</div>
+                              <div class="risks-text">Не хочу это делать, с некоторыми рисками можно смириться.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="instruction-content">
+                          <div class="exercises">
+                            <div class="instruction-content__header">Занятия</div>
+                            <div>//TODO добавить блок с Занятиями после верстки страницы тренировки</div>
+                          </div>
+                          <div class="danger">
+                            <div class="instruction-content__header">Угрозы, с которыми это поможет справиться</div>
+                            <div>//TODO добавить блок с угрозами после верстки страницы тренировки</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="todo-el">
+                    <div class="el_row">
+                      <div class="description">
+                        <div class="el_check"></div>
+                        <div class="el_task">
+                          <div class="el_header">Установить еще раз менеджер паролей</div>
+                          <div class="el_how-do_btn">Как это сделать</div>
+                        </div>
+                      </div>
+                      <div class="instruction hide" >
+                        <div class="instruction-top">
+                          <div class="instruction-top_inner">
+                            <div class="btn instruction-btn">Инструкция</div>
+                            <div class="risks">
+                              <div class="btn risks-btn">Принимаю риски</div>
+                              <div class="risks-text">Не хочу это делать, с некоторыми рисками можно смириться.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="instruction-content">
+                          <div class="exercises">
+                            <div class="instruction-content__header">Занятия</div>
+                            <div>//TODO добавить блок с Занятиями после верстки страницы тренировки</div>
+                          </div>
+                          <div class="danger">
+                            <div class="instruction-content__header">Угрозы, с которыми это поможет справиться</div>
+                            <div>//TODO добавить блок с угрозами после верстки страницы тренировки</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="todo-list_wrapper">
+                <div class="todo-list-header" id="quantity_todo">
+                  <h5>Все задания <span class="list-amount">5</span></h5>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="progress_course" id="progress_course-section">
+              <h2>Достижения</h2>
+              <div class="content-descr">Проходите тренировки и выполненяйте задания чтобы...</div>
+              <div class="progress">
+                <div class="progress_skills">
+                    <div class="skill-digital_wrapper skill_wrapper">
+                     <div class="skill skill-digital" id="skill-digital"><div class="percent"><span id="progress_skill-digital"></span>%</div></div>
+                     <div class="skill-title">Цифровая безопасность</div>
+                     <a href="1.html" class="link"></a>
+                   </div>
+                   <div class="skill-personal_wrapper skill_wrapper">
+                     <div class="skill skill-personal" id="skill-personal"><div class="percent"><span id="progress_skill-personal"></span>%</div></div>
+                     <div class="skill-title">Личная безопасность</div>
+                     <a href="/" class="link"></a>
+                   </div>
+                   <div class="skill-financial_wrapper skill_wrapper">
+                     <div class="skill skill-financial" id="skill-financial"><div class="percent"><span id="progress_skill-financial"></span>%</div></div>
+                     <div class="skill-title">Финансовая безопасность</div>
+                     <a href="/" class="link"></a>
+                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="threats_course" id="threats_course">
+              <h2>Угрозы</h2>
+              <div class="already_avoiding avoid_wrapper">
+                <h3>Эти вы научились избегать</h3>
+                <div class="content-descr">Так держать!</div>
+                <div class="materials materials-course">
+                  <div class="material">
+                    <div class="material-list">
+                      <div class="material-el">
+                        <div class="img">
+                          <img src="./images/img_example/image_5.png" />
+                        </div>
+                        <h5>Кража аккаунтов</h5>
+                        <a href="exercise.html" class="link"></a>
+                      </div>
+                      <div class="material-el">
+                        <div class="img">
+                          <img src="./images/img_example/image_6.png" />
+                        </div>
+                        <h5>Кража аккаунтов кража аккаунтов</h5>
+                        <a href="exercise.html" class="link"></a>
+                      </div>
+                      <div class="material-el">
+                        <div class="img">
+                          <img src="./images/img_example/image_7.png" />
+                        </div>
+                        <h5>Кража аккаунтов кража аккаунтов</h5>
+                        <a href="exercise.html" class="link"></a>
+                      </div>
+                      <div class="material-el material-last">
+                        <h5>Всe</h5>
+                        <div class="quantity_threats_decided"></div>
+                        <div class="arrow"></div>
+                        <a href="exercises.html" class="link"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="will_avoid avoid_wrapper">
+                <h3>А с этими ещё предстоит разобраться</h3>
+                <div class="content-descr">Продолжайте тренировки</div>
+                <div class="materials materials-course">
+                  <div class="material">
+                    <div class="material-list">
+                      <div class="material-el">
+                        <div class="img">
+                          <img src="./images/img_example/image_5.png" />
+                        </div>
+                        <h5>Кража аккаунтов</h5>
+                        <a href="exercise.html" class="link"></a>
+                      </div>
+                      <div class="material-el">
+                        <div class="img">
+                          <img src="./images/img_example/image_6.png" />
+                        </div>
+                        <h5>Кража аккаунтов кража аккаунтов</h5>
+                        <a href="exercise.html" class="link"></a>
+                      </div>
+                      <div class="material-el">
+                        <div class="img">
+                          <img src="./images/img_example/image_7.png" />
+                        </div>
+                        <h5>Кража аккаунтов кража аккаунтов</h5>
+                        <a href="exercise.html" class="link"></a>
+                      </div>
+                      <div class="material-el material-last">
+                        <h5>Всe</h5>
+                        <div class="quantity_threats"></div>
+                        <div class="arrow"></div>
+                        <a href="exercises.html" class="link"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Personal security"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item"><a href="about.html">О проекте</a></li>
+            <li class="footer_item"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <script>
+        function showArticle (props) {
+          switch (props) {
+            case "theory":
+               $('html, body').stop().animate({
+                  scrollTop: $("#progress_theory").offset().top - 60
+              }, 800);
+              break;
+
+            case "tasks":
+              $('html, body').stop().animate({
+                 scrollTop: $("#todo_list").offset().top - 60
+             }, 800);
+                break;
+            case "progress":
+                $('html, body').stop().animate({
+                   scrollTop: $("#progress_course-section").offset().top - 60
+               }, 800);
+                  break;
+            case "threats":
+                  $('html, body').stop().animate({
+                     scrollTop: $("#threats_course").offset().top - 60
+                 }, 800);
+                    break;
+          }
+        }
+
+        let progressData = 93
+        $("#progress_line > .progress_line-inner").css("width", progressData + "%")
+        $("#progress_course").text(progressData)
+
+        let quantityMaterials = 23
+        $(".quantity_materials").text(progressData)
+
+        let quantityTodo = 3
+        $(".quantity_todo").text(quantityTodo)
+
+        let quantityThreatsDecided = 233
+        $(".quantity_threats_decided").text(quantityThreatsDecided)
+
+        let quantityThreats = 133
+        $(".quantity_threats").text(quantityThreats)
+
+
+
+      </script>
+    </body>
+</html>

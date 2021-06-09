@@ -1,0 +1,121 @@
+.content-my-course
+  .section-theory.progress
+    border: none
+    margin-bottom: 36px
+  .section-toggle__wrapper
+    background: $color-bg-block
+    display: flex
+    margin: 30px auto
+    border-radius: 20px
+    padding: 8px 15px
+    align-items: baseline
+    overflow-x: auto
+    margin-bottom: 40px
+    .section-toggle-item
+      word-wrap: break-word
+      white-space: nowrap
+      sup.tasks
+        color: $correct
+      sup.threats
+        color: $black-100
+      sup
+        font-weight: 700
+
+  .section-toggle__wrapper input[type=radio]
+    display: none
+
+  .section-toggle__wrapper label
+    cursor: pointer
+    padding: 5px 5px
+    margin: 0 5px
+    user-select: none
+    color: $black-50
+    display: block
+
+  .section-toggle__wrapper input[type=radio]:checked + label
+    border-bottom: 2px solid $black-100
+    color: $black-100
+
+  .section-toggle__wrapper label:hover
+    color: $black-100
+
+  .section-theory
+    margin-bottom: 25px
+
+  .materials-course
+    margin-bottom: 100px
+
+  .threats_course
+    margin-bottom: 100px
+
+  .progress_course
+    margin-bottom: 100px
+    .progress
+      border-radius: 20px
+      background-color: #F9F9FB
+    .content-descr
+      @include font(14px, 19px)
+      text-align: left
+
+  .todo-list_course
+    margin-bottom: 100px
+    .content-descr
+      @include font(14px, 19px)
+      text-align: left
+    .todo-list_wrapper
+      .todo-list-header
+        .list-amount
+          color: $black-100
+  .threats_course
+    h2
+      margin-bottom: 40px
+    h3
+      @include font(21px, 26px)
+    .content-descr
+      @include font(14px, 19px)
+      text-align: left
+    .materials.materials-course > .material > .material-list > .material-el > h5
+      @include font(16px, 22px)
+      font-weight: 400
+
+@media (min-width: 768px)
+  .content-my-course
+    .materials-course
+      margin-bottom: 130px
+    .threats_course
+      margin-bottom: 130px
+    .progress_course,
+    .todo-list_course
+      margin-bottom: 130px
+      .content-descr
+        @include font(18px, 24px)
+        width: 50%
+        text-align: left
+        margin-left: 0
+        margin-right: 0
+    .progress_course
+      .progress
+        padding: 60px
+        justify-content: center
+        .skill_wrapper
+          margin: 0 30px
+    .threats_course
+      h2
+        margin-bottom: 60px
+      h3
+        @include font(27px, 33px)
+      .content-descr
+        @include font(18px, 24px)
+        width: 50%
+        text-align: left
+        margin-left: 0
+        margin-right: 0
+
+
+@media (min-width: 768px)
+  .content-my-course
+    .section-toggle__wrapper
+      width: fit-content
+    .section-theory
+      .progress_inner
+        width: 100%

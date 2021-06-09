@@ -7,8 +7,6 @@
   .progress_inner
     display: flex
     flex-direction: column
-    .btn
-      width: fit-content
     h2
       margin: 20px 0
     .progress_about
@@ -42,7 +40,7 @@
       @include font(12px, 16px)
       text-align: center
       margin-top: 12px
-    .skill-one_wrapper
+    .skill-digital_wrapper
       padding: 0
       margin: 0
     .skill
@@ -62,24 +60,30 @@
       height: fit-content
       &:hover
         cursor: pointer
+        .link
+          box-shadow: none
         .skill div
           opacity: 80%
         .skill-title
-        opacity: 80%
-    .skill-one_wrapper
+          opacity: 80%
+    .skill-digital_wrapper
       color: #21AF73
-      .skill-one
+      .skill-digital
         background: linear-gradient(white, white) padding-box, conic-gradient(#21AF73 (0%), #D8EDE4 (0%)) border-box
-    .skill-two_wrapper
+    .skill-personal_wrapper
       color: #5C59EB
-      .skill-two
+      .skill-personal
         background: linear-gradient(white, white) padding-box, conic-gradient(#5C59EB (0%), #D9D9EE (0%)) border-box
-    .skill-three_wrapper
+    .skill-financial_wrapper
       color: #1299C6
-      .skill-three
+      .skill-financial
         background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 (0%), #D9E9EE (0%)) border-box
 
-
+@media (min-width: 640px)
+  .progress
+    .progress_inner
+      .btn
+        width: fit-content
 @media (min-width: 768px)
   .progress
     display: flex

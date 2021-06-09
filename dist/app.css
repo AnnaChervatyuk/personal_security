@@ -40,8 +40,11 @@ a {
 }
 a:hover {
   color: #2E2E38;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 
+a.btn,
 .btn {
   background-color: #17171C;
   color: #fff;
@@ -51,6 +54,7 @@ a:hover {
   border-radius: 4px;
   text-align: center;
 }
+a.btn:hover,
 .btn:hover {
   cursor: pointer;
   background-color: #2E2E38;
@@ -67,6 +71,8 @@ a:hover {
 }
 .btn.btn-white:hover, .btn.btn-white:focus {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .link {
@@ -76,6 +82,11 @@ a:hover {
   height: 100%;
   width: 100%;
 }
+.link:hover {
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+}
 
 .link_mail,
 .link_txt {
@@ -84,6 +95,8 @@ a:hover {
 .link_mail:hover,
 .link_txt:hover {
   color: #3D95F5;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .link_btn {
@@ -93,6 +106,8 @@ a:hover {
   color: #3D95F5;
   text-decoration: underline;
   cursor: pointer;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .el_check {
@@ -111,6 +126,8 @@ a:hover {
   cursor: pointer;
   border: 1px solid #17171C;
   background-color: #F9F9FB;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 .el_check:hover::before {
   content: "";
@@ -247,6 +264,8 @@ textarea:focus,
 textarea:hover,
 textarea:focus-visible {
   border: 1px solid #787882;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
 }
 
 input::-webkit-input-placeholder,
@@ -548,9 +567,6 @@ footer {
   display: flex;
   flex-direction: column;
 }
-.progress .progress_inner .btn {
-  width: fit-content;
-}
 .progress .progress_inner h2 {
   margin: 20px 0;
 }
@@ -594,7 +610,7 @@ footer {
   text-align: center;
   margin-top: 12px;
 }
-.progress .progress_skills .skill-one_wrapper {
+.progress .progress_skills .skill-digital_wrapper {
   padding: 0;
   margin: 0;
 }
@@ -617,30 +633,40 @@ footer {
 }
 .progress .progress_skills .skill_wrapper:hover {
   cursor: pointer;
-  opacity: 80%;
+}
+.progress .progress_skills .skill_wrapper:hover .link {
+  box-shadow: none;
 }
 .progress .progress_skills .skill_wrapper:hover .skill div {
   opacity: 80%;
 }
-.progress .progress_skills .skill-one_wrapper {
+.progress .progress_skills .skill_wrapper:hover .skill-title {
+  opacity: 80%;
+}
+.progress .progress_skills .skill-digital_wrapper {
   color: #21AF73;
 }
-.progress .progress_skills .skill-one_wrapper .skill-one {
+.progress .progress_skills .skill-digital_wrapper .skill-digital {
   background: linear-gradient(white, white) padding-box, conic-gradient(#21AF73 0%, #D8EDE4 0%) border-box;
 }
-.progress .progress_skills .skill-two_wrapper {
+.progress .progress_skills .skill-personal_wrapper {
   color: #5C59EB;
 }
-.progress .progress_skills .skill-two_wrapper .skill-two {
+.progress .progress_skills .skill-personal_wrapper .skill-personal {
   background: linear-gradient(white, white) padding-box, conic-gradient(#5C59EB 0%, #D9D9EE 0%) border-box;
 }
-.progress .progress_skills .skill-three_wrapper {
+.progress .progress_skills .skill-financial_wrapper {
   color: #1299C6;
 }
-.progress .progress_skills .skill-three_wrapper .skill-three {
+.progress .progress_skills .skill-financial_wrapper .skill-financial {
   background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 0%, #D9E9EE 0%) border-box;
 }
 
+@media (min-width: 640px) {
+  .progress .progress_inner .btn {
+    width: fit-content;
+  }
+}
 @media (min-width: 768px) {
   .progress {
     display: flex;
@@ -808,6 +834,7 @@ footer {
   text-align: center;
 }
 
+.content-theory h1,
 .content-situation h1 {
   text-align: center;
 }
@@ -841,6 +868,12 @@ footer {
   order: 2;
 }
 
+.content-my-course .content_inner h1 {
+  margin-bottom: 60px;
+  margin-top: 60px;
+  text-align: center;
+}
+
 .content-course-ready .content_inner {
   max-width: 750px;
   display: flex;
@@ -859,6 +892,7 @@ footer {
 }
 .content-course-ready .content_inner h1 {
   margin-bottom: 30px;
+  margin-top: 60px;
   text-align: center;
 }
 .content-course-ready .content_inner .course_descr {
@@ -946,7 +980,8 @@ footer {
 }
 
 @media (min-width: 640px) {
-  .content-situation .content-descr {
+  .content-theory .content-descr,
+.content-situation .content-descr {
     margin: 10px 150px 30px;
   }
 
@@ -976,7 +1011,8 @@ footer {
   }
 }
 @media (min-width: 1200px) {
-  .content-situation .content-descr {
+  .content-theory .content-descr,
+.content-situation .content-descr {
     margin: 10px 300px 30px;
   }
 
@@ -1106,6 +1142,52 @@ footer {
 .article > .related_lessons > .material-list .material-el-financial > .img,
 .materials > .material > .material-list .material-el-financial > .img {
   background: #0F7DA2;
+}
+
+.content-my-course > .content_inner > .materials-course .material-list,
+.content-my-course > .content_inner > .threats_course .material-list {
+  display: grid;
+  grid-auto-columns: 1fr;
+}
+.content-my-course > .content_inner > .materials-course .material-list .material-el,
+.content-my-course > .content_inner > .threats_course .material-list .material-el {
+  grid-row: 1;
+  width: auto;
+  min-width: 262px;
+}
+.content-my-course > .content_inner > .materials-course .material-list .material-el .img,
+.content-my-course > .content_inner > .threats_course .material-list .material-el .img {
+  background: none;
+}
+.content-my-course > .content_inner > .materials-course .material-list .material-el .type,
+.content-my-course > .content_inner > .materials-course .material-list .material-el .date,
+.content-my-course > .content_inner > .threats_course .material-list .material-el .type,
+.content-my-course > .content_inner > .threats_course .material-list .material-el .date {
+  color: #787882;
+  font-size: 11px;
+  line-height: 13px;
+}
+.content-my-course > .content_inner > .materials-course .material-list .material-last,
+.content-my-course > .content_inner > .threats_course .material-list .material-last {
+  font-size: 70px;
+  line-height: 55px;
+  color: #F3F3F6;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 500;
+  display: inline-grid;
+  position: relative;
+}
+.content-my-course > .content_inner > .materials-course .material-list .material-last .arrow,
+.content-my-course > .content_inner > .threats_course .material-list .material-last .arrow {
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid #17171C;
+  border-right: 2px solid #17171C;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
 }
 
 .article > .related_lessons > .material-list {
@@ -1848,4 +1930,151 @@ footer {
   font-size: 14px;
   line-height: 20px;
   display: none;
+}
+
+.content-my-course .section-theory.progress {
+  border: none;
+  margin-bottom: 36px;
+}
+.content-my-course .section-toggle__wrapper {
+  background: #F9F9FB;
+  display: flex;
+  margin: 30px auto;
+  border-radius: 20px;
+  padding: 8px 15px;
+  align-items: baseline;
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+.content-my-course .section-toggle__wrapper .section-toggle-item {
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+.content-my-course .section-toggle__wrapper .section-toggle-item sup.tasks {
+  color: #34C759;
+}
+.content-my-course .section-toggle__wrapper .section-toggle-item sup.threats {
+  color: #17171C;
+}
+.content-my-course .section-toggle__wrapper .section-toggle-item sup {
+  font-weight: 700;
+}
+.content-my-course .section-toggle__wrapper input[type=radio] {
+  display: none;
+}
+.content-my-course .section-toggle__wrapper label {
+  cursor: pointer;
+  padding: 5px 5px;
+  margin: 0 5px;
+  user-select: none;
+  color: #787882;
+  display: block;
+}
+.content-my-course .section-toggle__wrapper input[type=radio]:checked + label {
+  border-bottom: 2px solid #17171C;
+  color: #17171C;
+}
+.content-my-course .section-toggle__wrapper label:hover {
+  color: #17171C;
+}
+.content-my-course .section-theory {
+  margin-bottom: 25px;
+}
+.content-my-course .materials-course {
+  margin-bottom: 100px;
+}
+.content-my-course .threats_course {
+  margin-bottom: 100px;
+}
+.content-my-course .progress_course {
+  margin-bottom: 100px;
+}
+.content-my-course .progress_course .progress {
+  border-radius: 20px;
+  background-color: #F9F9FB;
+}
+.content-my-course .progress_course .content-descr {
+  font-size: 14px;
+  line-height: 19px;
+  text-align: left;
+}
+.content-my-course .todo-list_course {
+  margin-bottom: 100px;
+}
+.content-my-course .todo-list_course .content-descr {
+  font-size: 14px;
+  line-height: 19px;
+  text-align: left;
+}
+.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header .list-amount {
+  color: #17171C;
+}
+.content-my-course .threats_course h2 {
+  margin-bottom: 40px;
+}
+.content-my-course .threats_course h3 {
+  font-size: 21px;
+  line-height: 26px;
+}
+.content-my-course .threats_course .content-descr {
+  font-size: 14px;
+  line-height: 19px;
+  text-align: left;
+}
+.content-my-course .threats_course .materials.materials-course > .material > .material-list > .material-el > h5 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .content-my-course .materials-course {
+    margin-bottom: 130px;
+  }
+  .content-my-course .threats_course {
+    margin-bottom: 130px;
+  }
+  .content-my-course .progress_course,
+.content-my-course .todo-list_course {
+    margin-bottom: 130px;
+  }
+  .content-my-course .progress_course .content-descr,
+.content-my-course .todo-list_course .content-descr {
+    font-size: 18px;
+    line-height: 24px;
+    width: 50%;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .content-my-course .progress_course .progress {
+    padding: 60px;
+    justify-content: center;
+  }
+  .content-my-course .progress_course .progress .skill_wrapper {
+    margin: 0 30px;
+  }
+  .content-my-course .threats_course h2 {
+    margin-bottom: 60px;
+  }
+  .content-my-course .threats_course h3 {
+    font-size: 27px;
+    line-height: 33px;
+  }
+  .content-my-course .threats_course .content-descr {
+    font-size: 18px;
+    line-height: 24px;
+    width: 50%;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (min-width: 768px) {
+  .content-my-course .section-toggle__wrapper {
+    width: fit-content;
+  }
+  .content-my-course .section-theory .progress_inner {
+    width: 100%;
+  }
 }

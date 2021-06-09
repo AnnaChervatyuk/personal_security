@@ -130,6 +130,10 @@ module.exports = {
         filename: 'course_ready.html',
         template: 'src/public/course_ready.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: 'course.html',
+        template: 'src/public/course.html'
+        }),
 
   ],
 

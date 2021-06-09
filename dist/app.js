@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
   let windowWidth = $('body').innerWidth()
@@ -29,6 +28,11 @@ $(document).ready(function() {
   // progress_line вся линия
   // progress_test сколько закрасить
 
+  let userAuth = false // авторизован пользователь или нет
+
+  if (userAuth) {
+    $("#block_question-email").remove()
+  }
 
   let arrQuestions = $(".block_question") // весь список вопросов
   let activeQuestion = 0 // активный сейчас вопрос. 0 по умолчанию
@@ -45,77 +49,82 @@ $(document).ready(function() {
     progressTest.css("width", width + "px")
   }
 
+  let chooseNothing = false;
+
   function setCheckbox() {
+
     var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
     var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
     btnNothing.change(function () {
         if (this.checked) {
             others.prop('checked', false)
-            if (btnNothing.hasClass('version')) {
-                btnNothing.find($('textarea')).removeClass("hide");
-            }
+            chooseNothing = true
         }
     });
     others.change(function () {
         if (this.checked) {
             btnNothing.prop('checked', false)
-            if (btnNothing.hasClass('version')) {
-              if (!btnNothing.find($('textarea')).hasClass('version')) {
-                btnNothing.find($('textarea')).addClass("hide");
-              }
-            }
+            chooseNothing = false
         }
     })
   }
 
+  function goTo () {
+    var url = "course_ready.html";
+    $(location).attr('href',url);
+  }
+
+  function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email.val());
+  }
+
+  function checkAnswers(answers) {
+    if (answers.length == 0) {
+      $('.notification').text("Выберите хотя бы один вариант")
+      $('.notification').css("display", "block")
+      $('.notification').fadeOut(4000);
+      return false
+    } else {
+      return true
+    }
+  }
+
+
+
   btnNext.on("click", function (e) {
     e.stopPropagation();
 
-      if (activeQuestion >= (arrQuestions.length - 1)) {
-        let inputEmail = $("#email-address")
-
-        function validateEmail() {
-          var re = /\S+@\S+\.\S+/;
-          return re.test(inputEmail.val());
+    if (activeQuestion >= (arrQuestions.length - 1)) {
+      if (userAuth) {
+        if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
+            goTo()
         }
-
-        if (validateEmail()) {
-          var url = "course_ready.html";
-          $(location).attr('href',url);
+      } else {
+        if (validateEmail($("#email-address"))) {
+          goTo()
         } else {
           $('.notification').text("Некорректный email")
           $('.notification').css("display", "block")
           $('.notification').fadeOut(4000);
         }
-
       }
+    }
 
-      if (activeQuestion < (arrQuestions.length - 1)) {
-
-        var checkedAnswers = arrQuestions.eq(activeQuestion).find($('input:checked'))
-
-        if (checkedAnswers.length == 0) {
-          $('.notification').text("Выберите хотя бы один вариант")
-          $('.notification').css("display", "block")
-          $('.notification').fadeOut(4000);
-        } else if (arrQuestions.eq(activeQuestion).find($('.nothing')).hasClass('version') && arrQuestions.eq(activeQuestion).find($('input.nothing')).prop('checked') && $('.question__txt').val() == "") {
-          $('.notification').text("Расскажите о своих проблемах")
-          $('.notification').css("display", "block")
-          $('.notification').fadeOut(4000);
-        } else {
+    if  (activeQuestion < (arrQuestions.length - 1)) {
+      if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
           arrQuestions.eq(activeQuestion).addClass("hide");
           activeQuestion += 1;
           arrQuestions.eq(activeQuestion).removeClass("hide");
-        }
-
-        if (activeQuestion == (arrQuestions.length - 1)) {
-          btnNext.text("Готово")
-        }
-
+      }
+      if (activeQuestion == (arrQuestions.length - 1)) {
+        btnNext.text("Готово")
       }
 
-      setProgress()
-      setCheckbox()
+    }
+
+    setProgress()
+    setCheckbox()
 
   })
 
@@ -213,6 +222,11 @@ $(document).ready(function() {
   let btnCloseSearch = $("#close-search-btn")
   let btnSearch = $("#search-btn")
   let searchInput = $("#search_input")
+  let clearBtn = $("#clear-btn")
+
+  let clearBtnInPage = $("#clear-btn-in-page")
+  let searchBtnInPage = $("#search-btn-in-page")
+  let searchInputInPage = $("#search_input-in-page")
 
   function toggleSearchVisibility() { // показать, скрыть поиск
     if (panelSearch.hasClass("hide")) {
@@ -227,14 +241,41 @@ $(document).ready(function() {
     $(location).attr('href',url);
   }
 
-  function clearSearchInput() { // очистить инпут с поиском
-    searchInput.val("");
+  function clearSearchInput(input,btn) { // очистить инпут с поиском
+    input.val("");
+    btn.addClass("hide")
   }
+
+  clearBtnInPage.on("click", function (e) {
+    e.stopPropagation();
+    clearSearchInput(searchInputInPage, clearBtnInPage)
+  })
+
+  clearBtn.on("click", function (e) {
+    e.stopPropagation();
+    clearSearchInput(searchInput, clearBtn)
+  })
+
+  searchInput.on('change paste keyup', function() {
+    clearBtn.removeClass("hide")
+  });
+
+  searchInputInPage.on('change paste keyup', function() {
+    clearBtnInPage.removeClass("hide")
+  });
 
   searchInput.keypress(function(e) { // выполнить поиск по клику на ентер
     if(e.which == 13) {
       openSearchPage()
-      clearSearchInput()
+      clearSearchInput(searchInput, clearBtn)
+    }
+    e.stopPropagation();
+  })
+
+  searchInputInPage.keypress(function(e) { // выполнить поиск по клику на ентер
+    if(e.which == 13) {
+      openSearchPage()
+      clearSearchInput(searchInputInPage, clearBtnInPage)
     }
     e.stopPropagation();
   })
@@ -274,7 +315,7 @@ $(document).ready(function() {
       logoImg.attr("src", "./images/logo_small.svg");
         menuNav.addClass("hide");
     }
-    clearSearchInput()
+    clearSearchInput(searchInput, clearBtn)
   }
 
   function toggleMenuVisibility() { // меняет видимость меню. используется для мобилы
@@ -295,7 +336,7 @@ $(document).ready(function() {
         }
       if (!panelSearch.hasClass("hide")) { //закрыть поиск при клике в любое место. используется для мобилы
           toggleSearchVisibility()
-          clearSearchInput()
+          clearSearchInput(searchInput, clearBtn)
         }
         e.stopPropagation();
   })
@@ -306,22 +347,22 @@ $(document).ready(function() {
   })
 
 // -----начало прогресса----
-  let progressSkillOne = 100 // будет приходить с сервера
+  let progressSkillDigital = 100 // будет приходить с сервера
   let progressSkillTwo = 23 // будет приходить с сервера
   let progressSkillThree = 53 // будет приходить с сервера
 
-  $("#progress_skill-one").text(progressSkillOne)
-  $("#progress_skill-two").text(progressSkillTwo)
-  $("#progress_skill-three").text(progressSkillThree)
+  $("#progress_skill-digital").text(progressSkillDigital)
+  $("#progress_skill-personal").text(progressSkillTwo)
+  $("#progress_skill-financial").text(progressSkillThree)
 
-  let progressSkillOneStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillOne + "%, #D8EDE4 " + progressSkillOne + "%)"
-  $("#skill-one").css({"background-image": progressSkillOneStyle})
+  let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
+  $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
 
-  let progressSkillTwoStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
-  $("#skill-two").css({"background-image": progressSkillTwoStyle})
+  let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
+  $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
 
-  let progressSkillThreeStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
-  $("#skill-three").css({"background-image": progressSkillThreeStyle})
+  let progressSkillFinancialStyle  = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
+  $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
 
 
   function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
@@ -349,7 +390,10 @@ $(document).ready(function() {
 
 
   onChangeWidth();
-  clearSearchInput();
+  clearSearchInput(searchInput, clearBtn);
+  if (searchInputInPage) {
+    clearSearchInput(searchInputInPage, clearBtnInPage)
+  }
 
   $(window).on("resize", function (e) {
     windowWidth = $('body').innerWidth()
