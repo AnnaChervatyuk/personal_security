@@ -213,12 +213,62 @@ textarea::-moz-placeholder,
 textarea::placeholder
   color: $gray-80
 
+.btn-arrow
+  display: none
+
 @media (min-width: 640px)
   .container
     min-height: calc(100vh - 90px)
   input
     height: 50px
     @include font(19px, 30px)
+
+  .btn-arrow
+    display: block
+    height: 332px
+    width: 97px
+    position: absolute
+    z-index: 2
+    bottom: 0px
+  .btn-arrow-left
+    left: 0
+  .btn-arrow-right
+    right: 0
+
+  .btn-arrow > button
+    display: block
+    height: 100%
+    background: none
+    border: none
+    width: 100%
+    position: relative
+    &::after
+      content: ""
+      position: absolute
+      border-top: 2px solid #17171C
+      border-right: 2px solid #17171C
+      width: 30px
+      height: 30px
+      bottom: 50%
+      display: none
+
+    &:hover
+      cursor: pointer
+      &::after
+        display: block
+
+  .btn-arrow > button.arrow-right::after
+    transform: rotate(45deg)
+    right: 16px
+  .btn-arrow > button.arrow-left::after
+    transform: rotate(-135deg)
+    left: 16px
+
+  .btn-arrow > button.arrow-left
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03551) 13.33%, rgba(255, 255, 255, 0.147411) 26.67%, rgba(255, 255, 255, 0.231775) 33.33%, rgba(255, 255, 255, 0.331884) 40%, rgba(255, 255, 255, 0.442691) 46.67%, rgba(255, 255, 255, 0.557309) 53.33%, rgba(255, 255, 255, 0.668116) 60%, rgba(255, 255, 255, 0.768225) 66.67%, rgba(255, 255, 255, 0.852589) 73.33%, rgba(255, 255, 255,0.91834) 80%, rgba(255, 255, 255, 0.991353) 93.33%, #FFFFFF 100%)
+
+  .btn-arrow > button.arrow-right
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03551) 13.33%, rgba(255, 255, 255, 0.147411) 26.67%, rgba(255, 255, 255, 0.231775) 33.33%, rgba(255, 255, 255, 0.331884) 40%, rgba(255, 255, 255, 0.442691) 46.67%, rgba(255, 255, 255, 0.557309) 53.33%, rgba(255, 255, 255, 0.668116) 60%, rgba(255, 255, 255, 0.768225) 66.67%, rgba(255, 255, 255, 0.852589) 73.33%, rgba(255, 255, 255,0.91834) 80%, rgba(255, 255, 255, 0.991353) 93.33%, #FFFFFF 100%)
 
 @media (min-width: 768px)
   .container

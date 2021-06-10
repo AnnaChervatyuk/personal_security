@@ -1,10 +1,28 @@
-.notification
-  position: fixed
-  left: calc(100% / 2 - 100px)
-  bottom: 50px
+.notification,
+.popup
   background: rgba(0, 0, 0, 0.9)
   border-radius: 10px
   padding: 10px 15px
   color: $white
   @include font(14px, 20px)
   display: none
+
+.notification
+  position: fixed
+  left: calc(100% / 2 - 100px)
+  bottom: 50px
+
+.popup
+  position: absolute
+  top: 28px
+  left: -13px
+  width: max-content
+  .arrow
+    position: absolute
+    left: 15px
+    top: -5px
+    width: 0
+    height: 0
+    border-top: 10px solid rgba(0, 0, 0, 0.9)
+    border-right: 10px solid rgba(0, 0, 0, 0.9)
+    transform: rotate(-45deg)

@@ -277,6 +277,10 @@ textarea::placeholder {
   color: #AEAEB2;
 }
 
+.btn-arrow {
+  display: none;
+}
+
 @media (min-width: 640px) {
   .container {
     min-height: calc(100vh - 90px);
@@ -286,6 +290,66 @@ textarea::placeholder {
     height: 50px;
     font-size: 19px;
     line-height: 30px;
+  }
+
+  .btn-arrow {
+    display: block;
+    height: 332px;
+    width: 97px;
+    position: absolute;
+    z-index: 2;
+    bottom: 0px;
+  }
+
+  .btn-arrow-left {
+    left: 0;
+  }
+
+  .btn-arrow-right {
+    right: 0;
+  }
+
+  .btn-arrow > button {
+    display: block;
+    height: 100%;
+    background: none;
+    border: none;
+    width: 100%;
+    position: relative;
+  }
+  .btn-arrow > button::after {
+    content: "";
+    position: absolute;
+    border-top: 2px solid #17171C;
+    border-right: 2px solid #17171C;
+    width: 30px;
+    height: 30px;
+    bottom: 50%;
+    display: none;
+  }
+  .btn-arrow > button:hover {
+    cursor: pointer;
+  }
+  .btn-arrow > button:hover::after {
+    display: block;
+  }
+
+  .btn-arrow > button.arrow-right::after {
+    transform: rotate(45deg);
+    right: 16px;
+  }
+
+  .btn-arrow > button.arrow-left::after {
+    transform: rotate(-135deg);
+    left: 16px;
+  }
+
+  .btn-arrow > button.arrow-left {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03551) 13.33%, rgba(255, 255, 255, 0.147411) 26.67%, rgba(255, 255, 255, 0.231775) 33.33%, rgba(255, 255, 255, 0.331884) 40%, rgba(255, 255, 255, 0.442691) 46.67%, rgba(255, 255, 255, 0.557309) 53.33%, rgba(255, 255, 255, 0.668116) 60%, rgba(255, 255, 255, 0.768225) 66.67%, rgba(255, 255, 255, 0.852589) 73.33%, rgba(255, 255, 255, 0.91834) 80%, rgba(255, 255, 255, 0.991353) 93.33%, #FFFFFF 100%);
+  }
+
+  .btn-arrow > button.arrow-right {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03551) 13.33%, rgba(255, 255, 255, 0.147411) 26.67%, rgba(255, 255, 255, 0.231775) 33.33%, rgba(255, 255, 255, 0.331884) 40%, rgba(255, 255, 255, 0.442691) 46.67%, rgba(255, 255, 255, 0.557309) 53.33%, rgba(255, 255, 255, 0.668116) 60%, rgba(255, 255, 255, 0.768225) 66.67%, rgba(255, 255, 255, 0.852589) 73.33%, rgba(255, 255, 255, 0.91834) 80%, rgba(255, 255, 255, 0.991353) 93.33%, #FFFFFF 100%);
   }
 }
 @media (min-width: 768px) {
@@ -457,6 +521,7 @@ textarea::placeholder {
     background-color: none;
     width: auto;
     color: #17171C;
+    padding: 33px 20px;
   }
   .navigator .nav_logo {
     width: 134px;
@@ -499,6 +564,7 @@ textarea::placeholder {
     bottom: 0;
     border-top: 1px solid #F3F3F6;
     height: 80px;
+    position: absolute;
   }
 }
 footer {
@@ -837,6 +903,8 @@ footer {
 .content-theory h1,
 .content-situation h1 {
   text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .content-safety .descr,
@@ -980,9 +1048,14 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .content-theory h1,
+.content-situation h1 {
+    margin-bottom: 28px;
+  }
+
   .content-theory .content-descr,
 .content-situation .content-descr {
-    margin: 10px 150px 30px;
+    margin: 10px 150px 100px;
   }
 
   .content-safety .descr,
@@ -1013,7 +1086,7 @@ footer {
 @media (min-width: 1200px) {
   .content-theory .content-descr,
 .content-situation .content-descr {
-    margin: 10px 300px 30px;
+    margin: 10px 300px 150px;
   }
 
   .content-situation .content-descr {
@@ -1030,25 +1103,78 @@ footer {
   border-radius: 20px;
   color: #fff;
   padding: 30px;
-  display: block;
+  border: 1px solid #F3F3F6;
+  display: flex;
+  flex-direction: column;
+}
+.content-theory .skills .skill .text {
+  opacity: 0.8;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 15px;
 }
 .content-theory .skills .skill h3 {
-  color: #fff;
+  margin-bottom: 5px;
 }
-.content-theory .skills .skill-digital {
-  background-color: #13B881;
+.content-theory .skills .skill img {
+  margin-top: auto;
+  width: 100%;
 }
-.content-theory .skills .skill-personal {
-  background-color: #2C28C2;
-}
-.content-theory .skills .skill-financial {
-  background-color: #0F7DA1;
-}
-.content-theory .skills .amount {
+.content-theory .skills .skill .amount {
   display: none;
 }
-.content-theory .skills .text {
-  opacity: 0.8;
+.content-theory .skills .skill:hover {
+  color: #fff;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-out;
+}
+.content-theory .skills .skill:hover .amount {
+  display: block;
+  color: #fff;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-out;
+  margin-top: auto;
+}
+.content-theory .skills .skill:hover .amount .number {
+  font-size: 70px;
+  line-height: 55px;
+}
+.content-theory .skills .skill:hover h3 {
+  color: #fff;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-out;
+}
+.content-theory .skills .skill:hover img {
+  display: none;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-out;
+}
+.content-theory .skills .skill:hover.skill-digital {
+  background-color: #13B881;
+}
+.content-theory .skills .skill:hover.skill-personal {
+  background-color: #2C28C2;
+}
+.content-theory .skills .skill:hover.skill-financial {
+  background-color: #0F7DA1;
+}
+.content-theory .skills .skill-digital {
+  color: #13B881;
+}
+.content-theory .skills .skill-digital h3 {
+  color: #13B881;
+}
+.content-theory .skills .skill-personal {
+  color: #2C28C2;
+}
+.content-theory .skills .skill-personal h3 {
+  color: #2C28C2;
+}
+.content-theory .skills .skill-financial {
+  color: #0F7DA1;
+}
+.content-theory .skills .skill-financial h3 {
+  color: #0F7DA1;
 }
 
 @media (min-width: 640px) {
@@ -1066,15 +1192,13 @@ footer {
     height: 500px;
     box-sizing: border-box;
     margin: 10px 15px;
-    display: flex;
-    flex-direction: column;
-    padding: 50px 37px;
+    padding: 37px;
+    padding-top: 50px;
   }
   .content-theory .skills .skill:last-child {
     margin-right: 0;
   }
   .content-theory .skills .skill .amount {
-    display: block;
     margin-top: auto;
   }
   .content-theory .skills .skill .amount .number {
@@ -1085,6 +1209,7 @@ footer {
 @media (min-width: 1200px) {
   .content-theory .skills {
     justify-content: space-between;
+    margin-bottom: 80px;
   }
   .content-theory .skills .skill {
     max-width: 360px;
@@ -1094,6 +1219,7 @@ footer {
 .materials .material {
   margin: 0;
   margin-top: 40px;
+  position: relative;
 }
 .materials .material .title-material {
   width: 100%;
@@ -1105,7 +1231,8 @@ footer {
   display: flex;
   flex-direction: row;
   margin-left: -15px;
-  overflow-y: auto;
+  overflow-y: hidden;
+  position: relative;
 }
 .article > .related_lessons > .material-list .material-el,
 .materials > .material > .material-list .material-el {
@@ -1113,7 +1240,7 @@ footer {
   box-sizing: border-box;
   border-radius: 4px;
   padding: 30px;
-  width: fit-content;
+  width: 295px;
   margin: 0 15px;
   position: relative;
 }
@@ -1124,12 +1251,31 @@ footer {
   height: 189px;
   margin-bottom: 10px;
 }
-.article > .related_lessons > .material-list .material-el .time,
-.materials > .material > .material-list .material-el .time {
+.article > .related_lessons > .material-list .material-el .descr,
+.materials > .material > .material-list .material-el .descr {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+.article > .related_lessons > .material-list .material-el .descr .time,
+.materials > .material > .material-list .material-el .descr .time {
   font-size: 11px;
   line-height: 13px;
-  margin: 10px 0;
-  margin-bottom: 0;
+  margin: 0;
+  margin-right: 10px;
+}
+.article > .related_lessons > .material-list .material-el .descr .in-coaching,
+.materials > .material > .material-list .material-el .descr .in-coaching {
+  z-index: 3;
+  position: relative;
+}
+.article > .related_lessons > .material-list .material-el .descr .in-coaching svg,
+.materials > .material > .material-list .material-el .descr .in-coaching svg {
+  fill: #787882;
+}
+.article > .related_lessons > .material-list .material-el .descr .in-coaching:hover,
+.materials > .material > .material-list .material-el .descr .in-coaching:hover {
+  cursor: pointer;
 }
 .article > .related_lessons > .material-list .material-el-digital > .img,
 .materials > .material > .material-list .material-el-digital > .img {
@@ -1142,6 +1288,10 @@ footer {
 .article > .related_lessons > .material-list .material-el-financial > .img,
 .materials > .material > .material-list .material-el-financial > .img {
   background: #0F7DA2;
+}
+
+.materials-theory.materials > .material > .material-list {
+  margin-left: 0;
 }
 
 .content-my-course > .content_inner > .materials-course .material-list,
@@ -1263,6 +1413,10 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .materials > .material > .material-list {
+    overflow-x: hidden;
+  }
+
   .materials.materials-safety > .material .material-list,
 .article > .related_lessons .material-list {
     display: flex;
@@ -1606,7 +1760,7 @@ footer {
 }
 .search-input_wrapper .clear-btn {
   position: absolute;
-  top: 7px;
+  top: 9px;
   right: 9px;
 }
 .search-input_wrapper .clear-btn:hover {
@@ -1919,10 +2073,8 @@ footer {
     max-width: 420px;
   }
 }
-.notification {
-  position: fixed;
-  left: calc(100% / 2 - 100px);
-  bottom: 50px;
+.notification,
+.popup {
   background: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   padding: 10px 15px;
@@ -1930,6 +2082,29 @@ footer {
   font-size: 14px;
   line-height: 20px;
   display: none;
+}
+
+.notification {
+  position: fixed;
+  left: calc(100% / 2 - 100px);
+  bottom: 50px;
+}
+
+.popup {
+  position: absolute;
+  top: 28px;
+  left: -13px;
+  width: max-content;
+}
+.popup .arrow {
+  position: absolute;
+  left: 15px;
+  top: -5px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid rgba(0, 0, 0, 0.9);
+  border-right: 10px solid rgba(0, 0, 0, 0.9);
+  transform: rotate(-45deg);
 }
 
 .content-my-course .section-theory.progress {

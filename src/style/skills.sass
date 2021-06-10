@@ -8,19 +8,61 @@
       border-radius: 20px
       color: $white
       padding: 30px
-      display: block
+      border: 1px solid $grey-20
+      display: flex
+      flex-direction: column
+      .text
+        opacity: 0.8
+        @include font (18px, 24px)
+        margin-bottom: 15px
       h3
+        margin-bottom: 5px
+      img
+        margin-top: auto
+        width: 100%
+      .amount
+        display: none
+      &:hover
         color: $white
+        -webkit-transition: 0.4s ease-in-out
+        transition: 0.4s ease-out
+        .amount
+          display: block
+          color: $white
+          -webkit-transition: 0.4s ease-in-out
+          transition: 0.4s ease-out
+          margin-top: auto
+          .number
+            @include font(70px, 55px)
+        h3
+          color: $white
+          -webkit-transition: 0.4s ease-in-out
+          transition: 0.4s ease-out
+        img
+          display: none
+          -webkit-transition: 0.4s ease-in-out
+          transition: 0.4s ease-out
+        &.skill-digital
+          background-color: #13B881
+        &.skill-personal
+          background-color: #2C28C2
+        &.skill-financial
+          background-color: #0F7DA1
+
     .skill-digital
-      background-color: #13B881
+      color: #13B881
+      h3
+        color: #13B881
     .skill-personal
-      background-color: #2C28C2
+      color: #2C28C2
+      h3
+        color: #2C28C2
     .skill-financial
-      background-color: #0F7DA1
-    .amount
-      display: none
-    .text
-      opacity: 0.8
+      color: #0F7DA1
+      h3
+        color: #0F7DA1
+
+
 
 @media (min-width: 640px)
   .content-theory
@@ -37,13 +79,12 @@
         height: 500px
         box-sizing: border-box
         margin: 10px 15px
-        display: flex
-        flex-direction: column
-        padding: 50px 37px
+
+        padding: 37px
+        padding-top: 50px
         &:last-child
           margin-right: 0
         .amount
-          display: block
           margin-top: auto
           .number
             @include font(70px, 55px)
@@ -52,6 +93,7 @@
   .content-theory
     .skills
       justify-content: space-between
+      margin-bottom: 80px
       .skill
         max-width: 360px
         width: auto

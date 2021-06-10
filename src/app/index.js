@@ -216,6 +216,50 @@ $(document).ready(function() {
 
 
 
+  // ------ горизонтальный скролл начало -----
+
+  var distance = 250;
+  var arrScrollingBox = $(".material")
+
+  function scrollBox (i) {
+    arrScrollingBox.eq(i).find($('button')).on('click', function() {
+      var el = arrScrollingBox.eq(i).find($('.material-list'))
+      el.stop().animate({
+         scrollLeft: '+=' + (distance * $(this).data('factor'))
+       })
+    })
+  }
+
+   for (var i = 0; i < arrScrollingBox.length; i++) {
+     scrollBox(i)
+   }
+
+  // ------ горизонтальный скролл конец -----
+
+
+
+
+  // ------ ховер на иконку in-coaching начало -----
+  let arrIconsCoaching = $(".in-coaching") // весь список иконок
+  let popup = $("#popup")
+
+  popup.find($('.text')).text("Это занятие включено в вашу тренировку")
+
+  function onHoverIcon (i) {
+    arrIconsCoaching.eq(i).on("mouseenter", function (e) {
+      popup.appendTo(arrIconsCoaching.eq(i))
+      popup.css("display", "block")
+      }).on('mouseleave',function(){
+      popup.css("display", "none")
+    })
+  }
+
+  for (var i = 0; i < arrIconsCoaching.length; i++) {
+    onHoverIcon(i)
+  }
+
+
+  // ------ ховер на иконку in-coaching конец -----
 
 
   // ------ поиск начало ------
@@ -233,14 +277,27 @@ $(document).ready(function() {
   function toggleSearchVisibility() { // показать, скрыть поиск
     if (panelSearch.hasClass("hide")) {
       panelSearch.removeClass("hide");
+      searchInput.focus();
     } else {
       panelSearch.addClass("hide");
     }
   }
 
-  function openSearchPage() { // перейти на страницу с результатами
-    var url = "search.html";
-    $(location).attr('href',url);
+  function openSearchPage(query) { // перейти на страницу с результатами
+    let url = "/search.html" + "?q=" + query; //для localhost
+    // let url = "/search/" + "?q=" + query; //для dev
+    $(location).attr('href', url);
+}
+
+  function setSearchInput(query) { // очистить инпут с поиском
+
+    var search = window.location.search
+    search = search.replace('?q=', '') // TODO: подставлять ответ с сервера
+
+    searchInputInPage.val(search);
+    if (search.length > 0) {
+      clearBtnInPage.removeClass("hide")
+    }
   }
 
   function clearSearchInput(input,btn) { // очистить инпут с поиском
@@ -268,7 +325,7 @@ $(document).ready(function() {
 
   searchInput.keypress(function(e) { // выполнить поиск по клику на ентер
     if(e.which == 13) {
-      openSearchPage()
+      openSearchPage(searchInput[0].value)
       clearSearchInput(searchInput, clearBtn)
     }
     e.stopPropagation();
@@ -276,15 +333,19 @@ $(document).ready(function() {
 
   searchInputInPage.keypress(function(e) { // выполнить поиск по клику на ентер
     if(e.which == 13) {
-      openSearchPage()
+      openSearchPage(searchInputInPage[0].value)
       clearSearchInput(searchInputInPage, clearBtnInPage)
     }
     e.stopPropagation();
   })
 
+  searchBtnInPage.on("click", function (e) {  //выполнить поиск по клику на кнопку
+    openSearchPage(searchInputInPage[0].value)
+    e.stopPropagation();
+  })
+
   btnOpenSearch.on("click", function (e) {  //выполнить поиск по клику на кнопку
-    if(windowWidth >= 640){
-    } else {
+    if(windowWidth < 640){
       toggleMenuVisibility()
     }
     toggleSearchVisibility()
@@ -300,8 +361,9 @@ $(document).ready(function() {
     e.stopPropagation();
   })
 
+
   btnSearch.on("click", function (e) {  //открыть поиск при клике из меню
-    openSearchPage()
+    openSearchPage(searchInput[0].value)
     e.stopPropagation();
   })
 
@@ -395,6 +457,7 @@ $(document).ready(function() {
   clearSearchInput(searchInput, clearBtn);
   if (searchInputInPage) {
     clearSearchInput(searchInputInPage, clearBtnInPage)
+    setSearchInput()
   }
 
   $(window).on("resize", function (e) {
