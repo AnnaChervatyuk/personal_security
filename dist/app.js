@@ -157,6 +157,51 @@ $(document).ready(function() {
   //----переход между вопросами в тесте  конец--------
 
 
+  // ------ горизонтальный скролл начало -----
+
+var distance = 250;
+var arrScrollingBox = $(".material")
+
+function scrollBox (i) {
+  arrScrollingBox.eq(i).find($('button')).on('click', function() {
+    var el = arrScrollingBox.eq(i).find($('.material-list'))
+    el.stop().animate({
+       scrollLeft: '+=' + (distance * $(this).data('factor'))
+     })
+  })
+}
+
+ for (var i = 0; i < arrScrollingBox.length; i++) {
+   scrollBox(i)
+ }
+
+// ------ горизонтальный скролл конец -----
+
+
+
+// ------ ховер на иконку in-coaching начало -----
+  let arrIconsCoaching = $(".in-coaching") // весь список иконок
+  let popup = $("#popup")
+
+  popup.find($('.text')).text("Это занятие включено в вашу тренировку")
+
+  function onHoverIcon (i) {
+    arrIconsCoaching.eq(i).on("mouseenter", function (e) {
+      popup.appendTo(arrIconsCoaching.eq(i))
+      popup.css("display", "block")
+      }).on('mouseleave',function(){
+      popup.css("display", "none")
+    })
+  }
+
+  for (var i = 0; i < arrIconsCoaching.length; i++) {
+    onHoverIcon(i)
+  }
+
+  // ------ ховер на иконку in-coaching конец -----
+
+
+
 // ------ туду начало-------
   let todoHeaderNotDo = $("#todo-not-do");
   let todoHeaderDone = $("#todo-done");
@@ -337,10 +382,14 @@ $(document).ready(function() {
     e.stopPropagation();
   })
 
+
+if ($("#search_input-in-page")) {
   searchBtnInPage.on("click", function (e) {  //выполнить поиск по клику на кнопку
     openSearchPage(searchInputInPage[0].value)
     e.stopPropagation();
   })
+}
+
 
   btnOpenSearch.on("click", function (e) {  //выполнить поиск по клику на кнопку
     if(windowWidth < 640){

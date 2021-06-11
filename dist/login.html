@@ -7,8 +7,8 @@
     <title>Personal security</title>
   <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
     <body>
-      <div class="container container-about">
-        <section class="navigator navigator-main">
+      <div class="container container-login">
+        <section class="navigator">
           <div class="nav_logo">
             <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security"></a>
           </div>
@@ -60,41 +60,31 @@
           </div>
         </section>
 
-        <section class="content">
+        <section class="content ">
           <div class="content_inner">
-            <img src="./images/img_example/image_6.png" alt="About">
-            <h1>О проекте</h1>
-            <div class="about_descr">
-              <p>Большинство пользователей использует небезопасные пароли, а 6% пользователей интернет вообще используют одни и те же пароли из топ-1000 паролей, а также один и тот же пароль в разных сервисах.</p>
-              <p>Хакеры, пытаясь взломать какие-либо аккаунты в сети перебирают пароли из доступных баз. В доступных базах находятся украденные из других сервисов пароли. Таким образом, если вы используете простые пароли или одни и те же пароли в разных сервисах - ваши аккаунты с определенной периодичностью будут взламывать.</p>
-            </div>
-            <div class="contacts">
-              <h2>Связаться с нами</h2>
-              <div class="border"></div>
-              <div class="contacts-section">
-                <h3>Идеи для материалов и новостей</h3>
-                <p>Что можно что нежелательно слать и т.п. Описание, если нужно.</p>
-                <p><a href="mailto:ghostbusters@call.com" class="link_mail">ghostbusters@call.com</a></p>
+            <img src="./images/img_example/image_6.png" alt="Login">
+
+            <div class="block-email">
+              <h2>Вход в аккаунт</h2>
+              <div class="mail-address">
+                <label class="email__label" for="email-address">Email</label>
+                <input type="text" class="email__input" placeholder="Сюда мы пришлём ссылку для входа" id="email-address">
+                <div class="error-email hide">
+                  <div class="text-error">Некорректный email</div>
+                </div>
               </div>
-              <div class="border"></div>
-              <div class="contacts-section">
-                <h3>Сотрудничество</h3>
-                <p><a href="mailto:ghostbusters@call.com" class="link_mail">ghostbusters@call.com</a></p>
-              </div>
-              <div class="border"></div>
-              <div class="contacts-section">
-                <h3>Если на сайте что-то не работает</h3>
-                <p><a href="mailto:ghostbusters@call.com" class="link_mail">ghostbusters@call.com</a></p>
-              </div>
-              <div class="border"></div>
+              <div class="btn btn-sent-email" id="btn-send-email">Продолжить</div>
             </div>
-            <div class="rks">
-              <div>Проект</div>
-              <a href="https://roskomsvoboda.org/" target="_blank"><img src="./images/rks_logo.svg" alt="Роскомсвобода" width="329" height="37"></a>
+
+            <div class="block-email-done hide">
+              <h2>Проверьте почту</h2>
+              <div class="mail-address">
+                Ссылка на вход лежит на почте <span class="email-address"></span>
+              </div>
+              <div class="btn-return" id="btn-return">Назад к форме входа</div>
             </div>
+
           </div>
-
-
         </section>
       </div>
 
@@ -110,6 +100,43 @@
         </div>
       </footer>
 
+      <script>
+        let btnSendEmail = $("#btn-send-email")
+        let btnReturn = $("#btn-return")
+        let inputEmail = $("#email-address")
+        let blockErrorEmail = $(".error-email")
+        let blockEmailDone = $(".block-email-done")
+        let blockEmail = $(".block-email")
+        let emailAddress = $(".email-address")
+
+        function validateEmail() {
+          var re = /\S+@\S+\.\S+/;
+          return re.test(inputEmail.val());
+        }
+
+        inputEmail.on('change paste keyup', function() {
+          if (!blockErrorEmail.hasClass("hide")) {
+            blockErrorEmail.addClass("hide");
+          };
+        });
+
+        btnReturn.on("click", function (e) {
+            blockEmailDone.addClass("hide")
+            blockEmail.removeClass("hide")
+            e.stopPropagation();
+        })
+
+        btnSendEmail.on("click", function (e) {
+          if (validateEmail()) {
+            blockEmailDone.removeClass("hide")
+            blockEmail.addClass("hide")
+            emailAddress.text(inputEmail[0].value)
+          } else {
+            blockErrorEmail.removeClass("hide");
+          }
+          e.stopPropagation();
+        })
+      </script>
 
     </body>
 </html>

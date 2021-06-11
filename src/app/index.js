@@ -289,17 +289,6 @@ $(document).ready(function() {
     $(location).attr('href', url);
 }
 
-  function setSearchInput(query) { // очистить инпут с поиском
-
-    var search = window.location.search
-    search = search.replace('?q=', '') // TODO: подставлять ответ с сервера
-
-    searchInputInPage.val(search);
-    if (search.length > 0) {
-      clearBtnInPage.removeClass("hide")
-    }
-  }
-
   function clearSearchInput(input,btn) { // очистить инпут с поиском
     input.val("");
     btn.addClass("hide")
@@ -455,10 +444,6 @@ $(document).ready(function() {
 
   onChangeWidth();
   clearSearchInput(searchInput, clearBtn);
-  if (searchInputInPage) {
-    clearSearchInput(searchInputInPage, clearBtnInPage)
-    setSearchInput()
-  }
 
   $(window).on("resize", function (e) {
     windowWidth = $('body').innerWidth()

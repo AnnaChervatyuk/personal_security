@@ -1847,9 +1847,11 @@ footer {
 }
 .container-about .content_inner img {
   width: 100%;
+  max-width: 360px;
+  margin: 0 auto 40px;
 }
 .container-about .content_inner h1 {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-align: center;
 }
 .container-about .content_inner .about_descr {
@@ -1889,7 +1891,10 @@ footer {
 }
 
 @media (min-width: 768px) {
-  .container-main .content_inner h1 {
+  .container-about .content {
+    margin-top: 70px;
+  }
+  .container-about .content_inner h1 {
     margin-bottom: 70px;
   }
 }
@@ -1934,16 +1939,62 @@ footer {
 .container-profile .content .setting-el .after-save {
   margin-top: 20px;
 }
-.container-profile .content .notification {
+.container-profile .content .notifications {
   margin-top: 40px;
 }
 .container-profile .content .setting-notification {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  cursor: pointer;
 }
-.container-profile .content .setting-notification .notification-title {
+.container-profile .content .setting-notification input[type=checkbox] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  display: block;
+}
+.container-profile .content .setting-notification::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #787882;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin: 0;
   margin-right: 10px;
+  min-width: 30px;
+}
+.container-profile .content .setting-notification:hover::before {
+  background-color: #F9F9FB;
+}
+.container-profile .content .setting-notification input[type=checkbox]:checked + span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 17px;
+  background-color: #007AFF;
+  right: 20px;
+  bottom: 28%;
+  transform: rotate(45deg);
+}
+.container-profile .content .setting-notification input[type=checkbox]:checked + span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 9px;
+  background-color: #007AFF;
+  right: 29px;
+  bottom: 28%;
+  transform: rotate(-45deg);
 }
 .container-profile .content .delete-profile {
   font-size: 11px;
@@ -1957,6 +2008,43 @@ footer {
   color: #3D95F5;
   text-decoration: underline;
 }
+.container-profile .content .delete-profile_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+}
+.container-profile .content .delete-profile_wrapper .delete-profile_inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container-profile .content .delete-profile_wrapper .delete-profile_inner .btn-close-delete {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.container-profile .content .delete-profile_wrapper .delete-profile_inner .btn-close-delete:hover {
+  cursor: pointer;
+}
+.container-profile .content .delete-profile_wrapper .delete-profile_inner h2 {
+  text-align: center;
+  font-size: 32px;
+  line-height: 36px;
+  margin-bottom: 40px;
+  margin-top: 20%;
+}
+.container-profile .content .delete-profile_wrapper .delete-profile_inner .btns-detele {
+  display: flex;
+  justify-content: center;
+}
+.container-profile .content .delete-profile_wrapper .delete-profile_inner .btns-detele .btn {
+  margin: 0 6px;
+}
 
 @media (min-width: 640px) {
   .container-profile .content .header-profile {
@@ -1965,8 +2053,7 @@ footer {
     margin-top: 20px;
   }
   .container-profile .content .setting-mail,
-.container-profile .content .setting-personal,
-.container-profile .content .setting-notification {
+.container-profile .content .setting-personal {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1978,6 +2065,12 @@ footer {
   }
   .container-profile .content .delete-profile {
     margin-top: 70px;
+  }
+}
+@media (min-width: 768px) {
+  .container-profile .content .setting_wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 .content-course .test_wrapper .test_inner .block_question {
@@ -2251,5 +2344,93 @@ footer {
   }
   .content-my-course .section-theory .progress_inner {
     width: 100%;
+  }
+}
+.container-error .content_inner {
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.container-error .content_inner img {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 40px;
+}
+.container-error .content_inner h2 {
+  font-size: 32px;
+  line-height: 36px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.container-error .content_inner .btn.btn-to-main {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container-error .content {
+    margin-top: 70px;
+  }
+}
+.container-login .content_inner {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  border: 1px solid #F3F3F6;
+  border-radius: 4px;
+  padding: 30px;
+  width: fit-content;
+}
+.container-login .content_inner img {
+  width: 100%;
+  max-width: 360px;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.container-login .content_inner h2 {
+  font-size: 32px;
+  line-height: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.container-login .content_inner .mail-address {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.container-login .content_inner .mail-address .error-email {
+  color: #FF3B30;
+  margin-top: 5px;
+}
+.container-login .content_inner .mail-address .email__label {
+  font-size: 11px;
+  line-height: 13px;
+  margin-bottom: 5px;
+}
+.container-login .content_inner .mail-address .email__input {
+  height: 42px;
+  font-size: 12px;
+  line-height: 22px;
+}
+.container-login .content_inner .block-email-done .mail-address {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.container-login .content_inner .block-email-done .btn-return {
+  color: #007AFF;
+  position: relative;
+  text-align: center;
+  padding: 10px 0;
+}
+.container-login .content_inner .block-email-done .btn-return:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .container-login .content .content_inner .mail-address .email__input {
+    font-size: 16px;
+    line-height: 22px;
   }
 }

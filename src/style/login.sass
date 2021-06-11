@@ -1,0 +1,56 @@
+.container-login
+  .content_inner
+    // max-width: 750px
+    display: flex
+    flex-direction: column
+    margin: 40px auto
+    border: 1px solid $grey-20
+    border-radius: 4px
+    padding: 30px
+    width: fit-content
+    img
+      width: 100%
+      max-width: 360px
+      margin: 0
+      margin-bottom: 30px
+    h2
+      @include font(32px, 36px)
+      margin-bottom: 30px
+      text-align: center
+
+    .mail-address
+      display: flex
+      flex-direction: column
+      margin-bottom: 30px
+      // .btn-to-main
+      //   margin-bottom: 30px
+      .error-email
+        color: $error
+        margin-top: 5px
+      .email__label
+        @include font(11px, 13px)
+        margin-bottom: 5px
+      .email__input
+        height: 42px
+        @include font(12px, 22px)
+    .block-email-done
+      .mail-address
+        text-align: center
+        margin-bottom: 20px
+      .btn-return
+        color: $accent
+        position: relative
+        text-align: center
+        padding: 10px 0
+        &:hover
+          cursor: pointer
+          text-decoration: underline
+
+
+@media (min-width: 640px)
+  .container-login
+    .content
+      .content_inner
+        .mail-address
+          .email__input
+            @include font(16px, 22px)

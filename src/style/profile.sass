@@ -32,23 +32,101 @@
       .after-save
         margin-top: 20px
 
-    .notification
+    .notifications
       margin-top: 40px
+
     .setting-notification
       display: flex
-      flex-direction: row
+      flex-direction: row-reverse
       justify-content: space-between
-      .notification-title
-        margin-right: 10px
+      align-items: center
+      user-select: none
+      position: relative
+      cursor: pointer
+    .setting-notification input[type=checkbox]
+      position: absolute
+      z-index: -1
+      opacity: 0
+      width: 0
+      height: 0
+      display: block
+    .setting-notification::before
+      content: ""
+      display: inline-block
+      width: 30px
+      height: 30px
+      border: 1px solid $black-50
+      box-sizing: border-box
+      border-radius: 4px
+      margin: 0
+      margin-right: 10px
+      min-width: 30px
+
+
+    .setting-notification:hover::before
+      background-color: #F9F9FB
+
+    .setting-notification input[type=checkbox]:checked + span::before
+      content: ""
+      position: absolute
+      display: inline-block
+      width: 2px
+      height: 17px
+      background-color: #007AFF
+      right: 20px
+      bottom: 28%
+      transform: rotate(45deg)
+    .setting-notification input[type=checkbox]:checked + span::after
+      content: ""
+      position: absolute
+      display: inline-block
+      width: 2px
+      height: 9px
+      background-color: #007AFF
+      right: 29px
+      bottom: 28%
+      transform: rotate(-45deg)
+
     .delete-profile
-      @include font(11px, 13px)
+      font-size: 11px
+      line-height: 13px
       margin-top: 60px
       text-align: right
-      color: $black-50
+      color: #787882
       &:hover
         cursor: pointer
-        color: $accent-secondary
+        color: #3D95F5
         text-decoration: underline
+
+    .delete-profile_wrapper
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 100vh
+      @include bg-navigator()
+      z-index: 200
+
+      .delete-profile_inner
+        max-width: 1200px
+        margin: 0 auto
+        .btn-close-delete
+          position: absolute
+          top: 20px
+          right: 20px
+          &:hover
+            cursor: pointer
+        h2
+          text-align: center
+          @include font(32px, 36px)
+          margin-bottom: 40px
+          margin-top: 20%
+        .btns-detele
+          display: flex
+          justify-content: center
+          .btn
+            margin: 0 6px
+
 
 @media (min-width: 640px)
   .container-profile
@@ -58,8 +136,7 @@
         margin-bottom: 60px
         margin-top: 20px
       .setting-mail,
-      .setting-personal,
-      .setting-notification
+      .setting-personal
         display: grid
         grid-template-columns: repeat(2, 1fr)
       .setting-name
@@ -69,3 +146,10 @@
 
       .delete-profile
         margin-top: 70px
+
+@media (min-width: 768px)
+  .container-profile
+    .content
+      .setting_wrapper
+        display: grid
+        grid-template-columns: repeat(2, 1fr)

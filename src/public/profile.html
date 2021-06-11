@@ -8,7 +8,7 @@
   </head>
     <body>
       <div class="container container-profile">
-        <section class="navigator navigator-main">
+        <section class="navigator">
           <div class="nav_logo">
             <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security"></a>
           </div>
@@ -92,28 +92,55 @@
             <div class="setting-name">Персонализация</div>
             <div class="setting-el">
               <div class="descr">Персональные тренировки были подобраны на основе ваших ответов в тесте.</div>
-              <div class="change-answers"><a href="test.html" class=" link_btn">Изменить ответы</a></div>
+              <div class="change-answers"><a href="test.html" class="link_btn">Изменить ответы</a></div>
             </div>
           </div>
+
           <div class="border"></div>
-          <h5 class="notification">Уведомления</h5>
+          <h5 class="notifications">Уведомления</h5>
           <div class="border"></div>
-          <div class="setting-notification">
-            <div class="notification-title">Новости и события в области безопасности</div>
-            <div class="notification-btn el_check el_checked"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="news" checked>
+            	<span>Новости и события в области безопасности</span>
+            </label>
+          </div>
+
+          <div class="border"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="task" checked>
+            	<span>Напоминания о незавершённых заданиях</span>
+            </label>
+          </div>
+
+          <div class="border"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="exercise" checked>
+            	<span>Новые тренировки, подходящие вам</span>
+            </label>
           </div>
           <div class="border"></div>
-          <div class="setting-notification">
-            <div class="notification-title">Напоминания о незавершённых заданиях</div>
-            <div class="notification-btn el_check el_checked"></div>
+          <div class="delete-profile" id="delete-profile">Удалить аккаунт</div>
+
+          <div class="delete-profile_wrapper hide">
+            <div class="delete-profile_inner">
+              <div class="btn-close-delete" id="btn-close-delete">
+                <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+              <h2>Точно удалить аккаунт?</h2>
+              <div class="btns-detele">
+                <div class="btn btn-cancel" id="btn-cancel">Нет, не удалять</div>
+                <div class="btn btn-white btn-confirm" id='btn-confirm'>Удалить</div>
+              </div>
+            </div>
           </div>
-          <div class="border"></div>
-          <div class="setting-notification">
-            <div class="notification-title">Новые тренировки, подходящие вам</div>
-            <div class="notification-btn el_check el_checked"></div>
-          </div>
-          <div class="border"></div>
-          <div class="delete-profile">Удалить аккаунт</div>
         </section>
       </div>
 
@@ -129,52 +156,77 @@
         </div>
       </footer>
 
-    <script>
-      let blockChangeEmail = $(".in-change")
-      let blockEmail = $(".change")
-      let btnChangeEmail = $("#change-address")
-      let btnSaveEmail = $("#save-address")
-      let inputEmail = $("#email-address")
-      let blockErrorEmail = $(".in-change-error")
-      let blockAfterSave = $(".after-save")
+      <script>
+        let blockChangeEmail = $(".in-change")
+        let blockEmail = $(".change")
+        let btnChangeEmail = $("#change-address")
+        let btnSaveEmail = $("#save-address")
+        let inputEmail = $("#email-address")
+        let blockErrorEmail = $(".in-change-error")
+        let blockAfterSave = $(".after-save")
+
+        let btnDeleteProfile = $("#delete-profile")
+        let btnDeleteCancel = $("#btn-cancel")
+        let btnDeleteConfirm = $("#btn-confirm")
+        let btnCloseDelete = $("#btn-close-delete")
+        let blockDeleteProfile = $(".delete-profile_wrapper")
 
 
-      btnChangeEmail.on("click", function (e) {
-        blockChangeEmail.removeClass("hide");
-        blockEmail.addClass("hide");
-        if (!blockAfterSave.hasClass("hide")) {
-          blockAfterSave.addClass("hide");
-        };
-        e.stopPropagation();
-      })
 
-      function validateEmail() {
-        var re = /\S+@\S+\.\S+/;
-        return re.test(inputEmail.val());
-      }
 
-      inputEmail.on('change paste keyup', function() {
-        if (!blockErrorEmail.hasClass("hide")) {
-          blockErrorEmail.addClass("hide");
-        };
-      });
+        function validateEmail() {
+          var re = /\S+@\S+\.\S+/;
+          return re.test(inputEmail.val());
+        }
 
-      btnSaveEmail.on("click", function (e) {
-        if (validateEmail()) {
-          blockChangeEmail.addClass("hide");
-          blockEmail.removeClass("hide")
-          blockAfterSave.removeClass("hide")
+        btnDeleteConfirm.on("click", function (e) {
+          //удалить аккаунт
+          e.stopPropagation();
+        })
+
+        btnDeleteProfile.on("click", function (e) {
+          blockDeleteProfile.removeClass('hide')
+          e.stopPropagation();
+        })
+
+        btnCloseDelete.on("click", function (e) {
+          blockDeleteProfile.addClass('hide')
+          e.stopPropagation();
+        })
+        btnDeleteCancel.on("click", function (e) {
+          blockDeleteProfile.addClass('hide')
+          e.stopPropagation();
+        })
+
+        btnChangeEmail.on("click", function (e) {
+          blockChangeEmail.removeClass("hide");
+          blockEmail.addClass("hide");
+          if (!blockAfterSave.hasClass("hide")) {
+            blockAfterSave.addClass("hide");
+          };
+          e.stopPropagation();
+        })
+
+        inputEmail.on('change paste keyup', function() {
           if (!blockErrorEmail.hasClass("hide")) {
             blockErrorEmail.addClass("hide");
           };
+        });
 
-          // подставлять в инпут  почту с сервера
-          // inputEmail.val("");
-        } else {
-          blockErrorEmail.removeClass("hide");
-        }
-        e.stopPropagation();
-      })
-    </script>
+        btnSaveEmail.on("click", function (e) {
+          if (validateEmail()) {
+            blockChangeEmail.addClass("hide");
+            blockEmail.removeClass("hide")
+            blockAfterSave.removeClass("hide")
+            if (!blockErrorEmail.hasClass("hide")) {
+              blockErrorEmail.addClass("hide");
+            };
+
+          } else {
+            blockErrorEmail.removeClass("hide");
+          }
+          e.stopPropagation();
+        })
+      </script>
     </body>
 </html>

@@ -134,6 +134,14 @@ module.exports = {
         filename: 'course.html',
         template: 'src/public/course.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: '404.html',
+        template: 'src/public/404.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'login.html',
+        template: 'src/public/login.html'
+        }),
 
   ],
 
