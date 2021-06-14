@@ -73,6 +73,8 @@ a.btn:hover,
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
+  background-color: #fff;
+  color: #2E2E38;
 }
 
 .link {
@@ -99,6 +101,11 @@ a.btn:hover,
   transition: 0.1s ease-out;
 }
 
+.link_txt-blue {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 122, 255, 0.3);
+}
+
 .link_btn {
   color: #007AFF;
 }
@@ -108,6 +115,10 @@ a.btn:hover,
   cursor: pointer;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
+}
+
+.link_btn.btn:hover {
+  text-decoration: none;
 }
 
 .el_check {
@@ -728,6 +739,19 @@ footer {
   background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 0%, #D9E9EE 0%) border-box;
 }
 
+.article-situation .progress, .article-exercise .progress {
+  flex-grow: 1;
+  margin-top: 0;
+  padding: 0;
+  border: none;
+}
+.article-situation .progress .progress_inner, .article-exercise .progress .progress_inner {
+  display: none;
+}
+.article-situation .progress .progress_inner .progress_about, .article-exercise .progress .progress_inner .progress_about {
+  margin-top: 10px;
+}
+
 @media (min-width: 640px) {
   .progress .progress_inner .btn {
     width: fit-content;
@@ -762,6 +786,11 @@ footer {
   }
   .progress .progress_skills .skill_wrapper {
     width: 100px;
+  }
+
+  .article-situation .progress .progress_inner, .article-exercise .progress .progress_inner {
+    width: 100%;
+    margin: 0;
   }
 }
 @media (min-width: 1200px) {
@@ -1246,23 +1275,20 @@ footer {
 }
 .article > .related_lessons > .material-list .material-el .img,
 .materials > .material > .material-list .material-el .img {
-  background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4;
   border-radius: 20px;
   height: 189px;
   margin-bottom: 10px;
+  background: transparent;
+}
+.article > .related_lessons > .material-list .material-el .img:not(img),
+.materials > .material > .material-list .material-el .img:not(img) {
+  background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4;
 }
 .article > .related_lessons > .material-list .material-el .descr,
 .materials > .material > .material-list .material-el .descr {
   display: flex;
   margin-top: 10px;
   align-items: center;
-}
-.article > .related_lessons > .material-list .material-el .descr .time,
-.materials > .material > .material-list .material-el .descr .time {
-  font-size: 11px;
-  line-height: 13px;
-  margin: 0;
-  margin-right: 10px;
 }
 .article > .related_lessons > .material-list .material-el .descr .in-coaching,
 .materials > .material > .material-list .material-el .descr .in-coaching {
@@ -1277,16 +1303,23 @@ footer {
 .materials > .material > .material-list .material-el .descr .in-coaching:hover {
   cursor: pointer;
 }
-.article > .related_lessons > .material-list .material-el-digital > .img,
-.materials > .material > .material-list .material-el-digital > .img {
+.article > .related_lessons > .material-list .material-el .time,
+.materials > .material > .material-list .material-el .time {
+  font-size: 11px;
+  line-height: 13px;
+  margin: 0;
+  margin-right: 10px;
+}
+.article > .related_lessons > .material-list .material-el-digital > .img::not(img),
+.materials > .material > .material-list .material-el-digital > .img::not(img) {
   background: #21AF73;
 }
-.article > .related_lessons > .material-list .material-el-personal > .img,
-.materials > .material > .material-list .material-el-personal > .img {
+.article > .related_lessons > .material-list .material-el-personal > .img::not(img),
+.materials > .material > .material-list .material-el-personal > .img::not(img) {
   background: #2C29C2;
 }
-.article > .related_lessons > .material-list .material-el-financial > .img,
-.materials > .material > .material-list .material-el-financial > .img {
+.article > .related_lessons > .material-list .material-el-financial > .img::not(img),
+.materials > .material > .material-list .material-el-financial > .img::not(img) {
   background: #0F7DA2;
 }
 
@@ -1295,29 +1328,35 @@ footer {
 }
 
 .content-my-course > .content_inner > .materials-course .material-list,
+.instruction-content > .exercises > .materials-course .material-list,
 .content-my-course > .content_inner > .threats_course .material-list {
   display: grid;
   grid-auto-columns: 1fr;
 }
 .content-my-course > .content_inner > .materials-course .material-list .material-el,
+.instruction-content > .exercises > .materials-course .material-list .material-el,
 .content-my-course > .content_inner > .threats_course .material-list .material-el {
   grid-row: 1;
   width: auto;
   min-width: 262px;
 }
 .content-my-course > .content_inner > .materials-course .material-list .material-el .img,
+.instruction-content > .exercises > .materials-course .material-list .material-el .img,
 .content-my-course > .content_inner > .threats_course .material-list .material-el .img {
   background: none;
 }
 .content-my-course > .content_inner > .materials-course .material-list .material-el .type,
-.content-my-course > .content_inner > .materials-course .material-list .material-el .date,
+.content-my-course > .content_inner > .materials-course .material-list .material-el .time,
+.instruction-content > .exercises > .materials-course .material-list .material-el .type,
+.instruction-content > .exercises > .materials-course .material-list .material-el .time,
 .content-my-course > .content_inner > .threats_course .material-list .material-el .type,
-.content-my-course > .content_inner > .threats_course .material-list .material-el .date {
+.content-my-course > .content_inner > .threats_course .material-list .material-el .time {
   color: #787882;
   font-size: 11px;
   line-height: 13px;
 }
 .content-my-course > .content_inner > .materials-course .material-list .material-last,
+.instruction-content > .exercises > .materials-course .material-list .material-last,
 .content-my-course > .content_inner > .threats_course .material-list .material-last {
   font-size: 70px;
   line-height: 55px;
@@ -1329,6 +1368,7 @@ footer {
   position: relative;
 }
 .content-my-course > .content_inner > .materials-course .material-list .material-last .arrow,
+.instruction-content > .exercises > .materials-course .material-list .material-last .arrow,
 .content-my-course > .content_inner > .threats_course .material-list .material-last .arrow {
   width: 14px;
   height: 14px;
@@ -1412,6 +1452,21 @@ footer {
   background: #FED1D1;
 }
 
+.instruction-content > .threats_course > .exercises > .materials.materials-course .material .material-list .material-el h5 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.content-situation .materials > .material > .material-list {
+  width: calc(100% + 30px);
+  flex-wrap: wrap;
+}
+.content-situation .materials > .material > .material-list .material-el {
+  width: 359px;
+  margin-bottom: 30px;
+}
+
 @media (min-width: 640px) {
   .materials > .material > .material-list {
     overflow-x: hidden;
@@ -1472,19 +1527,27 @@ footer {
   line-height: 27px;
 }
 .article .related_lessons {
-  margin-bottom: 40px;
-}
-.article h2 {
-  margin-bottom: 30px;
-}
-.article .news_text {
   margin-bottom: 50px;
 }
-.article .news_text > div {
+.article h2, .article h1 {
+  margin-bottom: 30px;
+}
+.article h3 {
+  margin-bottom: 10px;
+}
+.article .news_text, .article .instruction_text {
+  margin-bottom: 50px;
+}
+.article .news_text > div, .article .instruction_text > div, .article .article_text > div {
   margin-bottom: 20px;
 }
-.article .news_text > div:last-child {
+.article .news_text > div:last-child, .article .instruction_text > div:last-child, .article .article_text > div:last-child {
   margin-bottom: 0;
+}
+.article .instruction_img {
+  width: 100%;
+  object-fit: contain;
+  margin: 40px 0;
 }
 .article .tags {
   display: flex;
@@ -1508,21 +1571,90 @@ footer {
 .article .tags .tag-financial {
   color: #0F7DA2;
 }
+.article .related_exercise h5,
+.article .related_exercise .add_exercise-list {
+  margin-bottom: 30px;
+}
+.article .block_bottom {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #F3F3F6;
+  margin-top: 70px;
+}
+.article .block_bottom .block_return {
+  margin: 40px auto;
+}
+
+.article-instruction .todo-list_wrapper {
+  margin-top: 40px;
+  border: none;
+}
+.article-instruction .todo-list_wrapper .todo-list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.article-situation .content, .article-exercise .content {
+  padding: 0;
+}
+.article-situation .content h3, .article-exercise .content h3 {
+  margin-top: 60px;
+}
+
+.article-situation_header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+.article-situation_header .descr-img {
+  order: 1;
+}
+.article-situation_header .header_inner {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+}
+.article-situation_header .header_inner h1 {
+  margin-bottom: 15px;
+}
+.article-situation_header .header_inner .time {
+  color: #787882;
+  font-size: 11px;
+  line-height: 13px;
+}
 
 @media (min-width: 768px) {
-  .article h2 {
-    max-width: 81%;
-  }
-  .article .news_text {
+  .article .news_text, .article .instruction_text, .article .article_text {
     max-width: 75%;
+    min-width: 750px;
+  }
+
+  .article-situation .block_top, .article-exercise .block_top {
+    display: flex;
+    flex-direction: row;
+  }
+  .article-situation .block_top .progress_inner, .article-exercise .block_top .progress_inner {
+    display: flex;
+  }
+  .article-situation .article-situation_header, .article-exercise .article-situation_header {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    align-items: center;
+  }
+  .article-situation .article-situation_header .descr-img, .article-exercise .article-situation_header .descr-img {
+    order: 2;
+  }
+  .article-situation .article-situation_header .header_inner, .article-exercise .article-situation_header .header_inner {
+    order: 1;
   }
 }
 @media (min-width: 1200px) {
-  .article h2 {
-    max-width: 81%;
+  .article h2, .article h1 {
+    margin-bottom: 50px;
   }
-  .article .news_text {
-    max-width: 65%;
+  .article .news_text, .article .instruction_text, .article .article_text {
+    max-width: 750px;
   }
 }
 .block_return {
@@ -1558,9 +1690,11 @@ footer {
 .todo-list_wrapper:last-child {
   margin-bottom: 0;
 }
+.todo-list_wrapper .header-border-bottom {
+  border-bottom: 1px solid #F3F3F6;
+}
 .todo-list_wrapper .todo-list-header {
   width: 100%;
-  border-bottom: 1px solid #F3F3F6;
   display: flex;
   padding: 20px;
   box-sizing: border-box;
@@ -1568,6 +1702,9 @@ footer {
 .todo-list_wrapper .todo-list-header:hover {
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.todo-list_wrapper .todo-list-header:focus, .todo-list_wrapper .todo-list-header:active {
+  box-shadow: none;
 }
 .todo-list_wrapper .todo-list-header h5 {
   flex-grow: 1;
@@ -1577,48 +1714,137 @@ footer {
   line-height: 24px;
   color: #007AFF;
 }
-.todo-list_wrapper .todo-list {
-  margin: 20px;
-  padding: 0;
+.todo-list_wrapper .todo-list-header .btn-arrow_header {
+  display: block;
+  position: relative;
+  margin-left: 20px;
+  width: 20px;
 }
-.todo-list_wrapper .todo-list .todo-el {
+.todo-list_wrapper .todo-list-header .btn-arrow_header::after {
+  content: "";
+  position: absolute;
+  border-top: 2px solid #17171C;
+  border-right: 2px solid #17171C;
+  width: 12px;
+  height: 12px;
+  right: 0;
+  top: 33%;
+  transform: rotate(-45deg);
+}
+.todo-list_wrapper .todo-list {
   font-size: 16px;
   line-height: 22px;
   list-style: none;
+  padding: 0;
+  margin: 20px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row {
-  display: flex;
-  flex-direction: column;
+.todo-list_wrapper .todo-list .todo-el {
   margin-bottom: 15px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row:last-child {
+.todo-list_wrapper .todo-list .todo-el:last-child {
   margin-bottom: 0;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .description {
-  display: flex;
-  flex-direction: row;
-}
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_task {
+.todo-list_wrapper .todo-list .todo-el .todo_el_inner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-top: 4px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_how-do_btn {
+.todo-list_wrapper .todo-list .todo-el .el_task {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  user-select: none;
+  position: relative;
+  cursor: pointer;
+}
+.todo-list_wrapper .todo-list .todo-el .el_task input[type=checkbox] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  display: block;
+}
+.todo-list_wrapper .todo-list .todo-el .el_task::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #787882;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin: 0;
+  margin-right: 10px;
+  min-width: 30px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_task.el_check-warning::before {
+  border-color: #FF3B30;
+}
+.todo-list_wrapper .todo-list .todo-el .el_task:hover::before {
+  background-color: #F9F9FB;
+}
+.todo-list_wrapper .todo-list .todo-el .el_task input[type=checkbox]:checked + span {
+  text-decoration: line-through;
+}
+.todo-list_wrapper .todo-list .todo-el .el_task input[type=checkbox]:checked + span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 17px;
+  background-color: #007AFF;
+  left: 18px;
+  bottom: 20%;
+  transform: rotate(45deg);
+}
+.todo-list_wrapper .todo-list .todo-el .el_task input[type=checkbox]:checked + span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 9px;
+  background-color: #007AFF;
+  left: 10px;
+  bottom: 25%;
+  transform: rotate(-45deg);
+}
+.todo-list_wrapper .todo-list .todo-el .el_how-do_btn {
+  margin-left: 40px;
   font-size: 12px;
   line-height: 16px;
   color: #AEAEB2;
+  display: flex;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_how-do_btn:hover {
+.todo-list_wrapper .todo-list .todo-el .el_how-do_btn .btn-arrow_todo {
+  display: block;
+  position: relative;
+  margin-left: 15px;
+}
+.todo-list_wrapper .todo-list .todo-el .el_how-do_btn .btn-arrow_todo::after {
+  content: "";
+  position: absolute;
+  border-top: 1px solid #C7C7CC;
+  border-right: 1px solid #C7C7CC;
+  width: 7px;
+  height: 7px;
+  right: 0;
+  top: 20%;
+  transform: rotate(45deg);
+}
+.todo-list_wrapper .todo-list .todo-el .el_how-do_btn:hover {
+  color: #17171C;
   cursor: pointer;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction {
+.todo-list_wrapper .todo-list .todo-el .el_how-do_btn:hover .btn-arrow_todo::after {
+  border-color: #17171C;
+}
+.todo-list_wrapper .todo-list .todo-el .instruction {
+  margin-top: 15px;
   background-color: #F3F3F6;
   border-radius: 4px;
   box-sizing: border-box;
   padding: 30px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner {
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1627,85 +1853,116 @@ footer {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .btn {
-  padding-left: 40px;
-  padding-right: 40px;
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .btn {
+  padding: 8px 33px;
   margin-bottom: 10px;
   width: 150px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks {
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks .risks-text {
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-text {
   color: #8D8D94;
   font-size: 12px;
   line-height: 16px;
   max-width: 250px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks .risks-btn {
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-btn {
   background-color: #fff;
   border: 1px solid #C7C7CC;
   color: #2E2E38;
   margin-right: 10px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-content .instruction-content__header {
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .instruction-content__header {
   font-size: 14px;
   line-height: 19px;
   font-weight: 800;
   margin-bottom: 10px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-content .exercises {
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .exercises {
   margin-bottom: 20px;
 }
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row {
-  position: relative;
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .exercises .materials-course .material {
+  margin-top: 10px;
 }
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_task .el_header {
-  text-decoration: line-through;
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .exercises .materials-course .material .material-list {
+  margin-top: 0;
 }
-.todo-list_wrapper.todo-done .todo-list .todo-el .el_row .description .el_task .el_how-do_btn {
-  display: none;
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .exercises .materials-course .material-el {
+  background-color: #fff;
 }
 
-@media (min-width: 768px) {
-  .todo-list_wrapper .todo-list .todo-el {
-    width: 100%;
+.container-todo .content-todo .block_top {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.container-todo .content-todo .block_top .header .content-descr {
+  text-align: left;
+  margin-bottom: 40px;
+}
+.container-todo .content-todo .content-inner_todo {
+  display: flex;
+  flex-direction: row;
+}
+.container-todo .content-todo .descr-img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.container-todo .content-todo .descr-img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 640px) {
+  .todo-list_wrapper {
+    margin-bottom: 40px;
   }
-  .todo-list_wrapper .todo-list .todo-el .el_row {
-    width: 100%;
+  .todo-list_wrapper:last-child {
+    margin-bottom: 0px;
   }
-  .todo-list_wrapper .todo-list .todo-el .el_row .description .el_task {
-    flex-direction: row;
-    align-items: baseline;
-    flex-grow: 1;
+  .todo-list_wrapper .todo-list .todo-list {
+    list-style: circle;
   }
-  .todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_header {
-    margin-right: auto;
-  }
-  .todo-list_wrapper .todo-list .todo-el .el_row .description .el_task .el_how-do_btn {
-    margin-left: 10px;
-  }
-  .todo-list_wrapper .todo-list .todo-el .el_row .instruction {
-    width: calc(100% - 38px);
-    margin: 15px 0 15px auto;
-    position: relative;
-  }
-  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner {
+  .todo-list_wrapper .todo-list .todo-el .todo_el_inner {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .todo-list_wrapper .todo-list .todo-el .el_task {
+    align-items: center;
+  }
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-bottom: 40px;
     margin-bottom: 40px;
   }
-  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .btn {
-    margin-bottom: 0;
-  }
-  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .risks {
-    flex-wrap: nowrap;
-  }
-  .todo-list_wrapper .todo-list .todo-el .el_row .instruction .instruction-top .instruction-top_inner .instruction-btn {
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .instruction-btn {
     margin-right: 40px;
+  }
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .container-todo .content-todo .content-inner_todo {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .container-todo .content-todo .content-inner_todo .block_top {
+    width: 50%;
+  }
+  .container-todo .content-todo .content-inner_todo .block_top h1 {
+    margin-bottom: 20px;
+  }
+  .container-todo .content-todo .content-inner_todo .descr-img {
+    width: 50%;
+    margin-left: auto;
   }
 }
 .container-first_page .content {
@@ -2360,17 +2617,43 @@ footer {
 .container-error .content_inner h2 {
   font-size: 32px;
   line-height: 36px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-align: center;
 }
-.container-error .content_inner .btn.btn-to-main {
+.container-error .content_inner .content-error {
+  text-align: center;
+}
+.container-error .content_inner .btns-error {
+  margin: 40px auto 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container-error .content_inner .btns-error .btn {
   width: fit-content;
-  margin: 0 auto;
+  margin-bottom: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.container-error .content_inner .btns-error .btn-to-search {
+  padding-left: 34px;
+  padding-right: 34px;
+}
+.container-error .content_inner .btns-error .btn-to-main {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.container-error .content_inner .text_error {
+  text-align: center;
+  color: #8D8D94;
 }
 
 @media (min-width: 768px) {
   .container-error .content {
     margin-top: 70px;
+  }
+  .container-error .content .content_inner .btns-error {
+    margin-bottom: 100px;
   }
 }
 .container-login .content_inner {

@@ -160,6 +160,7 @@ $(document).ready(function() {
 
 
 // ------ туду начало-------
+if ($(".todo-list_wrapper")) {
   let todoHeaderNotDo = $("#todo-not-do");
   let todoHeaderDone = $("#todo-done");
   let todoListDone = $("#todo-list-done");
@@ -168,7 +169,7 @@ $(document).ready(function() {
   let arrDescription = $(".description");
   let arrInstruction = $(".instruction");
   let arrBbtnOpenInstr = $(".el_how-do_btn");
-  let arrTask = $(".el_row");
+  let arrTask = $(".el_task");
 
   let arrBtnCheck = $(".el_check");
 
@@ -183,10 +184,13 @@ $(document).ready(function() {
 
   function toggleInstrauctionVisibility (i) {
     arrBbtnOpenInstr.eq(i).on("click", function (e) {
+      let arrow =  ($(".btn-arrow_todo")).eq(i)
       if (arrInstruction.eq(i).hasClass("hide")) {
         arrInstruction.eq(i).removeClass("hide");
+        arrow.css("transform", "rotate(90deg)");
       } else {
         arrInstruction.eq(i).addClass("hide");
+        arrow.css("transform", "rotate(0deg)");
       }
     })
   }
@@ -199,22 +203,44 @@ $(document).ready(function() {
   todoHeaderNotDo.on("click", function (event) {
     if (todoListNotDo.hasClass("hide")) {
       todoListNotDo.removeClass("hide");
+      todoHeaderNotDo.addClass("header-border-bottom")
+      todoHeaderNotDo.find($(".btn-arrow_header")).css("transform", "rotate(180deg)");
     } else {
       todoListNotDo.addClass("hide");
+      todoHeaderNotDo.removeClass("header-border-bottom")
+      todoHeaderNotDo.find($(".btn-arrow_header")).css("transform", "rotate(0deg)");
+
     }
   })
 
   todoHeaderDone.on("click", function (event) {
     if (todoListDone.hasClass("hide")) {
       todoListDone.removeClass("hide");
+      todoHeaderDone.addClass("header-border-bottom")
+      todoHeaderDone.find($(".btn-arrow_header")).css("transform", "rotate(180deg)");
     } else {
       todoListDone.addClass("hide");
+      todoHeaderDone.removeClass("header-border-bottom")
+      todoHeaderDone.find($(".btn-arrow_header")).css("transform", "rotate(0deg)");
+
     }
   })
-
+}
   // ------ туду конец-------
 
+// ----убирать фон если загружена картинк начало ---
+if ($(".material")) {
+  let arrMaterialEl = $(".material-el")
+  for (var i = 0; i < arrMaterialEl.length; i++) {
+    if (arrMaterialEl.eq(i).find($('.img')).find('img')) {
+      // arrMaterialEl.eq(i).find($('.img')).css("background", "transparent")
+      }
+    }
+  }
 
+
+
+// ----убирать фон если загружена картинк конец  ---
 
   // ------ горизонтальный скролл начало -----
 

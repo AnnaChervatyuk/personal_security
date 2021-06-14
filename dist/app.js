@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
   let windowWidth = $('body').innerWidth()
@@ -157,52 +158,8 @@ $(document).ready(function() {
   //----переход между вопросами в тесте  конец--------
 
 
-  // ------ горизонтальный скролл начало -----
-
-var distance = 250;
-var arrScrollingBox = $(".material")
-
-function scrollBox (i) {
-  arrScrollingBox.eq(i).find($('button')).on('click', function() {
-    var el = arrScrollingBox.eq(i).find($('.material-list'))
-    el.stop().animate({
-       scrollLeft: '+=' + (distance * $(this).data('factor'))
-     })
-  })
-}
-
- for (var i = 0; i < arrScrollingBox.length; i++) {
-   scrollBox(i)
- }
-
-// ------ горизонтальный скролл конец -----
-
-
-
-// ------ ховер на иконку in-coaching начало -----
-  let arrIconsCoaching = $(".in-coaching") // весь список иконок
-  let popup = $("#popup")
-
-  popup.find($('.text')).text("Это занятие включено в вашу тренировку")
-
-  function onHoverIcon (i) {
-    arrIconsCoaching.eq(i).on("mouseenter", function (e) {
-      popup.appendTo(arrIconsCoaching.eq(i))
-      popup.css("display", "block")
-      }).on('mouseleave',function(){
-      popup.css("display", "none")
-    })
-  }
-
-  for (var i = 0; i < arrIconsCoaching.length; i++) {
-    onHoverIcon(i)
-  }
-
-  // ------ ховер на иконку in-coaching конец -----
-
-
-
 // ------ туду начало-------
+if ($(".todo-list_wrapper")) {
   let todoHeaderNotDo = $("#todo-not-do");
   let todoHeaderDone = $("#todo-done");
   let todoListDone = $("#todo-list-done");
@@ -211,7 +168,7 @@ function scrollBox (i) {
   let arrDescription = $(".description");
   let arrInstruction = $(".instruction");
   let arrBbtnOpenInstr = $(".el_how-do_btn");
-  let arrTask = $(".el_row");
+  let arrTask = $(".el_task");
 
   let arrBtnCheck = $(".el_check");
 
@@ -226,10 +183,13 @@ function scrollBox (i) {
 
   function toggleInstrauctionVisibility (i) {
     arrBbtnOpenInstr.eq(i).on("click", function (e) {
+      let arrow =  ($(".btn-arrow_todo")).eq(i)
       if (arrInstruction.eq(i).hasClass("hide")) {
         arrInstruction.eq(i).removeClass("hide");
+        arrow.css("transform", "rotate(90deg)");
       } else {
         arrInstruction.eq(i).addClass("hide");
+        arrow.css("transform", "rotate(0deg)");
       }
     })
   }
@@ -242,22 +202,44 @@ function scrollBox (i) {
   todoHeaderNotDo.on("click", function (event) {
     if (todoListNotDo.hasClass("hide")) {
       todoListNotDo.removeClass("hide");
+      todoHeaderNotDo.addClass("header-border-bottom")
+      todoHeaderNotDo.find($(".btn-arrow_header")).css("transform", "rotate(180deg)");
     } else {
       todoListNotDo.addClass("hide");
+      todoHeaderNotDo.removeClass("header-border-bottom")
+      todoHeaderNotDo.find($(".btn-arrow_header")).css("transform", "rotate(0deg)");
+
     }
   })
 
   todoHeaderDone.on("click", function (event) {
     if (todoListDone.hasClass("hide")) {
       todoListDone.removeClass("hide");
+      todoHeaderDone.addClass("header-border-bottom")
+      todoHeaderDone.find($(".btn-arrow_header")).css("transform", "rotate(180deg)");
     } else {
       todoListDone.addClass("hide");
+      todoHeaderDone.removeClass("header-border-bottom")
+      todoHeaderDone.find($(".btn-arrow_header")).css("transform", "rotate(0deg)");
+
     }
   })
-
+}
   // ------ туду конец-------
 
+// ----убирать фон если загружена картинк начало ---
+if ($(".material")) {
+  let arrMaterialEl = $(".material-el")
+  for (var i = 0; i < arrMaterialEl.length; i++) {
+    if (arrMaterialEl.eq(i).find($('.img')).find('img')) {
+      // arrMaterialEl.eq(i).find($('.img')).css("background", "transparent")
+      }
+    }
+  }
 
+
+
+// ----убирать фон если загружена картинк конец  ---
 
   // ------ горизонтальный скролл начало -----
 
@@ -332,17 +314,6 @@ function scrollBox (i) {
     $(location).attr('href', url);
 }
 
-  function setSearchInput(query) { // очистить инпут с поиском
-
-    var search = window.location.search
-    search = search.replace('?q=', '') // TODO: подставлять ответ с сервера
-
-    searchInputInPage.val(search);
-    if (search.length > 0) {
-      clearBtnInPage.removeClass("hide")
-    }
-  }
-
   function clearSearchInput(input,btn) { // очистить инпут с поиском
     input.val("");
     btn.addClass("hide")
@@ -382,14 +353,10 @@ function scrollBox (i) {
     e.stopPropagation();
   })
 
-
-if ($("#search_input-in-page")) {
   searchBtnInPage.on("click", function (e) {  //выполнить поиск по клику на кнопку
     openSearchPage(searchInputInPage[0].value)
     e.stopPropagation();
   })
-}
-
 
   btnOpenSearch.on("click", function (e) {  //выполнить поиск по клику на кнопку
     if(windowWidth < 640){
@@ -502,10 +469,6 @@ if ($("#search_input-in-page")) {
 
   onChangeWidth();
   clearSearchInput(searchInput, clearBtn);
-  if (searchInputInPage) {
-    clearSearchInput(searchInputInPage, clearBtnInPage)
-    setSearchInput()
-  }
 
   $(window).on("resize", function (e) {
     windowWidth = $('body').innerWidth()

@@ -79,11 +79,23 @@
       .skill-financial
         background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 (0%), #D9E9EE (0%)) border-box
 
+.article-situation, .article-exercise
+  .progress
+    flex-grow: 1
+    margin-top: 0
+    padding: 0
+    border: none
+    .progress_inner
+      display: none
+      .progress_about
+        margin-top: 10px
+
 @media (min-width: 640px)
   .progress
     .progress_inner
       .btn
         width: fit-content
+
 @media (min-width: 768px)
   .progress
     display: flex
@@ -107,6 +119,12 @@
         height: 100px
       .skill_wrapper
         width: 100px
+
+  .article-situation, .article-exercise
+    .progress
+      .progress_inner
+        width: 100%
+        margin: 0
 
 @media (min-width: 1200px)
   .progress

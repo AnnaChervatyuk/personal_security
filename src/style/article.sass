@@ -2,15 +2,21 @@
   padding: 20px
   @include font(18px, 27px)
   .related_lessons
-    margin-bottom: 40px
-  h2
-    margin-bottom: 30px
-  .news_text
     margin-bottom: 50px
-  .news_text > div
+  h2, h1
+    margin-bottom: 30px
+  h3
+    margin-bottom: 10px
+  .news_text, .instruction_text
+    margin-bottom: 50px
+  .news_text > div, .instruction_text > div, .article_text > div
     margin-bottom: 20px
     &:last-child
       margin-bottom: 0
+  .instruction_img
+    width: 100%
+    object-fit: contain
+    margin: 40px 0
   .tags
     display: flex
     flex-wrap: wrap
@@ -26,17 +32,77 @@
       color: $font-color-personal
     .tag-financial
       color: $font-color-financial
+  .related_exercise
+    h5,
+    .add_exercise-list
+      margin-bottom: 30px
+  .block_bottom
+    width: 100%
+    display: flex
+    border-top: 1px solid $grey-20
+    margin-top: 70px
+    .block_return
+      margin: 40px auto
+
+
+.article-instruction
+  .todo-list_wrapper
+    margin-top: 40px
+    border: none
+    .todo-list
+      margin-left: 0
+      margin-right: 0
+
+.article-situation, .article-exercise
+  .content
+    padding: 0
+    h3
+      margin-top: 60px
+
+.article-situation_header
+  display: flex
+  flex-direction: column
+  margin-bottom: 70px
+  .descr-img
+    order: 1
+  .header_inner
+    order: 2
+    display: flex
+    flex-direction: column
+    h1
+      margin-bottom: 15px
+    .time
+      color: $font-color-nav
+      @include font(11px, 13px)
+
+
+
+
 
 @media (min-width: 768px)
   .article
-    h2
-      max-width: 81%
-    .news_text
+    .news_text, .instruction_text, .article_text
       max-width: 75%
+      min-width: 750px
+  .article-situation, .article-exercise
+    .block_top
+      display: flex
+      flex-direction: row
+      .progress_inner
+        display: flex
+    .article-situation_header
+      flex-direction: row
+      justify-content: space-between
+      margin-bottom: 100px
+      align-items: center
+      .descr-img
+        order: 2
+      .header_inner
+        order: 1
 
 @media (min-width: 1200px)
   .article
-    h2
-      max-width: 81%
-    .news_text
-      max-width: 65%
+    h2, h1
+      margin-bottom: 50px
+    .news_text, .instruction_text, .article_text
+      max-width: 750px

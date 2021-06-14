@@ -30,18 +30,16 @@
       margin: 0 15px
       position: relative
       .img
-        background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4
         border-radius: 20px
         height: 189px
         margin-bottom: 10px
+        background: transparent
+      .img:not(img)
+        background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4
       .descr
         display: flex
         margin-top: 10px
         align-items: center
-        .time
-          @include font(11px, 13px)
-          margin: 0
-          margin-right: 10px
         .in-coaching
           z-index: 3
           position: relative
@@ -49,20 +47,25 @@
             fill: $black-50
         .in-coaching:hover
           cursor: pointer
+      .time
+        @include font(11px, 13px)
+        margin: 0
+        margin-right: 10px
 
 
 
-    .material-el-digital > .img
+    .material-el-digital > .img::not(img)
       background: $font-color-digital
-    .material-el-personal > .img
+    .material-el-personal > .img::not(img)
       background: $font-color-personal
-    .material-el-financial > .img
+    .material-el-financial > .img::not(img)
       background: $font-color-financial
 
 .materials-theory.materials > .material > .material-list
   margin-left: 0
 
 .content-my-course > .content_inner > .materials-course,
+.instruction-content > .exercises > .materials-course,
 .content-my-course > .content_inner > .threats_course
   .material-list
     display: grid
@@ -74,7 +77,7 @@
       .img
         background: none
       .type,
-      .date
+      .time
         color: $font-color-nav
         @include font(11px, 13px)
     .material-last
@@ -168,6 +171,22 @@
           width: 100%
           background: #FED1D1
 
+.instruction-content > .threats_course > .exercises > .materials.materials-course
+  .material
+    .material-list
+      .material-el
+        h5
+          @include font(16px, 22px)
+          font-weight: 400
+
+.content-situation
+  .materials > .material > .material-list
+    width: calc(100% + 30px)
+    flex-wrap: wrap
+    .material-el
+      width: 359px
+      margin-bottom: 30px
+
 
 
 @media (min-width: 640px)
@@ -224,3 +243,12 @@
             margin-right: 0
           .img
             width: 201px
+
+  // .content-my-course > .content_inner > .materials-course,
+  // .instruction-content > .exercises > .materials-course,
+  // .content-my-course > .content_inner > .threats_course
+  //   .material-list
+  //     .material-el
+  //       .img
+  //         img
+  //           width: 201px

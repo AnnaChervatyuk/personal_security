@@ -138,9 +138,31 @@ module.exports = {
         filename: '404.html',
         template: 'src/public/404.html'
         }),
+
+      new HtmlWebpackPlugin({
+        filename: '500.html',
+        template: 'src/public/500.html'
+        }),
       new HtmlWebpackPlugin({
         filename: 'login.html',
         template: 'src/public/login.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'email.html',
+        template: 'src/public/email.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'instruction.html',
+        template: 'src/public/instruction.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'situation_inner.html',
+        template: 'src/public/situation_inner.html'
+        }),
+
+      new HtmlWebpackPlugin({
+        filename: 'exercise.html',
+        template: 'src/public/exercise.html'
         }),
 
   ],
