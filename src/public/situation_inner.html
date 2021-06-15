@@ -72,13 +72,6 @@
             </a>
           </div>
 
-          <div class="progress">
-            <div class="progress_inner">
-              <div class="progress_about">
-                <div class="progress_line" id="progress_line"><div class="progress_line-inner"></div></div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="content">
@@ -136,15 +129,7 @@
         </div>
       </footer>
 
-      <script>
-        let articleHeigth = $('.article_text').height()
-        let windowHeigth = $(window).height()
-        let parts = (articleHeigth / windowHeigth) 
-        console.log("articleHeigth", articleHeigth)
-        console.log("windowHeigth", windowHeigth)
-        console.log("parts", parts)
-        $("#progress_line > .progress_line-inner").css("width", parts + "%")
-      </script>
+
 
     </body>
 </html>
