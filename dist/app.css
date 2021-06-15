@@ -27,11 +27,21 @@ body {
   margin: 0;
 }
 
+img {
+  width: 100%;
+}
+
 .container {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
   min-height: calc(100vh - 140px);
+}
+
+.disclaimer {
+  font-size: 14px;
+  line-height: 20px;
+  color: #787882;
 }
 
 a {
@@ -90,18 +100,17 @@ a.btn:hover,
   transition: 0.1s ease-out;
 }
 
-.link_mail,
-.link_txt {
+.article_text a {
   text-decoration: underline;
 }
-.link_mail:hover,
-.link_txt:hover {
+.article_text a:hover {
   color: #3D95F5;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
 }
 
-.link_txt-blue {
+.link_txt-blue,
+.article_text a {
   text-decoration: none;
   border-bottom: 1px solid rgba(0, 122, 255, 0.3);
 }
@@ -1544,7 +1553,7 @@ footer {
 .article .news_text > div:last-child, .article .instruction_text > div:last-child, .article .article_text > div:last-child {
   margin-bottom: 0;
 }
-.article .instruction_img {
+.article .instruction_text img {
   width: 100%;
   object-fit: contain;
   margin: 40px 0;
@@ -1601,6 +1610,73 @@ footer {
   margin-top: 60px;
 }
 
+.article-exercise .btn-ready {
+  width: fit-content;
+  margin-bottom: 10px;
+}
+.article-exercise .article_text {
+  margin-bottom: 60px;
+}
+.article-exercise .instruction_text {
+  margin-bottom: 120px;
+}
+.article-exercise .exercise-instruction .todo-list_wrapper {
+  border: none;
+  margin-top: 65px;
+}
+.article-exercise .exercise-instruction .todo-list_wrapper .todo-list {
+  margin-left: 0;
+  margin-right: 0;
+}
+.article-exercise .exercise-instruction .task_arrow {
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+.article-exercise .exercise-instruction .task_list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  border: 1px solid #F3F3F6;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.article-exercise .exercise-instruction .task_list img {
+  margin: 0 auto;
+}
+.article-exercise .exercise-instruction .task_list h5 {
+  margin: 30px auto 20px;
+}
+.article-exercise .exercise-instruction .task_list ul {
+  margin: 0;
+  padding: 0;
+}
+.article-exercise .exercise-instruction .task_list ul li {
+  margin: 0;
+  padding: 18px 0;
+  width: 100%;
+  list-style: none;
+  border-top: 1px solid #F3F3F6;
+  color: #2E2E38;
+  font-size: 18px;
+  line-height: 24px;
+}
+.article-exercise .exercise-instruction .task_list ul li:last-child {
+  border-bottom: 1px solid #F3F3F6;
+}
+.article-exercise .exercise-instruction .task_list ul li .new_task {
+  background: #34C759;
+  border-radius: 4px;
+  padding: 4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 13px;
+  color: #fff;
+  margin-left: 10px;
+}
+
 .article-situation_header {
   display: flex;
   flex-direction: column;
@@ -1624,7 +1700,7 @@ footer {
 }
 
 @media (min-width: 768px) {
-  .article .news_text, .article .instruction_text, .article .article_text {
+  .article .news_text, .article .instruction_text, .article .article_text, .article .exercise-instruction {
     max-width: 75%;
     min-width: 750px;
   }
@@ -1653,7 +1729,7 @@ footer {
   .article h2, .article h1 {
     margin-bottom: 50px;
   }
-  .article .news_text, .article .instruction_text, .article .article_text {
+  .article .news_text, .article .instruction_text, .article .article_text, .article .exercise-instruction {
     max-width: 750px;
   }
 }
@@ -1776,9 +1852,6 @@ footer {
   margin-right: 10px;
   min-width: 30px;
 }
-.todo-list_wrapper .todo-list .todo-el .el_task.el_check-warning::before {
-  border-color: #FF3B30;
-}
 .todo-list_wrapper .todo-list .todo-el .el_task:hover::before {
   background-color: #F9F9FB;
 }
@@ -1856,7 +1929,6 @@ footer {
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .btn {
   padding: 8px 33px;
   margin-bottom: 10px;
-  width: 150px;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks {
   display: flex;
@@ -1892,6 +1964,24 @@ footer {
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .exercises .materials-course .material-el {
   background-color: #fff;
+}
+
+.todo-list_course > .todo-list_wrapper > .todo-list-header > .btn-arrow_header::after {
+  transform: rotate(45deg);
+}
+
+.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header .list-amount {
+  font-size: 32px;
+  line-height: 36px;
+  color: #F3F3F6;
+}
+
+.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header h5 {
+  align-self: center;
+}
+
+.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header {
+  position: relative;
 }
 
 .container-todo .content-todo .block_top {
@@ -2530,9 +2620,6 @@ footer {
   font-size: 14px;
   line-height: 19px;
   text-align: left;
-}
-.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header .list-amount {
-  color: #17171C;
 }
 .content-my-course .threats_course h2 {
   margin-bottom: 40px;

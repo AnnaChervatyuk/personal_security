@@ -13,7 +13,7 @@
     margin-bottom: 20px
     &:last-child
       margin-bottom: 0
-  .instruction_img
+  .instruction_text img
     width: 100%
     object-fit: contain
     margin: 40px 0
@@ -59,6 +59,61 @@
     h3
       margin-top: 60px
 
+.article-exercise
+  .btn-ready
+    width: fit-content
+    margin-bottom: 10px
+  .article_text
+    margin-bottom: 60px
+  .instruction_text
+    margin-bottom: 120px
+  .exercise-instruction
+    .todo-list_wrapper
+      border: none
+      margin-top: 65px
+      .todo-list
+        margin-left: 0
+        margin-right: 0
+    .task_arrow
+      margin: 0 auto
+      display: flex
+      margin-bottom: 30px
+      max-width: 400px
+    .task_list
+      width: 100%
+      display: flex
+      flex-direction: column
+      margin-bottom: 30px
+      border: 1px solid $grey-20
+      box-sizing: border-box
+      padding: 30px
+      img
+        margin: 0 auto
+      h5
+        margin: 30px auto 20px
+      ul
+        margin: 0
+        padding: 0
+        li
+          margin: 0
+          padding: 18px 0
+          width: 100%
+          list-style: none
+          border-top: 1px solid $grey-20
+          color: $black-70
+          @include font(18px, 24px)
+          &:last-child
+            border-bottom: 1px solid $grey-20
+          .new_task
+            background: $correct
+            border-radius: 4px
+            padding: 4px
+            text-transform: uppercase
+            @include font(11px, 13px)
+            color: $white
+            margin-left: 10px
+
+
 .article-situation_header
   display: flex
   flex-direction: column
@@ -81,7 +136,7 @@
 
 @media (min-width: 768px)
   .article
-    .news_text, .instruction_text, .article_text
+    .news_text, .instruction_text, .article_text, .exercise-instruction
       max-width: 75%
       min-width: 750px
   .article-situation, .article-exercise
@@ -104,5 +159,5 @@
   .article
     h2, h1
       margin-bottom: 50px
-    .news_text, .instruction_text, .article_text
+    .news_text, .instruction_text, .article_text, .exercise-instruction
       max-width: 750px

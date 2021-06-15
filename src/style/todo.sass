@@ -75,9 +75,6 @@
         margin-right: 10px
         min-width: 30px
 
-      .el_task.el_check-warning::before
-        border-color: $font-color-error
-
       .el_task:hover::before
         background-color: #F9F9FB
 
@@ -159,7 +156,6 @@
             .btn
               padding: 8px 33px
               margin-bottom: 10px
-              width: 150px
             .risks
               display: flex
               flex-direction: row
@@ -190,6 +186,16 @@
                   margin-top: 0
               .material-el
                 background-color: $white
+
+.todo-list_course > .todo-list_wrapper > .todo-list-header > .btn-arrow_header::after
+  transform: rotate(45deg)
+.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header .list-amount
+  @include font(32px, 36px)
+  color: $grey-20
+.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header h5
+  align-self: center
+.content-my-course .todo-list_course .todo-list_wrapper .todo-list-header
+  position: relative
 
 
 .container-todo

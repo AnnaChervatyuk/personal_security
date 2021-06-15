@@ -171,13 +171,14 @@ if ($(".todo-list_wrapper")) {
   let arrBbtnOpenInstr = $(".el_how-do_btn");
   let arrTask = $(".el_task");
 
-  let arrBtnCheck = $(".el_check");
+  let arrBtnCheck = $(".el-task-checkbox");
 
   function checkBtn (i) {
-    arrBtnCheck.eq(i).on("click", function (e) {
-      //оправлять на сервер отмеченную таску
-    })
-  }
+      arrBtnCheck.eq(i).on("change", function (e) {
+        //оправлять на сервер отмеченную таску
+      })
+    }
+
   for (var i = 0; i < arrBtnCheck.length; i++) {
     checkBtn(i)
   }
