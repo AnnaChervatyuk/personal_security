@@ -170,13 +170,14 @@ if ($(".todo-list_wrapper")) {
   let arrBbtnOpenInstr = $(".el_how-do_btn");
   let arrTask = $(".el_task");
 
-  let arrBtnCheck = $(".el_check");
+  let arrBtnCheck = $(".el-task-checkbox");
 
   function checkBtn (i) {
-    arrBtnCheck.eq(i).on("click", function (e) {
-      //оправлять на сервер отмеченную таску
-    })
-  }
+      arrBtnCheck.eq(i).on("change", function (e) {
+        //оправлять на сервер отмеченную таску
+      })
+    }
+
   for (var i = 0; i < arrBtnCheck.length; i++) {
     checkBtn(i)
   }
@@ -187,6 +188,7 @@ if ($(".todo-list_wrapper")) {
       if (arrInstruction.eq(i).hasClass("hide")) {
         arrInstruction.eq(i).removeClass("hide");
         arrow.css("transform", "rotate(90deg)");
+        followScroll()
       } else {
         arrInstruction.eq(i).addClass("hide");
         arrow.css("transform", "rotate(0deg)");
@@ -243,21 +245,67 @@ if ($(".material")) {
 
   // ------ горизонтальный скролл начало -----
 
-  var distance = 250;
-  var arrScrollingBox = $(".material")
+function followScroll () {
+  if ($(".material").find($('.material-list')) && $(".material").find($('.material-list')).length > 0) {
+    var distance = 250;
+    var arrScrollingBox = $(".material")
+    var max = []
+    var min = []
 
-  function scrollBox (i) {
-    arrScrollingBox.eq(i).find($('button')).on('click', function() {
+    function scrollBox (i) {
       var el = arrScrollingBox.eq(i).find($('.material-list'))
-      el.stop().animate({
-         scrollLeft: '+=' + (distance * $(this).data('factor'))
-       })
-    })
-  }
+      var btnRight = arrScrollingBox.eq(i).find($('.arrow-right'))
+      var btnLeft = arrScrollingBox.eq(i).find($('.arrow-left'))
 
-   for (var i = 0; i < arrScrollingBox.length; i++) {
-     scrollBox(i)
+       max[i] = el[0].scrollWidth - el.width()
+
+       if (el[0].scrollWidth <=  el.width()) {
+         if (!btnRight.hasClass("hide")) {
+           btnRight.addClass("hide")
+         }
+       } else {
+          if (btnRight.hasClass("hide")) {
+            btnRight.removeClass("hide")
+          }
+       }
+
+       arrScrollingBox.eq(i).find($('button')).on('click', function() {
+
+        el.stop().animate({
+           scrollLeft: '+=' + (distance * $(this).data('factor'))
+         })
+
+         if ((el.scrollLeft() + (distance * $(this).data('factor'))) >=  max[i]) {
+           if (!btnRight.hasClass("hide")) {
+             btnRight.addClass("hide")
+           }
+         } else {
+            if (btnRight.hasClass("hide")) {
+              btnRight.removeClass("hide")
+            }
+         }
+
+         if ((el.scrollLeft() + (distance * $(this).data('factor'))) <=  0) {
+           if (!btnLeft.hasClass("hide")) {
+             btnLeft.addClass("hide")
+           }
+         } else {
+            if (btnLeft.hasClass("hide")) {
+              btnLeft.removeClass("hide")
+            }
+         }
+
+
+      })
+    }
+
+     for (var i = 0; i < arrScrollingBox.length; i++) {
+       scrollBox(i)
+     }
    }
+}
+
+  followScroll ()
 
   // ------ горизонтальный скролл конец -----
 
@@ -473,5 +521,6 @@ if ($(".material")) {
   $(window).on("resize", function (e) {
     windowWidth = $('body').innerWidth()
     onChangeWidth();
+    followScroll()
   })
 })

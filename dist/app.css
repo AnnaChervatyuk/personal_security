@@ -318,7 +318,7 @@ textarea::placeholder {
 
   .btn-arrow {
     display: block;
-    height: 332px;
+    height: 100%;
     width: 97px;
     position: absolute;
     z-index: 2;
@@ -417,7 +417,7 @@ textarea::placeholder {
   box-sizing: border-box;
 }
 .navigator .nav_logo {
-  width: 18px;
+  width: 26px;
   height: 20px;
 }
 .navigator .nav_list {
@@ -1477,7 +1477,6 @@ footer {
 }
 .todo-list_wrapper .materials .material .material-list .material-el {
   width: 262px;
-  margin-bottom: 40px;
 }
 .todo-list_wrapper .materials .material .material-list .material-el .img {
   width: 100%;
