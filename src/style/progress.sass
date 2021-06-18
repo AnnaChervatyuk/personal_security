@@ -1,9 +1,11 @@
+
 .progress
   border: $border
   border-radius: 3px
   margin: 0
   margin-top: 20px
   padding: 20px
+
   .progress_inner
     display: flex
     flex-direction: column
@@ -30,11 +32,12 @@
       .progress_descr
         @include font(14px, 19px)
         margin: 5px 0
+
   .progress_skills
     display: flex
     flex-direction: row
     flex-wrap: nowrap
-    justify-content: space-around
+    justify-content: center
     @include font(23px, 30px)
     .skill-title
       @include font(12px, 16px)
@@ -58,6 +61,8 @@
       width: 80px
       position: relative
       height: fit-content
+      width: -moz-fit-content
+      margin: 0 10px
       &:hover
         cursor: pointer
         .link
@@ -98,6 +103,9 @@
     .progress_inner
       .btn
         width: fit-content
+        width: -moz-fit-content
+  .progress-main
+    align-items: center
 
 @media (min-width: 768px)
   .progress
@@ -108,10 +116,12 @@
       order: 1
       width: 50%
       margin-right: 30px
+      h2
+        margin: 0
       .btn
         display: inline
         margin-right: auto
-        margin-top: 30px
+        margin-top: 0
       .progress_about
         margin-bottom: 30px
     .progress_skills

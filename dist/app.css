@@ -54,6 +54,10 @@ a:hover {
   transition: 0.1s ease-out;
 }
 
+.btn {
+  display: inline-block;
+}
+
 a.btn,
 .btn {
   background-color: #17171C;
@@ -78,6 +82,7 @@ a.btn:hover,
   color: #2E2E38;
   border: 1px solid #C7C7CC;
   width: fit-content;
+  width: -moz-fit-content;
 }
 .btn.btn-white:hover, .btn.btn-white:focus {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -690,7 +695,7 @@ footer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: center;
   font-size: 23px;
   line-height: 30px;
 }
@@ -720,6 +725,8 @@ footer {
   width: 80px;
   position: relative;
   height: fit-content;
+  width: -moz-fit-content;
+  margin: 0 10px;
 }
 .progress .progress_skills .skill_wrapper:hover {
   cursor: pointer;
@@ -772,6 +779,11 @@ footer {
 @media (min-width: 640px) {
   .progress .progress_inner .btn {
     width: fit-content;
+    width: -moz-fit-content;
+  }
+
+  .progress-main {
+    align-items: center;
   }
 }
 @media (min-width: 768px) {
@@ -785,10 +797,13 @@ footer {
     width: 50%;
     margin-right: 30px;
   }
+  .progress .progress_inner h2 {
+    margin: 0;
+  }
   .progress .progress_inner .btn {
     display: inline;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 0;
   }
   .progress .progress_inner .progress_about {
     margin-bottom: 30px;
@@ -998,6 +1013,7 @@ footer {
 }
 .content-course-ready .content_inner .btn-start {
   width: fit-content;
+  width: -moz-fit-content;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1049,6 +1065,7 @@ footer {
 }
 .content-course .test_wrapper .test_inner .btn-next {
   width: fit-content;
+  width: -moz-fit-content;
 }
 .content-course .test_wrapper .test_inner .progress_test {
   display: flex;
@@ -1256,6 +1273,9 @@ footer {
   margin-top: 40px;
   position: relative;
 }
+.materials .material h5 {
+  margin: 10px 0;
+}
 .materials .material .title-material {
   width: 100%;
 }
@@ -1368,9 +1388,10 @@ footer {
   margin-bottom: 10px;
 }
 
-.materials-theory .material .title-material {
+.materials-theory .title-material {
   border-bottom: 2px solid #2E2E38;
   padding-bottom: 30px;
+  margin-top: 40px;
 }
 
 .article > .related_lessons > .material-list > .material-el .img,
@@ -1707,6 +1728,7 @@ footer {
 
 .article-exercise .btn-ready {
   width: fit-content;
+  width: -moz-fit-content;
   margin-bottom: 10px;
 }
 .article-exercise .article_text {
@@ -1839,6 +1861,7 @@ footer {
 .block_return a {
   display: flex;
   width: fit-content;
+  width: -moz-fit-content;
 }
 .block_return a .icons.icons--return {
   margin-right: 10px;
@@ -2232,6 +2255,7 @@ footer {
   border-radius: 20px;
   padding: 8px 15px;
   width: fit-content;
+  width: -moz-fit-content;
 }
 .container-search .search-toggle__wrapper input[type=radio] {
   display: none;
@@ -2532,6 +2556,7 @@ footer {
   line-height: 24px;
   padding: 5px 8px;
   width: fit-content;
+  width: -moz-fit-content;
   margin-bottom: 24px;
 }
 .content-course .test_wrapper .test_inner .block_question .question-title {
@@ -2787,6 +2812,7 @@ footer {
 @media (min-width: 768px) {
   .content-my-course .section-toggle__wrapper {
     width: fit-content;
+    width: -moz-fit-content;
   }
   .content-my-course .section-theory .progress_inner {
     width: 100%;
@@ -2820,6 +2846,7 @@ footer {
 }
 .container-error .content_inner .btns-error .btn {
   width: fit-content;
+  width: -moz-fit-content;
   margin-bottom: 0;
   margin-right: 10px;
   margin-left: 10px;
@@ -2853,6 +2880,7 @@ footer {
   border-radius: 4px;
   padding: 30px;
   width: fit-content;
+  width: -moz-fit-content;
 }
 .container-login .content_inner img {
   width: 100%;

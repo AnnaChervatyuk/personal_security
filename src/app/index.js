@@ -158,6 +158,31 @@ $(document).ready(function() {
 
   //----переход между вопросами в тесте  конец--------
 
+  // ----добавлять фон если не загружена картинка начало---
+
+
+  if ($(".material-el")) {
+    let materialsEl = $(".material-el")
+
+    function checkImg(i) {
+      let blocksImg = materialsEl.eq(i).find($(".img"))
+      for (var j = 0; j < blocksImg.length; j++) {
+        if (blocksImg.eq(j).find("img").length > 0) {
+          // console.log(  blocksImg.eq(j).find("img"))
+          blocksImg.eq(j).css("background", "transparent")
+          console.log("1")
+        } else {
+          console.log("2")
+        }
+      }
+
+    }
+
+    for (var i = 0; i < materialsEl.length; i++) {
+      checkImg(i)
+    }
+  }
+  // ----добавлять фон если не загружена картинка конец ---
 
 // ------ туду начало-------
 if ($(".todo-list_wrapper")) {

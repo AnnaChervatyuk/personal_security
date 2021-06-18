@@ -32,6 +32,9 @@ a
     -webkit-transition: 0.1s ease-out
     transition: 0.1s ease-out
 
+.btn
+  display: inline-block
+
 a.btn,
 .btn
   @include btn()
@@ -47,6 +50,7 @@ a.btn,
   color: $black-70
   border: 1px solid $grey-60
   width: fit-content
+  width: -moz-fit-content
   &:hover,
   &:focus
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1)
