@@ -25,6 +25,7 @@ body {
   color: #2E2E38;
   overflow-x: auto;
   margin: 0;
+  position: relative;
 }
 
 img {
@@ -36,6 +37,7 @@ img {
   padding: 0;
   box-sizing: border-box;
   min-height: calc(100vh - 140px);
+  position: relative;
 }
 
 .disclaimer {
@@ -100,9 +102,10 @@ a.btn:hover,
   width: 100%;
 }
 .link:hover {
-  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
+  cursor: pointer;
 }
 
 .link_mail,
@@ -721,6 +724,9 @@ footer {
   align-items: center;
   box-sizing: border-box;
 }
+.progress .progress_skills .skill .percent {
+  margin-left: 5px;
+}
 .progress .progress_skills .skill_wrapper {
   width: 80px;
   position: relative;
@@ -1134,6 +1140,7 @@ footer {
   .content-safety .descr .descr-img,
 .content-course .descr .descr-img {
     order: 3;
+    min-width: 320px;
   }
 
   .content-course .test_wrapper {
@@ -1254,6 +1261,9 @@ footer {
   .content-theory .skills .skill:last-child {
     margin-right: 0;
   }
+  .content-theory .skills .skill .text {
+    margin-bottom: 30px;
+  }
   .content-theory .skills .skill .amount {
     margin-top: auto;
   }
@@ -1268,6 +1278,9 @@ footer {
     margin-bottom: 80px;
   }
 }
+.materials {
+  position: relative;
+}
 .materials .material {
   margin: 0;
   margin-top: 40px;
@@ -1275,6 +1288,7 @@ footer {
 }
 .materials .material h5 {
   margin: 10px 0;
+  display: inline-block;
 }
 .materials .material .title-material {
   width: 100%;
@@ -1315,17 +1329,19 @@ footer {
   margin-top: 10px;
   align-items: center;
 }
-.article > .related_lessons > .material-list .material-el .descr .in-coaching,
-.materials > .material > .material-list .material-el .descr .in-coaching {
-  z-index: 3;
+.article > .related_lessons > .material-list .material-el .in-coaching,
+.materials > .material > .material-list .material-el .in-coaching {
+  z-index: 344444;
   position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }
-.article > .related_lessons > .material-list .material-el .descr .in-coaching svg,
-.materials > .material > .material-list .material-el .descr .in-coaching svg {
+.article > .related_lessons > .material-list .material-el .in-coaching svg,
+.materials > .material > .material-list .material-el .in-coaching svg {
   fill: #787882;
 }
-.article > .related_lessons > .material-list .material-el .descr .in-coaching:hover,
-.materials > .material > .material-list .material-el .descr .in-coaching:hover {
+.article > .related_lessons > .material-list .material-el .in-coaching:hover,
+.materials > .material > .material-list .material-el .in-coaching:hover {
   cursor: pointer;
 }
 .article > .related_lessons > .material-list .material-el .time,
@@ -1334,6 +1350,7 @@ footer {
   line-height: 13px;
   margin: 0;
   margin-right: 10px;
+  display: inline-block;
 }
 .article > .related_lessons > .material-list .material-el-digital > .img::not(img),
 .materials > .material > .material-list .material-el-digital > .img::not(img) {
@@ -1407,7 +1424,6 @@ footer {
   width: 100%;
   height: 100%;
   display: block;
-  border-radius: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1416,6 +1432,7 @@ footer {
 }
 
 .container-safety .materials-safety.materials .material .material-list,
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
@@ -1426,6 +1443,7 @@ footer {
   grid-auto-rows: 1fr;
 }
 .container-safety .materials-safety.materials .material .material-list .material-el,
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el,
 .container-search .materials-safety.materials .material .material-list .material-el,
 .content-course .materials-threats.materials .material .material-list .material-el,
 .content-course-ready .materials-threats.materials .material .material-list .material-el,
@@ -1434,6 +1452,7 @@ footer {
   margin-bottom: 40px;
 }
 .container-safety .materials-safety.materials .material .material-list .material-el .img,
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el .img,
 .container-search .materials-safety.materials .material .material-list .material-el .img,
 .content-course .materials-threats.materials .material .material-list .material-el .img,
 .content-course-ready .materials-threats.materials .material .material-list .material-el .img,
@@ -1503,6 +1522,10 @@ footer {
   width: 100%;
 }
 
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats .material .material-list .material-el {
+  width: 262px !important;
+}
+
 @media (min-width: 640px) {
   .content-situation .materials > .material > .material-list {
     grid-template-columns: repeat(2, 1fr);
@@ -1522,20 +1545,25 @@ footer {
     overflow-x: hidden;
   }
 
-  .materials.materials-safety > .material .material-list {
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
+.materials.materials-safety > .material .material-list,
+.materials.materials-popup-threats > .material .material-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     overflow: hidden;
     margin-top: 0;
   }
-  .materials.materials-safety > .material .material-list .material-el {
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el,
+.materials.materials-safety > .material .material-list .material-el,
+.materials.materials-popup-threats > .material .material-list .material-el {
     width: min-content;
     margin: 20px 15px;
   }
 
   .container-safety .materials-safety.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
 .container-article .related_lessons .material-list {
@@ -1543,6 +1571,7 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el,
 .container-search .materials-safety.materials .material .material-list .material-el,
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el,
 .content-course .materials-threats.materials .material .material-list .material-el,
 .content-course-ready .materials-threats.materials .material .material-list .material-el,
 .container-article .related_lessons .material-list .material-el {
@@ -1551,6 +1580,7 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(even),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(even),
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .container-article .related_lessons .material-list .material-el:nth-child(even) {
@@ -1558,6 +1588,7 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(odd),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(odd),
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .container-article .related_lessons .material-list .material-el:nth-child(odd) {
@@ -1567,6 +1598,7 @@ footer {
 @media (min-width: 1000px) {
   .container-safety .materials-safety.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
 .container-article .related_lessons .material-list {
@@ -1574,6 +1606,7 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(even),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(even),
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .container-article .related_lessons .material-list .material-el:nth-child(even) {
@@ -1581,6 +1614,7 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(odd),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(odd),
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .container-article .related_lessons .material-list .material-el:nth-child(odd) {
@@ -1588,6 +1622,7 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(3n),
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(3n),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(3n),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(3n),
 .container-article .related_lessons .material-list .material-el:nth-child(3n) {
@@ -1595,6 +1630,7 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(3n+1),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(3n+1),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(3n+1),
 .container-article .related_lessons .material-list .material-el:nth-child(3n+1) {
@@ -1644,6 +1680,11 @@ footer {
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(4n+1),
 .container-article .related_lessons .material-list .material-el:nth-child(4n+1) {
     margin-left: 0;
+  }
+
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats {
+    max-width: 900px;
+    margin: 0 auto;
   }
 }
 .article {
@@ -1801,6 +1842,7 @@ footer {
 }
 .article-situation_header .descr-img {
   order: 1;
+  min-width: 320px;
 }
 .article-situation_header .header_inner {
   order: 2;
@@ -1941,6 +1983,9 @@ footer {
 .todo-list_wrapper .todo-list .todo-el .todo_el_inner {
   display: flex;
   flex-direction: column;
+}
+.todo-list_wrapper .todo-list .todo-el .marker {
+  display: none;
 }
 .todo-list_wrapper .todo-list .todo-el .el_task {
   display: flex;
@@ -2141,8 +2186,16 @@ footer {
     align-items: center;
     justify-content: space-between;
   }
+  .todo-list_wrapper .todo-list .todo-el .marker {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8D8D94;
+    min-width: 25px;
+  }
   .todo-list_wrapper .todo-list .todo-el .el_task {
     align-items: center;
+    flex-grow: 1;
   }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
     flex-direction: row;
@@ -2634,8 +2687,7 @@ footer {
     max-width: 420px;
   }
 }
-.notification,
-.popup {
+.notification {
   background: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   padding: 10px 15px;
@@ -2649,23 +2701,6 @@ footer {
   position: fixed;
   left: calc(100% / 2 - 100px);
   bottom: 50px;
-}
-
-.popup {
-  position: absolute;
-  top: 28px;
-  left: -13px;
-  width: max-content;
-}
-.popup .arrow {
-  position: absolute;
-  left: 15px;
-  top: -5px;
-  width: 0;
-  height: 0;
-  border-top: 10px solid rgba(0, 0, 0, 0.9);
-  border-right: 10px solid rgba(0, 0, 0, 0.9);
-  transform: rotate(-45deg);
 }
 
 .content-my-course .section-theory.progress {
@@ -2932,5 +2967,163 @@ footer {
   .container-login .content .content_inner .mail-address .email__input {
     font-size: 16px;
     line-height: 22px;
+  }
+}
+.popup {
+  position: absolute;
+  z-index: 555555;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  width: max-content;
+  display: none;
+  top: 0;
+  left: 0;
+}
+.popup .arrow {
+  position: absolute;
+  left: 15px;
+  top: -5px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid rgba(0, 0, 0, 0.9);
+  border-right: 10px solid rgba(0, 0, 0, 0.9);
+  transform: rotate(-45deg);
+}
+
+.progress_popup_wrapper,
+.threat_popup_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+}
+.progress_popup_wrapper .progress_popup_inner,
+.progress_popup_wrapper .threat_popup_inner,
+.threat_popup_wrapper .progress_popup_inner,
+.threat_popup_wrapper .threat_popup_inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.progress_popup_wrapper .progress_popup_inner .progress,
+.progress_popup_wrapper .threat_popup_inner .progress,
+.threat_popup_wrapper .progress_popup_inner .progress,
+.threat_popup_wrapper .threat_popup_inner .progress {
+  order: 2;
+  margin-top: 100px;
+  border: none;
+  justify-content: flex-end;
+  padding: 0;
+}
+.progress_popup_wrapper .progress_popup_inner .progress .progress_skills,
+.progress_popup_wrapper .threat_popup_inner .progress .progress_skills,
+.threat_popup_wrapper .progress_popup_inner .progress .progress_skills,
+.threat_popup_wrapper .threat_popup_inner .progress .progress_skills {
+  width: auto;
+}
+.progress_popup_wrapper .progress_popup_inner .progress .skill_wrapper,
+.progress_popup_wrapper .threat_popup_inner .progress .skill_wrapper,
+.threat_popup_wrapper .progress_popup_inner .progress .skill_wrapper,
+.threat_popup_wrapper .threat_popup_inner .progress .skill_wrapper {
+  opacity: 0.4;
+}
+.progress_popup_wrapper .progress_popup_inner .btn-close-top,
+.progress_popup_wrapper .threat_popup_inner .btn-close-top,
+.threat_popup_wrapper .progress_popup_inner .btn-close-top,
+.threat_popup_wrapper .threat_popup_inner .btn-close-top {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  order: 1;
+}
+.progress_popup_wrapper .progress_popup_inner .btn-close-top:hover,
+.progress_popup_wrapper .threat_popup_inner .btn-close-top:hover,
+.threat_popup_wrapper .progress_popup_inner .btn-close-top:hover,
+.threat_popup_wrapper .threat_popup_inner .btn-close-top:hover {
+  cursor: pointer;
+}
+.progress_popup_wrapper .progress_popup_inner h2,
+.progress_popup_wrapper .threat_popup_inner h2,
+.threat_popup_wrapper .progress_popup_inner h2,
+.threat_popup_wrapper .threat_popup_inner h2 {
+  text-align: center;
+  font-size: 32px;
+  line-height: 36px;
+  max-width: 500px;
+  margin: 10% auto 20px;
+}
+.progress_popup_wrapper .progress_popup_inner .descr,
+.progress_popup_wrapper .threat_popup_inner .descr,
+.threat_popup_wrapper .progress_popup_inner .descr,
+.threat_popup_wrapper .threat_popup_inner .descr {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+.progress_popup_wrapper .progress_popup_inner .btns,
+.progress_popup_wrapper .threat_popup_inner .btns,
+.threat_popup_wrapper .progress_popup_inner .btns,
+.threat_popup_wrapper .threat_popup_inner .btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.progress_popup_wrapper .progress_popup_inner .btns .btn,
+.progress_popup_wrapper .threat_popup_inner .btns .btn,
+.threat_popup_wrapper .progress_popup_inner .btns .btn,
+.threat_popup_wrapper .threat_popup_inner .btns .btn {
+  margin: 5px 6px;
+  padding: 10px 27px;
+  width: auto;
+}
+
+.threat_popup_wrapper {
+  min-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
+}
+.threat_popup_wrapper .threat_popup_inner h2 {
+  margin-top: 0;
+}
+.threat_popup_wrapper .threat_popup_inner .img_popup {
+  min-width: 320px;
+  margin: 0;
+  width: 100%;
+}
+.threat_popup_wrapper .threat_popup_inner .img_popup img {
+  height: 200px;
+  width: auto;
+  margin: 80px auto 40px;
+  display: flex;
+}
+
+@media (min-width: 640px) {
+  .progress_popup_wrapper .progress .progress_skills .skill {
+    width: 180px;
+    height: 180px;
+    border: 9px solid transparent;
+    display: flex;
+    flex-direction: column;
+  }
+  .progress_popup_wrapper .progress .progress_skills .skill .percent {
+    font-size: 52px;
+    line-height: 52px;
+  }
+  .progress_popup_wrapper .progress .progress_skills .skill .skill-title {
+    width: 95px;
+    margin-top: 0;
+  }
+  .progress_popup_wrapper .progress .progress_skills .skill_wrapper {
+    width: 180px;
   }
 }

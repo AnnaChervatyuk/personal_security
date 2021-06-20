@@ -825,17 +825,17 @@
                     <div class="skill-digital_wrapper skill_wrapper">
                      <div class="skill skill-digital" id="skill-digital"><div class="percent"><span id="progress_skill-digital"></span>%</div></div>
                      <div class="skill-title">Цифровая безопасность</div>
-                     <a href="1.html" class="link"></a>
+                     <div class="link" onClick="openPopupProgress('digital')"></div>
                    </div>
                    <div class="skill-personal_wrapper skill_wrapper">
                      <div class="skill skill-personal" id="skill-personal"><div class="percent"><span id="progress_skill-personal"></span>%</div></div>
                      <div class="skill-title">Личная безопасность</div>
-                     <a href="/" class="link"></a>
+                     <div class="link" onClick="openPopupProgress('personal')"></div>
                    </div>
                    <div class="skill-financial_wrapper skill_wrapper">
                      <div class="skill skill-financial" id="skill-financial"><div class="percent"><span id="progress_skill-financial"></span>%</div></div>
                      <div class="skill-title">Финансовая безопасность</div>
-                     <a href="/" class="link"></a>
+                     <div class="link" onClick="openPopupProgress('financial')"></div>
                    </div>
                 </div>
               </div>
@@ -851,27 +851,27 @@
                     <div class="btn-arrow btn-arrow-left"><button class="arrow-left hide" data-factor="-1"></button></div>
                     <div class="btn-arrow btn-arrow-right"><button class="arrow-right hide" data-factor="1"></button></div>
                     <div class="material-list">
-                      <div class="material-el">
+                      <div class="material-el" id="threat-16">
                         <div class="img">
                           <img src="./images/img_example/image_5.png" />
                         </div>
                         <h5>Настройки конфиденциальности в соцсетях</h5>
-                        <a href="exercise.html" class="link"></a>
+                         <div class="link" onClick="openPopupThreats(this)"></div>
                       </div>
-                      <div class="material-el">
+                      <div class="material-el" id="threat-17">
                         <div class="img">
                           <img src="./images/img_example/image_6.png" />
                         </div>
                         <h5>Слежка</h5>
-                        <a href="exercise.html" class="link"></a>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
                       </div>
-                      <div class="material-el">
+                      <div class="material-el" id="threat-18">
                         <div class="img">
                         </div>
                         <h5>Лимиты в мобильных приложениях</h5>
-                        <a href="exercise.html" class="link"></a>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
                       </div>
-                      <div class="material-el material-last">
+                      <div class="material-el material-last" >
                         <h5>Все</h5>
                         <div class="quantity_materials"></div>
                         <div class="arrow"></div>
@@ -889,26 +889,26 @@
                     <div class="btn-arrow btn-arrow-left"><button class="arrow-left hide" data-factor="-1"></button></div>
                     <div class="btn-arrow btn-arrow-right"><button class="arrow-right hide" data-factor="1"></button></div>
                     <div class="material-list">
-                      <div class="material-el">
+                      <div class="material-el" id="threat-19">
                         <div class="img">
                           <img src="./images/img_example/image_5.png" />
                         </div>
                         <h5>Кража аккаунтов</h5>
-                        <a href="exercise.html" class="link"></a>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
                       </div>
-                      <div class="material-el">
+                      <div class="material-el" id="threat-20">
                         <div class="img">
                           <img src="./images/img_example/image_6.png" />
                         </div>
                         <h5>Кража аккаунтов кража аккаунтов</h5>
-                        <a href="exercise.html" class="link"></a>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
                       </div>
-                      <div class="material-el">
+                      <div class="material-el" id="threat-21">
                         <div class="img">
                           <img src="./images/img_example/image_7.png" />
                         </div>
                         <h5>Кража аккаунтов кража аккаунтов</h5>
-                        <a href="exercise.html" class="link"></a>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
                       </div>
                       <div class="material-el material-last">
                         <h5>Всe</h5>
@@ -925,8 +925,85 @@
             </div>
 
           </div>
+
+          <div class="progress_popup_wrapper hide" id="progress_popup">
+            <div class="progress_popup_inner">
+              <div class="btn-close-top" id="btn-close-top">
+                <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+              <h2>Ваш прогресс в области <span class="type_progress"></span> безопасности</h2>
+              <div class="descr">Из чего складывается прогресс, описание как считаем что это и т.п. кража аккаунтов Кража аккаунтов кража аккаунтов</div>
+              <div class="btns">
+                <a class="btn link_btn" href="" id="btn-go-theory">Перейти к тренировкам</a>
+                <div class="btn btn-white btn-close" id='btn-close'>Закрыть</div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="threat_popup_wrapper hide" id="threat_popup">
+            <div class="threat_popup_inner">
+              <div class="btn-close-top" id="btn-close-threat-top">
+                <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+              <div class="img_popup">
+                <img src="" />
+              </div>
+              <h2></h2>
+              <div class="descr"></div>
+              <div class="btns">
+                <div class="btn btn-close" id='btn-close-threat'>Ясно</div>
+              </div>
+              <div class="materials materials-popup-threats">
+                <div class="material">
+                  <div class="material-list">
+
+                    <div class="material-el">
+                      <div class="img"></div>
+                      <h5>Трехэтапный вход</h5>
+                      <div class="time">14 мин</div>
+                      <a href="exercise.html" class="link"></a>
+                    </div>
+                    <div class="material-el">
+                      <div class="img">
+                        <img src="./images/img_example/image_1.png" />
+                      </div>
+                      <h5>Двухэтапный вход Двухэтапный вход</h5>
+                      <div class="time">14 мин</div>
+                      <a href="exercise.html" class="link"></a>
+                    </div>
+                    <div class="material-el">
+                      <div class="img"></div>
+                      <h5>Четырехэтапный вход</h5>
+                      <div class="time">14 мин</div>
+                      <a href="exercise.html" class="link"></a>
+                    </div>
+                    <div class="material-el">
+                      <div class="img"></div>
+                      <h5>Пятиэтапный вход</h5>
+                      <div class="time">14 мин</div>
+                      <a href="exercise.html" class="link"></a>
+                    </div>
+                    <div class="material-el">
+                      <div class="img"></div>
+                      <h5>Шестиэтапный вход</h5>
+                      <div class="time">14 мин</div>
+                      <a href="exercise.html" class="link"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </section>
       </div>
+
 
 
       <footer>
@@ -942,6 +1019,43 @@
       </footer>
 
       <script>
+      //----- открыть попап с угрозами начало ----
+
+      let btnCloseThreats = $("#btn-close-threat")
+      let btnCloseTopThreats = $("#btn-close-threat-top")
+      let popupThreats = $("#threat_popup")
+
+      function openPopupThreats (elem) {
+        popupThreats.removeClass("hide")
+
+        var materialID = elem.parentNode.id;
+        var materialEl = $('#'+materialID)
+        var title = materialEl.find($("h5")).text()
+        var imgSrc = materialEl.find($("img")).attr('src')
+        var descr = "описание угрозы описание угрозыописание угрозыописание угрозыописание угрозы описание угрозыописаниеописание угрозы описание угрозы описание угрозы"
+        popupThreats.find($("h2")).text(title)
+        if (imgSrc) {
+          popupThreats.find($("img")).attr('src',imgSrc)
+        }
+        popupThreats.find($(".descr")).text(descr)
+        $("body").css("overflow-y", "hidden")
+      }
+
+
+      btnCloseThreats.on("click", function (event) {
+        popupThreats.addClass("hide")
+        $("body").css("overflow-y", "auto")
+
+      })
+
+      btnCloseTopThreats.on("click", function (event) {
+        popupThreats.addClass("hide")
+        $("body").css("overflow-y", "auto")
+
+      })
+      //----- открыть попап с угрозами начало ----
+
+
         function showArticle (props) {
           switch (props) {
             case "theory":
@@ -983,6 +1097,60 @@
 
         let quantityThreats = 133
         $(".quantity_threats").text(quantityThreats)
+
+        //----- открыть попап с прогрессом начало ----
+        let btnClose = $("#btn-close")
+        let btnCloseTop = $("#btn-close-top")
+        let popupProgress = $("#progress_popup")
+
+        function openPopupProgress (type) {
+            popupProgress.removeClass("hide")
+            $(".skill_wrapper").css("opacity", "0.4")
+
+            if ($('.progress_popup_inner').find(".progress").length == 0) {
+              $("#progress_course-section").find(".progress").clone().prependTo('.progress_popup_inner');
+            }
+
+            switch (type) {
+              case 'digital':
+                $(".type_progress").text("цифровой")
+                $("#btn-go-theory").attr("href", "/theory/cifrovaya-bezopasnost/")
+                $(".skill-digital_wrapper").css("opacity", "1")
+                $(".descr").text("текст для цифровой безопасности")
+                break;
+              case 'personal':
+                $(".type_progress").text("личной")
+                $("#btn-go-theory").attr("href", "/theory/lichnaya-bezopasnost/")
+                $(".skill-personal_wrapper").css("opacity", "1")
+                $(".descr").text("текст для личной безопасности")
+                break;
+              case 'financial':
+                $(".type_progress").text("финансовой")
+                $("#btn-go-theory").attr("href", "/theory/finansovaya-bezopasnost/")
+                $(".skill-financial_wrapper").css("opacity", "1")
+                $(".descr").text("текст для финансовой безопасности")
+                break;
+            }
+            $("body").css("overflow-y", "hidden")
+        }
+
+        function closePopup () {
+            popupProgress.addClass("hide")
+            $("body").css("overflow-y", "auto")
+        }
+
+        btnClose.on("click", function (event) {
+          closePopup()
+        })
+
+        btnCloseTop.on("click", function (event) {
+          closePopup()
+        })
+
+        //----- открыть попап с прогрессом конец ----
+
+
+
 
 
 

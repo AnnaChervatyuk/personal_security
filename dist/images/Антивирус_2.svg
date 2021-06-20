@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430.15 400.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #000;
+        stroke-width: 5px;
+      }
+
+      .cls-2 {
+        fill: #2c29c2;
+      }
+
+      .cls-3 {
+        fill: #13b880;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="Слой_1" data-name="Слой 1">
+    <rect class="cls-1" x="294.82" y="258.83" width="320.39" height="237.55" transform="translate(617.72 586.1) rotate(-180)"/>
+    <polygon class="cls-1" points="426.61 398.1 323.3 326.56 323.3 89.8 426.61 151.49 426.61 398.1"/>
+    <polygon class="cls-2" points="211.21 261.7 211.21 287.13 275.19 287.13 275.19 309.1 120.5 309.1 120.5 287.13 185.22 287.13 185.22 261.7 43.9 261.7 43.9 105.65 356 105.65 356 261.7 211.21 261.7"/>
+    <rect class="cls-3" x="62.75" y="122.21" width="275.89" height="122.38"/>
+    <rect class="cls-2" x="64.08" y="318.78" width="274.07" height="33.29"/>
+    <rect class="cls-1" x="368.1" y="321.21" width="351.87" height="246" transform="translate(795.76 719.31) rotate(-180)"/>
+    <polygon class="cls-1" points="77.28 398.1 2.83 326.74 2.83 90.56 77.28 152.1 77.28 398.1"/>
+    <line class="cls-1" x1="47.59" y1="2.5" x2="367.73" y2="2.5"/>
+    <polyline class="cls-1" points="3.06 89.15 47.59 2.5 78.49 154.31"/>
+    <polyline class="cls-1" points="324.76 89.15 369.29 2.5 427.25 151.69"/>
+  </g>
+</svg>

@@ -49,6 +49,8 @@
       .todo_el_inner
         display: flex
         flex-direction: column
+      .marker
+        display: none
       .el_task
         display: flex
         flex-direction: row
@@ -236,8 +238,14 @@
           flex-direction: row
           align-items: center
           justify-content: space-between
+        .marker
+          display: block
+          @include font(12px, 16px)
+          color: $grey-100
+          min-width: 25px
         .el_task
           align-items: center
+          flex-grow: 1
         .instruction
           .instruction-top
             .instruction-top_inner

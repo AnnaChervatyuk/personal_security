@@ -1,10 +1,12 @@
 .materials
+  position: relative
   .material
     margin: 0
     margin-top: 40px
     position: relative
     h5
       margin: 10px 0
+      display: inline-block
     .title-material
       width: 100%
 
@@ -34,17 +36,20 @@
         display: flex
         margin-top: 10px
         align-items: center
-        .in-coaching
-          z-index: 3
-          position: relative
-          svg
-            fill: $black-50
-        .in-coaching:hover
-          cursor: pointer
+      .in-coaching
+        z-index: 344444
+        position: relative
+        display: inline-block
+        vertical-align: middle
+        svg
+          fill: $black-50
+      .in-coaching:hover
+        cursor: pointer
       .time
         @include font(11px, 13px)
         margin: 0
         margin-right: 10px
+        display: inline-block
 
     .material-el-digital > .img::not(img)
       background: $font-color-digital
@@ -102,7 +107,7 @@
         width: 100%
         height: 100%
         display: block
-        border-radius: 20px
+        // border-radius: 20px
         position: absolute
         top: 50%
         left: 50%
@@ -110,6 +115,7 @@
         object-fit: cover
 
 .container-safety .materials-safety.materials .material,
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material,
 .container-search .materials-safety.materials .material,
 .content-course .materials-threats.materials .material,
 .content-course-ready .materials-threats.materials .material,
@@ -181,6 +187,10 @@
       .img
         width: 100%
 
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats .material .material-list
+    .material-el
+      width: 262px !important
+
 @media (min-width: 640px)
   .content-situation
     .materials > .material > .material-list
@@ -196,7 +206,9 @@
   .materials > .material > .material-list
       overflow-x: hidden
 
-  .materials.materials-safety > .material
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material,
+  .materials.materials-safety > .material,
+  .materials.materials-popup-threats > .material
       .material-list
         display: flex
         flex-direction: row
@@ -207,9 +219,9 @@
           width: min-content
           margin: 20px 15px
 
-
   .container-safety .materials-safety.materials .material .material-list,
   .container-search .materials-safety.materials .material .material-list,
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
   .content-course .materials-threats.materials .material .material-list,
   .content-course-ready .materials-threats.materials .material .material-list,
   .container-article .related_lessons .material-list
@@ -226,6 +238,7 @@
 @media (min-width: 1000px)
   .container-safety .materials-safety.materials .material .material-list,
   .container-search .materials-safety.materials .material .material-list,
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
   .content-course .materials-threats.materials .material .material-list,
   .content-course-ready .materials-threats.materials .material .material-list,
   .container-article .related_lessons .material-list
@@ -258,3 +271,7 @@
         margin-right: 0
       &:nth-child(4n+1)
         margin-left: 0
+
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats
+    max-width: 900px
+    margin: 0 auto

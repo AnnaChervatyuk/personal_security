@@ -166,13 +166,15 @@ $(document).ready(function() {
 
     function checkImg(i) {
       let blocksImg = materialsEl.eq(i).find($(".img"))
+
       for (var j = 0; j < blocksImg.length; j++) {
         if (blocksImg.eq(j).find("img").length > 0) {
-          // console.log(  blocksImg.eq(j).find("img"))
           blocksImg.eq(j).css("background", "transparent")
-          console.log("1")
-        } else {
-          console.log("2")
+          var srcName = blocksImg.eq(j).find("img")[0].getAttribute('src');
+          var srcNameSplit = srcName.split(".");
+          if (srcNameSplit[srcNameSplit.length-1] == "svg") (
+            blocksImg.eq(j).find("img").css("height", "auto")
+          )
         }
       }
 
@@ -198,6 +200,8 @@ if ($(".todo-list_wrapper")) {
 
   let arrBtnCheck = $(".el-task-checkbox");
 
+  let arrMarker = $(".marker")
+
   function checkBtn (i) {
       arrBtnCheck.eq(i).on("change", function (e) {
         //оправлять на сервер отмеченную таску
@@ -206,6 +210,7 @@ if ($(".todo-list_wrapper")) {
 
   for (var i = 0; i < arrBtnCheck.length; i++) {
     checkBtn(i)
+    arrMarker.eq(i).text(i+1)
   }
 
   function toggleInstrauctionVisibility (i) {
@@ -339,23 +344,35 @@ function followScroll () {
 
 
   // ------ ховер на иконку in-coaching начало -----
-  let arrIconsCoaching = $(".in-coaching") // весь список иконок
-  let popup = $("#popup")
+  if ($(".in-coaching")) {
+    let arrIconsCoaching = $(".in-coaching") // весь список иконок
+    var popup = $('<div class="popup">Это занятие включено в вашу тренировку<div class="arrow"></div></div>')
+    popup.appendTo($("body"))
 
-  popup.find($('.text')).text("Это занятие включено в вашу тренировку")
-
-  function onHoverIcon (i) {
-    arrIconsCoaching.eq(i).on("mouseenter", function (e) {
-      popup.appendTo(arrIconsCoaching.eq(i))
-      popup.css("display", "block")
+    function onHoverIcon (i) {
+      arrIconsCoaching.eq(i).on("mouseenter", function (e) {
+        var left = arrIconsCoaching.eq(i).offset().left
+        popup.css("display", "block")
+        var popupWidth = popup.width()
+        var bodyWidth = $("body").width()
+        var shift = bodyWidth - (left + 15 + popupWidth)
+        if (shift < 0)  {
+          left += shift
+          popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+        }
+        popup.css("top", (arrIconsCoaching.eq(i).offset().top + 35))
+        popup.css("left", (left - 15))
       }).on('mouseleave',function(){
-      popup.css("display", "none")
-    })
+        popup.css("display", "none")
+        popup.find($(".arrow")).css("left", 15)
+      })
+    }
+
+    for (var i = 0; i < arrIconsCoaching.length; i++) {
+      onHoverIcon(i)
+    }
   }
 
-  for (var i = 0; i < arrIconsCoaching.length; i++) {
-    onHoverIcon(i)
-  }
 
 
   // ------ ховер на иконку in-coaching конец -----
@@ -521,6 +538,8 @@ function followScroll () {
     let skills  = $(".skill"),
         skillTitle = $(".skill-title"),
         skillWrapper = $(".skill_wrapper")
+
+
     if($('body').innerWidth() >= 1200){
         for (var i = 0; i < skills.length; i++){
           skillTitle.eq(i).appendTo(skills.eq(i))
@@ -530,13 +549,30 @@ function followScroll () {
         skillTitle.eq(i).appendTo(skillWrapper.eq(i))
       }
     }
+
+    if ($('.progress_popup_inner')) {
+      let skillsPopup  = $('.progress_popup_inner').find($(".skill"))
+      let skillTitlePopup = $('.progress_popup_inner').find($(".skill-title")),
+          skillWrapperPopup = $('.progress_popup_inner').find($(".skill_wrapper"))
+
+      if($('body').innerWidth() >= 640){
+          for (var i = 0; i < skillsPopup.length; i++){
+            skillTitlePopup.eq(i).appendTo(skillsPopup.eq(i))
+          }
+      } else {
+        for (var i = 0; i < skills.length; i++){
+          skillTitlePopup.eq(i).appendTo(skillWrapperPopup.eq(i))
+        }
+      }
+    }
   }
 
   $(window).on("resize", function (e) {
-    toggleProgressTitleLocation()
+      toggleProgressTitleLocation()
   })
+  window.toggleProgressTitleLocation = toggleProgressTitleLocation()
+  toggleProgressTitleLocation()
 
-  toggleProgressTitleLocation ()
 
 // -----конец прогресса----
 

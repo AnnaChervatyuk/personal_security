@@ -67,19 +67,19 @@
             <a class="skill skill-digital" href="safety.html">
               <h3>Цифровая безопасность</h3>
               <div class="text">Предотвращаем несанкционированный доступ к личной информации</div>
-              <img src="./images/img_example/image_5.png" />
+              <img src="./images/Антивирус_2.svg" />
               <div class="amount"><span class="number">15</span> материалов</div>
             </a>
             <a class="skill skill-personal" href="safety.html">
               <h3>Личная безопасность</h3>
               <div class="text">Как править, не привликая внимания санитаров</div>
-              <img src="./images/img_example/image_6.png" />
+              <img src="./images/network.png" />
               <div class="amount"><span class="number">9</span> материалов</div>
             </a>
             <a class="skill skill-financial" href="safety.html">
               <h3>Финансовая безопасность</h3>
               <div class="text">Как править, не привликая внимания санитаров</div>
-              <img src="./images/img_example/image_7.png" />
+              <img src="./images/VPN.png" />
               <div class="amount"><span class="number">10</span> материалов</div>
             </a>
           </div>
@@ -92,7 +92,7 @@
               <div class="material-list">
                 <div class="material-el">
                   <div class="img">
-                    <img src="./images/img_example/image_1.png" />
+                    <img src="./images/Антивирус_2.svg" />
                   </div>
                   <h5>Двухэтапный вход</h5>
                   <div class="descr">
@@ -107,7 +107,9 @@
 
                 </div>
                 <div class="material-el">
-                  <div class="img"></div>
+                  <div class="img">
+                    <img src="./images/network.png" />
+                  </div>
                   <h5>Трехэтапный вход</h5>
                   <div class="descr">
                     <div class="time">14 мин</div>
@@ -121,7 +123,9 @@
 
                 </div>
                 <div class="material-el">
-                  <div class="img"></div>
+                  <div class="img">
+                    <img src="./images/VPN.png" />
+                  </div>
                   <h5>Четырехэтапный вход</h5>
                   <div class="descr">
                     <div class="time">14 мин</div>
@@ -139,6 +143,11 @@
                   <h5>Пятиэтапный Пятиэтапный вход</h5>
                   <div class="descr">
                     <div class="time">14 мин</div>
+                    <div class="in-coaching">
+                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                         <use xlink:href="sprite.svg#icon-profile"></use>
+                      </svg>
+                    </div>
                   </div>
                   <a href="exercise.html" class="link"></a>
 
@@ -148,6 +157,11 @@
                   <h5>Шестиэтапный вход</h5>
                   <div class="descr">
                     <div class="time">14 мин</div>
+                    <div class="in-coaching">
+                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                         <use xlink:href="sprite.svg#icon-profile"></use>
+                      </svg>
+                    </div>
                   </div>
                   <a href="exercise.html" class="link"></a>
 
@@ -221,6 +235,31 @@
           </ul>
         </div>
       </footer>
-      <div class="popup" id="popup"><div class="text"></div><div class="arrow"></div></div>
+
+      <script>
+        function setMinHeight(el, height) {
+          el.css("min-height",  height)
+        }
+
+        $(document).ready(function() {
+          var arrSkills = $(".skill")
+          var minHeight =  arrSkills.eq(0).outerHeight()
+          for (var i = 0; i < arrSkills.length; i++) {
+            setMinHeight(arrSkills.eq(i), minHeight)
+          }
+        })
+
+        $(window).on("resize", function (e) {
+          var arrSkills = $(".skill")
+          for (var i = 0; i < arrSkills.length; i++) {
+            setMinHeight(arrSkills.eq(i), 0)
+          }
+          var minHeight = arrSkills.eq(0).outerHeight()
+          for (var i = 0; i < arrSkills.length; i++) {
+            setMinHeight(arrSkills.eq(i), minHeight)
+          }
+        })
+
+      </script>
     </body>
 </html>
