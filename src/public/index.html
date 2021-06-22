@@ -67,19 +67,19 @@
                  <div class="skill skill-digital" id="skill-digital"><div class="percent"><span id="progress_skill-digital"></span>%</div></div>
                  <div class="skill-title">Цифровая безопасность</div>
                  <div class="skill-description hide">digital skill-description skill-description skill-description skill-descriptionthreat-descriptionthreat-description skill-description</div>
-                 <div class="link" onClick="openPopupProgress('digital')"></div>
+                 <div class="link" onClick="openPopupProgress('digital', this)"></div>
                </div>
                <div class="skill-personal_wrapper skill_wrapper">
                  <div class="skill skill-personal" id="skill-personal"><div class="percent"><span id="progress_skill-personal"></span>%</div></div>
                  <div class="skill-title">Личная безопасность</div>
                  <div class="skill-description hide">personal skill-description skill-description skill-description skill-descriptionthreat-descriptionthreat-description skill-description</div>
-                 <div class="link" onClick="openPopupProgress('personal')"></div>
+                 <div class="link" onClick="openPopupProgress('personal', this)"></div>
                </div>
                <div class="skill-financial_wrapper skill_wrapper">
                  <div class="skill skill-financial" id="skill-financial"><div class="percent"><span id="progress_skill-financial"></span>%</div></div>
                  <div class="skill-title">Финансовая безопасность</div>
                  <div class="skill-description hide">financial skill-description skill-description skill-description skill-descriptionthreat-descriptionthreat-description skill-description</div>
-                 <div class="link" onClick="openPopupProgress('financial')"></div>
+                 <div class="link" onClick="openPopupProgress('financial', this)"></div>
                </div>
 
             </div>
@@ -255,8 +255,9 @@
         function openPopupThreats (elem) {
           popupThreats.removeClass("hide")
 
-          var materialID = elem.parentNode.id;
-          var materialEl = $('#'+materialID)
+          // var materialID = elem.parentNode.id;
+          // var materialEl = $('#'+materialID)
+          var materialEl = $(elem.parentNode)
           var title = materialEl.find($(".threat-title")).text()
           var imgSrc = materialEl.find($(".threat-img")).find($("img")).attr('src')
           var descr = materialEl.find($(".threat-description")).text()
@@ -297,14 +298,16 @@
         let btnCloseTop = $("#btn-close-top")
         let popupProgress = $("#progress_popup")
 
-        function openPopupProgress ( type) {
-            var progressEl = $('.skill-'+type+'_wrapper')
+        function openPopupProgress ( type, el) {
+            // var progressEl = $('.skill-'+type+'_wrapper')
+            var progressEl = $(el.parentNode)
             var descr = progressEl.find($(".skill-description")).text()
             popupProgress.removeClass("hide")
             $('.progress_popup_inner').find(".skill_wrapper").css("opacity", "0.4")
 
             if ($('.progress_popup_inner').find(".progress").length == 0) {
-              $("#progress_course-section").clone().prependTo('.progress_popup_inner');
+              // $("#progress_course-section").clone().prependTo('.progress_popup_inner');
+              progressEl.parent().parent().clone().prependTo('.progress_popup_inner');
               $('.progress_popup_inner').find(".progress_inner").remove()
             }
 

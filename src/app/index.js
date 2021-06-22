@@ -516,22 +516,22 @@ function followScroll () {
   })
 
 // -----начало прогресса----
-  let progressSkillDigital = 100 // будет приходить с сервера
-  let progressSkillTwo = 23 // будет приходить с сервера
-  let progressSkillThree = 53 // будет приходить с сервера
-
-  $("#progress_skill-digital").text(progressSkillDigital)
-  $("#progress_skill-personal").text(progressSkillTwo)
-  $("#progress_skill-financial").text(progressSkillThree)
-
-  let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
-  $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
-
-  let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
-  $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
-
-  let progressSkillFinancialStyle  = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
-  $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
+  // let progressSkillDigital = 100 // будет приходить с сервера
+  // let progressSkillTwo = 23 // будет приходить с сервера
+  // let progressSkillThree = 53 // будет приходить с сервера
+  //
+  // $("#progress_skill-digital").text(progressSkillDigital)
+  // $("#progress_skill-personal").text(progressSkillTwo)
+  // $("#progress_skill-financial").text(progressSkillThree)
+  //
+  // let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
+  // $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
+  //
+  // let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
+  // $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
+  //
+  // let progressSkillFinancialStyle  = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
+  // $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
 
 
   function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
