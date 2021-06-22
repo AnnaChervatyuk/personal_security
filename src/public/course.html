@@ -1271,7 +1271,7 @@
         title =""
         descr =""
       })
-      //----- открыть попап с угрозами начало ----
+      //----- открыть попап с угрозами конец ----
 
 
         function showArticle (props) {
@@ -1325,7 +1325,7 @@
             var progressEl = $('.skill-'+type+'_wrapper')
             var descr = progressEl.find($(".skill-description")).text()
             popupProgress.removeClass("hide")
-            $(".skill_wrapper").css("opacity", "0.4")
+            $('.progress_popup_inner').find(".skill_wrapper").css("opacity", "0.4")
 
             if ($('.progress_popup_inner').find(".progress").length == 0) {
               $("#progress_course-section").find(".progress").clone().prependTo('.progress_popup_inner');
@@ -1335,19 +1335,25 @@
               case 'digital':
                 $(".type_progress").text("цифровой")
                 $("#btn-go-theory").attr("href", "/theory/cifrovaya-bezopasnost/")
-                $(".skill-digital_wrapper").css("opacity", "1")
+                $('.progress_popup_inner').find(".skill-digital_wrapper").css("opacity", "1")
+                $('.progress_popup_inner').find(".progress_skills").css("padding-left", "calc(50% - 80px)")
                 break;
               case 'personal':
                 $(".type_progress").text("личной")
                 $("#btn-go-theory").attr("href", "/theory/lichnaya-bezopasnost/")
-                $(".skill-personal_wrapper").css("opacity", "1")
+                $('.progress_popup_inner').find(".skill-personal_wrapper").css("opacity", "1")
+                $('.progress_popup_inner').find(".progress_skills").css("padding-left", "calc(50% - 260px)")
+
                 break;
               case 'financial':
                 $(".type_progress").text("финансовой")
                 $("#btn-go-theory").attr("href", "/theory/finansovaya-bezopasnost/")
-                $(".skill-financial_wrapper").css("opacity", "1")
+                $('.progress_popup_inner').find(".skill-financial_wrapper").css("opacity", "1")
+                $('.progress_popup_inner').find(".progress_skills").css("padding-left", "calc(50% - 450px)")
+
                 break;
             }
+
 
             $(".descr").text(descr)
             $("body").css("overflow-y", "hidden")

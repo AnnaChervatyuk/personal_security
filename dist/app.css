@@ -905,7 +905,7 @@ footer {
   color: #17171C;
   margin: 10px 0;
 }
-.cards .card .title-threat {
+.cards .card .threat-title {
   text-align: center;
 }
 .cards .card .text-threat {
@@ -3075,7 +3075,6 @@ footer {
   order: 2;
   margin-top: 100px;
   border: none;
-  justify-content: flex-end;
   padding: 0;
 }
 .progress_popup_wrapper .progress_popup_inner .progress .progress_skills,
