@@ -191,6 +191,11 @@
     .material-el
       width: 262px !important
 
+
+
+.materials.materials-skills > .material > .material-list
+    margin-top: 20px
+
 @media (min-width: 640px)
   .content-situation
     .materials > .material > .material-list
@@ -219,6 +224,23 @@
           width: min-content
           margin: 20px 15px
 
+  .materials-skills .material
+    .material-list
+      overflow: hidden
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      grid-auto-rows: 1fr
+      .material-el
+        width: 100%
+        margin: 20px 15px
+        width: auto
+        &:nth-child(even)
+          margin-right: 0
+        &:nth-child(odd)
+          margin-left: 0
+        .img
+          width: 100%
+
   .container-safety .materials-safety.materials .material .material-list,
   .container-search .materials-safety.materials .material .material-list,
   .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
@@ -236,6 +258,7 @@
 
 
 @media (min-width: 1000px)
+  .materials-skills .material .material-list,
   .container-safety .materials-safety.materials .material .material-list,
   .container-search .materials-safety.materials .material .material-list,
   .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
@@ -254,6 +277,7 @@
         margin-left: 0
 
 @media (min-width: 1200px)
+  .materials-skills .material .material-list,
   .container-safety .materials-safety.materials .material .material-list,
   .container-search .materials-safety.materials .material .material-list,
   .content-course .materials-threats.materials .material .material-list,

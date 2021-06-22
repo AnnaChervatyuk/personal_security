@@ -165,6 +165,13 @@ module.exports = {
         template: 'src/public/exercise.html'
         }),
 
+      new HtmlWebpackPlugin({
+        filename: 'all_theory.html',
+        template: 'src/public/all_theory.html'
+        }),
+
+
+
   ],
 
 

@@ -100,6 +100,13 @@
 .content-my-course .section-theory.progress
   padding: 20px 0
 
+.progress-all-theory
+  border: none
+  padding: 0
+  .progress_inner
+    .progress_about
+      margin: 0
+
 @media (min-width: 640px)
   .progress
     .progress_inner
@@ -108,6 +115,8 @@
         width: -moz-fit-content
   .progress-main
     align-items: center
+
+
 
 @media (min-width: 768px)
   .progress
@@ -139,6 +148,14 @@
     .progress
       .progress_inner
         width: 100%
+        margin: 0
+
+  .progress-all-theory
+    padding: 0
+    .progress_inner
+      margin: 0
+      width: 100%
+      .progress_about
         margin: 0
 
 @media (min-width: 1200px)

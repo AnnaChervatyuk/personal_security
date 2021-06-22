@@ -1,0 +1,56 @@
+.block-skill
+  .block-skill-descr
+    @include font(18px, 24px)
+    color: $black-50
+    margin-bottom: 30px
+  .block-skill-number
+    border-radius: 20px
+    color: $white
+    @include font(19px, 24px)
+    padding: 5px 8px
+    width: fit-content
+    width: -moz-fit-content
+    margin-bottom: 15px
+    margin-top: 40px
+
+
+  &.skill-digital
+    .block-skill-number
+      background: #1B9C6E
+    .materials > .material > .material-list .material-el .img
+      background:  linear-gradient(0deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.34)), #E0FFF4
+
+  &.skill-personal
+    .block-skill-number
+      background: #5C59EB
+    .materials > .material > .material-list .material-el .img
+      background:  #C2C1D0
+
+
+  &.skill-financial
+    .block-skill-number
+      background: #1B7C9C
+    .materials > .material > .material-list .material-el .img
+      background: #95AEB6
+
+
+.content-all-theory.content
+  .border
+    border: 2px solid $black-70
+    width: 100%
+    margin-top: 80px
+  .block-skill
+    .border
+      margin-top: 0
+  .img_all-theory
+    margin: 80px auto
+
+@media (min-width: 640px)
+  .block-skill
+    .block-skill-number
+      margin-top: 60px
+
+@media (min-width: 768px)
+  .block-skill
+    .block-skill-descr
+      width: 50%
