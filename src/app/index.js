@@ -535,10 +535,9 @@ function followScroll () {
 
 
   function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
-    let skills  = $(".skill"),
-        skillTitle = $(".skill-title"),
-        skillWrapper = $(".skill_wrapper")
-
+    let skills  = $(".progress-main .skill"),
+        skillTitle = $(".progress-main .skill-title"),
+        skillWrapper = $(".progress-main .skill_wrapper")
 
     if($('body').innerWidth() >= 1200){
         for (var i = 0; i < skills.length; i++){
@@ -550,21 +549,6 @@ function followScroll () {
       }
     }
 
-    if ($('.progress_popup_inner')) {
-      let skillsPopup  = $('.progress_popup_inner').find($(".skill"))
-      let skillTitlePopup = $('.progress_popup_inner').find($(".skill-title")),
-          skillWrapperPopup = $('.progress_popup_inner').find($(".skill_wrapper"))
-
-      if($('body').innerWidth() >= 640){
-          for (var i = 0; i < skillsPopup.length; i++){
-            skillTitlePopup.eq(i).appendTo(skillsPopup.eq(i))
-          }
-      } else {
-        for (var i = 0; i < skills.length; i++){
-          skillTitlePopup.eq(i).appendTo(skillWrapperPopup.eq(i))
-        }
-      }
-    }
   }
 
   $(window).on("resize", function (e) {

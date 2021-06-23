@@ -58,17 +58,19 @@ a:hover {
 
 .btn {
   display: inline-block;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 a.btn,
 .btn {
   background-color: #17171C;
   color: #fff;
-  font-size: 16px;
-  line-height: 22px;
   padding: 14px 80px;
   border-radius: 4px;
   text-align: center;
+  font-size: 16px;
+  line-height: 22px;
 }
 a.btn:hover,
 .btn:hover {
@@ -322,6 +324,17 @@ textarea::placeholder {
     height: 50px;
     font-size: 19px;
     line-height: 30px;
+  }
+
+  .btn {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  a.btn,
+.btn {
+    font-size: 18px;
+    line-height: 24px;
   }
 
   .btn-arrow {
@@ -788,6 +801,33 @@ footer {
 }
 .progress-all-theory .progress_inner .progress_about {
   margin: 0;
+}
+
+.progress_popup_inner .progress {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+}
+.progress_popup_inner .progress .progress_skills {
+  margin: 0 auto;
+}
+.progress_popup_inner .progress .progress_skills .skill {
+  width: 180px;
+  height: 180px;
+  border: 9px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+.progress_popup_inner .progress .progress_skills .skill .percent {
+  font-size: 52px;
+  line-height: 52px;
+}
+.progress_popup_inner .progress .progress_skills .skill .skill-title {
+  width: 95px;
+  margin-top: 0;
+}
+.progress_popup_inner .progress .progress_skills .skill_wrapper {
+  width: 180px;
 }
 
 @media (min-width: 640px) {
@@ -2927,6 +2967,8 @@ footer {
 }
 .container-error .content_inner .content-error {
   text-align: center;
+  font-size: 18px;
+  line-height: 24px;
 }
 .container-error .content_inner .btns-error {
   margin: 40px auto 70px;
@@ -3049,6 +3091,35 @@ footer {
   transform: rotate(-45deg);
 }
 
+.content .tooltip {
+  background: #F3F3F6;
+  border: 1px solid #D1D1D6;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 0 4px;
+}
+.content .tooltip:hover {
+  cursor: pointer;
+}
+
+.popup-tooptip {
+  max-width: 450px;
+  position: absolute;
+  z-index: 555555;
+  padding: 10px 15px;
+  width: max-content;
+  display: none;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border: 1px solid #F3F3F6;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #17171C;
+}
+
 .progress_popup_wrapper,
 .threat_popup_wrapper {
   position: fixed;
@@ -3082,12 +3153,6 @@ footer {
 .threat_popup_wrapper .progress_popup_inner .progress .progress_skills,
 .threat_popup_wrapper .threat_popup_inner .progress .progress_skills {
   width: auto;
-}
-.progress_popup_wrapper .progress_popup_inner .progress .skill_wrapper,
-.progress_popup_wrapper .threat_popup_inner .progress .skill_wrapper,
-.threat_popup_wrapper .progress_popup_inner .progress .skill_wrapper,
-.threat_popup_wrapper .threat_popup_inner .progress .skill_wrapper {
-  opacity: 0.4;
 }
 .progress_popup_wrapper .progress_popup_inner .btn-close-top,
 .progress_popup_wrapper .threat_popup_inner .btn-close-top,

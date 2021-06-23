@@ -32,3 +32,30 @@
     border-top: 10px solid rgba(0, 0, 0, 0.9)
     border-right: 10px solid rgba(0, 0, 0, 0.9)
     transform: rotate(-45deg)
+
+
+.content
+  .tooltip
+    background: $grey-20
+    border: 1px solid $grey-50
+    box-sizing: border-box
+    border-radius: 3px
+    padding: 0 4px
+    &:hover
+      cursor: pointer
+
+.popup-tooptip
+    max-width: 450px
+    position: absolute
+    z-index: 555555
+    padding: 10px 15px
+    width: max-content
+    display: none
+    top: 0
+    left: 0
+    background: $white
+    border: 1px solid  $grey-20
+    box-sizing: border-box
+    border-radius: 10px
+    @include font(16px, 22px)
+    color: $black-100

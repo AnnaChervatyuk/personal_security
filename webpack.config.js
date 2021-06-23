@@ -170,6 +170,11 @@ module.exports = {
         template: 'src/public/all_theory.html'
         }),
 
+      new HtmlWebpackPlugin({
+        filename: 'old_link.html',
+        template: 'src/public/old_link.html'
+        }),
+
 
 
   ],

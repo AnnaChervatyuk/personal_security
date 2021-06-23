@@ -197,6 +197,7 @@
                    <use xlink:href="sprite.svg#icon-close"></use>
                 </svg>
               </div>
+              <div class="progress"><div class="progress_skills "></div></div>
               <h2>Ваш прогресс в области <span class="type_progress"></span> безопасности</h2>
               <div class="descr">Из чего складывается прогресс, описание как считаем что это и т.п. кража аккаунтов Кража аккаунтов кража аккаунтов</div>
               <div class="btns">
@@ -297,49 +298,69 @@
         let btnClose = $("#btn-close")
         let btnCloseTop = $("#btn-close-top")
         let popupProgress = $("#progress_popup")
+        var typeProgress = ""
+        function openPopupProgress (type, el) {
 
-        function openPopupProgress ( type, el) {
-            // var progressEl = $('.skill-'+type+'_wrapper')
+            typeProgress = type
             var progressEl = $(el.parentNode)
             var descr = progressEl.find($(".skill-description")).text()
             popupProgress.removeClass("hide")
-            $('.progress_popup_inner').find(".skill_wrapper").css("opacity", "0.4")
 
-            if ($('.progress_popup_inner').find(".progress").length == 0) {
-              // $("#progress_course-section").clone().prependTo('.progress_popup_inner');
-              progressEl.parent().parent().clone().prependTo('.progress_popup_inner');
-              $('.progress_popup_inner').find(".progress_inner").remove()
-            }
+            progressEl.clone().prependTo('.progress_popup_inner>.progress>.progress_skills');
 
-            switch (type) {
+            switch (typeProgress) {
               case 'digital':
                 $(".type_progress").text("цифровой")
                 $("#btn-go-theory").attr("href", "/theory/cifrovaya-bezopasnost/")
-                $('.progress_popup_inner').find(".skill-digital_wrapper").css("opacity", "1")
-                $('.progress_popup_inner').find(".progress_skills").css("padding-left", "calc(50% - 80px)")
                 break;
               case 'personal':
                 $(".type_progress").text("личной")
                 $("#btn-go-theory").attr("href", "/theory/lichnaya-bezopasnost/")
-                $('.progress_popup_inner').find(".skill-personal_wrapper").css("opacity", "1")
-                $('.progress_popup_inner').find(".progress_skills").css("padding-left", "calc(50% - 260px)")
-
                 break;
               case 'financial':
                 $(".type_progress").text("финансовой")
                 $("#btn-go-theory").attr("href", "/theory/finansovaya-bezopasnost/")
-                $('.progress_popup_inner').find(".skill-financial_wrapper").css("opacity", "1")
-                $('.progress_popup_inner').find(".progress_skills").css("padding-left", "calc(50% - 450px)")
-
                 break;
             }
+
+            let skillsPopup  = $('.progress_popup_inner').find($(".skill"))
+            let skillTitlePopup = $('.progress_popup_inner').find($(".skill-title"))
+
+            for (var i = 0; i < skillsPopup.length; i++){
+              skillTitlePopup.eq(i).appendTo(skillsPopup.eq(i))
+            }
+
+            $(".progress_popup_inner").find($(".link")).remove()
 
 
             $(".descr").text(descr)
             $("body").css("overflow-y", "hidden")
         }
 
+        // function getPadding () { -- пригодится, если потом снова понадобится на попапе отрисовать несколько скиллов и вырвнивать выбранный по центру
+        //   let arrEl = $('.progress_popup_inner').find(".skill_wrapper")
+        //   let classForSearch = "skill-"+typeProgress+"_wrapper"
+        //   let numberEl = 0
+        //   for (var i=0; i < arrEl.length; i++) {
+        //     if (arrEl.eq(i).hasClass(classForSearch)) {
+        //       numberEl = i
+        //     }
+        //   }
+        //   let progressBlock = $('.progress_popup_inner').find(".progress_skills")
+        //   let fromLeft = ($('.progress_popup_inner').find(".progress")).width() / 2 - (numberEl * (progressBlock.width() / arrEl.length) +  (progressBlock.width() / arrEl.length) / 2)
+        //
+        //   if ((fromLeft + progressBlock.width()) >= ($('.progress_popup_inner').find(".progress")).width() ) {
+        //     progressBlock.css("margin-left", "auto")
+        //     progressBlock.css("margin-right", "auto")
+        //
+        //   } else {
+        //     progressBlock.css("padding-left", fromLeft)
+        //   }
+        //
+        // }
+
         function closePopup () {
+            $('.progress_popup_inner>.progress>.progress_skills>.skill_wrapper').remove()
             popupProgress.addClass("hide")
             $("body").css("overflow-y", "auto")
         }

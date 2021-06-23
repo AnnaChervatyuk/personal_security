@@ -36,10 +36,12 @@ a
 
 .btn
   display: inline-block
+  @include font(16px, 22px)
 
 a.btn,
 .btn
   @include btn()
+  @include font(16px, 22px)
   &:hover
     cursor: pointer
     background-color: $black-70
@@ -243,7 +245,11 @@ textarea::placeholder
   input
     height: 50px
     @include font(19px, 30px)
-
+  .btn
+    @include font(18px, 24px)
+  a.btn,
+  .btn
+    @include font(18px, 24px)
   .btn-arrow
     display: block
     // height: 332px

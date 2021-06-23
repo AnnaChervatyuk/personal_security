@@ -107,6 +107,27 @@
     .progress_about
       margin: 0
 
+.progress_popup_inner
+  .progress
+    display: flex
+    flex-direction: row
+    padding: 30px
+    .progress_skills
+      margin: 0 auto
+      .skill
+        width: 180px
+        height: 180px
+        border: 9px solid transparent
+        display: flex
+        flex-direction: column
+        .percent
+          @include font(52px, 52px)
+        .skill-title
+          width: 95px
+          margin-top: 0
+      .skill_wrapper
+        width: 180px
+
 @media (min-width: 640px)
   .progress
     .progress_inner
