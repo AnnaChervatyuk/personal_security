@@ -83,9 +83,10 @@ $(document).ready(function() {
 
   function checkAnswers(answers) {
     if (answers.length == 0) {
+      showNotification()
       $('.notification').text("Выберите хотя бы один вариант")
       $('.notification').css("display", "block")
-      $('.notification').fadeOut(4000);
+      $('.notification').fadeOut(6000);
       return false
     } else {
       return true
@@ -341,9 +342,39 @@ function followScroll () {
   // ------ горизонтальный скролл конец -----
 
 
+  // ------ служебные сообщения начало -----
+  function showNotification (textNotification) {
+    var notification = $('<div class="notification"><span></span></div>')
+    notification.appendTo($("body"))
+    notification.find($('span')).text(textNotification)
+  }
 
+  function addBtnClose() {
+    var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+    btnClose.appendTo($(".notification"))
+    btnClose.on("click", function (e) {
+      $('.notification').fadeOut(1000);
+    })
+  }
+
+  function addTimerClosing() {
+    var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
+    timerClosing.appendTo($(".notification"))
+    setTimeout(function () {
+        $('.notification').fadeOut(1000);
+        }, 6000);
+
+  }
+  // showNotification ("добавить текст уведомления") // вызывать когда надо
+
+
+  // addBtnClose() // вызывать если надо добавить кнопку для закрытия уведомления
+  // addTimerClosing() // вызывать если надо не нужна кнопка для закрытия уведомления, показывает таймер, через сколько уведомление закроется само
+  // ------ служебные сообщения конец -----
 
   // ------ ховер на иконку in-coaching начало -----
+
+window.getInCoachingTooltip = function getInCoachingTooltip() {
   if ($(".in-coaching")) {
     let arrIconsCoaching = $(".in-coaching") // весь список иконок
     var popup = $('<div class="popup">Это занятие включено в вашу тренировку<div class="arrow"></div></div>')
@@ -372,6 +403,8 @@ function followScroll () {
       onHoverIcon(i)
     }
   }
+}
+window.getInCoachingTooltip()
 
 
 

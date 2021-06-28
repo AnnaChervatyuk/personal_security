@@ -1387,6 +1387,7 @@ footer {
   display: flex;
   margin-top: 10px;
   align-items: center;
+  margin-left: 0;
 }
 .article > .related_lessons > .material-list .material-el .in-coaching,
 .materials > .material > .material-list .material-el .in-coaching {
@@ -2788,16 +2789,85 @@ footer {
   padding: 10px 15px;
   color: #fff;
   font-size: 14px;
-  line-height: 20px;
-  display: none;
+  line-height: 14px;
 }
 
 .notification {
   position: fixed;
   left: calc(100% / 2 - 100px);
-  bottom: 50px;
+  bottom: 100px;
+  display: flex;
+  align-items: baseline;
 }
 
+.notification .btn-close {
+  margin: auto 0 auto 20px;
+}
+.notification .btn-close:hover {
+  cursor: pointer;
+}
+.notification .btn-close svg {
+  fill: #8D8D94;
+}
+.notification .btn-timer {
+  width: 14px;
+  height: 14px;
+  margin: auto 0 auto 20px;
+}
+.notification .btn-timer .wrapper {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  clip: rect(0px, 14px, 14px, 7px);
+}
+.notification .btn-timer .circle {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #8D8D94;
+  border-radius: 50px;
+  position: absolute;
+  clip: rect(0px, 7px, 14px, 0px);
+}
+.notification .btn-timer div[data-anim~=base] {
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+}
+.notification .btn-timer .wrapper[data-anim~=wrapper] {
+  -webkit-animation-duration: 0.01s;
+  -webkit-animation-delay: 3s;
+  -webkit-animation-name: close-wrapper;
+}
+.notification .btn-timer .circle[data-anim~=left] {
+  -webkit-animation-duration: 6s;
+  -webkit-animation-name: left-spin;
+}
+.notification .btn-timer .circle[data-anim~=right] {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: right-spin;
+}
+
+@-webkit-keyframes right-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes left-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes close-wrapper {
+  to {
+    clip: rect(auto, auto, auto, auto);
+  }
+}
 .content-my-course .section-theory.progress {
   border: none;
   margin-bottom: 36px;
@@ -3118,6 +3188,7 @@ footer {
   font-size: 16px;
   line-height: 22px;
   color: #17171C;
+  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04));
 }
 
 .progress_popup_wrapper,

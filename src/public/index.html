@@ -150,7 +150,14 @@
                     <div class="material-el">
                       <div class="img"></div>
                       <h5>Трехэтапный вход</h5>
-                      <div class="time">14 мин</div>
+                      <div class="descr">
+                        <div class="time">14 мин</div>
+                        <div class="in-coaching">
+                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                             <use xlink:href="sprite.svg#icon-profile"></use>
+                          </svg>
+                        </div>
+                      </div>
                       <a href="exercise.html" class="link"></a>
                     </div>
                     <div class="material-el">
@@ -271,6 +278,7 @@
           materialsThreats.clone().appendTo($(".threat_popup_inner"));
           popupThreats.find($(".materials-popup-threats")).removeClass("hide")
           $("body").css("overflow-y", "hidden")
+          window.getInCoachingTooltip()
         }
 
 
@@ -291,6 +299,7 @@
           title =""
           descr =""
         })
+
         //----- открыть попап с угрозами конец ----
 
 

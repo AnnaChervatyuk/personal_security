@@ -3,10 +3,70 @@
   border-radius: 10px
   padding: 10px 15px
   color: $white
-  @include font(14px, 20px)
-  display: none
+  @include font(14px, 14px)
+  // display: none
 
 .notification
   position: fixed
   left: calc(100% / 2 - 100px)
-  bottom: 50px
+  bottom: 100px
+  display: flex
+  align-items: baseline
+
+.notification
+  .btn-close
+    margin: auto 0 auto 20px
+    &:hover
+      cursor: pointer
+    svg
+     fill: $grey-100
+  .btn-timer
+    width: 14px
+    height: 14px
+    margin: auto 0 auto 20px
+    .wrapper
+      width: 14px
+      height: 14px
+      position: absolute
+      clip: rect(0px, 14px, 14px, 7px)
+    .circle
+      width: 10px
+      height: 10px
+      border: 2px solid $grey-100
+      border-radius: 50px
+      position: absolute
+      clip: rect(0px, 7px, 14px, 0px)
+    div[data-anim~=base]
+      -webkit-animation-iteration-count: 1
+      -webkit-animation-fill-mode: forwards
+      -webkit-animation-timing-function: linear
+    .wrapper[data-anim~=wrapper]
+      -webkit-animation-duration: 0.01s
+      -webkit-animation-delay: 3s
+      -webkit-animation-name: close-wrapper
+    .circle[data-anim~=left]
+      -webkit-animation-duration: 6s
+      -webkit-animation-name: left-spin
+    .circle[data-anim~=right]
+      -webkit-animation-duration: 3s
+      -webkit-animation-name: right-spin
+
+@-webkit-keyframes right-spin
+  from
+    -webkit-transform: rotate(0deg)
+
+  to
+    -webkit-transform: rotate(180deg)
+
+
+@-webkit-keyframes left-spin
+  from
+    -webkit-transform: rotate(0deg)
+
+  to
+    -webkit-transform: rotate(360deg)
+
+
+@-webkit-keyframes close-wrapper
+  to
+    clip: rect(auto, auto, auto, auto)
