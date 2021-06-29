@@ -344,28 +344,34 @@ function followScroll () {
 
   // ------ служебные сообщения начало -----
   function showNotification (textNotification) {
-    var notification = $('<div class="notification"><span></span></div>')
+    var notification = $('<div class="notification" id="notification"><span></span></div>')
     notification.appendTo($("body"))
     notification.find($('span')).text(textNotification)
+    notification.css("left",  ($("body").width() / 2 - notification.width() / 2))
   }
 
   function addBtnClose() {
     var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
-    btnClose.appendTo($(".notification"))
+    btnClose.appendTo($("#notification"))
     btnClose.on("click", function (e) {
-      $('.notification').fadeOut(1000);
+      $('#notification').fadeOut(1000);
+      $('#notification').remove()
     })
   }
 
   function addTimerClosing() {
+    console.log($("#notification"))
+
     var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
-    timerClosing.appendTo($(".notification"))
+    timerClosing.appendTo($("#notification"))
     setTimeout(function () {
-        $('.notification').fadeOut(1000);
+        $('#notification').fadeOut(1000);
+        setTimeout(function() {$('#notification').remove()}, 1000)
         }, 6000);
 
+
   }
-  // showNotification ("добавить текст уведомления") // вызывать когда надо
+  // showNotification ("добавить текст уведомления добавить текст уведомления добавить текст уведомлениядобавить текст уведомлениядобавитьдобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомления") // вызывать когда надо
 
 
   // addBtnClose() // вызывать если надо добавить кнопку для закрытия уведомления
