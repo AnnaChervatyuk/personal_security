@@ -279,7 +279,7 @@ if ($(".material")) {
 
 function followScroll () {
   if ($(".material").find($('.material-list')) && $(".material").find($('.material-list')).length > 0) {
-    var distance = 250;
+    var distance = 500;
     var arrScrollingBox = $(".material")
     var max = []
     var min = []
@@ -343,7 +343,7 @@ function followScroll () {
 
 
   // ------ служебные сообщения начало -----
-  function showNotification (textNotification) {
+  window.showNotification = function showNotification(textNotification) {
     var notification = $('<div class="notification" id="notification"><span></span></div>')
     notification.appendTo($("body"))
     notification.find($('span')).text(textNotification)
@@ -371,6 +371,8 @@ function followScroll () {
 
 
   }
+  // window.showNotification()
+  // addBtnClose()
   // showNotification ("добавить текст уведомления добавить текст уведомления добавить текст уведомлениядобавить текст уведомлениядобавитьдобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомления") // вызывать когда надо
 
 

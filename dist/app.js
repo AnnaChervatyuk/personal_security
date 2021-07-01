@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
   let windowWidth = $('body').innerWidth()
@@ -82,9 +81,10 @@ $(document).ready(function() {
 
   function checkAnswers(answers) {
     if (answers.length == 0) {
+      showNotification()
       $('.notification').text("Выберите хотя бы один вариант")
       $('.notification').css("display", "block")
-      $('.notification').fadeOut(4000);
+      $('.notification').fadeOut(6000);
       return false
     } else {
       return true
@@ -157,6 +157,33 @@ $(document).ready(function() {
 
   //----переход между вопросами в тесте  конец--------
 
+  // ----добавлять фон если не загружена картинка начало---
+
+
+  if ($(".material-el")) {
+    let materialsEl = $(".material-el")
+
+    function checkImg(i) {
+      let blocksImg = materialsEl.eq(i).find($(".img"))
+
+      for (var j = 0; j < blocksImg.length; j++) {
+        if (blocksImg.eq(j).find("img").length > 0) {
+          blocksImg.eq(j).css("background", "transparent")
+          var srcName = blocksImg.eq(j).find("img")[0].getAttribute('src');
+          var srcNameSplit = srcName.split(".");
+          if (srcNameSplit[srcNameSplit.length-1] == "svg") (
+            blocksImg.eq(j).find("img").css("height", "auto")
+          )
+        }
+      }
+
+    }
+
+    for (var i = 0; i < materialsEl.length; i++) {
+      checkImg(i)
+    }
+  }
+  // ----добавлять фон если не загружена картинка конец ---
 
 // ------ туду начало-------
 if ($(".todo-list_wrapper")) {
@@ -172,6 +199,8 @@ if ($(".todo-list_wrapper")) {
 
   let arrBtnCheck = $(".el-task-checkbox");
 
+  let arrMarker = $(".marker")
+
   function checkBtn (i) {
       arrBtnCheck.eq(i).on("change", function (e) {
         //оправлять на сервер отмеченную таску
@@ -180,6 +209,7 @@ if ($(".todo-list_wrapper")) {
 
   for (var i = 0; i < arrBtnCheck.length; i++) {
     checkBtn(i)
+    arrMarker.eq(i).text(i+1)
   }
 
   function toggleInstrauctionVisibility (i) {
@@ -310,26 +340,78 @@ function followScroll () {
   // ------ горизонтальный скролл конец -----
 
 
+  // ------ служебные сообщения начало -----
+  window.showNotification = function showNotification(textNotification) {
+    var notification = $('<div class="notification" id="notification"><span></span></div>')
+    notification.appendTo($("body"))
+    notification.find($('span')).text(textNotification)
+    notification.css("left",  ($("body").width() / 2 - notification.width() / 2))
+  }
 
-
-  // ------ ховер на иконку in-coaching начало -----
-  let arrIconsCoaching = $(".in-coaching") // весь список иконок
-  let popup = $("#popup")
-
-  popup.find($('.text')).text("Это занятие включено в вашу тренировку")
-
-  function onHoverIcon (i) {
-    arrIconsCoaching.eq(i).on("mouseenter", function (e) {
-      popup.appendTo(arrIconsCoaching.eq(i))
-      popup.css("display", "block")
-      }).on('mouseleave',function(){
-      popup.css("display", "none")
+  function addBtnClose() {
+    var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+    btnClose.appendTo($("#notification"))
+    btnClose.on("click", function (e) {
+      $('#notification').fadeOut(1000);
+      $('#notification').remove()
     })
   }
 
-  for (var i = 0; i < arrIconsCoaching.length; i++) {
-    onHoverIcon(i)
+  function addTimerClosing() {
+    console.log($("#notification"))
+
+    var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
+    timerClosing.appendTo($("#notification"))
+    setTimeout(function () {
+        $('#notification').fadeOut(1000);
+        setTimeout(function() {$('#notification').remove()}, 1000)
+        }, 6000);
+
+
   }
+  // window.showNotification()
+  // addBtnClose()
+  // showNotification ("добавить текст уведомления добавить текст уведомления добавить текст уведомлениядобавить текст уведомлениядобавитьдобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомления") // вызывать когда надо
+
+
+  // addBtnClose() // вызывать если надо добавить кнопку для закрытия уведомления
+  // addTimerClosing() // вызывать если надо не нужна кнопка для закрытия уведомления, показывает таймер, через сколько уведомление закроется само
+  // ------ служебные сообщения конец -----
+
+  // ------ ховер на иконку in-coaching начало -----
+
+window.getInCoachingTooltip = function getInCoachingTooltip() {
+  if ($(".in-coaching")) {
+    let arrIconsCoaching = $(".in-coaching") // весь список иконок
+    var popup = $('<div class="popup">Это занятие включено в вашу тренировку<div class="arrow"></div></div>')
+    popup.appendTo($("body"))
+
+    function onHoverIcon (i) {
+      arrIconsCoaching.eq(i).on("mouseenter", function (e) {
+        var left = arrIconsCoaching.eq(i).offset().left
+        popup.css("display", "block")
+        var popupWidth = popup.width()
+        var bodyWidth = $("body").width()
+        var shift = bodyWidth - (left + 15 + popupWidth)
+        if (shift < 0)  {
+          left += shift
+          popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+        }
+        popup.css("top", (arrIconsCoaching.eq(i).offset().top + 35))
+        popup.css("left", (left - 15))
+      }).on('mouseleave',function(){
+        popup.css("display", "none")
+        popup.find($(".arrow")).css("left", 15)
+      })
+    }
+
+    for (var i = 0; i < arrIconsCoaching.length; i++) {
+      onHoverIcon(i)
+    }
+  }
+}
+window.getInCoachingTooltip()
+
 
 
   // ------ ховер на иконку in-coaching конец -----
@@ -473,28 +555,29 @@ function followScroll () {
   })
 
 // -----начало прогресса----
-  let progressSkillDigital = 100 // будет приходить с сервера
-  let progressSkillTwo = 23 // будет приходить с сервера
-  let progressSkillThree = 53 // будет приходить с сервера
-
-  $("#progress_skill-digital").text(progressSkillDigital)
-  $("#progress_skill-personal").text(progressSkillTwo)
-  $("#progress_skill-financial").text(progressSkillThree)
-
-  let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
-  $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
-
-  let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
-  $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
-
-  let progressSkillFinancialStyle  = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
-  $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
+  // let progressSkillDigital = 100 // будет приходить с сервера
+  // let progressSkillTwo = 23 // будет приходить с сервера
+  // let progressSkillThree = 53 // будет приходить с сервера
+  //
+  // $("#progress_skill-digital").text(progressSkillDigital)
+  // $("#progress_skill-personal").text(progressSkillTwo)
+  // $("#progress_skill-financial").text(progressSkillThree)
+  //
+  // let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
+  // $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
+  //
+  // let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
+  // $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
+  //
+  // let progressSkillFinancialStyle  = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
+  // $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
 
 
   function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
-    let skills  = $(".skill"),
-        skillTitle = $(".skill-title"),
-        skillWrapper = $(".skill_wrapper")
+    let skills  = $(".progress-main .skill"),
+        skillTitle = $(".progress-main .skill-title"),
+        skillWrapper = $(".progress-main .skill_wrapper")
+
     if($('body').innerWidth() >= 1200){
         for (var i = 0; i < skills.length; i++){
           skillTitle.eq(i).appendTo(skills.eq(i))
@@ -504,13 +587,15 @@ function followScroll () {
         skillTitle.eq(i).appendTo(skillWrapper.eq(i))
       }
     }
+
   }
 
   $(window).on("resize", function (e) {
-    toggleProgressTitleLocation()
+      toggleProgressTitleLocation()
   })
+  window.toggleProgressTitleLocation = toggleProgressTitleLocation()
+  toggleProgressTitleLocation()
 
-  toggleProgressTitleLocation ()
 
 // -----конец прогресса----
 
