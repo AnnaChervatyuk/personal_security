@@ -125,6 +125,8 @@
           display: block
           position: relative
           margin-left: 15px
+          margin-top: -2px
+          width: 8px
           &::after
             content: ""
             position: absolute
@@ -134,7 +136,7 @@
             height: 7px
             right: 0
             top: 20%
-            transform: rotate(45deg)
+            transform: rotate(135deg)
       .el_how-do_btn:hover
         color: $black-100
         cursor: pointer
@@ -247,6 +249,8 @@
           align-items: center
           flex-grow: 1
         .instruction
+          margin-left: 65px
+          margin-bottom: 30px
           .instruction-top
             .instruction-top_inner
               flex-direction: row
@@ -274,4 +278,7 @@
           margin-left: auto
 
 
-// @media (min-width: 768px)
+@media (min-width: 768px)
+  .todo-list_wrapper
+    .todo-list
+      margin: 30px

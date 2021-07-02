@@ -67,8 +67,10 @@
             <div class="block-email">
               <h2>Вход в аккаунт</h2>
               <div class="mail-address">
-                <label class="email__label" for="email-address">Email</label>
-                <input type="text" class="email__input" placeholder="Сюда мы пришлём ссылку для входа" id="email-address">
+                <form id="login-form" action="/profile/login/" method="post" class="mail-address">
+                  <label class="email__label" for="email-address">Email</label>
+                  <input type="text" class="email__input" placeholder="Сюда мы пришлём ссылку для входа" id="email-address">
+                </form>
                 <div class="error-email hide">
                   <div class="text-error">Некорректный email</div>
                 </div>

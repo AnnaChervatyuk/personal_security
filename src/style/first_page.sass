@@ -1,26 +1,42 @@
 .container-first_page
   .content
-    max-width: 652px
-    text-align: center
-    margin: 0 auto
-    display: block
-    .header
-      img
-        width: 100%
-      h1
-        @include  font(40px, 45px)
-        color: #4478FA
-        text-align: center
-        margin-bottom: 20px
-      .first_descr
-        color: #4478FA
-        @include font(20px, 24px)
+    display: flex
+    flex-direction: column
+    .content-descr
+      color: $black-70
+      margin-bottom: 42px
+    .btn
+      padding: 10px 20px
+      margin: 0 auto
+    .content_inner
+      margin-top: 150px
+      .materials-about
+        display: flex
+        flex-direction: column
+        .content-descr
+          text-align: left
+          margin: 0
+          margin-top: 10px
+    .block_bottom
+      svg
+        transform: rotate(180deg)
+        margin-left: 15px
+        margin-right: 0
+      .block_return a
+        margin-left: auto
+        margin-right: auto
 
 @media (min-width: 768px)
   .container-first_page
     .content
-      .header
-        h1
-          @include  font(65px, 70px)
-        .first_descr
-          @include font(30px, 34px)
+      .content_inner
+        margin-top: 250px
+        .materials
+          margin-bottom: 200px
+        .materials-about
+          flex-direction: row
+          .content-descr
+            width: 50%
+            margin: 0
+          h2
+            width: 50%

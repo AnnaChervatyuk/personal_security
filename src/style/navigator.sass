@@ -22,10 +22,11 @@
     flex-wrap: nowrap
     margin: 0
     padding: 0
+    @include font(13px, 19px)
     .nav_item
       list-style-type: none
       margin: 0 13px
-      @include font(13px, 19px)
+
     .nav_item > a
       color: $black-50
     .nav_item.active > a
@@ -57,7 +58,7 @@
       right: 0
       bottom: 35px
       display: flex
-      padding: 32px
+      padding: 30px
       align-items: flex-start
       box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)
       border-radius: 4px
@@ -66,6 +67,7 @@
         display: flex
         margin-bottom: 22px
         color: $grey-100
+        align-items: center
         &:last-child
           margin-bottom: 0
         .nav_list-text

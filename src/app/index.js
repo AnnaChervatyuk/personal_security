@@ -24,140 +24,7 @@ $(document).ready(function() {
   //----менять стили в футере при ховере конец--------
 
 
-  //----переход между вопросами в тесте начало--------
-  // .test_inner - весь блок
-  // .block_return назад
-  // progress_line вся линия
-  // progress_test сколько закрасить
 
-  let userAuth = false // авторизован пользователь или нет
-
-  if (userAuth) {
-    $("#block_question-email").remove()
-  }
-
-  let arrQuestions = $(".block_question") // весь список вопросов
-  let activeQuestion = 0 // активный сейчас вопрос. 0 по умолчанию
-  let btnNext = $(".btn-next")
-  let btnReturn = $(".block_return")
-  let progressLine = $(".progress_line") // вся линия
-  let widthProgressLine = progressLine.width() // вся линия
-
-  let progressTest = $(".progress_question") // закрашенная линия в зависимости от номера выбранного вопроса
-  let widthProgressQuestion = widthProgressLine / arrQuestions.length
-
-  function setProgress () {
-    let width = (activeQuestion + 1) * widthProgressQuestion
-    progressTest.css("width", width + "px")
-  }
-
-  let chooseNothing = false;
-
-  function setCheckbox() {
-
-    var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
-    var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
-    btnNothing.change(function () {
-        if (this.checked) {
-            others.prop('checked', false)
-            chooseNothing = true
-        }
-    });
-    others.change(function () {
-        if (this.checked) {
-            btnNothing.prop('checked', false)
-            chooseNothing = false
-        }
-    })
-  }
-
-  function goTo () {
-    var url = "course_ready.html";
-    $(location).attr('href',url);
-  }
-
-  function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email.val());
-  }
-
-  function checkAnswers(answers) {
-    if (answers.length == 0) {
-      showNotification()
-      $('.notification').text("Выберите хотя бы один вариант")
-      $('.notification').css("display", "block")
-      $('.notification').fadeOut(6000);
-      return false
-    } else {
-      return true
-    }
-  }
-
-
-
-  btnNext.on("click", function (e) {
-    e.stopPropagation();
-
-    if (activeQuestion >= (arrQuestions.length - 1)) {
-      if (userAuth) {
-        if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
-            goTo()
-        }
-      } else {
-        if (validateEmail($("#email-address"))) {
-          goTo()
-        } else {
-          $('.notification').text("Некорректный email")
-          $('.notification').css("display", "block")
-          $('.notification').fadeOut(4000);
-        }
-      }
-    }
-
-    if  (activeQuestion < (arrQuestions.length - 1)) {
-      if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
-          arrQuestions.eq(activeQuestion).addClass("hide");
-          activeQuestion += 1;
-          arrQuestions.eq(activeQuestion).removeClass("hide");
-      }
-      if (activeQuestion == (arrQuestions.length - 1)) {
-        btnNext.text("Готово")
-      }
-
-    }
-
-    setProgress()
-    setCheckbox()
-
-  })
-
-  btnReturn.on("click", function (e) {
-    e.stopPropagation();
-    if (activeQuestion > 0) {
-      arrQuestions.eq(activeQuestion).addClass("hide");
-      activeQuestion -= 1;
-      arrQuestions.eq(activeQuestion).removeClass("hide");
-      if (activeQuestion != (arrQuestions.length - 1)) {
-        btnNext.text("Дальше")
-      }
-      setProgress()
-    }
-  })
-
-  setProgress()
-  setCheckbox()
-
-
-
-
-  $(window).on("resize", function (e) {
-    widthProgressLine = progressLine.width() // вся линия
-    widthProgressQuestion = widthProgressLine / arrQuestions.length
-    setProgress();
-  })
-
-
-  //----переход между вопросами в тесте  конец--------
 
   // ----добавлять фон если не загружена картинка начало---
 
@@ -219,7 +86,7 @@ if ($(".todo-list_wrapper")) {
       let arrow =  ($(".btn-arrow_todo")).eq(i)
       if (arrInstruction.eq(i).hasClass("hide")) {
         arrInstruction.eq(i).removeClass("hide");
-        arrow.css("transform", "rotate(90deg)");
+        arrow.css("transform", "rotate(-180deg)");
         followScroll()
       } else {
         arrInstruction.eq(i).addClass("hide");
@@ -350,7 +217,7 @@ function followScroll () {
     notification.css("left",  ($("body").width() / 2 - notification.width() / 2))
   }
 
-  function addBtnClose() {
+    window.addBtnClose = function addBtnClose() {
     var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
     btnClose.appendTo($("#notification"))
     btnClose.on("click", function (e) {
@@ -359,17 +226,13 @@ function followScroll () {
     })
   }
 
-  function addTimerClosing() {
-    console.log($("#notification"))
-
+  window.addTimerClosing = function addTimerClosing() {
     var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
     timerClosing.appendTo($("#notification"))
     setTimeout(function () {
         $('#notification').fadeOut(1000);
         setTimeout(function() {$('#notification').remove()}, 1000)
         }, 6000);
-
-
   }
   // window.showNotification()
   // addBtnClose()

@@ -250,7 +250,7 @@
                   <div class="mail-address">
                     <input type="text" class="email__input" placeholder="e-mail" id="email-address">
                   </div>
-                  <div class="in-change-error hide">
+                  <div class="error-email hide">
                     <div class="text-error">Некорректный email</div>
                   </div>
                 </div>
@@ -312,5 +312,148 @@
           </ul>
         </div>
       </footer>
+      <script>
+      //----переход между вопросами в тесте начало--------
+      // .test_inner - весь блок
+      // .block_return назад
+      // progress_line вся линия
+      // progress_test сколько закрасить
+
+      let userAuth = false // авторизован пользователь или нет
+
+      if (userAuth) {
+        $("#block_question-email").remove()
+      }
+
+      let arrQuestions = $(".block_question") // весь список вопросов
+      let activeQuestion = 0 // активный сейчас вопрос. 0 по умолчанию
+      let btnNext = $(".btn-next")
+      let btnReturn = $(".block_return")
+      let progressLine = $(".progress_line") // вся линия
+      let widthProgressLine = progressLine.width() // вся линия
+
+      let progressTest = $(".progress_question") // закрашенная линия в зависимости от номера выбранного вопроса
+      let widthProgressQuestion = widthProgressLine / arrQuestions.length
+
+      function setProgress () {
+        let width = (activeQuestion + 1) * widthProgressQuestion
+        progressTest.css("width", width + "px")
+      }
+
+      let chooseNothing = false;
+
+      function setCheckbox() {
+
+        var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
+        var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
+        btnNothing.change(function () {
+            if (this.checked) {
+                others.prop('checked', false)
+                chooseNothing = true
+            }
+        });
+        others.change(function () {
+            if (this.checked) {
+                btnNothing.prop('checked', false)
+                chooseNothing = false
+            }
+        })
+      }
+
+      function goTo () {
+        var url = "course_ready.html";
+        $(location).attr('href',url);
+      }
+
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email.val());
+      }
+
+      function checkAnswers(answers) {
+          if (answers.length == 0) {
+            window.showNotification("Выберите хотя бы один вариант")
+            window.addTimerClosing()
+            return false
+          } else {
+            return true
+          }
+        }
+
+        ($("#email-address")).on('change paste keyup', function() {
+          if (!$(".error-email").hasClass("hide")) {
+            $(".error-email").addClass("hide");
+          };
+        });
+
+        btnNext.on("click", function (e) {
+          e.stopPropagation();
+          if ($('#notification')) {
+            $('#notification').remove()
+          }
+          if (activeQuestion >= (arrQuestions.length - 1)) {
+            if (userAuth) {
+              if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
+                  goTo()
+              }
+            } else {
+              if (validateEmail($("#email-address"))) {
+                goTo()
+              } else {
+                $(".error-email").removeClass("hide");
+              }
+            }
+          }
+
+          if  (activeQuestion < (arrQuestions.length - 1)) {
+            if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
+                arrQuestions.eq(activeQuestion).addClass("hide");
+                activeQuestion += 1;
+                arrQuestions.eq(activeQuestion).removeClass("hide");
+
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: ($(".progress_test")).offset().top
+                }, 500);
+
+            }
+            if (activeQuestion == (arrQuestions.length - 1)) {
+              btnNext.text("Готово")
+            }
+
+          }
+
+          setProgress()
+          setCheckbox()
+
+        })
+
+        btnReturn.on("click", function (e) {
+          e.stopPropagation();
+          if (activeQuestion > 0) {
+            arrQuestions.eq(activeQuestion).addClass("hide");
+            activeQuestion -= 1;
+            arrQuestions.eq(activeQuestion).removeClass("hide");
+            if (activeQuestion != (arrQuestions.length - 1)) {
+              btnNext.text("Дальше")
+            }
+            setProgress()
+          }
+        })
+
+        setProgress()
+        setCheckbox()
+
+
+
+
+        $(window).on("resize", function (e) {
+          widthProgressLine = progressLine.width() // вся линия
+          widthProgressQuestion = widthProgressLine / arrQuestions.length
+          setProgress();
+        })
+
+
+        //----переход между вопросами в тесте  конец--------
+      </script>
     </body>
 </html>

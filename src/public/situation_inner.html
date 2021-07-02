@@ -84,7 +84,7 @@
           </div>
           <div class="article_text">
             <div>Служба безопасности &laquo;Яндекса&raquo; обнаружила внутреннюю утечку информации. По&nbsp;результатам расследования стало известно, что один из&nbsp;сотрудников компании предоставлял несанкционированный доступ к&nbsp;почтовым ящикам пользователей.</div>
-            <div>Злоумышленником оказался один из&nbsp;трех <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина вставляется в тултип</span></span> администраторов, обладавших правами доступа для выполнения рабочих задач по&nbsp;обеспечению технической поддержки сервиса. В&nbsp;результате его действий было скомпрометировано 4887 почтовых ящиков.</div>
+            <div>Злоумышленником оказался один из&nbsp;трех <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултип</span></span> администраторов, обладавших правами доступа для выполнения рабочих задач по&nbsp;обеспечению технической поддержки сервиса. В&nbsp;результате его действий было скомпрометировано 4887 почтовых ящиков.</div>
             <div>&laquo;Неавторизованный доступ в&nbsp;скомпрометированные ящики уже заблокирован. Их&nbsp;владельцы получили уведомление о&nbsp;необходимости смены пароля от&nbsp;своей учетной записи&raquo;,&nbsp;&mdash; сообщила пресс-служба &laquo;Яндекса&raquo;.</div>
             <div>По&nbsp;выявленному инциденту проводится внутреннее расследование и&nbsp;будут пересмотрены процессы работы сотрудников, обладающих административными правами такого уровня доступа.</div>
             <h3>В чем проблема с паролями</h3>
@@ -130,12 +130,18 @@
       </footer>
 
       <script>
-        var popup = $('<div class="popup-tooptip hide"></div>')
+        var popup = $('<div class="popup-tooptip hide"><span></span</div>')
+        var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+        btnClose.appendTo(popup)
         var elem
 
         $('body').on("click", function (e) {
-            if (e.target != elem) {
-              popup.addClass("hide")
+           if ( e.target == popup.find($('span'))[0]) {
+            return
+           }
+            if (e.target != elem ) {
+
+                popup.addClass("hide")
             }
           e.stopPropagation();
         })
@@ -147,14 +153,17 @@
           }
         })
 
+        btnClose.on("click", function (e) {
+          popup.addClass("hide")
+        })
+
         function showTooltip (el) {
             elem = el
             popup.removeClass("hide")
             popup.appendTo($("body"))
             var left = $(el).offset().left
-            popup.css("display", "block")
             var descr = $(el).find($(".hide")).text()
-            popup.text(descr)
+            popup.find($("span")).text(descr)
             var popupWidth = popup.width()
             var bodyWidth = $("body").width()
 

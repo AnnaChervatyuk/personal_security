@@ -337,11 +337,11 @@ textarea::placeholder {
 
   .btn-arrow {
     display: block;
-    height: 100%;
+    height: calc(100% - 10px);
     width: 97px;
     position: absolute;
     z-index: 2;
-    bottom: 0px;
+    top: 0px;
   }
 
   .btn-arrow-left {
@@ -444,12 +444,12 @@ textarea::placeholder {
   flex-wrap: nowrap;
   margin: 0;
   padding: 0;
+  font-size: 13px;
+  line-height: 19px;
 }
 .navigator .nav_list .nav_item {
   list-style-type: none;
   margin: 0 13px;
-  font-size: 13px;
-  line-height: 19px;
 }
 .navigator .nav_list .nav_item > a {
   color: #787882;
@@ -490,7 +490,7 @@ textarea::placeholder {
   right: 0;
   bottom: 35px;
   display: flex;
-  padding: 32px;
+  padding: 30px;
   align-items: flex-start;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
@@ -500,6 +500,7 @@ textarea::placeholder {
   display: flex;
   margin-bottom: 22px;
   color: #8D8D94;
+  align-items: center;
 }
 .navigator .menu__wrapper .nav_list-menu .nav_el:last-child {
   margin-bottom: 0;
@@ -973,11 +974,13 @@ footer {
   background-color: #F6F6F9;
 }
 .cards .card_task {
+  background-color: #E8E8FA;
+}
+.cards .card_task .add-text-task {
   background: url(/dist/img/bg_cards_task.png) no-repeat;
   background-size: 80px 80px;
   background-position: right bottom;
-  background-color: #E8E8FA;
-  padding-bottom: 80px;
+  margin-top: auto;
 }
 
 .all_cards {
@@ -1418,6 +1421,7 @@ footer {
   margin-top: 10px;
   align-items: center;
   margin-left: 0;
+  margin-bottom: 0;
 }
 .article > .related_lessons > .material-list .material-el .in-coaching,
 .materials > .material > .material-list .material-el .in-coaching {
@@ -1831,6 +1835,9 @@ footer {
   margin-bottom: 50px;
   color: #17171C;
 }
+.article .article_text, .article .news_text, .article .instruction_text {
+  height: auto;
+}
 .article .news_text > div, .article .instruction_text > div, .article .article_text > div {
   margin-bottom: 20px;
 }
@@ -1971,6 +1978,7 @@ footer {
 .article-situation_header .descr-img {
   order: 1;
   min-width: 320px;
+  max-width: 600px;
 }
 .article-situation_header .header_inner {
   order: 2;
@@ -2182,6 +2190,8 @@ footer {
   display: block;
   position: relative;
   margin-left: 15px;
+  margin-top: -2px;
+  width: 8px;
 }
 .todo-list_wrapper .todo-list .todo-el .el_how-do_btn .btn-arrow_todo::after {
   content: "";
@@ -2192,7 +2202,7 @@ footer {
   height: 7px;
   right: 0;
   top: 20%;
-  transform: rotate(45deg);
+  transform: rotate(135deg);
 }
 .todo-list_wrapper .todo-list .todo-el .el_how-do_btn:hover {
   color: #17171C;
@@ -2325,6 +2335,10 @@ footer {
     align-items: center;
     flex-grow: 1;
   }
+  .todo-list_wrapper .todo-list .todo-el .instruction {
+    margin-left: 65px;
+    margin-bottom: 30px;
+  }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
     flex-direction: row;
     flex-wrap: wrap;
@@ -2354,36 +2368,61 @@ footer {
     margin-left: auto;
   }
 }
+@media (min-width: 768px) {
+  .todo-list_wrapper .todo-list {
+    margin: 30px;
+  }
+}
 .container-first_page .content {
-  max-width: 652px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.container-first_page .content .content-descr {
+  color: #2E2E38;
+  margin-bottom: 42px;
+}
+.container-first_page .content .btn {
+  padding: 10px 20px;
   margin: 0 auto;
-  display: block;
 }
-.container-first_page .content .header img {
-  width: 100%;
+.container-first_page .content .content_inner {
+  margin-top: 150px;
 }
-.container-first_page .content .header h1 {
-  font-size: 40px;
-  line-height: 45px;
-  color: #4478FA;
-  text-align: center;
-  margin-bottom: 20px;
+.container-first_page .content .content_inner .materials-about {
+  display: flex;
+  flex-direction: column;
 }
-.container-first_page .content .header .first_descr {
-  color: #4478FA;
-  font-size: 20px;
-  line-height: 24px;
+.container-first_page .content .content_inner .materials-about .content-descr {
+  text-align: left;
+  margin: 0;
+  margin-top: 10px;
+}
+.container-first_page .content .block_bottom svg {
+  transform: rotate(180deg);
+  margin-left: 15px;
+  margin-right: 0;
+}
+.container-first_page .content .block_bottom .block_return a {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 768px) {
-  .container-first_page .content .header h1 {
-    font-size: 65px;
-    line-height: 70px;
+  .container-first_page .content .content_inner {
+    margin-top: 250px;
   }
-  .container-first_page .content .header .first_descr {
-    font-size: 30px;
-    line-height: 34px;
+  .container-first_page .content .content_inner .materials {
+    margin-bottom: 200px;
+  }
+  .container-first_page .content .content_inner .materials-about {
+    flex-direction: row;
+  }
+  .container-first_page .content .content_inner .materials-about .content-descr {
+    width: 50%;
+    margin: 0;
+  }
+  .container-first_page .content .content_inner .materials-about h2 {
+    width: 50%;
   }
 }
 .search-input_wrapper {
@@ -2452,6 +2491,7 @@ footer {
 .container-search .search-toggle__wrapper input[type=radio]:checked + label {
   border-bottom: 2px solid #17171C;
   color: #17171C;
+  font-weight: 600;
 }
 .container-search .search-toggle__wrapper label:hover {
   color: #17171C;
@@ -2758,6 +2798,10 @@ footer {
 }
 .content-course .test_wrapper .test_inner .block_question .question-variants .mail-address .email__input {
   width: 100%;
+}
+.content-course .test_wrapper .test_inner .block_question .question-variants .text-error {
+  color: #FF3B30;
+  margin-top: 5px;
 }
 .content-course .test_wrapper .test_inner .block_question .question-variants .question-item {
   position: relative;
@@ -3134,6 +3178,9 @@ footer {
   flex-direction: column;
   margin-bottom: 30px;
 }
+.container-login .content_inner .mail-address form {
+  margin-bottom: 0;
+}
 .container-login .content_inner .mail-address .error-email {
   color: #FF3B30;
   margin-top: 5px;
@@ -3216,7 +3263,6 @@ footer {
   z-index: 555555;
   padding: 10px 15px;
   width: max-content;
-  display: none;
   top: 0;
   left: 0;
   background: #fff;
@@ -3227,6 +3273,16 @@ footer {
   line-height: 22px;
   color: #17171C;
   filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04));
+  display: flex;
+  flex-direction: row;
+}
+.popup-tooptip .btn-close {
+  margin-top: 4px;
+  margin-left: 10px;
+}
+.popup-tooptip .btn-close:hover {
+  cursor: pointer;
+  color: #17171C;
 }
 
 .progress_popup_wrapper,
