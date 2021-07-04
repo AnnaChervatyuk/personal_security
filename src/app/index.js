@@ -211,9 +211,15 @@ function followScroll () {
 
   // ------ служебные сообщения начало -----
   window.showNotification = function showNotification(textNotification) {
-    var notification = $('<div class="notification" id="notification"><span></span></div>')
+    var text = (textNotification.split(";")).filter(String)
+
+    var notification = $('<div class="notification" id="notification"><div class="notification_inner"></div></div>')
     notification.appendTo($("body"))
-    notification.find($('span')).text(textNotification)
+    for (var i = 0; i < text.length; i++) {
+      var span = $('<span></span>')
+      span.text(text[i])
+      span.appendTo(notification.find($('div')))
+    }
     notification.css("left",  ($("body").width() / 2 - notification.width() / 2))
   }
 
@@ -234,8 +240,9 @@ function followScroll () {
         setTimeout(function() {$('#notification').remove()}, 1000)
         }, 6000);
   }
-  // window.showNotification()
-  // addBtnClose()
+
+  // window.showNotification("Сообщение 1.;Сообщение СообщениеСообщениеСообщениеСообщениеСообщение СообщениеСообщениеСообщениеСообщениеСообщение 2;Сообщение 33333333;")
+  // window.addBtnClose()
   // showNotification ("добавить текст уведомления добавить текст уведомления добавить текст уведомлениядобавить текст уведомлениядобавитьдобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомления") // вызывать когда надо
 
 

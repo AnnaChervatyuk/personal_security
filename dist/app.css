@@ -1509,7 +1509,7 @@ footer {
 .content-my-course .materials > .material > .material-list .material-el .img,
 .material-list .material-el .img {
   width: 100%;
-  padding-top: 100%;
+  padding-top: 66%;
   position: relative;
 }
 .article > .related_lessons > .material-list > .material-el .img img,
@@ -2015,9 +2015,11 @@ footer {
   }
   .article-situation .article-situation_header .descr-img, .article-exercise .article-situation_header .descr-img {
     order: 2;
+    width: 50%;
   }
   .article-situation .article-situation_header .header_inner, .article-exercise .article-situation_header .header_inner {
     order: 1;
+    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -2877,8 +2879,15 @@ footer {
   align-items: baseline;
 }
 
+.notification .notification_inner {
+  display: flex;
+  flex-direction: column;
+}
+.notification .notification_inner span {
+  margin-bottom: 5px;
+}
 .notification .btn-close {
-  margin: auto 0 auto 20px;
+  margin: 0 0 auto 20px;
 }
 .notification .btn-close:hover {
   cursor: pointer;

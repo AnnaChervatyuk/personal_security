@@ -15,8 +15,13 @@
   align-items: baseline
 
 .notification
+  .notification_inner
+    display: flex
+    flex-direction: column
+    span
+      margin-bottom: 5px
   .btn-close
-    margin: auto 0 auto 20px
+    margin: 0 0 auto 20px
     &:hover
       cursor: pointer
     svg
