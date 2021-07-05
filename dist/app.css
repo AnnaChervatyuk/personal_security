@@ -32,6 +32,15 @@ img {
   width: 100%;
 }
 
+.blur {
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  position: absolute;
+  top: 0;
+}
+
 .container {
   margin: 0 auto;
   padding: 0;
@@ -461,6 +470,9 @@ textarea::placeholder {
   color: #17171C;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
+  cursor: pointer;
+}
+.navigator .nav_list .nav_item:hover {
   cursor: pointer;
 }
 .navigator .menu__wrapper {
@@ -1404,6 +1416,7 @@ footer {
   position: relative;
   margin-right: 30px;
   margin-bottom: 10px;
+  background-color: #fff;
 }
 .article > .related_lessons > .material-list .material-el:last-child,
 .materials > .material > .material-list .material-el:last-child {
@@ -3306,6 +3319,15 @@ footer {
   backdrop-filter: blur(4px);
   z-index: 200;
 }
+.progress_popup_wrapper .threat_popup_inner_blur,
+.threat_popup_wrapper .threat_popup_inner_blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(4px);
+}
 .progress_popup_wrapper .progress_popup_inner,
 .progress_popup_wrapper .threat_popup_inner,
 .threat_popup_wrapper .progress_popup_inner,
@@ -3398,6 +3420,7 @@ footer {
   width: auto;
   margin: 80px auto 40px;
   display: flex;
+  background-color: #fff;
 }
 
 @media (min-width: 640px) {

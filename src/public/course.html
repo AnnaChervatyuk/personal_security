@@ -1259,6 +1259,7 @@
         materialsThreats.clone().appendTo($(".threat_popup_inner"));
         popupThreats.find($(".materials-popup-threats")).removeClass("hide")
         $("body").css("overflow-y", "hidden")
+        $(".content_inner").addClass("blur")
         window.getInCoachingTooltip()
 
       }
@@ -1268,6 +1269,7 @@
       btnCloseThreats.on("click", function (event) {
         popupThreats.addClass("hide")
         $("body").css("overflow-y", "auto")
+        $(".content_inner").removeClass("blur")
         $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
         imgSrc = ""
         title =""
@@ -1277,6 +1279,7 @@
       btnCloseTopThreats.on("click", function (event) {
         popupThreats.addClass("hide")
         $("body").css("overflow-y", "auto")
+        $(".content_inner").removeClass("blur")
         $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
         imgSrc = ""
         title =""
@@ -1361,7 +1364,8 @@
               skillTitlePopup.eq(i).appendTo(skillsPopup.eq(i))
             }
 
-            $(".progress_popup_inner").find($(".link")).remove()
+            $(".progress_popup_inner").find($(".link")).remove
+            $(".content_inner").addClass("blur")
 
         }
 
@@ -1369,6 +1373,7 @@
           $('.progress_popup_inner>.progress>.progress_skills>.skill_wrapper').remove()
             popupProgress.addClass("hide")
             $("body").css("overflow-y", "auto")
+            $(".content_inner").removeClass("blur")
         }
 
         btnClose.on("click", function (event) {

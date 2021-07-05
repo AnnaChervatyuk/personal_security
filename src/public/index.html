@@ -60,7 +60,7 @@
           </div>
         </section>
 
-        <section class="content">
+        <section class="content ">
           <div class="progress progress-main" id="progress_course-section">
             <div class="progress_skills ">
                 <div class="skill-digital_wrapper skill_wrapper">
@@ -280,6 +280,8 @@
           materialsThreats.clone().appendTo($(".threat_popup_inner"));
           popupThreats.find($(".materials-popup-threats")).removeClass("hide")
           $("body").css("overflow-y", "hidden")
+          $(".navigator-main").addClass("blur")
+          $(".cards-main").addClass("blur")
           window.getInCoachingTooltip()
         }
 
@@ -287,6 +289,8 @@
         btnCloseThreats.on("click", function (event) {
           popupThreats.addClass("hide")
           $("body").css("overflow-y", "auto")
+          $(".navigator-main").removeClass("blur")
+          $(".cards-main").removeClass("blur")
           $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
           imgSrc = ""
           title =""
@@ -296,6 +300,8 @@
         btnCloseTopThreats.on("click", function (event) {
           popupThreats.addClass("hide")
           $("body").css("overflow-y", "auto")
+          $(".navigator-main").removeClass("blur")
+          $(".cards-main").removeClass("blur")
           $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
           imgSrc = ""
           title =""
@@ -346,6 +352,8 @@
 
             $(".descr").text(descr)
             $("body").css("overflow-y", "hidden")
+            $(".navigator-main").addClass("blur")
+            $(".cards-main").addClass("blur")
         }
 
         // function getPadding () { -- пригодится, если потом снова понадобится на попапе отрисовать несколько скиллов и вырвнивать выбранный по центру
@@ -373,7 +381,9 @@
         function closePopup () {
             $('.progress_popup_inner>.progress>.progress_skills>.skill_wrapper').remove()
             popupProgress.addClass("hide")
-            $("body").css("overflow-y", "auto")
+            $(".navigator-main").removeClass("blur")
+            $(".cards-main").removeClass("blur")
+          $("body").css("overflow-y", "auto")
         }
 
         btnClose.on("click", function (event) {
