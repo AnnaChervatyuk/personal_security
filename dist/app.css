@@ -1438,7 +1438,7 @@ footer {
 }
 .article > .related_lessons > .material-list .material-el .in-coaching,
 .materials > .material > .material-list .material-el .in-coaching {
-  z-index: 344444;
+  z-index: 100;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -1618,6 +1618,7 @@ footer {
 
 .todo-list_wrapper .materials .material .material-list {
   overflow: hidden;
+  overflow-x: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -1638,6 +1639,10 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .todo-list_wrapper .materials .material .material-list {
+    overflow-x: hidden;
+  }
+
   .content-situation .materials > .material > .material-list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2531,11 +2536,29 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .search-input_wrapper {
+    padding-left: 15px;
+  }
+  .search-input_wrapper .search__input {
+    padding-left: 15px;
+  }
   .search-input_wrapper .search-btn {
     top: 13px;
+    right: 15px;
+    left: auto;
   }
   .search-input_wrapper .clear-btn {
     top: 17px;
+    right: 50px;
+  }
+  .search-input_wrapper .clear-btn::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    width: 1px;
+    height: 24px;
+    left: 21px;
+    background-color: #D1D1D6;
   }
 
   .container-search .content-search .search-input_wrapper {

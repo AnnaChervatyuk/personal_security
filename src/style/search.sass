@@ -80,11 +80,43 @@
 
 @media (min-width: 640px)
   .search-input_wrapper
+    padding-left: 15px
+    .search__input
+      padding-left: 15px
     .search-btn
       top: 13px
+      right: 15px
+      left: auto
+
     .clear-btn
       top: 17px
+      right: 50px
+      &::after
+        content: ""
+        position: absolute
+        top: -4px
+        width: 1px
+        height: 24px
+        left: 21px
+        background-color: $grey-50
   .container-search
     .content-search
       .search-input_wrapper
         margin-top: 70px
+        // .search-btn
+        //   right:
+        //   left: 15px
+
+
+  // .container-search
+  //   .content-search
+  //     .search-input_wrapper
+  //       margin-top: 30px
+  //       margin-bottom: 20px
+  //       margin-right: 0
+  //       position: relative
+  //       .search__input
+  //         padding-left: 15px
+  //       .search-btn
+  //         right: 15px
+  //         left: auto
