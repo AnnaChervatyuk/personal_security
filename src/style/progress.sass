@@ -86,6 +86,13 @@
       .skill-financial
         background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 (0%), #D9E9EE (0%)) border-box
 
+.progress_course
+  .progress_skills
+    .skill-digital_wrapper .skill-digital,
+    .skill-personal_wrapper .skill-personal,
+    .skill-financial_wrapper .skill-financial
+      background: linear-gradient(#F9F9FB, #F9F9FB) padding-box, conic-gradient(#21AF73 (0%), #D8EDE4 (0%)) border-box
+
 .article-situation, .article-exercise
   .progress
     flex-grow: 1
@@ -134,8 +141,10 @@
       .btn
         width: fit-content
         width: -moz-fit-content
+        padding: 10px 28px
   .progress-main
     align-items: center
+
 
 
 
@@ -148,6 +157,9 @@
       order: 1
       width: 50%
       margin-right: 30px
+      .progress_about
+        .progress_line
+          max-width: 425px
       h2
         margin: 0
       .btn
@@ -192,6 +204,6 @@
           @include font(52px, 52px)
         .skill-title
           width: 95px
-          margin-top: 0
+          margin-top: 6px
       .skill_wrapper
         width: 156px

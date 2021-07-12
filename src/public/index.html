@@ -114,7 +114,7 @@
             </div>
             <div class="card card_situation">
               <div class="card_img">
-                <img src="./images/img_example/image_2.png" />
+                <!-- <img src="./images/img_example/image_2.png" /> -->
               </div>
               <div class="type type-situation">Ситуация</div>
               <div class="title title-situation">«Яндекс» выявил внутреннюю утечку данных около 5 тыс. почтовых ящиков. Смените пароль.</div>
@@ -136,10 +136,28 @@
               </div>
               <a href="exercise.html" class="link"></a>
             </div>
-
+            <div class="card card_news">
+              <div class="card_img">
+                <img src="./images/img_example/image_3.png" />
+              </div>
+              <div class="type type-news">Новость</div>
+              <div class="title title-news">Установить менеджер паролей</div>
+              <div class="add-text add-text-news">
+              </div>
+              <a href="exercise.html" class="link"></a>
+            </div>
+            <div class="card card_news">
+              <div class="card_img">
+              </div>
+              <div class="type type-news">Новость</div>
+              <div class="title title-news">Установить менеджер паролей</div>
+              <div class="add-text add-text-news">
+              </div>
+              <a href="exercise.html" class="link"></a>
+            </div>
             <div class="card card_threat" id="threat-21">
               <div class="card_img threat-img">
-                <img src="./images/img_example/image_4.png" />
+                <!-- <img src="./images/img_example/image_4.png" /> -->
               </div>
               <div class="type type-threat">Угроза</div>
               <div class="title threat-title">Печальная старость</div>
@@ -164,7 +182,7 @@
                     </div>
                     <div class="material-el">
                       <div class="img">
-                        <img src="./images/img_example/image_1.png" />
+                        <!-- <img src="./images/img_example/image_1.png" /> -->
                       </div>
                       <h5>Двухэтапный вход Двухэтапный вход</h5>
                       <div class="time">14 мин</div>
@@ -245,7 +263,7 @@
           </div>
           <ul class="footer_list">
             <li class="footer_item active"><a href="about.html">О проекте</a></li>
-            <li class="footer_item active"><a href="/">Предложить новость</a></li>
+            <li class="footer_item active"><a href="/">Предложить  ь</a></li>
           </ul>
         </div>
       </footer>
@@ -280,8 +298,6 @@
           materialsThreats.clone().appendTo($(".threat_popup_inner"));
           popupThreats.find($(".materials-popup-threats")).removeClass("hide")
           $("body").css("overflow-y", "hidden")
-          $(".navigator-main").addClass("blur")
-          $(".cards-main").addClass("blur")
           window.getInCoachingTooltip()
         }
 
@@ -289,8 +305,6 @@
         btnCloseThreats.on("click", function (event) {
           popupThreats.addClass("hide")
           $("body").css("overflow-y", "auto")
-          $(".navigator-main").removeClass("blur")
-          $(".cards-main").removeClass("blur")
           $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
           imgSrc = ""
           title =""
@@ -300,8 +314,6 @@
         btnCloseTopThreats.on("click", function (event) {
           popupThreats.addClass("hide")
           $("body").css("overflow-y", "auto")
-          $(".navigator-main").removeClass("blur")
-          $(".cards-main").removeClass("blur")
           $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
           imgSrc = ""
           title =""
@@ -352,8 +364,7 @@
 
             $(".descr").text(descr)
             $("body").css("overflow-y", "hidden")
-            $(".navigator-main").addClass("blur")
-            $(".cards-main").addClass("blur")
+
         }
 
         // function getPadding () { -- пригодится, если потом снова понадобится на попапе отрисовать несколько скиллов и вырвнивать выбранный по центру
@@ -381,8 +392,7 @@
         function closePopup () {
             $('.progress_popup_inner>.progress>.progress_skills>.skill_wrapper').remove()
             popupProgress.addClass("hide")
-            $(".navigator-main").removeClass("blur")
-            $(".cards-main").removeClass("blur")
+
           $("body").css("overflow-y", "auto")
         }
 
@@ -396,6 +406,51 @@
 
         //----- открыть попап с прогрессом конец ----
 
+
+        // ----добавлять фон если не загружена картинка начало--- ДОДЕЛАТЬ
+
+      // if ($(".card_news")) {
+      //
+      //   let arrCardNews = $(".card_news")
+      //
+      //   for (var a = 0; a < arrCardNews.length; a++) {
+      //
+      //     let cardNews = $(".card_news").eq(a).find($(".card_img"))
+      //
+      //     function checkImg(i) {
+      //       cardNews.eq(i)
+      //
+      //       // let blocksImg = cardNews.eq(i)
+      //       let blocksImg = cardNews.eq(i).find($(".card-img")[0])
+      //       console.log("blocksImg", blocksImg)
+      //
+      //       // for (var j = 0; j < blocksImg.length; j++) {
+      //
+      //         if (blocksImg.find($("img"))) {
+      //           console.log("1")
+      //           // console.log("1", blocksImg.find("img"))
+      //           // console.log(cardNews.eq(i).find($(".add-text-news")))
+      //           // cardNews.eq(i).find($(".add-text-news")).remove()
+      //
+      //           // blocksImg.eq(j).css("background", "transparent")
+      //           // var srcName = blocksImg.eq(j).find("img")[0].getAttribute('src');
+      //           // var srcNameSplit = srcName.split(".");
+      //           // if (srcNameSplit[srcNameSplit.length-1] == "svg") (
+      //           //   blocksImg.eq(j).find("img").css("height", "auto")
+      //           // )
+      //         } else {
+      //           console.log("2")
+      //         }
+      //       // }
+      //
+      //     }
+      //
+      //     for (var i = 0; i < cardNews.length; i++) {
+      //       checkImg(i)
+      //     }
+      //   }
+      // }
+        // ----добавлять фон если не загружена картинка конец ---
 
       </script>
     </body>

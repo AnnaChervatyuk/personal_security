@@ -65,7 +65,7 @@
           <div class="content_inner">
             <h1>Тренировки</h1>
 
-            <div class="section-toggle__wrapper">
+            <!-- <div class="section-toggle__wrapper">
             	<div class="section-toggle-item">
             		<input id="theory" type="radio" name="section-toggle" value="theory" checked onclick="showArticle('theory')">
             		<label for="theory">Курс теории</label>
@@ -82,7 +82,7 @@
             		<input id="threats" type="radio" name="section-toggle" value="threats" onclick="showArticle('threats')">
             		<label for="threats">Угрозы <sup class="threats">4</sup></label>
             	</div>
-            </div>
+            </div> -->
 
 
 
@@ -819,7 +819,7 @@
 
             <div class="progress_course" id="progress_course-section">
               <h2>Достижения</h2>
-              <div class="content-descr">Проходите тренировки и выполненяйте задания чтобы...</div>
+              <div class="content-descr content-descr_my-course">Проходите тренировки и выполненяйте задания чтобы...</div>
               <div class="progress progress-main">
                 <div class="progress_skills">
                     <div class="skill-digital_wrapper skill_wrapper">
@@ -848,7 +848,7 @@
               <h2>Угрозы</h2>
               <div class="already_avoiding avoid_wrapper">
                 <h3>Эти вы научились избегать</h3>
-                <div class="content-descr">Так держать!</div>
+                <div class="content-descr content-descr_my-course">Так держать!</div>
                 <div class="materials materials-course">
                   <div class="material">
                     <div class="btn-arrow btn-arrow-left"><button class="arrow-left hide" data-factor="-1"></button></div>
@@ -1009,7 +1009,7 @@
               </div>
               <div class="will_avoid avoid_wrapper">
                 <h3>А с этими ещё предстоит разобраться</h3>
-                <div class="content-descr">Продолжайте тренировки</div>
+                <div class="content-descr content-descr_my-course">Продолжайте тренировки</div>
                 <div class="materials materials-course">
                   <div class="material">
                     <div class="btn-arrow btn-arrow-left"><button class="arrow-left hide" data-factor="-1"></button></div>
@@ -1259,7 +1259,6 @@
         materialsThreats.clone().appendTo($(".threat_popup_inner"));
         popupThreats.find($(".materials-popup-threats")).removeClass("hide")
         $("body").css("overflow-y", "hidden")
-        $(".content_inner").addClass("blur")
         window.getInCoachingTooltip()
 
       }
@@ -1269,7 +1268,6 @@
       btnCloseThreats.on("click", function (event) {
         popupThreats.addClass("hide")
         $("body").css("overflow-y", "auto")
-        $(".content_inner").removeClass("blur")
         $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
         imgSrc = ""
         title =""
@@ -1279,7 +1277,6 @@
       btnCloseTopThreats.on("click", function (event) {
         popupThreats.addClass("hide")
         $("body").css("overflow-y", "auto")
-        $(".content_inner").removeClass("blur")
         $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
         imgSrc = ""
         title =""
@@ -1365,7 +1362,6 @@
             }
 
             $(".progress_popup_inner").find($(".link")).remove
-            $(".content_inner").addClass("blur")
 
         }
 
@@ -1373,7 +1369,6 @@
           $('.progress_popup_inner>.progress>.progress_skills>.skill_wrapper').remove()
             popupProgress.addClass("hide")
             $("body").css("overflow-y", "auto")
-            $(".content_inner").removeClass("blur")
         }
 
         btnClose.on("click", function (event) {

@@ -7,11 +7,31 @@ $(document).ready(function() {
   let menuNav = $("#menu-nav")
 
   //----менять стили в навигаторе при ховере начало ----
-  $(".nav_item").hover(function(){
-    $(".nav_item").removeClass("active");
+  var arrNavItem = $(".nav_item")
+
+  function changeActiveItem (i) {
+    arrNavItem.eq(i).hover(function(){
+
+      for (var j = 0; j < arrNavItem.length; j++) {
+        arrNavItem.eq(j).find($("a")).css("color", "#787882")
+      }
+
+      arrNavItem.eq(i).find($("a")).css("color", "#17171C")
     }, function(){
-    $(".nav_item").addClass("active");
-  });
+      arrNavItem.eq(i).find($("a")).css("color", "#787882")
+
+      for (var j = 0; j < arrNavItem.length; j++) {
+        if (arrNavItem.eq(j).hasClass("active")){
+          arrNavItem.eq(j).find($("a")).css("color", "#17171C")
+        }
+      }
+    })
+  }
+
+  for (i = 0; i < arrNavItem.length; i++) {
+    changeActiveItem(i)
+  }
+
   //----менять стили в навигаторе при ховере начало--------
 
 
@@ -28,11 +48,16 @@ $(document).ready(function() {
 
   // ----добавлять фон если не загружена картинка начало---
 
+if ($(".material-el")) {
 
-  if ($(".material-el")) {
-    let materialsEl = $(".material-el")
+  let arrMaterialEl = $(".material-el")
+
+  for (var a = 0; a < arrMaterialEl.length; a++) {
+
+    let materialsEl = $(".material-el").eq(a)
 
     function checkImg(i) {
+      materialsEl.eq(i)
       let blocksImg = materialsEl.eq(i).find($(".img"))
 
       for (var j = 0; j < blocksImg.length; j++) {
@@ -52,6 +77,7 @@ $(document).ready(function() {
       checkImg(i)
     }
   }
+}
   // ----добавлять фон если не загружена картинка конец ---
 
 // ------ туду начало-------
@@ -161,10 +187,12 @@ function followScroll () {
        if (el[0].scrollWidth <=  el.width()) {
          if (!btnRight.hasClass("hide")) {
            btnRight.addClass("hide")
+           btnRight.css("z-index", "0")
          }
        } else {
           if (btnRight.hasClass("hide")) {
             btnRight.removeClass("hide")
+            btnRight.css("z-index", "2")
           }
        }
 
@@ -177,20 +205,24 @@ function followScroll () {
          if ((el.scrollLeft() + (distance * $(this).data('factor'))) >=  max[i]) {
            if (!btnRight.hasClass("hide")) {
              btnRight.addClass("hide")
+             btnRight.css("z-index", "0")
            }
          } else {
             if (btnRight.hasClass("hide")) {
               btnRight.removeClass("hide")
+              btnRight.css("z-index", "2")
             }
          }
 
          if ((el.scrollLeft() + (distance * $(this).data('factor'))) <=  0) {
            if (!btnLeft.hasClass("hide")) {
              btnLeft.addClass("hide")
+             btnLeft.css("z-index", "0")
            }
          } else {
             if (btnLeft.hasClass("hide")) {
               btnLeft.removeClass("hide")
+              btnLeft.css("z-index", "2")
             }
          }
 
