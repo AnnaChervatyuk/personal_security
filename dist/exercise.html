@@ -401,6 +401,10 @@
       </footer>
 
       <script>
+        if ($(".article").find(".descr-img").length == 0) {
+          $(".header_inner").css("width", "100%")
+        }
+
         let btnReady = $('.btn-ready')
         let instruction = $('.exercise-instruction')
         btnReady.on("click", function (e) {

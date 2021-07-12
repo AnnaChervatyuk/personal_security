@@ -23,7 +23,7 @@ $(document).ready(function() {
       for (var j = 0; j < arrNavItem.length; j++) {
         if (arrNavItem.eq(j).hasClass("active")){
           arrNavItem.eq(j).find($("a")).css("color", "#17171C")
-        }
+        } 
       }
     })
   }

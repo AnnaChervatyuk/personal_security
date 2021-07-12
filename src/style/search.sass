@@ -87,18 +87,19 @@
       top: 13px
       right: 15px
       left: auto
+      &::before
+        content: ""
+        position: absolute
+        top: 0px
+        width: 1px
+        height: 24px
+        right: 39px
+        background-color: $grey-50
 
     .clear-btn
       top: 17px
-      right: 50px
-      &::after
-        content: ""
-        position: absolute
-        top: -4px
-        width: 1px
-        height: 24px
-        left: 21px
-        background-color: $grey-50
+      right: 70px
+
   .container-search
     .content-search
       .search-input_wrapper

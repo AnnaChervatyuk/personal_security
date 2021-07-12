@@ -24,6 +24,7 @@ img
     box-sizing: border-box
     min-height: calc(100vh - 140px)
     position: relative
+
 .disclaimer
   @include font(14px, 20px)
   color: $black-50
@@ -86,7 +87,8 @@ a.btn,
     -webkit-transition: 0.1s ease-out
     transition: 0.1s ease-out
 .link_txt-blue,
-.article_text a
+.article_text a,
+.exercise-instruction a
   text-decoration: none
   border-bottom: 1px solid rgba(0, 122, 255, 0.3)
 
@@ -242,6 +244,10 @@ textarea::placeholder
 @media (min-width: 640px)
   .container
     min-height: calc(100vh - 90px)
+
+  .container-theory
+    padding-bottom: 130px
+
   input
     height: 50px
     @include font(19px, 30px)

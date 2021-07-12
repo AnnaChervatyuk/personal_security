@@ -22,7 +22,7 @@ body {
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-  color: #2E2E38;
+  color: #17171C;
   overflow-x: auto;
   margin: 0;
   position: relative;
@@ -30,15 +30,6 @@ body {
 
 img {
   width: 100%;
-}
-
-.blur {
-  width: 100%;
-  height: 100%;
-  -webkit-filter: blur(4px);
-  filter: blur(4px);
-  position: absolute;
-  top: 0;
 }
 
 .container {
@@ -133,7 +124,8 @@ a.btn:hover,
 }
 
 .link_txt-blue,
-.article_text a {
+.article_text a,
+.exercise-instruction a {
   text-decoration: none;
   border-bottom: 1px solid rgba(0, 122, 255, 0.3);
 }
@@ -327,6 +319,10 @@ textarea::placeholder {
     min-height: calc(100vh - 90px);
   }
 
+  .container-theory {
+    padding-bottom: 130px;
+  }
+
   input {
     height: 50px;
     font-size: 19px;
@@ -349,7 +345,6 @@ textarea::placeholder {
     height: calc(100% - 10px);
     width: 97px;
     position: absolute;
-    z-index: 2;
     top: 0px;
   }
 
@@ -443,6 +438,11 @@ textarea::placeholder {
   z-index: 100;
   color: #787882;
   box-sizing: border-box;
+}
+@-moz-document url-prefix() {
+  .navigator {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
 }
 .navigator .nav_logo {
   width: 26px;
@@ -564,6 +564,11 @@ textarea::placeholder {
   color: #787882;
   border-bottom: 1px solid #F3F3F6;
 }
+@-moz-document url-prefix() {
+  .navigator .search-panel {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+}
 .navigator .search-panel .search-panel-close {
   height: 20px;
 }
@@ -582,7 +587,6 @@ textarea::placeholder {
   }
   .navigator .nav_logo {
     width: 134px;
-    height: 30px;
   }
   .navigator .nav_list .nav_item {
     font-size: 19px;
@@ -792,6 +796,12 @@ footer {
   background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 0%, #D9E9EE 0%) border-box;
 }
 
+.progress_course .progress_skills .skill-digital_wrapper .skill-digital,
+.progress_course .progress_skills .skill-personal_wrapper .skill-personal,
+.progress_course .progress_skills .skill-financial_wrapper .skill-financial {
+  background: linear-gradient(#F9F9FB, #F9F9FB) padding-box, conic-gradient(#21AF73 0%, #D8EDE4 0%) border-box;
+}
+
 .article-situation .progress, .article-exercise .progress {
   flex-grow: 1;
   margin-top: 0;
@@ -848,6 +858,7 @@ footer {
   .progress .progress_inner .btn {
     width: fit-content;
     width: -moz-fit-content;
+    padding: 10px 28px;
   }
 
   .progress-main {
@@ -864,6 +875,9 @@ footer {
     order: 1;
     width: 50%;
     margin-right: 30px;
+  }
+  .progress .progress_inner .progress_about .progress_line {
+    max-width: 425px;
   }
   .progress .progress_inner h2 {
     margin: 0;
@@ -918,10 +932,15 @@ footer {
   }
   .progress .progress_skills .skill .skill-title {
     width: 95px;
-    margin-top: 0;
+    margin-top: 6px;
   }
   .progress .progress_skills .skill_wrapper {
     width: 156px;
+  }
+
+  .progress_course .progress .progress_skills .skill {
+    width: 180px;
+    height: 180px;
   }
 }
 .cards {
@@ -982,6 +1001,24 @@ footer {
   width: 100%;
   object-fit: contain;
 }
+.cards .card_situation .card_img,
+.cards .card_threat .card_img {
+  background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4;
+  width: 100%;
+  padding-top: 65%;
+  position: relative;
+}
+.cards .card_situation .card_img img,
+.cards .card_threat .card_img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
 .cards .card_advice {
   background-color: #F6F6F9;
 }
@@ -992,6 +1029,10 @@ footer {
   background: url(/dist/img/bg_cards_task.png) no-repeat;
   background-size: 80px 80px;
   background-position: right bottom;
+  margin-top: auto;
+}
+.cards .card_news .add-text-news {
+  background: none;
   margin-top: auto;
 }
 
@@ -1007,12 +1048,20 @@ footer {
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 80px;
+  }
+  .cards .card {
+    margin-left: 15px;
+    margin-right: 15px;
   }
   .cards .card:hover {
     filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.06)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04));
   }
   .cards .card:nth-child(odd) {
-    margin-right: 30px;
+    margin-left: 0;
+  }
+  .cards .card:nth-child(even) {
+    margin-right: 0;
   }
 
   .all_cards {
@@ -1042,11 +1091,22 @@ footer {
   text-align: center;
 }
 
+.content-situation .suggest_situation {
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 130px;
+}
+
 .content-theory h1,
 .content-situation h1 {
   text-align: center;
   margin-top: 40px;
   margin-bottom: 20px;
+}
+
+.container-first_page .content-theory h1 {
+  margin-top: 163px;
+  margin-bottom: 15px;
 }
 
 .content-safety .descr,
@@ -1137,6 +1197,10 @@ footer {
   font-family: "PT Root UI", "Arial", sans-serif;
 }
 
+.content-course .content-descr-test {
+  color: #17171C;
+  padding-top: 20px;
+}
 .content-course .btns-login {
   display: flex;
   flex-wrap: wrap;
@@ -1153,9 +1217,7 @@ footer {
   border: 0;
   text-align: left;
   max-width: 225px;
-}
-.content-course .btns-login .btn-to-login:hover {
-  color: #17171C;
+  padding-top: 10px;
 }
 .content-course .test_wrapper {
   margin-bottom: 158px;
@@ -1216,6 +1278,15 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .content-situation .suggest_situation {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .content-my-course .content-descr_my-course {
+    margin-bottom: 60px;
+  }
+
   .content-theory h1,
 .content-situation h1 {
     margin-bottom: 28px;
@@ -1457,7 +1528,7 @@ footer {
   line-height: 13px;
   margin: 0;
   margin-right: 10px;
-  display: inline-block;
+  display: block;
 }
 .article > .related_lessons > .material-list .material-el-digital > .img::not(img),
 .materials > .material > .material-list .material-el-digital > .img::not(img) {
@@ -1487,10 +1558,6 @@ footer {
   width: auto;
   min-width: 262px;
   margin-right: 30px;
-}
-.content-my-course > .content_inner > .materials-course .material-list .material-el .img,
-.instruction-content > .exercises > .materials-course .material-list .material-el .img {
-  background: none;
 }
 .content-my-course > .content_inner > .materials-course .material-list .material-el .type,
 .content-my-course > .content_inner > .materials-course .material-list .material-el .time,
@@ -1956,6 +2023,7 @@ footer {
 }
 .article-exercise .exercise-instruction .task_list img {
   margin: 0 auto;
+  max-width: 400px;
 }
 .article-exercise .exercise-instruction .task_list h5 {
   margin: 30px auto 20px;
@@ -2005,6 +2073,7 @@ footer {
 }
 .article-situation_header .header_inner h1 {
   margin-bottom: 15px;
+  hyphens: auto;
 }
 .article-situation_header .header_inner .time {
   color: #787882;
@@ -2028,12 +2097,13 @@ footer {
   .article-situation .article-situation_header, .article-exercise .article-situation_header {
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     align-items: center;
   }
   .article-situation .article-situation_header .descr-img, .article-exercise .article-situation_header .descr-img {
     order: 2;
     width: 50%;
+    margin-bottom: 50px;
   }
   .article-situation .article-situation_header .header_inner, .article-exercise .article-situation_header .header_inner {
     order: 1;
@@ -2393,13 +2463,27 @@ footer {
     margin: 30px;
   }
 }
+.container-first_page {
+  background: url(/dist/img/test_backround_img-1.png) no-repeat;
+  background-position-x: center;
+}
 .container-first_page .content {
+  display: flex;
+  flex-direction: column;
+}
+.container-first_page .content .block-top_first {
   display: flex;
   flex-direction: column;
 }
 .container-first_page .content .content-descr {
   color: #2E2E38;
   margin-bottom: 42px;
+}
+.container-first_page .content .content-descr_first {
+  color: #2E2E38;
+  margin-bottom: 42px;
+  font-size: 27px;
+  line-height: 33px;
 }
 .container-first_page .content .btn {
   padding: 10px 20px;
@@ -2425,11 +2509,32 @@ footer {
 .container-first_page .content .block_bottom .block_return a {
   margin-left: auto;
   margin-right: auto;
+  align-items: center;
+}
+.container-first_page .content .block_bottom .img {
+  width: 420px;
+  margin: 0 auto 35px auto;
+}
+.container-first_page .content .block_bottom h5 {
+  font-size: 32px;
+  line-height: 36px;
+}
+.container-first_page .materials > .material > .material-list .material-el .time {
+  display: block;
 }
 
 @media (min-width: 768px) {
+  .container-first_page {
+    background-position-y: 96px;
+  }
+  .container-first_page .content .block-top_first {
+    padding-bottom: 70px;
+  }
+  .container-first_page .content .block_bottom {
+    margin-bottom: 100px;
+  }
   .container-first_page .content .content_inner {
-    margin-top: 250px;
+    margin-top: 170px;
   }
   .container-first_page .content .content_inner .materials {
     margin-bottom: 200px;
@@ -2440,6 +2545,7 @@ footer {
   .container-first_page .content .content_inner .materials-about .content-descr {
     width: 50%;
     margin: 0;
+    padding-top: 22px;
   }
   .container-first_page .content .content_inner .materials-about h2 {
     width: 50%;
@@ -2547,18 +2653,18 @@ footer {
     right: 15px;
     left: auto;
   }
-  .search-input_wrapper .clear-btn {
-    top: 17px;
-    right: 50px;
-  }
-  .search-input_wrapper .clear-btn::after {
+  .search-input_wrapper .search-btn::before {
     content: "";
     position: absolute;
-    top: -4px;
+    top: 0px;
     width: 1px;
     height: 24px;
-    left: 21px;
+    right: 39px;
     background-color: #D1D1D6;
+  }
+  .search-input_wrapper .clear-btn {
+    top: 17px;
+    right: 70px;
   }
 
   .container-search .content-search .search-input_wrapper {
@@ -2745,6 +2851,11 @@ footer {
   backdrop-filter: blur(4px);
   z-index: 200;
 }
+@-moz-document url-prefix() {
+  .container-profile .content .delete-profile_wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+}
 .container-profile .content .delete-profile_wrapper .delete-profile_inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -2836,6 +2947,9 @@ footer {
 }
 .content-course .test_wrapper .test_inner .block_question .question-variants .mail-address .email__input {
   width: 100%;
+  height: 42px;
+  font-size: 19px;
+  line-height: 30px;
 }
 .content-course .test_wrapper .test_inner .block_question .question-variants .text-error {
   color: #FF3B30;
@@ -3306,7 +3420,7 @@ footer {
   max-width: 450px;
   position: absolute;
   z-index: 555555;
-  padding: 10px 15px;
+  padding: 30px;
   width: max-content;
   top: 0;
   left: 0;
@@ -3341,6 +3455,12 @@ footer {
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 200;
+}
+@-moz-document url-prefix() {
+  .progress_popup_wrapper,
+.threat_popup_wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
 }
 .progress_popup_wrapper .threat_popup_inner_blur,
 .threat_popup_wrapper .threat_popup_inner_blur {
@@ -3395,8 +3515,8 @@ footer {
   text-align: center;
   font-size: 32px;
   line-height: 36px;
-  max-width: 500px;
-  margin: 10% auto 20px;
+  max-width: 420px;
+  margin: 50px auto 20px;
 }
 .progress_popup_wrapper .progress_popup_inner .descr,
 .progress_popup_wrapper .threat_popup_inner .descr,
@@ -3405,7 +3525,7 @@ footer {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  max-width: 500px;
+  max-width: 420px;
   margin: 0 auto 40px;
 }
 .progress_popup_wrapper .progress_popup_inner .btns,

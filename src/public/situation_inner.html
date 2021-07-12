@@ -80,7 +80,7 @@
               <h1>Я потерял смартфон, что мне делать?</h1>
               <div class="time">7 минут</div>
             </div>
-            <div class="descr-img" ><img src="./images/safety_img.png" alt="Цифровая безопасность"></div>
+            <!-- <div class="descr-img" ><img src="./images/safety_img.png" alt="Цифровая безопасность"></div> -->
           </div>
           <div class="article_text">
             <div>Служба безопасности &laquo;Яндекса&raquo; обнаружила внутреннюю утечку информации. По&nbsp;результатам расследования стало известно, что один из&nbsp;сотрудников компании предоставлял несанкционированный доступ к&nbsp;почтовым ящикам пользователей.</div>
@@ -130,6 +130,11 @@
       </footer>
 
       <script>
+
+        if ($(".article").find(".descr-img").length == 0) {
+          $(".header_inner").css("width", "100%")
+        }
+
         var popup = $('<div class="popup-tooptip hide"><span></span</div>')
         var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
         btnClose.appendTo(popup)
