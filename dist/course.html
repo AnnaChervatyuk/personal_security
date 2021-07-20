@@ -7,58 +7,59 @@
     <title>Personal security</title>
   <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
     <body>
-      <div class="container">
-        <section class="navigator">
-          <div class="nav_logo">
-            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security" ></a>
+      <section class="navigator">
+        <div class="nav_logo">
+          <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security" ></a>
+        </div>
+        <ul class="nav_list">
+          <li class="nav_item active"><a href="course.html">Тренировки</a></li>
+          <li class="nav_item"><a href="theory.html">Теория</a></li>
+          <li class="nav_item"><a href="situation.html">Ситуации</a></li>
+        </ul>
+        <div class="nav_list menu__wrapper">
+          <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+              <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <use xlink:href="sprite.svg#icon-menu"></use>
+              </svg>
           </div>
-          <ul class="nav_list">
-            <li class="nav_item active"><a href="course.html">Тренировки</a></li>
-            <li class="nav_item"><a href="theory.html">Теория</a></li>
-            <li class="nav_item"><a href="situation.html">Ситуации</a></li>
-          </ul>
-          <div class="nav_list menu__wrapper">
-            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
-                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <use xlink:href="sprite.svg#icon-menu"></use>
-                </svg>
+          <div class="nav_list nav_list-menu hide" id="menu-nav">
+            <div class="nav_el nav_search" id="open-search-btn">
+              <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-search"></use>
+              </svg>
+              <div class="nav_list-text">Поиск</div>
             </div>
-            <div class="nav_list nav_list-menu hide" id="menu-nav">
-              <div class="nav_el nav_search" id="open-search-btn">
-                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-search"></use>
-                </svg>
-                <div class="nav_list-text">Поиск</div>
-              </div>
-              <a class="nav_el nav_profile" href="profile.html">
-                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-profile"></use>
-                </svg>
-                <div class="nav_list-text">Аккаунт</div>
-              </a>
-            </div>
+            <a class="nav_el nav_profile" href="profile.html">
+              <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-profile"></use>
+              </svg>
+              <div class="nav_list-text">Аккаунт</div>
+            </a>
           </div>
-          <div class="search-panel hide" id="search-panel">
-            <div class="search-input_wrapper">
-              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
-              <div class="search-btn" id="search-btn">
-                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-search"></use>
-                </svg>
-              </div>
-              <div class="clear-btn hide" id="clear-btn">
-                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-close"></use>
-                </svg>
-              </div>
+        </div>
+        <div class="search-panel hide" id="search-panel">
+          <div class="search-input_wrapper">
+            <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+            <div class="search-btn" id="search-btn">
+              <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-search"></use>
+              </svg>
             </div>
-            <div class="search-panel-close" id="close-search-btn">
-              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <div class="clear-btn hide" id="clear-btn">
+              <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                  <use xlink:href="sprite.svg#icon-close"></use>
               </svg>
             </div>
           </div>
-        </section>
+          <div class="search-panel-close" id="close-search-btn">
+            <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <use xlink:href="sprite.svg#icon-close"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+
 
         <section class="content content-my-course">
 
@@ -817,7 +818,7 @@
             </div>
 
 
-            <div class="progress_course" id="progress_course-section"> 
+            <div class="progress_course" id="progress_course-section">
               <h2>Достижения</h2>
               <div class="content-descr content-descr_my-course">Проходите тренировки и выполненяйте задания чтобы...</div>
               <div class="progress progress-main">

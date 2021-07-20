@@ -2512,7 +2512,6 @@ footer {
   align-items: center;
 }
 .container-first_page .content .block_bottom .img {
-  width: 420px;
   margin: 0 auto 35px auto;
 }
 .container-first_page .content .block_bottom h5 {
@@ -2532,6 +2531,9 @@ footer {
   }
   .container-first_page .content .block_bottom {
     margin-bottom: 100px;
+  }
+  .container-first_page .content .block_bottom .img {
+    width: 420px;
   }
   .container-first_page .content .content_inner {
     margin-top: 170px;
