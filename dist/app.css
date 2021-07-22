@@ -1904,8 +1904,8 @@ footer {
 }
 .article {
   padding: 20px;
-  font-size: 18px;
-  line-height: 27px;
+  font-size: 20px;
+  line-height: 30px;
 }
 .article .related_lessons {
   margin-bottom: 50px;
@@ -1914,6 +1914,12 @@ footer {
   margin-bottom: 30px;
 }
 .article h3 {
+  margin-bottom: 10px;
+}
+.article h4 {
+  font-size: 20px;
+  line-height: 25px;
+  margin-top: 40px;
   margin-bottom: 10px;
 }
 .article .news_text, .article .instruction_text {
@@ -1968,6 +1974,12 @@ footer {
 }
 .article .block_bottom .block_return {
   margin: 40px auto;
+}
+.article .descr-img_article {
+  margin-bottom: 40px;
+}
+.article .descr-img_article img {
+  border-radius: 15px;
 }
 
 .article-instruction .todo-list_wrapper {
@@ -2082,6 +2094,9 @@ footer {
 }
 
 @media (min-width: 768px) {
+  .article h4, .article h3 {
+    margin-bottom: 20px;
+  }
   .article .news_text, .article .instruction_text, .article .article_text, .article .exercise-instruction {
     max-width: 75%;
     min-width: 750px;
