@@ -1468,6 +1468,15 @@ footer {
   width: 100%;
 }
 
+.materials-theory.materials > .material > .material-list > .material-el {
+  min-width: 295px;
+}
+
+.article > .related_lessons > .material-list > .material-el,
+.materials > .material > .material-list > .material-el {
+  min-width: 262px;
+}
+
 .article > .related_lessons > .material-list,
 .materials > .material > .material-list {
   margin-top: 40px;
@@ -1482,7 +1491,6 @@ footer {
   box-sizing: border-box;
   border-radius: 4px;
   padding: 30px;
-  min-width: 262px;
   margin: 0;
   position: relative;
   margin-right: 30px;
@@ -2345,13 +2353,14 @@ footer {
   color: #8D8D94;
   font-size: 12px;
   line-height: 16px;
-  max-width: 250px;
+  width: 100%;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-btn {
   background-color: #fff;
   border: 1px solid #C7C7CC;
   color: #2E2E38;
   margin-right: 10px;
+  width: 100%;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .instruction-content__header {
   font-size: 14px;
@@ -2446,16 +2455,23 @@ footer {
   }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding-bottom: 40px;
     margin-bottom: 40px;
   }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .instruction-btn {
     margin-right: 40px;
+    height: fit-content;
+    height: -moz-fit-content;
   }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-text {
     font-size: 12px;
     line-height: 16px;
+    width: auto;
+    max-width: 250px;
+  }
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-btn {
+    width: auto;
   }
 
   .container-todo .content-todo .content-inner_todo {
