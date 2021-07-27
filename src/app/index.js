@@ -156,9 +156,22 @@ if ($(".todo-list_wrapper")) {
         arrInstruction.eq(i).removeClass("hide");
         arrow.css("transform", "rotate(-180deg)");
         followScroll()
+        if ($('body').innerWidth() < 640) {
+          arrInstruction.eq(i).find($('.instruction_btn-close-todo')).on("click", function (event) {
+            arrInstruction.eq(i).addClass("hide");
+            arrow.css("transform", "rotate(0deg)");
+            if ($('body').innerWidth() < 640) {
+              $("body").css("overflow-y", "auto")
+            }
+          })
+          $("body").css("overflow-y", "hidden")
+        }
       } else {
         arrInstruction.eq(i).addClass("hide");
         arrow.css("transform", "rotate(0deg)");
+        if ($('body').innerWidth() < 640) {
+          $("body").css("overflow-y", "auto")
+        }
       }
     })
   }

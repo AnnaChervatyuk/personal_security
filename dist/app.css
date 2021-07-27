@@ -2188,6 +2188,7 @@ footer {
 }
 .todo-list_wrapper .todo-list .todo-el {
   margin-bottom: 15px;
+  position: relative;
 }
 .todo-list_wrapper .todo-list .todo-el:last-child {
   margin-bottom: 0;
@@ -2288,11 +2289,29 @@ footer {
   border-color: #17171C;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction {
-  margin-top: 15px;
   background-color: #F3F3F6;
   border-radius: 4px;
   box-sizing: border-box;
   padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+  overflow-y: auto;
+}
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top {
+  padding-top: 55px;
+}
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction_btn-close-todo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  order: 1;
+}
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction_btn-close-todo:hover {
+  cursor: pointer;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
   display: flex;
@@ -2322,7 +2341,6 @@ footer {
   background-color: #fff;
   border: 1px solid #C7C7CC;
   color: #2E2E38;
-  margin-right: 10px;
   width: 100%;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .instruction-content__header {
@@ -2415,6 +2433,21 @@ footer {
   .todo-list_wrapper .todo-list .todo-el .instruction {
     margin-left: 65px;
     margin-bottom: 30px;
+    margin-top: 15px;
+    background-color: #F3F3F6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 30px;
+    position: relative;
+    width: auto;
+    height: auto;
+    z-index: 0;
+  }
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top {
+    padding-top: 0;
+  }
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction_btn-close-todo {
+    display: none;
   }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
     flex-direction: row;
@@ -2435,6 +2468,7 @@ footer {
   }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-btn {
     width: auto;
+    margin-right: 10px;
   }
 
   .container-todo .content-todo .content-inner_todo {
