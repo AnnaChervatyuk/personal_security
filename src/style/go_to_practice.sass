@@ -1,0 +1,82 @@
+.go_to_practice__wrapper-bg
+  background: #F9F9FB
+  border: 1px solid $grey-20
+  width: 100vw
+  box-sizing: border-box
+  margin-top: 120px
+  margin-bottom: 30px
+.go_to_practice__wrapper
+  width: 100%
+  display: flex
+  flex-direction: column
+  // margin-bottom: 30px
+  // border: 1px solid $grey-20
+  box-sizing: border-box
+  padding: 40px 0
+  // margin-top: 120px
+  // background: #F9F9FB
+  .go_to_practice__img
+    width: 240px
+    object-fit: contain
+    margin-bottom: 30px
+
+  .go_to_practice__inner
+    margin-right: 30px
+    .go_to_practice__header
+      margin: 0
+      margin-bottom: 20px
+  .go_to_practice__list-task
+    margin: 0
+    padding: 0
+    .go_to_practice__item-task
+      margin: 0
+      padding: 18px 0
+      width: 100%
+      list-style: none
+      border-top: 1px solid $grey-50
+      color: $black-70
+      @include font(18px, 24px)
+      &:last-child
+        border-bottom: 1px solid $grey-50
+      .new_task
+        background: $correct
+        border-radius: 4px
+        padding: 4px
+        text-transform: uppercase
+        @include font(11px, 13px)
+        color: $white
+        margin-left: 10px
+  .go_to_practice__list-section
+    margin: 0
+    padding: 0
+    padding-top: 10px
+    .go_to_practice__item-section
+      margin: 0
+      padding: 0
+      margin-top: 30px
+      width: 100%
+      list-style: none
+      color: $black-50
+      @include font(14px, 18px)
+      .go_to_practice__item-section_link
+        text-decoration: none
+        color: $accent
+        @include font(16px, 22px)
+        border-bottom: none
+        &:hover
+          border-bottom: 1px solid rgba(0, 122, 255, 0.3)
+
+
+@media (min-width: 768px)
+  .go_to_practice__wrapper
+    flex-direction: row
+    align-items: flex-start
+    .go_to_practice__img
+      margin-bottom: 0
+    .go_to_practice__inner
+      margin-left: 30px
+
+@media (min-width: 1200px)
+  .go_to_practice__wrapper
+    .go_to_practice__img
+      margin-left: 30px

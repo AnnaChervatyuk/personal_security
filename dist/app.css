@@ -23,7 +23,7 @@ body {
   font-size: 16px;
   line-height: 22px;
   color: #17171C;
-  overflow-x: auto;
+  overflow-x: hidden;
   margin: 0;
   position: relative;
 }
@@ -1301,6 +1301,7 @@ footer {
 .content-course .descr {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
   .content-safety .descr div,
 .content-course .descr div {
@@ -1311,6 +1312,7 @@ footer {
 .content-course .descr .descr-img_wrapper {
     order: 3;
     min-width: 320px;
+    flex-grow: 1;
   }
 
   .content-course .test_wrapper {
@@ -1981,7 +1983,7 @@ footer {
   margin-top: 70px;
 }
 .article .block_bottom .block_return {
-  margin: 40px auto;
+  margin: 40px 0;
 }
 .article .descr-img_article {
   margin-bottom: 40px;
@@ -2028,52 +2030,10 @@ footer {
 }
 .article-exercise .exercise-instruction .task_arrow {
   margin: 0 auto;
+  margin-top: 60px;
   display: flex;
   margin-bottom: 30px;
   max-width: 400px;
-}
-.article-exercise .exercise-instruction .task_list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-  border: 1px solid #F3F3F6;
-  box-sizing: border-box;
-  padding: 30px;
-}
-.article-exercise .exercise-instruction .task_list img {
-  margin: 0 auto;
-  max-width: 400px;
-}
-.article-exercise .exercise-instruction .task_list h5 {
-  margin: 30px auto 20px;
-}
-.article-exercise .exercise-instruction .task_list ul {
-  margin: 0;
-  padding: 0;
-}
-.article-exercise .exercise-instruction .task_list ul li {
-  margin: 0;
-  padding: 18px 0;
-  width: 100%;
-  list-style: none;
-  border-top: 1px solid #F3F3F6;
-  color: #2E2E38;
-  font-size: 18px;
-  line-height: 24px;
-}
-.article-exercise .exercise-instruction .task_list ul li:last-child {
-  border-bottom: 1px solid #F3F3F6;
-}
-.article-exercise .exercise-instruction .task_list ul li .new_task {
-  background: #34C759;
-  border-radius: 4px;
-  padding: 4px;
-  text-transform: uppercase;
-  font-size: 11px;
-  line-height: 13px;
-  color: #fff;
-  margin-left: 10px;
 }
 
 .article-situation_header {
@@ -2105,9 +2065,12 @@ footer {
   .article h4, .article h3 {
     margin-bottom: 20px;
   }
-  .article .news_text, .article .instruction_text, .article .article_text, .article .exercise-instruction {
+  .article .news_text, .article .instruction_text, .article .article_text {
     max-width: 75%;
     min-width: 750px;
+  }
+  .article .exercise-instruction {
+    max-width: 1200px;
   }
 
   .article-situation .block_top, .article-exercise .block_top {
@@ -2137,7 +2100,7 @@ footer {
   .article h2, .article h1 {
     margin-bottom: 50px;
   }
-  .article .news_text, .article .instruction_text, .article .article_text, .article .exercise-instruction {
+  .article .news_text, .article .instruction_text, .article .article_text {
     max-width: 750px;
   }
 }
@@ -3683,5 +3646,103 @@ footer {
 @media (min-width: 768px) {
   .block-skill .block-skill-descr {
     width: 50%;
+  }
+}
+.go_to_practice__wrapper-bg {
+  background: #F9F9FB;
+  border: 1px solid #F3F3F6;
+  width: 100vw;
+  box-sizing: border-box;
+  margin-top: 120px;
+  margin-bottom: 30px;
+}
+
+.go_to_practice__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+.go_to_practice__wrapper .go_to_practice__img {
+  width: 240px;
+  object-fit: contain;
+  margin-bottom: 30px;
+}
+.go_to_practice__wrapper .go_to_practice__inner {
+  margin-right: 30px;
+}
+.go_to_practice__wrapper .go_to_practice__inner .go_to_practice__header {
+  margin: 0;
+  margin-bottom: 20px;
+}
+.go_to_practice__wrapper .go_to_practice__list-task {
+  margin: 0;
+  padding: 0;
+}
+.go_to_practice__wrapper .go_to_practice__list-task .go_to_practice__item-task {
+  margin: 0;
+  padding: 18px 0;
+  width: 100%;
+  list-style: none;
+  border-top: 1px solid #D1D1D6;
+  color: #2E2E38;
+  font-size: 18px;
+  line-height: 24px;
+}
+.go_to_practice__wrapper .go_to_practice__list-task .go_to_practice__item-task:last-child {
+  border-bottom: 1px solid #D1D1D6;
+}
+.go_to_practice__wrapper .go_to_practice__list-task .go_to_practice__item-task .new_task {
+  background: #34C759;
+  border-radius: 4px;
+  padding: 4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 13px;
+  color: #fff;
+  margin-left: 10px;
+}
+.go_to_practice__wrapper .go_to_practice__list-section {
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+}
+.go_to_practice__wrapper .go_to_practice__list-section .go_to_practice__item-section {
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  width: 100%;
+  list-style: none;
+  color: #787882;
+  font-size: 14px;
+  line-height: 18px;
+}
+.go_to_practice__wrapper .go_to_practice__list-section .go_to_practice__item-section .go_to_practice__item-section_link {
+  text-decoration: none;
+  color: #007AFF;
+  font-size: 16px;
+  line-height: 22px;
+  border-bottom: none;
+}
+.go_to_practice__wrapper .go_to_practice__list-section .go_to_practice__item-section .go_to_practice__item-section_link:hover {
+  border-bottom: 1px solid rgba(0, 122, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+  .go_to_practice__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .go_to_practice__wrapper .go_to_practice__img {
+    margin-bottom: 0;
+  }
+  .go_to_practice__wrapper .go_to_practice__inner {
+    margin-left: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  .go_to_practice__wrapper .go_to_practice__img {
+    margin-left: 30px;
   }
 }

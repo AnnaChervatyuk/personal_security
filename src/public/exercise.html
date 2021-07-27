@@ -10,7 +10,7 @@
       <div  class="container container-article">
       <section class="navigator">
         <div class="nav_logo">
-          <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo_small.svg" alt="Personal security"></a>
+          <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Personal security"></a>
         </div>
         <ul class="nav_list">
           <li class="nav_item"><a href="course.html">Тренировки</a></li>
@@ -105,16 +105,35 @@
           <div class="disclaimer">Дайте знать, что вы готовы перейти к практике</div>
 
           <div class="exercise-instruction hide">
-            <div class="task_list">
-              <img src="./images/safety_img.png" alt="Цифровая безопасность">
-              <h5>Вот, что теперь можно сделать:</h5>
-              <ul>
-                <li>Установить менеджер паролей<span class="new_task">новое задание</span></li>
-                <li>Провести ревизию своих старых постов в Вконтакте<span class="new_task">новое задание</span></li>
-              </ul>
+            <div class="go_to_practice__wrapper-bg">
+              <div class="go_to_practice__wrapper">
+                <img class="go_to_practice__img" src="./images/safety_img.png" alt="Цифровая безопасность">
+
+                <div class="go_to_practice__inner">
+                  <h3 class="go_to_practice__header">Готовы перейти к практике? Вот, что теперь можно сделать:</h3>
+                  <ul class="go_to_practice__list-task">
+                    <li class="go_to_practice__item-task">Установить менеджер паролей<span class="new_task">новое&nbsp;задание</span></li>
+                    <li class="go_to_practice__item-task">Провести ревизию своих старых постов в Вконтакте<span class="new_task">новое&nbsp;задание</span></li>
+                  </ul>
+                  <ul class="go_to_practice__list-section">
+                    <li class="go_to_practice__item-section">
+                      <a href="/course/tasks/" class="go_to_practice__item-section_link">Все мои задания&nbsp;&rarr;</a><br>
+                      В туду-листе собираются задачи и инструкции по их выполнению
+                    </li>
+                    <li class="go_to_practice__item-section">
+                      <a href="/course/theory/" class="go_to_practice__item-section_link">Перейти к списку занятий&nbsp;&rarr;</a><br>
+                      Продолжить изучать теорию
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
             </div>
 
-            <img class="task_arrow" src="./images/task_arrow.svg">
+
+            <div class="instruction_text">
+              <img class="task_arrow" src="./images/task_arrow.svg">
+            </div>
 
             <div class="instruction_text">
               <h1>Задача. Пример инструкции на отдельной странице</h1>
@@ -412,6 +431,21 @@
           btnReady.addClass('hide')
           $('.disclaimer').addClass('hide')
         })
+
+        function setGoToPracticeBg () {
+          var offsetLeft = $('.exercise-instruction').offset().left;
+          $('.go_to_practice__wrapper').css('margin-left', (offsetLeft + "px"))
+          $('.go_to_practice__wrapper').css('width', ($('.exercise-instruction').innerWidth()  + "px"))
+          $('.go_to_practice__wrapper-bg').css('margin-left', (0 - offsetLeft + "px"))
+        }
+
+        setGoToPracticeBg()
+
+        $(window).on("resize", function (e) {
+          setGoToPracticeBg()
+        })
+
+
       </script>
 
     </body>

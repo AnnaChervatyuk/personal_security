@@ -2,9 +2,51 @@ import '../style/app.scss';
 
 $(document).ready(function() {
 
+
   let windowWidth = $('body').innerWidth()
   let menuNavBtn = $("#nav-menu-mob")
   let menuNav = $("#menu-nav")
+
+
+  function onChangeWidth() { // меняет расположение меню
+    var logoImg = $("#nav_logo");
+    if(windowWidth >= 640){
+      logoImg.attr("src", "./images/logo.svg");
+      menuNav.removeClass("hide");
+    } else {
+      logoImg.attr("src", "./images/logo_small.svg");
+        menuNav.addClass("hide");
+    }
+    clearSearchInput(searchInput, clearBtn)
+  }
+
+  function toggleMenuVisibility() { // меняет видимость меню. используется для мобилы
+      if(windowWidth < 640){
+        if (menuNav.hasClass("hide")) {
+          menuNav.removeClass("hide");
+        } else {
+          menuNav.addClass("hide");
+        }
+      }
+  }
+
+  $('body').on("click", function (e) {
+      if(windowWidth < 640) {
+        if (!menuNav.hasClass("hide")) { //закрыть меню при клике в любое место. используется для мобилы
+            toggleMenuVisibility()
+          }
+        }
+      if (!panelSearch.hasClass("hide")) { //закрыть поиск при клике в любое место. используется для мобилы
+          toggleSearchVisibility()
+          clearSearchInput(searchInput, clearBtn)
+        }
+        e.stopPropagation();
+  })
+
+  menuNavBtn.on("click", function (e) {
+    toggleMenuVisibility()
+    e.stopPropagation();
+  })
 
   //----менять стили в навигаторе при ховере начало ----
   var arrNavItem = $(".nav_item")
@@ -23,7 +65,7 @@ $(document).ready(function() {
       for (var j = 0; j < arrNavItem.length; j++) {
         if (arrNavItem.eq(j).hasClass("active")){
           arrNavItem.eq(j).find($("a")).css("color", "#17171C")
-        } 
+        }
       }
     })
   }
@@ -418,45 +460,7 @@ window.getInCoachingTooltip()
   // ------ конец блока с поискам ------
 
 
-  function onChangeWidth() { // меняет расположение меню
-    var logoImg = $("#nav_logo");
-    if(windowWidth >= 640){
-      logoImg.attr("src", "./images/logo.svg");
-      menuNav.removeClass("hide");
-    } else {
-      logoImg.attr("src", "./images/logo_small.svg");
-        menuNav.addClass("hide");
-    }
-    clearSearchInput(searchInput, clearBtn)
-  }
 
-  function toggleMenuVisibility() { // меняет видимость меню. используется для мобилы
-      if(windowWidth < 640){
-        if (menuNav.hasClass("hide")) {
-          menuNav.removeClass("hide");
-        } else {
-          menuNav.addClass("hide");
-        }
-      }
-  }
-
-  $('body').on("click", function (e) {
-      if(windowWidth < 640) {
-        if (!menuNav.hasClass("hide")) { //закрыть меню при клике в любое место. используется для мобилы
-            toggleMenuVisibility()
-          }
-        }
-      if (!panelSearch.hasClass("hide")) { //закрыть поиск при клике в любое место. используется для мобилы
-          toggleSearchVisibility()
-          clearSearchInput(searchInput, clearBtn)
-        }
-        e.stopPropagation();
-  })
-
-  menuNavBtn.on("click", function (e) {
-    toggleMenuVisibility()
-    e.stopPropagation();
-  })
 
 // -----начало прогресса----
   // let progressSkillDigital = 100 // будет приходить с сервера
