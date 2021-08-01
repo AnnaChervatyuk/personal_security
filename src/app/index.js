@@ -169,9 +169,9 @@ if ($(".todo-list_wrapper")) {
       } else {
         arrInstruction.eq(i).addClass("hide");
         arrow.css("transform", "rotate(0deg)");
-        if ($('body').innerWidth() < 640) {
-          $("body").css("overflow-y", "auto")
-        }
+        // if ($('body').innerWidth() < 640) {
+        //   $("body").css("overflow-y", "auto")
+        // }
       }
     })
   }

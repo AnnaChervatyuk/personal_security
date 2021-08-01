@@ -430,6 +430,7 @@
           instruction.removeClass('hide')
           btnReady.addClass('hide')
           $('.disclaimer').addClass('hide')
+          setGoToPracticeBg()
         })
 
         function setGoToPracticeBg () {
@@ -439,7 +440,7 @@
           $('.go_to_practice__wrapper-bg').css('margin-left', (0 - offsetLeft + "px"))
         }
 
-        setGoToPracticeBg()
+
 
         $(window).on("resize", function (e) {
           setGoToPracticeBg()
