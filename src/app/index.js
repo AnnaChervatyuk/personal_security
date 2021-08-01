@@ -136,18 +136,92 @@ if ($(".todo-list_wrapper")) {
 
   let arrBtnCheck = $(".el-task-checkbox");
 
+  let arrTaskNotDo = []
+  let arrBtnReturnToListTask = []
+
+  let arrTaskWillDo = []
+  let arrBtnSetNotDo = []
+
   let arrMarker = $(".marker")
 
-  function checkBtn (i) {
+
+  function getArrTaskNotDo () {
+    arrTaskNotDo = $(".todo-el_not-do");
+    arrBtnReturnToListTask = $(".todo-el_not-do").find(".risks-btn");
+    for (var i = 0; i < arrTaskNotDo.length; i++) {
+        returnToListTask(i)
+    }
+    console.log("arrTaskNotDo", arrTaskNotDo.length)
+    console.log("arrBtnReturnToListTask", arrBtnReturnToListTask.length)
+  }
+
+  function getArrTaskWillDo () {
+    arrTaskWillDo = $(".todo-el").not(".todo-el_not-do")
+    arrBtnSetNotDo = $(".todo-el").not(".todo-el_not-do").find(".risks-btn");
+    console.log("arrTaskWillDo", arrTaskWillDo)
+    console.log("arrBtnSetNotDo", arrBtnSetNotDo)
+    for (var i = 0; i < arrTaskWillDo.length; i++) {
+        addToListNotDo(i)
+    }
+
+    console.log("-----------")
+  }
+
+  getArrTaskNotDo ()
+  getArrTaskWillDo ()
+
+
+  function returnToListTask (i) { //вернуть задачу в список задач для выполнения
+    console.log("i--", i)
+    arrBtnReturnToListTask.eq(i).on("click", function (event) {
+      console.log("click_returnToListTask", arrBtnReturnToListTask.eq(i))
+      arrBtnReturnToListTask.eq(i).text("Не хочу делать")
+      arrTaskNotDo.eq(i).find(".risks-text").text("Не хочу это делать, с некоторыми рисками можно смириться.")
+      arrTaskNotDo.eq(i).find(".el_task").removeClass("el_task-not-do")
+      arrTaskNotDo.eq(i).removeClass("todo-el_not-do")
+
+      // getArrTaskNotDo ()
+      // getArrTaskWillDo ()
+    })
+  }
+
+
+  function addToListNotDo (i) { //добавить  задачу в список задач которые не хочется делать
+    console.log("i-", i)
+
+    arrBtnSetNotDo.eq(i).on("click", function (event) {
+
+      console.log("i", i)
+      console.log("click_addToListNotDo",arrTaskWillDo.eq(i))
+      arrBtnSetNotDo.eq(i).text("Вернуть в список моих задач")
+      arrTaskWillDo.eq(i).find(".risks-text").html("Вы отказались от этот задачи.<br>Ничего страшного.")
+      arrTaskWillDo.eq(i).find(".el_task").addClass("el_task-not-do")
+      arrTaskWillDo.eq(i).addClass("todo-el_not-do")
+      console.log("done")
+      getArrTaskNotDo ()
+      getArrTaskWillDo ()
+
+    })
+  }
+
+
+
+
+  function checkBtn (i) { //оправлять на сервер отмеченную таску
       arrBtnCheck.eq(i).on("change", function (e) {
-        //оправлять на сервер отмеченную таску
+        if (arrTask.eq(i).hasClass("el_task-not-do")) {
+          arrTask.eq(i).removeClass("el_task-not-do")
+        }
       })
     }
+
+
 
   for (var i = 0; i < arrBtnCheck.length; i++) {
     checkBtn(i)
     arrMarker.eq(i).text(i+1)
   }
+
 
   function toggleInstrauctionVisibility (i) {
     arrBbtnOpenInstr.eq(i).on("click", function (e) {
