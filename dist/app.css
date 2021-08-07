@@ -58,8 +58,8 @@ a:hover {
 
 .btn {
   display: inline-block;
-  font-size: 16px;
-  line-height: 22px;
+  height: 38px;
+  box-sizing: border-box;
 }
 
 a.btn,
@@ -70,7 +70,7 @@ a.btn,
   border-radius: 4px;
   text-align: center;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 13px;
 }
 a.btn:hover,
 .btn:hover {
@@ -233,6 +233,11 @@ a.btn:hover,
   fill: #17171C;
 }
 
+.icons--reward {
+  vertical-align: bottom;
+  margin-left: 5px;
+}
+
 .hide {
   display: none !important;
 }
@@ -332,6 +337,7 @@ textarea::placeholder {
   .btn {
     font-size: 18px;
     line-height: 24px;
+    height: 44px;
   }
 
   a.btn,
@@ -696,11 +702,14 @@ footer {
   display: flex;
   flex-direction: column;
 }
+.progress .progress_inner .btn-go-training {
+  line-height: 9px;
+}
 .progress .progress_inner h2 {
   margin: 20px 0;
 }
 .progress .progress_inner .progress_about {
-  margin: 20px 0;
+  margin-bottom: 15px;
 }
 .progress .progress_inner .progress_about .progress_line {
   width: auto;
@@ -796,6 +805,29 @@ footer {
   background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 0%, #D9E9EE 0%) border-box;
 }
 
+.content-my-course .progress .progress_inner .block_continue {
+  display: flex;
+  flex-direction: column;
+}
+.content-my-course .progress .progress_inner .block_continue .next_task__wrapper {
+  margin-top: 30px;
+}
+.content-my-course .progress .progress_inner .block_continue .next_task__wrapper .next_task__header span {
+  line-height: 16px;
+  vertical-align: text-top;
+}
+.content-my-course .progress .progress_inner .block_continue .next_task__wrapper .next_task__header .icons {
+  fill: #787882;
+}
+.content-my-course .progress .progress_inner .block_continue .next_task__wrapper .next_task__name {
+  color: #787882;
+  font-size: 14px;
+  line-height: 19px;
+}
+.content-my-course .progress .progress_inner .progress_about {
+  margin-bottom: 25px;
+}
+
 .progress_course .progress_skills .skill-digital_wrapper .skill-digital,
 .progress_course .progress_skills .skill-personal_wrapper .skill-personal,
 .progress_course .progress_skills .skill-financial_wrapper .skill-financial {
@@ -855,6 +887,12 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .progress .progress_inner .btn-go-training {
+    line-height: 21px;
+  }
+  .progress .progress_inner .progress_about {
+    margin: 20px 0;
+  }
   .progress .progress_inner .btn {
     width: fit-content;
     width: -moz-fit-content;
@@ -863,6 +901,18 @@ footer {
 
   .progress-main {
     align-items: center;
+  }
+
+  .content-my-course .progress .progress_inner .block_continue {
+    flex-direction: row;
+    align-items: center;
+  }
+  .content-my-course .progress .progress_inner .block_continue .btn-go-training {
+    margin-right: 0;
+  }
+  .content-my-course .progress .progress_inner .block_continue .next_task__wrapper {
+    margin-top: 0;
+    margin-left: 30px;
   }
 }
 @media (min-width: 768px) {
@@ -875,9 +925,6 @@ footer {
     order: 1;
     width: 50%;
     margin-right: 30px;
-  }
-  .progress .progress_inner .progress_about .progress_line {
-    max-width: 425px;
   }
   .progress .progress_inner h2 {
     margin: 0;
@@ -938,6 +985,9 @@ footer {
     width: 156px;
   }
 
+  .progress_course .progress .progress_skills .skill_wrapper {
+    width: 180px;
+  }
   .progress_course .progress .progress_skills .skill {
     width: 180px;
     height: 180px;
@@ -946,7 +996,8 @@ footer {
 .cards {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-auto-rows: 1fr;
+  grid-auto-rows: 0fr;
+  margin-bottom: 55px;
 }
 .cards .card {
   margin: 20px 0;
@@ -958,18 +1009,8 @@ footer {
   position: relative;
   background-color: #fff;
 }
-.cards .card .text-advice {
-  margin-bottom: auto;
-}
-.cards .card .type,
-.cards .card .date {
-  color: #787882;
-  font-size: 11px;
-  line-height: 13px;
-}
-.cards .card .type-threat {
-  color: #FF3B30;
-  text-align: center;
+.cards .card .time {
+  margin-top: -15px;
 }
 .cards .card .title {
   font-weight: bold;
@@ -977,39 +1018,16 @@ footer {
   line-height: 26px;
   color: #17171C;
   margin: 10px 0;
-}
-.cards .card .threat-title {
-  text-align: center;
-}
-.cards .card .text-threat {
-  text-align: center;
-}
-.cards .card .add-text {
-  height: 80px;
-  background: url(/dist/img/bg_cards_advice.png) no-repeat;
-  background-size: contain;
-  background-position-x: right;
-  display: flex;
-}
-.cards .card .add-text .date {
-  margin-top: auto;
+  margin-bottom: 20px;
 }
 .cards .card .card_img {
-  margin-bottom: 10px;
-}
-.cards .card .card_img img {
-  width: 100%;
-  object-fit: contain;
-}
-.cards .card_situation .card_img,
-.cards .card_threat .card_img {
-  background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4;
   width: 100%;
   padding-top: 65%;
   position: relative;
+  margin-top: auto;
 }
-.cards .card_situation .card_img img,
-.cards .card_threat .card_img img {
+.cards .card .card_img img {
+  border-radius: 4px;
   width: 100%;
   height: 100%;
   display: block;
@@ -1019,21 +1037,24 @@ footer {
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
-.cards .card_advice {
-  background-color: #F6F6F9;
+.cards .card .card_img-news {
+  background: url(/assets/fonts/webfonts/card-img_news.svg) no-repeat;
+}
+.cards .card .card_img-task {
+  background: url(/assets/fonts/webfonts/card-img_task.svg) no-repeat;
+}
+.cards .card .card_img-news,
+.cards .card .card_img-task {
+  background-size: 80px 80px;
+  background-position: right bottom;
+}
+.cards .card_situation .card_img {
+  width: 100%;
+  padding-top: 65%;
+  position: relative;
 }
 .cards .card_task {
   background-color: #E8E8FA;
-}
-.cards .card_task .add-text-task {
-  background: url(/dist/img/bg_cards_task.png) no-repeat;
-  background-size: 80px 80px;
-  background-position: right bottom;
-  margin-top: auto;
-}
-.cards .card_news .add-text-news {
-  background: none;
-  margin-top: auto;
 }
 
 .all_cards {
@@ -1042,17 +1063,19 @@ footer {
   font-weight: bold;
   text-align: center;
   color: #C7C7CC;
-  margin: 20px auto;
+  margin: 0 auto 70px;
 }
 
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 80px;
+    margin-bottom: 80px;
   }
   .cards .card {
     margin-left: 15px;
     margin-right: 15px;
+    padding: 30px;
   }
   .cards .card:hover {
     filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.06)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04));
@@ -1063,9 +1086,13 @@ footer {
   .cards .card:nth-child(even) {
     margin-right: 0;
   }
-
-  .all_cards {
-    display: none;
+  .cards .card .title {
+    margin-bottom: 30px;
+    font-size: 27px;
+    line-height: 33px;
+  }
+  .cards .card .time {
+    margin-top: -20px;
   }
 }
 .content .descr .descr-img {
@@ -1140,7 +1167,7 @@ footer {
 
 .content-my-course .content_inner h1 {
   margin-bottom: 60px;
-  margin-top: 60px;
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -1220,7 +1247,6 @@ footer {
   padding-top: 10px;
 }
 .content-course .test_wrapper {
-  margin-bottom: 158px;
   margin-top: 50px;
 }
 .content-course .test_wrapper .test_inner {
@@ -1283,8 +1309,16 @@ footer {
     line-height: 24px;
   }
 
+  .content-my-course .content_inner h1 {
+    margin-bottom: 90px;
+    margin-top: 30px;
+  }
   .content-my-course .content-descr_my-course {
     margin-bottom: 60px;
+  }
+
+  .threats_course .content-descr_my-course {
+    margin-bottom: 30px;
   }
 
   .content-theory h1,
@@ -1465,6 +1499,8 @@ footer {
 .materials .material h5 {
   margin: 10px 0;
   display: inline-block;
+  font-size: 20px;
+  line-height: 25px;
 }
 .materials .material .title-material {
   width: 100%;
@@ -1492,7 +1528,7 @@ footer {
   border: 1px solid #F3F3F6;
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 30px;
+  padding: 20px;
   margin: 0;
   position: relative;
   margin-right: 30px;
@@ -1512,7 +1548,6 @@ footer {
 .article > .related_lessons > .material-list .material-el .descr,
 .materials > .material > .material-list .material-el .descr {
   display: flex;
-  margin-top: 10px;
   align-items: center;
   margin-left: 0;
   margin-bottom: 0;
@@ -1523,6 +1558,7 @@ footer {
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  margin-right: 5px;
 }
 .article > .related_lessons > .material-list .material-el .in-coaching svg,
 .materials > .material > .material-list .material-el .in-coaching svg {
@@ -1532,13 +1568,10 @@ footer {
 .materials > .material > .material-list .material-el .in-coaching:hover {
   cursor: pointer;
 }
-.article > .related_lessons > .material-list .material-el .time,
-.materials > .material > .material-list .material-el .time {
-  font-size: 11px;
-  line-height: 13px;
-  margin: 0;
-  margin-right: 10px;
-  display: block;
+.article > .related_lessons > .material-list .material-el .done,
+.materials > .material > .material-list .material-el .done {
+  height: 24px;
+  margin-right: 5px;
 }
 .article > .related_lessons > .material-list .material-el-digital > .img::not(img),
 .materials > .material > .material-list .material-el-digital > .img::not(img) {
@@ -1568,14 +1601,6 @@ footer {
   width: auto;
   min-width: 262px;
   margin-right: 30px;
-}
-.content-my-course > .content_inner > .materials-course .material-list .material-el .type,
-.content-my-course > .content_inner > .materials-course .material-list .material-el .time,
-.instruction-content > .exercises > .materials-course .material-list .material-el .type,
-.instruction-content > .exercises > .materials-course .material-list .material-el .time {
-  color: #787882;
-  font-size: 11px;
-  line-height: 13px;
 }
 
 .article > .related_lessons > .material-list {
@@ -1608,6 +1633,7 @@ footer {
   width: 100%;
   height: 100%;
   display: block;
+  border-radius: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1616,7 +1642,6 @@ footer {
 }
 
 .container-safety .materials-safety.materials .material .material-list,
-.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
@@ -1627,7 +1652,6 @@ footer {
   grid-auto-rows: 1fr;
 }
 .container-safety .materials-safety.materials .material .material-list .material-el,
-.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el,
 .container-search .materials-safety.materials .material .material-list .material-el,
 .content-course .materials-threats.materials .material .material-list .material-el,
 .content-course-ready .materials-threats.materials .material .material-list .material-el,
@@ -1636,7 +1660,6 @@ footer {
   margin-bottom: 40px;
 }
 .container-safety .materials-safety.materials .material .material-list .material-el .img,
-.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el .img,
 .container-search .materials-safety.materials .material .material-list .material-el .img,
 .content-course .materials-threats.materials .material .material-list .material-el .img,
 .content-course-ready .materials-threats.materials .material .material-list .material-el .img,
@@ -1662,6 +1685,10 @@ footer {
   padding-top: 65%;
 }
 
+.materials > .material > .material-list .material-el.material-last > h5 {
+  margin-top: 0;
+}
+
 .content-my-course .materials > .material > .material-list .material-el.material-last {
   font-size: 70px;
   line-height: 55px;
@@ -1669,8 +1696,13 @@ footer {
   text-align: center;
   vertical-align: middle;
   font-weight: 500;
-  display: inline-grid;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  justify-content: space-between;
+}
+.content-my-course .materials > .material > .material-list .material-el.material-last .quantity_materials {
+  margin: auto;
 }
 .content-my-course .materials > .material > .material-list .material-el.material-last h5 {
   text-align: left;
@@ -1682,12 +1714,11 @@ footer {
   border-top: 2px solid #17171C;
   border-right: 2px solid #17171C;
   transform: rotate(45deg);
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
+  margin-left: auto;
 }
 
 .content-my-course .threats_course .materials.materials-course > .material > .material-list > .material-el.material-last > h5 {
+  margin-top: 0;
   font-weight: 700;
   font-size: 19px;
   line-height: 24px;
@@ -1716,6 +1747,11 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .article > .related_lessons > .material-list .material-el,
+.materials > .material > .material-list .material-el {
+    padding: 30px;
+  }
+
   .todo-list_wrapper .materials .material .material-list {
     overflow-x: hidden;
   }
@@ -1777,7 +1813,6 @@ footer {
 
   .container-safety .materials-safety.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
-.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
 .container-article .related_lessons .material-list {
@@ -1785,7 +1820,6 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el,
 .container-search .materials-safety.materials .material .material-list .material-el,
-.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el,
 .content-course .materials-threats.materials .material .material-list .material-el,
 .content-course-ready .materials-threats.materials .material .material-list .material-el,
 .container-article .related_lessons .material-list .material-el {
@@ -1794,7 +1828,6 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(even),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(even),
-.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .container-article .related_lessons .material-list .material-el:nth-child(even) {
@@ -1802,14 +1835,23 @@ footer {
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(odd),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(odd),
-.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .container-article .related_lessons .material-list .material-el:nth-child(odd) {
     margin-left: 0;
   }
+
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material {
+    margin-left: auto;
+    margin-right: auto;
+    width: 584px;
+  }
 }
 @media (min-width: 1000px) {
+  .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material {
+    width: 864px;
+  }
+
   .materials-skills .material .material-list,
 .container-safety .materials-safety.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
@@ -2281,6 +2323,13 @@ footer {
   top: 20%;
   transform: rotate(135deg);
 }
+.todo-list_wrapper .todo-list .todo-el .el_task-not-do {
+  color: #787882;
+}
+.todo-list_wrapper .todo-list .todo-el .el_task-not-do::before {
+  background-color: #F3F3F6;
+  border-color: #D1D1D6;
+}
 .todo-list_wrapper .todo-list .todo-el .el_how-do_btn:hover {
   color: #17171C;
   cursor: pointer;
@@ -2292,7 +2341,7 @@ footer {
   background-color: #F3F3F6;
   border-radius: 4px;
   box-sizing: border-box;
-  padding: 30px;
+  padding: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -2301,17 +2350,17 @@ footer {
   z-index: 200;
   overflow-y: auto;
 }
-.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top {
-  padding-top: 55px;
-}
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction_btn-close-todo {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  order: 1;
+  margin-bottom: 5px;
+  text-align: right;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction_btn-close-todo:hover {
   cursor: pointer;
+}
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top h5 {
+  font-size: 20px;
+  line-height: 25px;
+  margin-bottom: 26px;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
   display: flex;
@@ -2319,17 +2368,21 @@ footer {
   justify-content: flex-start;
   width: auto;
   border-bottom: 1px solid #C7C7CC;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 38px;
+  margin-bottom: 40px;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .btn {
   padding: 8px 33px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  height: auto;
+  font-size: 12px;
+  line-height: 19px;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-text {
   color: #8D8D94;
@@ -2342,6 +2395,14 @@ footer {
   border: 1px solid #C7C7CC;
   color: #2E2E38;
   width: 100%;
+  margin-bottom: 11px;
+}
+.todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-btn:hover, .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-btn:focus {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+  background-color: #fff;
+  color: #2E2E38;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .instruction-content__header {
   font-size: 14px;
@@ -2350,7 +2411,7 @@ footer {
   margin-bottom: 10px;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .exercises {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 .todo-list_wrapper .todo-list .todo-el .instruction .instruction-content .exercises .materials-course .material {
   margin-top: 10px;
@@ -2380,6 +2441,11 @@ footer {
   position: relative;
 }
 
+.empty-todo_list {
+  padding: 20px;
+  color: #787882;
+}
+
 .container-todo .content-todo .block_top {
   display: flex;
   flex-direction: column;
@@ -2404,11 +2470,20 @@ footer {
 }
 
 @media (min-width: 640px) {
-  .todo-list_wrapper {
-    margin-bottom: 40px;
+  .empty-todo_list {
+    padding: 30px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .todo-list_wrapper .todo-list-header {
+    padding: 28px 30px;
   }
   .todo-list_wrapper:last-child {
     margin-bottom: 0px;
+  }
+  .todo-list_wrapper .todo-list {
+    margin: 30px;
   }
   .todo-list_wrapper .todo-list .todo-list {
     list-style: circle;
@@ -2431,13 +2506,13 @@ footer {
     flex-grow: 1;
   }
   .todo-list_wrapper .todo-list .todo-el .instruction {
+    padding: 33px 30px;
     margin-left: 65px;
     margin-bottom: 30px;
     margin-top: 15px;
     background-color: #F3F3F6;
     border-radius: 4px;
     box-sizing: border-box;
-    padding: 30px;
     position: relative;
     width: auto;
     height: auto;
@@ -2446,7 +2521,10 @@ footer {
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top {
     padding-top: 0;
   }
-  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction_btn-close-todo {
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .btn {
+    margin-bottom: 0;
+  }
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction_btn-close-todo, .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top h5 {
     display: none;
   }
   .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner {
@@ -2487,8 +2565,8 @@ footer {
   }
 }
 @media (min-width: 768px) {
-  .todo-list_wrapper .todo-list {
-    margin: 30px;
+  .todo-list_wrapper .todo-list .todo-el .instruction .instruction-top .instruction-top_inner .risks .risks-btn {
+    margin-bottom: 0;
   }
 }
 .container-first_page {
@@ -3182,11 +3260,17 @@ footer {
 .content-my-course .section-theory {
   margin-bottom: 25px;
 }
+.content-my-course .avoid_wrapper .materials-course {
+  margin-bottom: 40px;
+}
 .content-my-course .materials-course {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
+}
+.content-my-course .instruction .materials.materials-course {
+  margin-bottom: 20px;
 }
 .content-my-course .threats_course {
-  margin-bottom: 100px;
+  margin-bottom: 0;
 }
 .content-my-course .progress_course {
   margin-bottom: 100px;
@@ -3224,18 +3308,25 @@ footer {
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
+  .content-my-course .section-theory.progress {
+    margin-bottom: 56px;
+  }
+  .content-my-course .avoid_wrapper .materials-course {
+    margin-bottom: 60px;
+  }
+
   .content-my-course .materials-course {
     margin-bottom: 130px;
   }
   .content-my-course .threats_course {
     margin-bottom: 130px;
   }
-  .content-my-course .progress_course,
-.content-my-course .todo-list_course {
-    margin-bottom: 130px;
+  .content-my-course .progress_course {
+    margin-bottom: 120px;
   }
   .content-my-course .progress_course .content-descr,
 .content-my-course .todo-list_course .content-descr {
@@ -3353,14 +3444,22 @@ footer {
 .container-login .content_inner img {
   width: 100%;
   max-width: 360px;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 30px;
 }
 .container-login .content_inner h2 {
   font-size: 32px;
   line-height: 36px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.container-login .content_inner p {
+  margin: 0;
   margin-bottom: 30px;
   text-align: center;
+  font-size: 14px;
+  line-height: 19px;
+  color: #2E2E38;
 }
 .container-login .content_inner .mail-address {
   display: flex;
@@ -3475,43 +3574,50 @@ footer {
 }
 
 .progress_popup_wrapper,
-.threat_popup_wrapper {
+.threat_popup_wrapper,
+.completed_popup_wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   z-index: 200;
 }
-@-moz-document url-prefix() {
-  .progress_popup_wrapper,
-.threat_popup_wrapper {
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-}
 .progress_popup_wrapper .threat_popup_inner_blur,
-.threat_popup_wrapper .threat_popup_inner_blur {
+.threat_popup_wrapper .threat_popup_inner_blur,
+.completed_popup_wrapper .threat_popup_inner_blur {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(4px);
+  filter: blur(15px);
 }
 .progress_popup_wrapper .progress_popup_inner,
 .progress_popup_wrapper .threat_popup_inner,
+.progress_popup_wrapper .completed_popup_inner,
 .threat_popup_wrapper .progress_popup_inner,
-.threat_popup_wrapper .threat_popup_inner {
+.threat_popup_wrapper .threat_popup_inner,
+.threat_popup_wrapper .completed_popup_inner,
+.completed_popup_wrapper .progress_popup_inner,
+.completed_popup_wrapper .threat_popup_inner,
+.completed_popup_wrapper .completed_popup_inner {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 .progress_popup_wrapper .progress_popup_inner .progress,
 .progress_popup_wrapper .threat_popup_inner .progress,
+.progress_popup_wrapper .completed_popup_inner .progress,
 .threat_popup_wrapper .progress_popup_inner .progress,
-.threat_popup_wrapper .threat_popup_inner .progress {
+.threat_popup_wrapper .threat_popup_inner .progress,
+.threat_popup_wrapper .completed_popup_inner .progress,
+.completed_popup_wrapper .progress_popup_inner .progress,
+.completed_popup_wrapper .threat_popup_inner .progress,
+.completed_popup_wrapper .completed_popup_inner .progress {
   order: 2;
   margin-top: 100px;
   border: none;
@@ -3519,14 +3625,24 @@ footer {
 }
 .progress_popup_wrapper .progress_popup_inner .progress .progress_skills,
 .progress_popup_wrapper .threat_popup_inner .progress .progress_skills,
+.progress_popup_wrapper .completed_popup_inner .progress .progress_skills,
 .threat_popup_wrapper .progress_popup_inner .progress .progress_skills,
-.threat_popup_wrapper .threat_popup_inner .progress .progress_skills {
+.threat_popup_wrapper .threat_popup_inner .progress .progress_skills,
+.threat_popup_wrapper .completed_popup_inner .progress .progress_skills,
+.completed_popup_wrapper .progress_popup_inner .progress .progress_skills,
+.completed_popup_wrapper .threat_popup_inner .progress .progress_skills,
+.completed_popup_wrapper .completed_popup_inner .progress .progress_skills {
   width: auto;
 }
 .progress_popup_wrapper .progress_popup_inner .btn-close-top,
 .progress_popup_wrapper .threat_popup_inner .btn-close-top,
+.progress_popup_wrapper .completed_popup_inner .btn-close-top,
 .threat_popup_wrapper .progress_popup_inner .btn-close-top,
-.threat_popup_wrapper .threat_popup_inner .btn-close-top {
+.threat_popup_wrapper .threat_popup_inner .btn-close-top,
+.threat_popup_wrapper .completed_popup_inner .btn-close-top,
+.completed_popup_wrapper .progress_popup_inner .btn-close-top,
+.completed_popup_wrapper .threat_popup_inner .btn-close-top,
+.completed_popup_wrapper .completed_popup_inner .btn-close-top {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -3534,14 +3650,24 @@ footer {
 }
 .progress_popup_wrapper .progress_popup_inner .btn-close-top:hover,
 .progress_popup_wrapper .threat_popup_inner .btn-close-top:hover,
+.progress_popup_wrapper .completed_popup_inner .btn-close-top:hover,
 .threat_popup_wrapper .progress_popup_inner .btn-close-top:hover,
-.threat_popup_wrapper .threat_popup_inner .btn-close-top:hover {
+.threat_popup_wrapper .threat_popup_inner .btn-close-top:hover,
+.threat_popup_wrapper .completed_popup_inner .btn-close-top:hover,
+.completed_popup_wrapper .progress_popup_inner .btn-close-top:hover,
+.completed_popup_wrapper .threat_popup_inner .btn-close-top:hover,
+.completed_popup_wrapper .completed_popup_inner .btn-close-top:hover {
   cursor: pointer;
 }
 .progress_popup_wrapper .progress_popup_inner h2,
 .progress_popup_wrapper .threat_popup_inner h2,
+.progress_popup_wrapper .completed_popup_inner h2,
 .threat_popup_wrapper .progress_popup_inner h2,
-.threat_popup_wrapper .threat_popup_inner h2 {
+.threat_popup_wrapper .threat_popup_inner h2,
+.threat_popup_wrapper .completed_popup_inner h2,
+.completed_popup_wrapper .progress_popup_inner h2,
+.completed_popup_wrapper .threat_popup_inner h2,
+.completed_popup_wrapper .completed_popup_inner h2 {
   text-align: center;
   font-size: 32px;
   line-height: 36px;
@@ -3550,8 +3676,13 @@ footer {
 }
 .progress_popup_wrapper .progress_popup_inner .descr,
 .progress_popup_wrapper .threat_popup_inner .descr,
+.progress_popup_wrapper .completed_popup_inner .descr,
 .threat_popup_wrapper .progress_popup_inner .descr,
-.threat_popup_wrapper .threat_popup_inner .descr {
+.threat_popup_wrapper .threat_popup_inner .descr,
+.threat_popup_wrapper .completed_popup_inner .descr,
+.completed_popup_wrapper .progress_popup_inner .descr,
+.completed_popup_wrapper .threat_popup_inner .descr,
+.completed_popup_wrapper .completed_popup_inner .descr {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
@@ -3560,43 +3691,82 @@ footer {
 }
 .progress_popup_wrapper .progress_popup_inner .btns,
 .progress_popup_wrapper .threat_popup_inner .btns,
+.progress_popup_wrapper .completed_popup_inner .btns,
 .threat_popup_wrapper .progress_popup_inner .btns,
-.threat_popup_wrapper .threat_popup_inner .btns {
+.threat_popup_wrapper .threat_popup_inner .btns,
+.threat_popup_wrapper .completed_popup_inner .btns,
+.completed_popup_wrapper .progress_popup_inner .btns,
+.completed_popup_wrapper .threat_popup_inner .btns,
+.completed_popup_wrapper .completed_popup_inner .btns {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 .progress_popup_wrapper .progress_popup_inner .btns .btn,
 .progress_popup_wrapper .threat_popup_inner .btns .btn,
+.progress_popup_wrapper .completed_popup_inner .btns .btn,
 .threat_popup_wrapper .progress_popup_inner .btns .btn,
-.threat_popup_wrapper .threat_popup_inner .btns .btn {
+.threat_popup_wrapper .threat_popup_inner .btns .btn,
+.threat_popup_wrapper .completed_popup_inner .btns .btn,
+.completed_popup_wrapper .progress_popup_inner .btns .btn,
+.completed_popup_wrapper .threat_popup_inner .btns .btn,
+.completed_popup_wrapper .completed_popup_inner .btns .btn {
   margin: 5px 6px;
+  line-height: 16px;
   padding: 10px 27px;
   width: auto;
 }
 
-.threat_popup_wrapper {
+.threat_popup_wrapper,
+.completed_popup_wrapper {
   min-height: 100vh;
   height: 100%;
   overflow-y: auto;
 }
-.threat_popup_wrapper .threat_popup_inner h2 {
+.threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials,
+.threat_popup_wrapper .completed_popup_inner .materials-popup-threats.materials,
+.completed_popup_wrapper .threat_popup_inner .materials-popup-threats.materials,
+.completed_popup_wrapper .completed_popup_inner .materials-popup-threats.materials {
+  margin-bottom: 20px;
+}
+.threat_popup_wrapper .threat_popup_inner h2,
+.threat_popup_wrapper .completed_popup_inner h2,
+.completed_popup_wrapper .threat_popup_inner h2,
+.completed_popup_wrapper .completed_popup_inner h2 {
   margin-top: 0;
 }
-.threat_popup_wrapper .threat_popup_inner .img_popup {
+.threat_popup_wrapper .threat_popup_inner .img_popup,
+.threat_popup_wrapper .completed_popup_inner .img_popup,
+.completed_popup_wrapper .threat_popup_inner .img_popup,
+.completed_popup_wrapper .completed_popup_inner .img_popup {
   min-width: 320px;
   margin: 0;
   width: 100%;
 }
-.threat_popup_wrapper .threat_popup_inner .img_popup img {
+.threat_popup_wrapper .threat_popup_inner .img_popup img,
+.threat_popup_wrapper .completed_popup_inner .img_popup img,
+.completed_popup_wrapper .threat_popup_inner .img_popup img,
+.completed_popup_wrapper .completed_popup_inner .img_popup img {
   height: 200px;
   width: auto;
+  max-width: calc(100% - 40px);
   margin: 80px auto 40px;
   display: flex;
-  background-color: #fff;
 }
 
 @media (min-width: 640px) {
+  .progress_popup_wrapper .progress_popup_inner .btns .btn,
+.progress_popup_wrapper .threat_popup_inner .btns .btn,
+.progress_popup_wrapper .completed_popup_inner .btns .btn,
+.threat_popup_wrapper .progress_popup_inner .btns .btn,
+.threat_popup_wrapper .threat_popup_inner .btns .btn,
+.threat_popup_wrapper .completed_popup_inner .btns .btn,
+.completed_popup_wrapper .progress_popup_inner .btns .btn,
+.completed_popup_wrapper .threat_popup_inner .btns .btn,
+.completed_popup_wrapper .completed_popup_inner .btns .btn {
+    line-height: 24px;
+  }
+
   .progress_popup_wrapper .progress .progress_skills .skill {
     width: 180px;
     height: 180px;
@@ -3619,8 +3789,13 @@ footer {
 @media (min-width: 1200px) {
   .threat_popup_wrapper .progress_popup_inner .descr,
 .threat_popup_wrapper .threat_popup_inner .descr,
+.threat_popup_wrapper .completed_popup_inner .descr,
 .progress_popup_wrapper .progress_popup_inner .descr,
-.progress_popup_wrapper .threat_popup_inner .descr {
+.progress_popup_wrapper .threat_popup_inner .descr,
+.progress_popup_wrapper .completed_popup_inner .descr,
+.completed_popup_wrapper .progress_popup_inner .descr,
+.completed_popup_wrapper .threat_popup_inner .descr,
+.completed_popup_wrapper .completed_popup_inner .descr {
     max-width: 50%;
   }
 }
@@ -3779,4 +3954,40 @@ footer {
   .go_to_practice__wrapper .go_to_practice__img {
     margin-left: 30px;
   }
+}
+.black-50 {
+  color: #787882;
+}
+
+.black-70 {
+  color: #2E2E38;
+}
+
+.font-11 {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
 }

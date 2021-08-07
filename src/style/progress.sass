@@ -5,14 +5,19 @@
   margin: 0
   margin-top: 20px
   padding: 20px
-
   .progress_inner
     display: flex
     flex-direction: column
+    .btn-go-training
+      line-height: 9px
     h2
       margin: 20px 0
     .progress_about
-      margin: 20px 0
+      // удалено с главной
+      // margin: 20px 0 --удалено с главной
+
+      // добавлено для главной
+      margin-bottom: 15px
       .progress_line
         width: auto
         height: 6px
@@ -86,6 +91,26 @@
       .skill-financial
         background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 (0%), #D9E9EE (0%)) border-box
 
+.content-my-course
+  .progress
+    .progress_inner
+      .block_continue
+        display: flex
+        flex-direction: column
+        .next_task__wrapper
+          margin-top: 30px
+          .next_task__header
+            span
+              line-height: 16px
+              vertical-align: text-top
+            .icons
+              fill: $black-50
+          .next_task__name
+            color: $black-50
+            @include font(14px, 19px)
+      .progress_about
+        margin-bottom: 25px
+
 .progress_course
   .progress_skills
     .skill-digital_wrapper .skill-digital,
@@ -138,12 +163,28 @@
 @media (min-width: 640px)
   .progress
     .progress_inner
+      .btn-go-training
+        line-height: 21px
+      .progress_about
+         margin: 20px 0
       .btn
         width: fit-content
         width: -moz-fit-content
         padding: 10px 28px
   .progress-main
     align-items: center
+
+  .content-my-course
+    .progress
+      .progress_inner
+        .block_continue
+          flex-direction: row
+          align-items: center
+          .btn-go-training
+            margin-right: 0
+          .next_task__wrapper
+            margin-top: 0
+            margin-left: 30px
 
 
 @media (min-width: 768px)
@@ -155,9 +196,9 @@
       order: 1
       width: 50%
       margin-right: 30px
-      .progress_about
-        .progress_line
-          max-width: 425px
+      // .progress_about
+      //   .progress_line
+      //     max-width: 425px
       h2
         margin: 0
       .btn
@@ -210,6 +251,8 @@
   .progress_course
     .progress
       .progress_skills
+        .skill_wrapper
+          width: 180px
         .skill
           width: 180px
           height: 180px

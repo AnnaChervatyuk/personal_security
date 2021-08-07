@@ -135,6 +135,14 @@ module.exports = {
         template: 'src/public/course.html'
         }),
       new HtmlWebpackPlugin({
+        filename: 'course_progress_0.html',
+        template: 'src/public/course_progress_0.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'course_progress_100.html',
+        template: 'src/public/course_progress_100.html'
+        }),
+      new HtmlWebpackPlugin({
         filename: '404.html',
         template: 'src/public/404.html'
         }),

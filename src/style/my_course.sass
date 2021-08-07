@@ -42,11 +42,16 @@
   .section-theory
     margin-bottom: 25px
 
+  .avoid_wrapper
+    .materials-course
+      margin-bottom: 40px
   .materials-course
-    margin-bottom: 100px
-
+    margin-bottom: 70px
+  .instruction
+    .materials.materials-course
+      margin-bottom: 20px
   .threats_course
-    margin-bottom: 100px
+    margin-bottom: 0
 
   .progress_course
     margin-bottom: 100px
@@ -74,16 +79,24 @@
     .materials.materials-course > .material > .material-list > .material-el > h5
       @include font(16px, 22px)
       font-weight: 400
+      margin: 0
 
 @media (min-width: 768px)
+  .content-my-course
+    .section-theory.progress
+      margin-bottom: 56px
+    .avoid_wrapper
+      .materials-course
+        margin-bottom: 60px
   .content-my-course
     .materials-course
       margin-bottom: 130px
     .threats_course
       margin-bottom: 130px
+    .progress_course
+      margin-bottom: 120px
     .progress_course,
     .todo-list_course
-      margin-bottom: 130px
       .content-descr
         @include font(18px, 24px)
         width: 50%

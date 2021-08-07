@@ -108,7 +108,8 @@ if ($(".material-el")) {
           var srcName = blocksImg.eq(j).find("img")[0].getAttribute('src');
           var srcNameSplit = srcName.split(".");
           if (srcNameSplit[srcNameSplit.length-1] == "svg") (
-            blocksImg.eq(j).find("img").css("height", "auto")
+            // blocksImg.eq(j).find("img").css("height", "auto")
+            blocksImg.eq(j).find("img").css("object-fit", "contain").css("border-radius", "0px")
           )
         }
       }
@@ -568,28 +569,28 @@ window.getInCoachingTooltip()
   // $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
 
 
-  function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
-    let skills  = $(".progress-main .skill"),
-        skillTitle = $(".progress-main .skill-title"),
-        skillWrapper = $(".progress-main .skill_wrapper")
-
-    if($('body').innerWidth() >= 1200){
-        for (var i = 0; i < skills.length; i++){
-          skillTitle.eq(i).appendTo(skills.eq(i))
-        }
-    } else {
-      for (var i = 0; i < skills.length; i++){
-        skillTitle.eq(i).appendTo(skillWrapper.eq(i))
-      }
-    }
-
-  }
-
-  $(window).on("resize", function (e) {
-      toggleProgressTitleLocation()
-  })
-  window.toggleProgressTitleLocation = toggleProgressTitleLocation()
-  toggleProgressTitleLocation()
+  // function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
+  //   let skills  = $(".progress-main .skill"),
+  //       skillTitle = $(".progress-main .skill-title"),
+  //       skillWrapper = $(".progress-main .skill_wrapper")
+  //
+  //   if($('body').innerWidth() >= 1200){
+  //       for (var i = 0; i < skills.length; i++){
+  //         skillTitle.eq(i).appendTo(skills.eq(i))
+  //       }
+  //   } else {
+  //     for (var i = 0; i < skills.length; i++){
+  //       skillTitle.eq(i).appendTo(skillWrapper.eq(i))
+  //     }
+  //   }
+  //
+  // }
+  //
+  // $(window).on("resize", function (e) {
+  //     toggleProgressTitleLocation()
+  // })
+  // window.toggleProgressTitleLocation = toggleProgressTitleLocation()
+  // toggleProgressTitleLocation()
 
 
 // -----конец прогресса----

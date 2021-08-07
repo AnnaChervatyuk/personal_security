@@ -1,7 +1,8 @@
 .cards
   display: grid
   grid-template-columns: repeat(1, 1fr)
-  grid-auto-rows: 1fr
+  grid-auto-rows: 0fr
+  margin-bottom: 55px
   .card
     margin: 20px 0
     border: $border
@@ -11,42 +12,28 @@
     flex-direction: column
     position: relative
     background-color: $white
-    .text-advice
-      margin-bottom: auto
-    .type,
-    .date
-      color: $font-color-nav
-      @include font(11px, 13px)
-    .type-threat
-      color: $font-color-error
-      text-align: center
+    .time
+      margin-top: -15px
     .title
       @include title()
-    .threat-title
-      text-align: center
-    .text-threat
-      text-align: center
-    .add-text
-      height: 80px
-      background: url('../public/images/bg_cards_advice.png') no-repeat
-      background-size: contain
-      background-position-x: right
-      display: flex
-      .date
-        margin-top: auto
+      margin-bottom: 20px
+    // .threat-title
+    //   text-align: center
+    // .text-threat
+    //   text-align: center
+    // .add-text
+    //   height: 80px
+    //   // background: url('../public/images/bg_cards_advice.png') no-repeat
+    //   background-size: contain
+    //   background-position-x: right
+    //   display: flex
     .card_img
-      margin-bottom: 10px
-      img
-        width: 100%
-        object-fit: contain
-  .card_situation,
-  .card_threat
-    .card_img
-      background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4
       width: 100%
       padding-top: 65%
       position: relative
+      margin-top: auto
       img
+        border-radius: 4px
         width: 100%
         height: 100%
         display: block
@@ -55,45 +42,66 @@
         left: 50%
         transform: translate(-50%, -50%)
         object-fit: cover
-
-  .card_advice
-    background-color: $color-bg-card
+    .card_img-news
+      background: url('../public/images/card-img_news.svg') no-repeat
+    .card_img-task
+      background: url('../public/images/card-img_task.svg') no-repeat
+    .card_img-news,
+    .card_img-task
+      background-size: 80px 80px
+      background-position: right bottom
+  .card_situation
+    .card_img
+      // background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4
+      width: 100%
+      padding-top: 65%
+      position: relative
+      // border-radius: 4px
+      // img
+      //   width: 100%
+      //   height: 100%
+      //   display: block
+      //   position: absolute
+      //   top: 50%
+      //   left: 50%
+      //   transform: translate(-50%, -50%)
+      //   object-fit: cover
 
   .card_task
     background-color: $color-bg-task
-    .add-text-task
-      background: url('../public/images/bg_cards_task.png') no-repeat
-      background-size: 80px 80px
-      background-position: right bottom
-      margin-top: auto
-  .card_news
-    .add-text-news
-      background: none
-      // background: url('../public/images/icon_news.svg') no-repeat
-      // background-size: 55px 55px
-      // background-position: right bottom
-      margin-top: auto
+
+  // .card_news
+  //   .add-text-news
+  //
+  //     // background: url('../public/images/icon_news.svg') no-repeat
+  //     // background-size: 55px 55px
+  //     // background-position: right bottom
+  //     margin-top: auto
 
 .all_cards
   @include font(19px, 24px)
   font-weight: bold
   text-align: center
   color: $font-color-gray
-  margin: 20px auto
+  margin: 0 auto 70px
 
 @media (min-width: 768px)
   .cards
     grid-template-columns: repeat(2, 1fr)
     margin-top: 80px
+    margin-bottom: 80px
     .card
       margin-left: 15px
       margin-right: 15px
+      padding: 30px
       &:hover
         filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.06)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04))
       &:nth-child(odd)
         margin-left: 0
       &:nth-child(even)
         margin-right: 0
-
-  .all_cards
-    display: none
+      .title
+        margin-bottom: 30px
+        @include font(27px, 33px)
+      .time
+        margin-top: -20px

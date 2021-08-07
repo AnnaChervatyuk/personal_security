@@ -1,12 +1,16 @@
 .progress_popup_wrapper,
-.threat_popup_wrapper
+.threat_popup_wrapper,
+.completed_popup_wrapper
   position: fixed
   top: 0
   left: 0
   width: 100%
   height: 100vh
-  @include bg-navigator()
-
+  // @include bg-navigator()
+  background-color: rgba(255, 255, 255, 0.85)
+  -webkit-backdrop-filter: blur(15px)
+  backdrop-filter: blur(15px)
+  // padding: 20px
   z-index: 200
   .threat_popup_inner_blur
     position: absolute
@@ -14,11 +18,13 @@
     left: 0
     width: 100%
     height: 100%
-    filter: blur(4px)
+    filter: blur(15px)
   .progress_popup_inner,
-  .threat_popup_inner
+  .threat_popup_inner,
+  .completed_popup_inner
     max-width: 1200px
     margin: 0 auto
+    padding: 0 20px
     .progress
       order: 2
       margin-top: 100px
@@ -50,14 +56,19 @@
       flex-wrap: wrap
       .btn
         margin: 5px 6px
+        line-height: 16px
         padding: 10px 27px
         width: auto
 
-.threat_popup_wrapper
+.threat_popup_wrapper,
+.completed_popup_wrapper
   min-height: 100vh
   height: 100%
   overflow-y: auto
-  .threat_popup_inner
+  .threat_popup_inner,
+  .completed_popup_inner
+    .materials-popup-threats.materials
+      margin-bottom: 20px
     h2
       margin-top: 0
     .img_popup
@@ -67,10 +78,20 @@
       img
         height: 200px
         width: auto
+        max-width: calc(100% - 40px)
         margin: 80px auto 40px
         display: flex
-        background-color: $white
 @media (min-width: 640px)
+  .progress_popup_wrapper,
+  .threat_popup_wrapper,
+  .completed_popup_wrapper
+    .progress_popup_inner,
+    .threat_popup_inner,
+    .completed_popup_inner
+      .btns
+        .btn
+          line-height: 24px
+
   .progress_popup_wrapper
     .progress
       .progress_skills
@@ -90,8 +111,10 @@
 
 @media (min-width: 1200px)
   .threat_popup_wrapper,
-  .progress_popup_wrapper
+  .progress_popup_wrapper,
+  .completed_popup_wrapper
     .progress_popup_inner,
-    .threat_popup_inner
+    .threat_popup_inner,
+    .completed_popup_inner
       .descr
         max-width: 50%

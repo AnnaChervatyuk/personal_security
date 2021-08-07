@@ -38,12 +38,19 @@ a
 
 .btn
   display: inline-block
-  @include font(16px, 22px)
+
+  // line-height для btn-go-training на главной
+  // @include font(16px, 13px)
+
+  // +2 для btn-go-training на главной
+  height: 38px
+  box-sizing: border-box
 
 a.btn,
 .btn
   @include btn()
-  @include font(16px, 22px)
+  // line-height для btn-go-training на главной
+  @include font(16px, 13px)
   &:hover
     cursor: pointer
     background-color: $black-70
@@ -176,6 +183,9 @@ a.btn,
     @include icons()
     padding: 0
     margin: 0
+.icons--reward
+  vertical-align: bottom
+  margin-left: 5px
 .hide
   display: none !important
 h1
@@ -253,6 +263,7 @@ textarea::placeholder
     @include font(19px, 30px)
   .btn
     @include font(18px, 24px)
+    height: 44px
   a.btn,
   .btn
     @include font(18px, 24px)
