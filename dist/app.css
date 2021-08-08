@@ -813,7 +813,7 @@ footer {
   margin-top: 30px;
 }
 .content-my-course .progress .progress_inner .block_continue .next_task__wrapper .next_task__header span {
-  line-height: 16px;
+  line-height: 20px;
   vertical-align: text-top;
 }
 .content-my-course .progress .progress_inner .block_continue .next_task__wrapper .next_task__header .icons {
@@ -1000,7 +1000,7 @@ footer {
   margin-bottom: 55px;
 }
 .cards .card {
-  margin: 20px 0;
+  margin: 15px 0;
   border: 1px solid #F3F3F6;
   border-radius: 3px;
   padding: 20px;
@@ -1370,7 +1370,7 @@ footer {
   }
 
   .content-situation .content-descr {
-    margin-bottom: 100px;
+    margin-bottom: 126px;
   }
 }
 .content-theory .skills {
@@ -1457,7 +1457,14 @@ footer {
   color: #0F7DA1;
 }
 
+.skills-desktop {
+  display: none;
+}
+
 @media (min-width: 640px) {
+  .content-theory .skills-desktop {
+    display: grid;
+  }
   .content-theory .skills {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1502,12 +1509,36 @@ footer {
   font-size: 20px;
   line-height: 25px;
 }
+.materials .material .material-el-done h5 {
+  color: #787882;
+}
+.materials .material .material-el-done .img, .materials .material .material-el-done img {
+  opacity: 0.85;
+}
 .materials .material .title-material {
   width: 100%;
 }
 
-.materials-theory.materials > .material > .material-list > .material-el {
-  min-width: 295px;
+.materials-situation .material h5 {
+  margin-top: 0;
+  font-size: 27px;
+  line-height: 33px;
+}
+
+.content-situation .materials > .material > .material-list .material-el {
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+}
+.content-situation .materials > .material > .material-list .material-el .descr {
+  margin-bottom: 10px;
+}
+.content-situation .materials > .material > .material-list .material-el .img {
+  margin-bottom: 0;
+  margin-top: auto;
+}
+.content-situation .materials > .material > .material-list .material-el img {
+  border-radius: 4px;
 }
 
 .article > .related_lessons > .material-list > .material-el,
@@ -1645,17 +1676,23 @@ footer {
 .container-search .materials-safety.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
-.container-article .related_lessons .material-list {
+.content-all-theory .materials-start.materials .material .material-list,
+.container-article .related_lessons .material-list,
+.content-all-theory .materials.materials-skills .material .material-list,
+.materials-theory.materials .material .material-list {
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
 }
 .container-safety .materials-safety.materials .material .material-list .material-el,
 .container-search .materials-safety.materials .material .material-list .material-el,
 .content-course .materials-threats.materials .material .material-list .material-el,
 .content-course-ready .materials-threats.materials .material .material-list .material-el,
-.container-article .related_lessons .material-list .material-el {
+.content-all-theory .materials-start.materials .material .material-list .material-el,
+.container-article .related_lessons .material-list .material-el,
+.content-all-theory .materials.materials-skills .material .material-list .material-el,
+.materials-theory.materials .material .material-list .material-el {
   width: 100%;
   margin-bottom: 40px;
 }
@@ -1663,7 +1700,10 @@ footer {
 .container-search .materials-safety.materials .material .material-list .material-el .img,
 .content-course .materials-threats.materials .material .material-list .material-el .img,
 .content-course-ready .materials-threats.materials .material .material-list .material-el .img,
-.container-article .related_lessons .material-list .material-el .img {
+.content-all-theory .materials-start.materials .material .material-list .material-el .img,
+.container-article .related_lessons .material-list .material-el .img,
+.content-all-theory .materials.materials-skills .material .material-list .material-el .img,
+.materials-theory.materials .material .material-list .material-el .img {
   width: 100%;
 }
 
@@ -1676,7 +1716,7 @@ footer {
 .content-situation .materials > .material > .material-list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
 }
 .content-situation .materials > .material > .material-list .material-el {
   margin-bottom: 30px;
@@ -1742,11 +1782,19 @@ footer {
   width: 262px !important;
 }
 
+.materials-skills {
+  margin-bottom: 50px;
+}
+
 .materials.materials-skills > .material > .material-list {
   margin-top: 20px;
 }
 
 @media (min-width: 640px) {
+  .materials-skills {
+    margin-bottom: 100px;
+  }
+
   .article > .related_lessons > .material-list .material-el,
 .materials > .material > .material-list .material-el {
     padding: 30px;
@@ -1787,18 +1835,21 @@ footer {
 .materials.materials-safety > .material .material-list .material-el,
 .materials.materials-popup-threats > .material .material-list .material-el {
     width: min-content;
-    margin: 20px 15px;
+    margin: 15px;
   }
 
+  .materials-skills .material {
+    margin-top: 76px;
+  }
   .materials-skills .material .material-list {
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 1fr;
+    grid-auto-rows: auto;
   }
   .materials-skills .material .material-list .material-el {
     width: 100%;
-    margin: 20px 15px;
+    margin: 15px;
     width: auto;
   }
   .materials-skills .material .material-list .material-el:nth-child(even) {
@@ -1815,29 +1866,41 @@ footer {
 .container-search .materials-safety.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
-.container-article .related_lessons .material-list {
+.content-all-theory .materials-start.materials .material .material-list,
+.container-article .related_lessons .material-list,
+.content-all-theory .materials.materials-skills .material .material-list,
+.materials-theory.materials > .material > .material-list {
     grid-template-columns: repeat(2, 1fr);
   }
   .container-safety .materials-safety.materials .material .material-list .material-el,
 .container-search .materials-safety.materials .material .material-list .material-el,
 .content-course .materials-threats.materials .material .material-list .material-el,
 .content-course-ready .materials-threats.materials .material .material-list .material-el,
-.container-article .related_lessons .material-list .material-el {
-    margin: 20px 15px;
+.content-all-theory .materials-start.materials .material .material-list .material-el,
+.container-article .related_lessons .material-list .material-el,
+.content-all-theory .materials.materials-skills .material .material-list .material-el,
+.materials-theory.materials > .material > .material-list .material-el {
+    margin: 15px 15px;
     width: auto;
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(even),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(even),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(even),
-.container-article .related_lessons .material-list .material-el:nth-child(even) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(even),
+.container-article .related_lessons .material-list .material-el:nth-child(even),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(even),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(even) {
     margin-right: 0;
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(odd),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(odd),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(odd),
-.container-article .related_lessons .material-list .material-el:nth-child(odd) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(odd),
+.container-article .related_lessons .material-list .material-el:nth-child(odd),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(odd),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(odd) {
     margin-left: 0;
   }
 
@@ -1852,100 +1915,122 @@ footer {
     width: 864px;
   }
 
-  .materials-skills .material .material-list,
-.container-safety .materials-safety.materials .material .material-list,
+  .container-safety .materials-safety.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
 .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
-.container-article .related_lessons .material-list {
+.content-all-theory .materials-start.materials .material .material-list,
+.container-article .related_lessons .material-list,
+.content-all-theory .materials.materials-skills .material .material-list,
+.materials-theory.materials > .material > .material-list {
     grid-template-columns: repeat(3, 1fr);
   }
-  .materials-skills .material .material-list .material-el:nth-child(even),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(even),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(even),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(even),
 .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(even),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(even),
-.container-article .related_lessons .material-list .material-el:nth-child(even) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(even),
+.container-article .related_lessons .material-list .material-el:nth-child(even),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(even),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(even) {
     margin-right: 15px;
   }
-  .materials-skills .material .material-list .material-el:nth-child(odd),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(odd),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(odd),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(odd),
 .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(odd),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(odd),
-.container-article .related_lessons .material-list .material-el:nth-child(odd) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(odd),
+.container-article .related_lessons .material-list .material-el:nth-child(odd),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(odd),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(odd) {
     margin-left: 15px;
   }
-  .materials-skills .material .material-list .material-el:nth-child(3n),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(3n),
 .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(3n),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(3n),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(3n),
-.container-article .related_lessons .material-list .material-el:nth-child(3n) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(3n),
+.container-article .related_lessons .material-list .material-el:nth-child(3n),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(3n),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(3n) {
     margin-right: 0;
   }
-  .materials-skills .material .material-list .material-el:nth-child(3n+1),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
 .threat_popup_wrapper .threat_popup_inner .materials-popup-threats.materials .material .material-list .material-el:nth-child(3n+1),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(3n+1),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(3n+1),
-.container-article .related_lessons .material-list .material-el:nth-child(3n+1) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(3n+1),
+.container-article .related_lessons .material-list .material-el:nth-child(3n+1),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(3n+1),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(3n+1) {
     margin-left: 0;
   }
 }
 @media (min-width: 1200px) {
-  .materials-skills .material .material-list,
-.container-safety .materials-safety.materials .material .material-list,
+  .container-safety .materials-safety.materials .material .material-list,
 .container-search .materials-safety.materials .material .material-list,
 .content-course .materials-threats.materials .material .material-list,
 .content-course-ready .materials-threats.materials .material .material-list,
-.container-article .related_lessons .material-list {
+.content-all-theory .materials-start.materials .material .material-list,
+.container-article .related_lessons .material-list,
+.content-all-theory .materials.materials-skills .material .material-list,
+.materials-theory.materials > .material > .material-list {
     grid-template-columns: repeat(4, 1fr);
   }
-  .materials-skills .material .material-list .material-el,
-.container-safety .materials-safety.materials .material .material-list .material-el,
+  .container-safety .materials-safety.materials .material .material-list .material-el,
 .container-search .materials-safety.materials .material .material-list .material-el,
 .content-course .materials-threats.materials .material .material-list .material-el,
 .content-course-ready .materials-threats.materials .material .material-list .material-el,
-.container-article .related_lessons .material-list .material-el {
+.content-all-theory .materials-start.materials .material .material-list .material-el,
+.container-article .related_lessons .material-list .material-el,
+.content-all-theory .materials.materials-skills .material .material-list .material-el,
+.materials-theory.materials > .material > .material-list .material-el {
     margin-left: 15px;
     margin-right: 15px;
   }
-  .materials-skills .material .material-list .material-el:nth-child(3n),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(3n),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(3n),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(3n),
-.container-article .related_lessons .material-list .material-el:nth-child(3n) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(3n),
+.container-article .related_lessons .material-list .material-el:nth-child(3n),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(3n),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(3n) {
     margin-right: 15px;
   }
-  .materials-skills .material .material-list .material-el:nth-child(3n+1),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(3n+1),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(3n+1),
-.container-article .related_lessons .material-list .material-el:nth-child(3n+1) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(3n+1),
+.container-article .related_lessons .material-list .material-el:nth-child(3n+1),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(3n+1),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(3n+1) {
     margin-left: 15px;
   }
-  .materials-skills .material .material-list .material-el:nth-child(4n),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(4n),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(4n),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(4n),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(4n),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(4n),
-.container-article .related_lessons .material-list .material-el:nth-child(4n) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(4n),
+.container-article .related_lessons .material-list .material-el:nth-child(4n),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(4n),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(4n) {
     margin-right: 0;
   }
-  .materials-skills .material .material-list .material-el:nth-child(4n+1),
-.container-safety .materials-safety.materials .material .material-list .material-el:nth-child(4n+1),
+  .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(4n+1),
 .container-search .materials-safety.materials .material .material-list .material-el:nth-child(4n+1),
 .content-course .materials-threats.materials .material .material-list .material-el:nth-child(4n+1),
 .content-course-ready .materials-threats.materials .material .material-list .material-el:nth-child(4n+1),
-.container-article .related_lessons .material-list .material-el:nth-child(4n+1) {
+.content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(4n+1),
+.container-article .related_lessons .material-list .material-el:nth-child(4n+1),
+.content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(4n+1),
+.materials-theory.materials > .material > .material-list .material-el:nth-child(4n+1) {
     margin-left: 0;
   }
 
@@ -3809,27 +3894,29 @@ footer {
   border-radius: 20px;
   color: #fff;
   font-size: 19px;
-  line-height: 24px;
-  padding: 5px 8px;
-  width: fit-content;
-  width: -moz-fit-content;
+  line-height: 35px;
   margin-bottom: 15px;
   margin-top: 40px;
+  height: 35px;
+  width: 27px;
+  text-align: center;
 }
 .block-skill.skill-digital .block-skill-number {
-  background: #1B9C6E;
+  background: #13B85F;
 }
 .block-skill.skill-digital .materials > .material > .material-list .material-el .img {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.34)), #E0FFF4;
 }
 .block-skill.skill-personal .block-skill-number {
   background: #5C59EB;
+  width: 31px;
 }
 .block-skill.skill-personal .materials > .material > .material-list .material-el .img {
   background: #C2C1D0;
 }
 .block-skill.skill-financial .block-skill-number {
   background: #1B7C9C;
+  width: 32px;
 }
 .block-skill.skill-financial .materials > .material > .material-list .material-el .img {
   background: #95AEB6;
@@ -3849,7 +3936,7 @@ footer {
 
 @media (min-width: 640px) {
   .block-skill .block-skill-number {
-    margin-top: 60px;
+    margin-top: 30px;
   }
 }
 @media (min-width: 768px) {
@@ -3990,4 +4077,106 @@ footer {
 
 .mb-10 {
   margin-bottom: 10px;
+}
+
+.type {
+  color: #787882;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.time {
+  color: #2E2E38;
+  font-size: 11px;
+  line-height: 13px;
+  margin-right: 5px;
+}
+
+.tags__wrapper {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #fff;
+}
+.tags__wrapper .tags__inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.tags__wrapper .tags__inner .tags-item {
+  position: relative;
+  color: #2E2E38;
+  white-space: nowrap;
+}
+.tags__wrapper .tags__inner .tags-item .checkbox-inner {
+  margin: 10px 5px;
+  padding: 8px 15px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #17171C;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+.tags__wrapper .tags__inner .tags-item:first-child .checkbox-inner {
+  margin-left: 0;
+}
+.tags__wrapper .tags__inner .tags-item:last-child .checkbox-inner {
+  margin-right: 0;
+}
+.tags__wrapper .tags__inner .tags-item:hover .checkbox-inner {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+  cursor: pointer;
+}
+.tags__wrapper .tags__inner .tags-item input[type=checkbox] {
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.tags__wrapper .tags__inner .tags-item input[type=checkbox]:checked + .checkbox-inner {
+  background: #17171C;
+  color: #fff;
+  padding-right: 32px;
+}
+.tags__wrapper .tags__inner .tags-item input[type=checkbox]:checked + .checkbox-inner::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 13px;
+  background-color: #fff;
+  right: 22px;
+  top: 25px;
+  transform: rotate(45deg);
+}
+.tags__wrapper .tags__inner .tags-item input[type=checkbox]:checked + .checkbox-inner::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 13px;
+  background-color: #fff;
+  right: 22px;
+  top: 25px;
+  transform: rotate(-45deg);
+}
+.tags__wrapper .tags__inner .tags-item:hover input[type=checkbox]:checked + .checkbox-inner {
+  background-color: #2E2E38;
+}
+
+@media (min-width: 640px) {
+  .tags__wrapper .tags__inner {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }

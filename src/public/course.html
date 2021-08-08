@@ -75,7 +75,7 @@
                        <a class="btn btn-go-training" href="/theory/exercise/antivirus/">Продолжить</a>
                        <div class="next_task__wrapper">
                          <div class="next_task__header">
-                           <svg class="icons icons--next" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <svg class="icons icons--next" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                               <use xlink:href="sprite.svg#icon-next"></use>
                            </svg>
                            <span class="black-50 font-11 mb-10">Следующее занятие</span>
@@ -93,7 +93,7 @@
                         <div class="material-el">
                            <div class="img">
                            </div>
-                           <div class="type black-50 font-11">Цифровая безопасность</div>
+                           <div class="type">Цифровая безопасность</div>
                            <h5>Антивирус</h5>
                            <div class="descr">
                               <div class="time black-70 font-11 mr-5">4 мин</div>
@@ -107,7 +107,7 @@
                            <div class="img">
                               <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/уникальные_сложные_пароли.svg" alt="Иллюстрация к занятию">
                            </div>
-                           <div class="type black-50 font-11">Цифровая безопасность</div>
+                           <div class="type">Цифровая безопасность</div>
                            <h5>Блокировка экрана</h5>
                            <div class="descr">
                               <div class="time black-70 font-11 mr-5">4 мин</div>
@@ -118,7 +118,7 @@
                            <div class="img">
                               <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/двухфакторная_аутентефикация_2.svg" alt="Иллюстрация к занятию">
                            </div>
-                           <div class="type black-50 font-11">Цифровая безопасность</div>
+                           <div class="type">Цифровая безопасность</div>
                            <h5>Двухфакторная аутентификация</h5>
                            <div class="descr">
                               <div class="time black-70 font-11 mr-5">4 мин</div>
@@ -180,7 +180,7 @@
                                                 <div class="img">
                                                    <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/что_видно_на_заблокированном_экране_телефона.svg" alt="Иллюстрация к занятию">
                                                 </div>
-                                                <div class="type black-50 font-11">Цифровая безопасность</div>
+                                                <div class="type">Цифровая безопасность</div>
                                                 <h5>Резервное копирование</h5>
                                                 <div class="descr">
                                                   <div class="time black-70 font-11 mr-5 ">4 мин</div>
@@ -699,7 +699,7 @@
                                                 <div class="img">
                                                    <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/что_видно_на_заблокированном_экране_телефона.svg" alt="Иллюстрация к занятию">
                                                 </div>
-                                                <div class="type black-50 font-11">Цифровая безопасность</div>
+                                                <div class="type">Цифровая безопасность</div>
                                                 <h5>Резервное копирование</h5>
                                                 <div class="descr">
                                                   <div class="time black-70 font-11 mr-5 ">4 мин</div>
@@ -1219,7 +1219,7 @@
                                                 <div class="img">
                                                    <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/исчезающие_чаты_в_мессенджерах.svg" alt="Иллюстрация к занятию">
                                                 </div>
-                                                <div class="type black-50 font-11">Цифровая безопасность</div>
+                                                <div class="type">Цифровая безопасность</div>
                                                 <h5>Исчезающие чаты и email</h5>
                                                 <div class="descr">
                                                   <div class="time black-70 font-11 mr-5 ">4 мин</div>
@@ -3652,62 +3652,28 @@
          let progressSkillFinancialStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillFinancial + "%, #D9E9EE " + progressSkillFinancial + "%)"
          $("#skill-financial").css({"background-image": progressSkillFinancialStyle})
 
-
-      </script>
-      <script type="text/javascript">
-         const tooltips = $('.tooltip');
-         if (tooltips.length) {
-           tooltips.each((i) => {
-             const termAndDef = tooltips.eq(i).text().split(/[\[\]]/)
-             if (termAndDef.length > 1) {
-               tooltips.eq(i).text(termAndDef[0].trim()).on('click', (e) => {
-                 showTooltip(tooltips.eq(i), termAndDef[1].trim())
-                 e.stopPropagation();
-               })
+         function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
+           let skills  = $(".skill"),
+               skillTitle = $(".skill-title"),
+               skillWrapper = $(".skill_wrapper")
+           if($('body').innerWidth() >= 1200){
+               for (var i = 0; i < skills.length; i++){
+                 skillTitle.eq(i).appendTo(skills.eq(i))
+               }
+           } else {
+             for (var i = 0; i < skills.length; i++){
+               skillTitle.eq(i).appendTo(skillWrapper.eq(i))
              }
-           })
-
-           var tooltipPopup = $('<div class="popup-tooptip hide"><span></span></div>')
-           var tooltipBtnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
-           tooltipBtnClose.appendTo(tooltipPopup)
-
-           function showTooltip(term, definition) {
-             tooltipPopup.removeClass("hide")
-             tooltipPopup.appendTo($("body"))
-             var left = $(term).offset().left
-             tooltipPopup.find($("span")).text(definition)
-             var popupWidth = tooltipPopup.width()
-             var bodyWidth = $("body").width()
-
-             var shift = bodyWidth - (left + 15 + popupWidth)
-             if (shift < 0) {
-               left += shift
-             }
-             tooltipPopup.css("top", ($(term).offset().top + 35))
-             tooltipPopup.css("left", left)
            }
-
-           $('body').on("click", function(e) {
-             if (e.target != tooltipPopup[0] && !tooltipPopup.find($(e.target)).length) {
-               tooltipPopup.addClass("hide")
-             }
-           })
-           tooltipBtnClose.on("click", function (e) {
-             tooltipPopup.addClass("hide")
-           })
-
-           $(window).on("resize", function(e) {
-             if (!tooltipPopup.hasClass("hide")) {
-               tooltipPopup.addClass("hide")
-             }
-           })
-         }
-      </script>
-      <script type="text/javascript">
-         if ($(".article").find(".descr-img").length == 0) {
-           $(".header_inner").css("width", "100%")
          }
 
+         $(window).on("resize", function (e) {
+           e.stopPropagation();
+           toggleProgressTitleLocation ()
+         })
+
+         toggleProgressTitleLocation ()
       </script>
+
    </body>
 </html>

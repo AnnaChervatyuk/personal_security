@@ -1,127 +1,207 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" ></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Personal security</title>
-  <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
-    <body>
+   <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" ></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Personal security</title>
+   <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
+   <body>
       <div class="container container-situation">
-        <section class="navigator">
-          <div class="nav_logo">
-            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Personal security" ></a>
-          </div>
-          <ul class="nav_list">
-            <li class="nav_item"><a href="course.html">Тренировки</a></li>
-            <li class="nav_item"><a href="theory.html">Теория</a></li>
-            <li class="nav_item active"><a href="situation.html">Ситуации</a></li>
-          </ul>
-          <div class="nav_list menu__wrapper">
-            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
-                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <use xlink:href="sprite.svg#icon-menu"></use>
-                </svg>
+         <section class="navigator">
+            <div class="nav_logo">
+               <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Securno"></a>
             </div>
-            <div class="nav_list nav_list-menu hide" id="menu-nav">
-              <div class="nav_el nav_search" id="open-search-btn">
-                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-search"></use>
-                </svg>
-                <div class="nav_list-text">Поиск</div>
-              </div>
-              <a class="nav_el nav_profile" href="profile.html">
-                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-profile"></use>
-                </svg>
-                <div class="nav_list-text">Аккаунт</div>
-              </a>
-            </div>
-          </div>
-          <div class="search-panel hide" id="search-panel">
-            <div class="search-input_wrapper">
-              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
-              <div class="search-btn" id="search-btn">
-                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-search"></use>
-                </svg>
-              </div>
-              <div class="clear-btn hide" id="clear-btn">
-                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-close"></use>
-                </svg>
-              </div>
-            </div>
-            <div class="search-panel-close" id="close-search-btn">
-              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                 <use xlink:href="sprite.svg#icon-close"></use>
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        <section class="content content-situation">
-          <h1>Ситуации</h1>
-          <div class="content-descr">Все уроки lorem вот одна из задачек с этого экзамена. Её задавали на экзамене 2019 года. На рисунке вы видите треугольник. Также известна длина некоторых частей треугольника.</div>
-
-          <div class="materials materials-situation">
-            <div class="material">
-              <div class="material-list">
-                <div class="material-el">
-                  <div class="img">
-                    <img src="./images/img_example/image_1.png" />
+            <ul class="nav_list">
+               <li class="nav_item "><a href="/course/">Тренировка</a></li>
+               <li class="nav_item "><a href="/theory/">Теория</a></li>
+               <li class="nav_item active"><a href="/situations/">Ситуации</a></li>
+            </ul>
+            <div class="nav_list menu__wrapper">
+               <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                  <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <use xlink:href="sprite.svg#icon-menu"></use>
+                  </svg>
+               </div>
+               <div class="nav_list nav_list-menu hide" id="menu-nav">
+                  <div class="nav_el nav_search" id="open-search-btn">
+                     <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-search"></use>
+                     </svg>
+                     <div class="nav_list-text">Поиск</div>
                   </div>
-                  <h5>Двухэтапный вход</h5>
-                  <div class="time">14 мин</div>
-                  <a href="situation_inner.html" class="link"></a>
+                  <a class="nav_el nav_profile" href="/profile/">
+                     <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-profile"></use>
+                     </svg>
+                     <div class="nav_list-text">Аккаунт</div>
+                  </a>
+               </div>
+            </div>
+            <div class="search-panel hide" id="search-panel">
+               <div class="search-input_wrapper">
+                  <input type="text" class="search__input" placeholder="Поиск статей, ситуаций, решений" id="search_input">
+                  <div class="search-btn" id="search-btn">
+                     <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-search"></use>
+                     </svg>
+                  </div>
+                  <div class="clear-btn hide" id="clear-btn">
+                     <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-close"></use>
+                     </svg>
+                  </div>
+               </div>
+               <div class="search-panel-close" id="close-search-btn">
+                  <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <use xlink:href="sprite.svg#icon-close"></use>
+                  </svg>
+               </div>
+            </div>
+         </section>
+         <section class="content content-situation">
+            <h1>Ситуации</h1>
+            <div class="content-descr">Конкретные рекомендации, что делать в ситуациях, угрожающих вашей защите, и как научиться их избегать. Подробно объясняем как применять знания на практике советы Теории</div>
 
-                </div>
-                <div class="material-el">
-                  <div class="img"></div>
-                  <h5>Трехэтапный вход</h5>
-                  <div class="time">14 мин</div>
-                  <a href="situation_inner.html" class="link"></a>
+            <div class="tags__wrapper">
+              <div class="tags__inner">
 
-                </div>
-                <div class="material-el">
-                  <div class="img"></div>
-                  <h5>Четырехэтапный вход</h5>
-                  <div class="time">14 мин</div>
-                  <a href="situation_inner.html" class="link"></a>
+                <label class="tags-item">
+                  <input type="checkbox" id="tag1" onclick="updateArrTags()">
+                  <div class="checkbox-inner">
+                    <div class="tags-item_text">тег номер 1</div>
+                  </div>
+                </label>
 
-                </div>
-                <div class="material-el">
-                  <div class="img"></div>
-                  <h5>Пятиэтапный Пятиэтапный вход</h5>
-                  <div class="time">14 мин</div>
-                  <a href="situation_inner.html" class="link"></a>
+                <label class="tags-item">
+                  <input type="checkbox" id="tag2" onclick="updateArrTags()">
+                  <div class="checkbox-inner">
+                    <div class="tags-item_text">тег номер 2</div>
+                  </div>
+                </label>
 
-                </div>
-                <div class="material-el">
-                  <div class="img"></div>
-                  <h5>Шестиэтапный вход</h5>
-                  <div class="time">14 мин</div>
-                  <a href="situation_inner.html" class="link"></a>
+                <label class="tags-item">
+                  <input type="checkbox" id="tag3" onclick="updateArrTags()">
+                  <div class="checkbox-inner">
+                    <div class="tags-item_text">тег номер 3</div>
+                  </div>
+                </label>
 
-                </div>
+                <label class="tags-item">
+                  <input type="checkbox" id="tag4" onclick="updateArrTags()">
+                  <div class="checkbox-inner">
+                    <div class="tags-item_text">тег номер 4</div>
+                  </div>
+                </label>
+                <label class="tags-item">
+                  <input type="checkbox" id="tag5" onclick="updateArrTags()">
+                  <div class="checkbox-inner">
+                    <div class="tags-item_text">тег номер 4</div>
+                  </div>
+                </label>
               </div>
             </div>
 
-          </div>
-          <div class="suggest_situation"><a class="link_btn" href="mailto:ghostbusters@call.com?subject=Предложить ситуацию для разбора в Секьюрно">Предложить ситуацию для разбора</a></div>
-        </section>
+            <div class="materials materials-situation">
+               <div class="material">
+                  <div class="material-list">
+                     <div class="material-el">
+                        <h5>Я забыл пароль от своего компьютера или телефона!</h5>
+                        <div class="descr">
+                          <div class="time black-70 font-11 mr-5">14 мин</div>
+                        </div>
+                        <div class="img">
+                        </div>
+                        <a href="/situations/ya-zabyl-parol-ot-svoego-kompyutera-ili-telefona/" class="link"></a>
+                     </div>
+                     <div class="material-el">
+
+                        <h5>Я хочу продать/выбросить устройство, на котором есть моя личная информация</h5>
+                        <div class="descr">
+                          <div class="time black-70 font-11 mr-5">14 мин</div>
+                        </div>
+                        <div class="img">
+                        </div>
+                        <a href="/situations/ya-hochu-prodatvybrosit-ustrojstvo-na-kotorom-est-moya-lichnaya-informaciya/" class="link"></a>
+                     </div>
+                     <div class="material-el">
+
+                        <h5>Досмотр и изъятие устройств</h5>
+                        <div class="descr">
+                          <div class="time black-70 font-11 mr-5">14 мин</div>
+                        </div>
+                        <div class="img">
+                        </div>
+
+                        <a href="/situations/dosmotr-i-izyatie-ustrojstv/" class="link"></a>
+                     </div>
+                     <div class="material-el">
+
+                        <h5>Вирус зашифровал или заблокировал мое устройство, что делать?</h5>
+                        <div class="descr">
+                          <div class="time black-70 font-11 mr-5">14 мин</div>
+                        </div>
+                        <div class="img">
+                        </div>
+                        <a href="/situations/virus-zashifroval-ili-zablokiroval-moe-ustrojstvo-chto-delat/" class="link"></a>
+                     </div>
+                     <div class="material-el">
+
+                        <h5>Можно ли отдавать в ремонт компьютер/телефон, на котором есть секреты?</h5>
+                        <div class="descr">
+                          <div class="time black-70 font-11 mr-5">14 мин</div>
+                        </div>
+                        <div class="img">
+                        </div>
+                        <a href="/situations/mozhno-li-otdavat-v-remont-kompyutertelefon-na-kotorom-est-sekrety/" class="link"></a>
+                     </div>
+                     <div class="material-el">
+
+                        <h5>Мой аккаунт Google взломали, что делать?</h5>
+                        <div class="descr">
+                          <div class="time black-70 font-11 mr-5">14 мин</div>
+                        </div>
+                        <div class="img">
+                        </div>
+                        <a href="/situations/moj-akkaunt-google-vzlomali-chto-delat/" class="link"></a>
+                     </div>
+                     <div class="material-el">
+                        <h5>Я потерял смартфон, что мне делать?</h5>
+                        <div class="descr">
+                          <div class="time black-70 font-11 mr-5">14 мин</div>
+                        </div>
+                        <div class="img">
+                          <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/hand.jpg" alt="Иллюстрация к ситуации">
+                        </div>
+                        <a href="/situations/ya-poteryal-smartfon-chto-mne-delat/" class="link"></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="suggest_situation"><a class="link_btn" href="mailto:ghostbusters@call.com?subject=Предложить ситуацию для разбора в Секьюрно">Предложить ситуацию для разбора</a></div>
+
+         </section>
       </div>
       <footer>
-        <div class="footer footer-main">
-          <div class="footer_logo">
-            <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
-          </div>
-          <ul class="footer_list">
-            <li class="footer_item"><a href="about.html">О проекте</a></li>
-            <li class="footer_item"><a href="/">Предложить новость</a></li>
-          </ul>
-        </div>
+         <div class="footer footer-main">
+            <div class="footer_logo">
+               <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Securno" width="26" height="20"></a>
+            </div>
+            <ul class="footer_list">
+               <li class="footer_item active"><a href="/about/">О проекте</a></li>
+               <li class="footer_item active"><a href="/">Предложить новость</a></li>
+            </ul>
+         </div>
       </footer>
 
-    </body>
+      <script>
+          function updateArrTags() {// получает выбранные теги для для фильтра
+            let elements = ($(".tags-item")).find($('input:checked'))
+            let arrCheckedTags = []
+            for (var i = 0; i < elements.length; i++) {
+              arrCheckedTags.push(elements.eq(i).attr('id'))
+            }
+          }
+      </script>
+   </body>
 </html>

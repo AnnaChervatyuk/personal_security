@@ -1234,6 +1234,28 @@
          let progressSkillFinancialStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillFinancial + "%, #D9E9EE " + progressSkillFinancial + "%)"
          $("#skill-financial").css({"background-image": progressSkillFinancialStyle})
 
+         function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
+           let skills  = $(".skill"),
+               skillTitle = $(".skill-title"),
+               skillWrapper = $(".skill_wrapper")
+           if($('body').innerWidth() >= 1200){
+               for (var i = 0; i < skills.length; i++){
+                 skillTitle.eq(i).appendTo(skills.eq(i))
+               }
+           } else {
+             for (var i = 0; i < skills.length; i++){
+               skillTitle.eq(i).appendTo(skillWrapper.eq(i))
+             }
+           }
+         }
+
+         $(window).on("resize", function (e) {
+           e.stopPropagation();
+           toggleProgressTitleLocation ()
+         })
+
+         toggleProgressTitleLocation ()
+         
          // ---- менять тексты, если курс еще не начат ---
          if (progressData == 0) {
            $("#progress_line > .progress_line-inner").css("width", "6px")
