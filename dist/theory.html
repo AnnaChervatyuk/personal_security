@@ -64,7 +64,7 @@
           <h1>Теория</h1>
           <div class="content-descr">Все уроки lorem вот одна из задачек с этого экзамена. Её задавали на экзамене 2019 года. На рисунке вы видите треугольник. Также известна длина некоторых частей треугольника.</div>
 
-          <div class="skills skills-mob">
+          <!-- <div class="skills skills-mob">
             <a class="skill skill-digital" href="safety.html">
               <h3>Цифровая безопасность</h3>
               <div class="text">Предотвращаем несанкционированный доступ к личной информации</div>
@@ -80,7 +80,7 @@
             <a class="skill skill-financial" href="safety.html">
               <h3>Финансовая безопасность</h3>
             </a>
-          </div>
+          </div> -->
 
           <div class="skills skills-desktop">
             <a class="skill skill-digital" href="safety.html">
@@ -141,12 +141,8 @@
                   <h5>Двухэтапный вход</h5>
                   <div class="descr">
                     <div class="time">14 мин</div>
-                    <div class="in-coaching">
-                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                         <use xlink:href="sprite.svg#icon-profile"></use>
-                      </svg>
-                    </div>
                   </div>
+                  <div class="btn-add-to-list" onClick="setList(this)">+</div>
                   <a href="exercise.html" class="link"></a>
 
                 </div>
@@ -163,6 +159,7 @@
                       </svg>
                     </div>
                   </div>
+                  <div class="btn-remove-from-list" onClick="setList(this)">-</div>
                   <a href="exercise.html" class="link"></a>
 
                 </div>
@@ -297,6 +294,78 @@
             setMinHeight(arrSkills.eq(i), minHeight)
           }
         })
+
+        function setList(el) { // добавить удаление/добавление из списка на севрере
+          let isInUserList = false //получать с сервера
+          if (isInUserList) {
+            // +  удалять из списка
+            $(el).removeClass("btn-add-to-list")
+            $(el).addClass("btn-remove-from-list")
+            $(el).text("-")
+          } else {
+            // +  добавлять в список
+            $(el).addClass("btn-add-to-list")
+            $(el).removeClass("btn-remove-from-list")
+            $(el).text("+")
+          }
+        }
+
+        function getTooltip() {
+          if ($(".btn-add-to-list") || $(".btn-add-to-list")) {
+            let arrBtnAdd = $(".btn-add-to-list")
+            let arrBtnRemove = $(".btn-remove-from-list")
+            let popupRemove = $('<div class="popup">Убрать из своей тренировки<div class="arrow"></div></div>')
+            var popupAdd = $('<div class="popup">Добавить в свою тренировку<div class="arrow"></div></div>')
+            popupRemove.appendTo($("body"))
+            popupAdd.appendTo($("body"))
+
+            function onHoverIconAdd (i) {
+              arrBtnAdd.eq(i).on("mouseenter", function (e) {
+                var left = arrBtnAdd.eq(i).offset().left
+                popupRemove.css("display", "block")
+                var popupWidth = popupRemove.width()
+                var bodyWidth = $("body").width()
+                var shift = bodyWidth - (left + 15 + popupWidth)
+                if (shift < 0)  {
+                  left += shift
+                  popupRemove.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+                }
+                popupRemove.css("top", (arrBtnAdd.eq(i).offset().top + 35))
+                popupRemove.css("left", (left - 15))
+              }).on('mouseleave',function(){
+                popupRemove.css("display", "none")
+                popupRemove.find($(".arrow")).css("left", 15)
+              })
+            }
+
+            function onHoverIconRemove (i) {
+              arrBtnRemove.eq(i).on("mouseenter", function (e) {
+                var left = arrBtnRemove.eq(i).offset().left
+                popupAdd.css("display", "block")
+                var popupWidth = popupAdd.width()
+                var bodyWidth = $("body").width()
+                var shift = bodyWidth - (left + 15 + popupWidth)
+                if (shift < 0)  {
+                  left += shift
+                  popupAdd.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+                }
+                popupAdd.css("top", (arrBtnRemove.eq(i).offset().top + 35))
+                popupAdd.css("left", (left - 15))
+              }).on('mouseleave',function(){
+                popupAdd.css("display", "none")
+                popupAdd.find($(".arrow")).css("left", 15)
+              })
+            }
+
+            for (var i = 0; i < arrBtnAdd.length; i++) {
+              onHoverIconAdd(i)
+            }
+            for (var i = 0; i < arrBtnRemove.length; i++) {
+              onHoverIconRemove(i)
+            }
+          }
+        }
+        getTooltip()
 
       </script>
     </body>

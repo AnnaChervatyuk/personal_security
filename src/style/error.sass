@@ -18,8 +18,9 @@
     .btns-error
       margin: 40px auto 70px
       display: flex
-      flex-direction: row
+      flex-direction: column
       justify-content: center
+      align-items: center
       .btn
         width: fit-content
         width: -moz-fit-content
@@ -27,22 +28,25 @@
         margin-right: 10px
         margin-left: 10px
       .btn-to-search
-        padding-left: 34px
-        padding-right: 34px
-      .btn-to-main
-        padding-left: 20px
-        padding-right: 20px
+        // padding-left: 34px
+        // padding-right: 34px
+        margin-bottom: 20px
+      // .btn-to-main
+      //   padding-left: 20px
+      //   padding-right: 20px
     .text_error
       text-align: center
       color: $grey-100
-  // .content-404
-  //   .btns-error
-  //     .btn-to-main
-  //       background-color: $white
-  //       // border: 1px solid #C7C7CC
-  //       color: #2E2E38
 
 
+@media (min-width: 640px)
+  .container-error
+    .content
+      .content_inner
+        .btns-error
+          flex-direction: row
+          .btn-to-search
+            margin-bottom: 0
 @media (min-width: 768px)
   .container-error
     .content

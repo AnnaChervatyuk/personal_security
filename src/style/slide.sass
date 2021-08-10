@@ -1,0 +1,57 @@
+.container-exercise
+  max-height: 100vh
+  overflow-y: hidden
+  // width: 100vw
+  .slide
+    .block_scroll
+      text-align: center
+      svg
+        fill: $black-100
+        transform: rotate(-90deg)
+  .article-exercise__wrapper
+    display: flex
+    flex-direction: row-reverse
+  .article-exercise
+    max-height: calc(100vh - 90px)
+    padding-top: 0
+    height: auto
+    overflow-y: scroll
+    scroll-snap-type: y proximity
+
+    .slide
+      min-height: calc(100vh - 90px)
+      max-width: 1200px
+      overflow-x: hidden
+      scroll-snap-align: start
+      display: flex
+      flex-flow: column
+
+      .slide__inner
+        max-width: 750px
+        margin: 0 auto
+    .slide-first
+      justify-content: center
+    .slide-text
+      justify-content: center
+      padding-bottom: 300px
+      h3
+        margin-bottom: 46px
+      div
+        @include font(18px, 27px)
+        margin-bottom: 46px
+        &:last-child
+          margin-bottom: 0
+      ul
+        @include font(18px, 27px)
+      img
+        margin: 20px 0
+
+    .slide-first
+      .slide__inner
+        width: 100%
+        max-width: 100%
+
+
+
+.article-exercise::-webkit-scrollbar
+  width: 0

@@ -105,7 +105,7 @@
             <div class="materials materials-situation">
                <div class="material">
                   <div class="material-list">
-                     <div class="material-el">
+                     <div class="material-el" data-id="tag5;tag6">
                         <h5>Я забыл пароль от своего компьютера или телефона!</h5>
                         <div class="descr">
                           <div class="time black-70 font-11 mr-5">14 мин</div>
@@ -114,7 +114,7 @@
                         </div>
                         <a href="/situations/ya-zabyl-parol-ot-svoego-kompyutera-ili-telefona/" class="link"></a>
                      </div>
-                     <div class="material-el">
+                     <div class="material-el" data-id="tag4">
 
                         <h5>Я хочу продать/выбросить устройство, на котором есть моя личная информация</h5>
                         <div class="descr">
@@ -124,7 +124,7 @@
                         </div>
                         <a href="/situations/ya-hochu-prodatvybrosit-ustrojstvo-na-kotorom-est-moya-lichnaya-informaciya/" class="link"></a>
                      </div>
-                     <div class="material-el">
+                     <div class="material-el" data-id="tag1;tag6;tag2;tag3;tag4;tag5">
 
                         <h5>Досмотр и изъятие устройств</h5>
                         <div class="descr">
@@ -135,7 +135,7 @@
 
                         <a href="/situations/dosmotr-i-izyatie-ustrojstv/" class="link"></a>
                      </div>
-                     <div class="material-el">
+                     <div class="material-el" data-id="tag1">
 
                         <h5>Вирус зашифровал или заблокировал мое устройство, что делать?</h5>
                         <div class="descr">
@@ -145,7 +145,7 @@
                         </div>
                         <a href="/situations/virus-zashifroval-ili-zablokiroval-moe-ustrojstvo-chto-delat/" class="link"></a>
                      </div>
-                     <div class="material-el">
+                     <div class="material-el" data-id="tag1;tag5">
 
                         <h5>Можно ли отдавать в ремонт компьютер/телефон, на котором есть секреты?</h5>
                         <div class="descr">
@@ -155,7 +155,7 @@
                         </div>
                         <a href="/situations/mozhno-li-otdavat-v-remont-kompyutertelefon-na-kotorom-est-sekrety/" class="link"></a>
                      </div>
-                     <div class="material-el">
+                     <div class="material-el" data-id="tag5">
 
                         <h5>Мой аккаунт Google взломали, что делать?</h5>
                         <div class="descr">
@@ -165,7 +165,7 @@
                         </div>
                         <a href="/situations/moj-akkaunt-google-vzlomali-chto-delat/" class="link"></a>
                      </div>
-                     <div class="material-el">
+                     <div class="material-el" data-id="tag3;tag4;tag5">
                         <h5>Я потерял смартфон, что мне делать?</h5>
                         <div class="descr">
                           <div class="time black-70 font-11 mr-5">14 мин</div>
@@ -195,13 +195,49 @@
       </footer>
 
       <script>
-          function updateArrTags() {// получает выбранные теги для для фильтра
+          // -------- фильтр по тегам начало --------
+          let listMaterials =  jQuery.map( ($(".material-el")), function( node, key ) {
+            let el = {
+              key: key,
+              node: $(".material-el").eq(key),
+              dataId: $(".material-el").eq(key).attr("data-id").split(";").filter(String)
+            }
+            return el;
+          });
+
+          function updateArrTags() {
             let elements = ($(".tags-item")).find($('input:checked'))
             let arrCheckedTags = []
+            let listForRender = listMaterials
             for (var i = 0; i < elements.length; i++) {
-              arrCheckedTags.push(elements.eq(i).attr('id'))
+              let el = elements.eq(i).attr('id')
+              arrCheckedTags.push(el)
+            }
+
+            for (var j = 0; j < listMaterials.length; j++) {
+              let isHide = true
+              let dataId = listMaterials[j].dataId
+              for (var a = 0; a < dataId.length; a++) {
+                if (arrCheckedTags.length > 0 ) {
+                  for (var i = 0; i < arrCheckedTags.length; i++) {
+                    if (arrCheckedTags[i] == dataId[a]) {
+                      isHide = false
+                    }
+                  }
+                } else {
+                  isHide = false
+                }
+              }
+              if (isHide) {
+                listMaterials[j].node.addClass("hide")
+              } else {
+                if (listMaterials[j].node.hasClass("hide")) {
+                  listMaterials[j].node.removeClass("hide")
+                }
+              }
             }
           }
+          // -------- фильтр по тегам конец --------
       </script>
    </body>
 </html>

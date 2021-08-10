@@ -63,15 +63,12 @@
         <section class="content content-course-ready">
 
           <div class="content_inner">
-            <img src="./images/exercise_img.png" alt="Personal security">
+            <img src="./images/course_ready.svg" alt="Personal security">
             <h1>Персональная тренировка готова!</h1>
 
-            <div class="course_descr"> <!-- показывать это -->
-              <div class="">Нужен текст, чтобы заняться персональными тренировками по безопасности. Безопасность в безопасной опасности без пасек и пчёл. Так-то всё - ерунда, кроме пчёл.</div>
-            </div>
-
             <div class="user_problems"> <!-- или показывать это, если пользователь хотя бы один раз на предыдущем шаге выбрал ответ "ничго" -->
-              <div class="do_test">Пройти тест <a href="course_not_started.html" class="link_txt">ещё раз</a> и выбрать другие ответы. Можно и позже в настройках аккаунта.</div>
+              <div class="do_test">Пройти тест ещё раз и выбрать другие ответы можно и позже <a href="profile.html" class="link_txt">в настройках аккаунта</a></div>
+
               <div class="textarea_descr">Опишите, с какими иными проблемами и угрозами вы хотите научиться справляться?</div>
               <textarea type="text" class="question__txt"></textarea>
             </div>
@@ -85,44 +82,478 @@
           <div class="threats">
             <h3>С этими угрозами вам предстоит разобраться</h3>
             <div class="materials materials-threats">
-              <div class="material">
-                <div class="material-list">
-                  <div class="material-el">
-                    <div class="img">
-                      <img src="./images/img_example/image_1.png" />
-                    </div>
-                    <h5>Двухэтапный вход Двухэтапный вход</h5>
-                    <a href="exercise.html" class="link"></a>
+               <div class="material">
+                  <div class="material-list">
+                     <div class="material-el" data-threat-id="7">
+                        <div class="img threat-img">
+                           <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/image_1.png" />
+                        </div>
+                        <h5 class="threat-title">Кража и утеря устройств</h5>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
+                        <div class="threat-description hide">Как защитить конфиденциальную информацию от возможной кражи и утери самих устройств. И как восстановить цифровую жизнь, если это уже случилось.</div>
+
+                        <div class="materials materials-popup-threats hide">
+                           <div class="material">
+                             <div class="btn-arrow btn-arrow-left"><button class="arrow-left hide" data-factor="-1"></button></div>
+                             <div class="btn-arrow btn-arrow-right"><button class="arrow-right hide" data-factor="1"></button></div>
+                              <div class="material-list">
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/уникальные_сложные_пароли.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Блокировка экрана
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/blokirovka-ekrana/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/исчезающие_чаты_в_мессенджерах.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Исчезающие чаты и email
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/ischezayushie-chaty/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/Когда_обращаться_за_помощью_к_аитишникам.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Когда обращаться к айтишникам?
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/kogda-obrashatsya-k-ajtishnikam/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/полнодисковое_шифрование_устроиств_2.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Полнодисковое шифрование
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/polnodiskovoe-shifrovanie/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/что_видно_на_заблокированном_экране_телефона.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Резервное копирование
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/rezervnoe-kopirovanie/" class="link"></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="material-el" data-threat-id="11">
+                        <div class="img threat-img">
+                        </div>
+                        <h5 class="threat-title">Изъятие/проверка устройств</h5>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
+                        <div class="threat-description hide">Как защитить секреты от раскрытия при проверке или изъятии компьютера и телефона?</div>
+                        <div class="materials materials-popup-threats hide">
+                           <div class="material">
+                              <div class="material-list">
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/уникальные_сложные_пароли.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Блокировка экрана
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/blokirovka-ekrana/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/исчезающие_чаты_в_мессенджерах.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Исчезающие чаты и email
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/ischezayushie-chaty/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/использование_крипотоконтеинеров.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Криптоконтейнеры
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/kriptokontejnery/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/надежные_пароли.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Надежные пароли
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/nadezhnye-paroli/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/полнодисковое_шифрование_устроиств_2.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Полнодисковое шифрование
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/polnodiskovoe-shifrovanie/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/Настроики_приватности_в_соцсетях.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Приватный режим просмотра
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/privatnyj-rezhim-prosmotra/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/регулярная_чистка.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Регулярная чистка
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/regulyarnaya-chistka/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/что_видно_на_заблокированном_экране_телефона.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Резервное копирование
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/rezervnoe-kopirovanie/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/приватныи_режим_просмотра_в_браузере.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Удаление всей информации с устройства
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/udalenie-vsej-informacii-s-ustrojstva/" class="link"></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="material-el" data-threat-id="12">
+                        <div class="img threat-img">
+                           <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/вредоносное_ПО.svg" />
+                        </div>
+                        <h5 class="threat-title">Вредоносное ПО</h5>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
+                        <div class="threat-description hide">Как защититься от вирусов, вымогателей и троянских программ.</div>
+                        <div class="materials materials-popup-threats hide">
+                           <div class="material">
+                              <div class="material-list">
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/Антивирус.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Антивирус
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/antivirus/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/Когда_обращаться_за_помощью_к_аитишникам.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Когда обращаться к айтишникам?
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/kogda-obrashatsya-k-ajtishnikam/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/Недоверенные_устроиства.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Недоверенные устройства
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="time black-70 font-11 mr-5 ">3 мин</div>
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/nedoverennye-ustrojstva/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/Обновление_ПО.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Обновление ПО
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/obnovlenie-po/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/пиратское_ПО.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Пиратское ПО
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/piratskoe-po/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/что_видно_на_заблокированном_экране_телефона.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Резервное копирование
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/rezervnoe-kopirovanie/" class="link"></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="material-el" data-threat-id="13">
+                        <div class="img threat-img">
+                           <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/челове_на_горе.png" />
+                        </div>
+                        <h5 class="threat-title">Случайное удаление</h5>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
+                        <div class="threat-description hide">Нередко пользователи сами случайно удаляют важные данные. Как не допустить такого?</div>
+                        <div class="materials materials-popup-threats hide">
+                           <div class="material">
+                              <div class="material-list">
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/Недоверенные_устроиства.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Недоверенные устройства
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="time black-70 font-11 mr-5 ">3 мин</div>
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/nedoverennye-ustrojstva/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/что_видно_на_заблокированном_экране_телефона.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Резервное копирование
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/rezervnoe-kopirovanie/" class="link"></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="material-el" data-threat-id="16">
+                        <div class="img threat-img">
+                        </div>
+                        <h5 class="threat-title">Утеря пароля</h5>
+                        <div class="link" onClick="openPopupThreats(this)"></div>
+                        <div class="threat-description hide">Как не забыть и не потерять пароли для доступа к важным аккаунтам?</div>
+                        <div class="materials materials-popup-threats hide">
+                           <div class="material">
+                              <div class="material-list">
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/менеджер_паролеи.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Менеджер паролей
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/menedzher-parolej/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/надежные_пароли.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Надежные пароли
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/nadezhnye-paroli/" class="link"></a>
+                                 </div>
+                                 <div class="material-el ">
+                                    <div class="img">
+                                       <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/что_видно_на_заблокированном_экране_телефона.svg" alt="Иллюстрация к занятию">
+                                    </div>
+                                    <h5>Резервное копирование
+                                    </h5>
+                                    <div class="descr">
+                                       <div class="in-coaching">
+                                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                             <use xlink:href="sprite.svg#icon-profile"></use>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <a href="/theory/exercise/rezervnoe-kopirovanie/" class="link"></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                  <div class="material-el">
-                    <div class="img"></div>
-                    <h5>Трехэтапный вход</h5>
-                    <a href="exercise.html" class="link"></a>
-                  </div>
-                  <div class="material-el">
-                    <div class="img"></div>
-                    <h5>Четырехэтапный вход</h5>
-                    <a href="exercise.html" class="link"></a>
-                  </div>
-                  <div class="material-el">
-                    <div class="img"></div>
-                    <h5>Пятиэтапный вход</h5>
-                    <a href="exercise.html" class="link"></a>
-                  </div>
-                  <div class="material-el">
-                    <div class="img"></div>
-                    <h5>Шестиэтапный вход</h5>
-                    <a href="exercise.html" class="link"></a>
-                  </div>
-                  <div class="material-el">
-                    <div class="img"></div>
-                    <h5>Шестиэтапный вход</h5>
-                    <a href="exercise.html" class="link"></a>
-                  </div>
-                </div>
-              </div>
+               </div>
             </div>
           </div>
+          <div class="threat_popup_wrapper hide" id="threat_popup">
+             <div class="threat_popup_inner">
+                <div class="btn-close-top" id="btn-close-threat-top">
+                   <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="sprite.svg#icon-close"></use>
+                   </svg>
+                </div>
+                <div class="img_popup">
+                   <img src="" />
+                </div>
+                <h2></h2>
+                <div class="descr"></div>
+                <div class="btns">
+                   <div class="btn btn-close" id='btn-close-threat'>Ясно</div>
+                </div>
+             </div>
+          </div>
+
         </section>
       </div>
 
@@ -138,5 +569,50 @@
           </ul>
         </div>
       </footer>
+      <script type="text/javascript">
+         //----- открыть попап с угрозами начало ----
+
+         let btnCloseThreats = $("#btn-close-threat")
+         let btnCloseTopThreats = $("#btn-close-threat-top")
+         let popupThreats = $("#threat_popup")
+
+         function openPopupThreats (elem) {
+           popupThreats.removeClass("hide")
+           var materialEl = $(elem.parentNode)
+           var title = materialEl.find($(".threat-title")).text()
+           var imgSrc = materialEl.find($(".threat-img")).find($("img")).attr('src')
+           var descr = materialEl.find($(".threat-description")).text()
+           var materialsThreats = materialEl.find($(".materials-popup-threats"))
+           popupThreats.find($("h2")).text(title)
+           if (imgSrc) {
+             popupThreats.find($("img")).attr('src',imgSrc)
+           }
+           popupThreats.find($(".descr")).text(descr)
+           materialsThreats.clone().appendTo($(".threat_popup_inner"));
+           popupThreats.find($(".materials-popup-threats")).removeClass("hide")
+           $("body").css("overflow-y", "hidden")
+           window.getInCoachingTooltip()
+         }
+
+
+         btnCloseThreats.on("click", function (event) {
+           popupThreats.addClass("hide")
+           $("body").css("overflow-y", "auto")
+           $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
+           imgSrc = ""
+           title =""
+           descr = ""
+         })
+
+         btnCloseTopThreats.on("click", function (event) {
+           popupThreats.addClass("hide")
+           $("body").css("overflow-y", "auto")
+           $(".threat_popup_inner").find($(".materials-popup-threats")).remove()
+           imgSrc = ""
+           title =""
+           descr =""
+         })
+         //----- открыть попап с угрозами конец ----
+      </script>
     </body>
 </html>

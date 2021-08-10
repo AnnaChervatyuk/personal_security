@@ -415,6 +415,7 @@ function followScroll () {
   // ------ ховер на иконку in-coaching начало -----
 
 window.getInCoachingTooltip = function getInCoachingTooltip() {
+
   if ($(".in-coaching")) {
     let arrIconsCoaching = $(".in-coaching") // весь список иконок
     var popup = $('<div class="popup">Это занятие включено в вашу тренировку<div class="arrow"></div></div>')

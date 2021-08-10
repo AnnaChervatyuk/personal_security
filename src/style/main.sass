@@ -38,19 +38,15 @@ a
 
 .btn
   display: inline-block
-
-  // line-height для btn-go-training на главной
-  // @include font(16px, 13px)
-
-  // +2 для btn-go-training на главной
-  height: 38px
+  height: 44px
   box-sizing: border-box
+  padding: 10px 20px
 
 a.btn,
 .btn
   @include btn()
-  // line-height для btn-go-training на главной
-  @include font(16px, 13px)
+  // @include font(16px, 9px)
+  @include font(16px, 24px)
   &:hover
     cursor: pointer
     background-color: $black-70
@@ -58,6 +54,8 @@ a.btn,
     -webkit-transition: 0.1s ease-out
     transition: 0.1s ease-out
 
+.btn-go-training
+  @include font(16px, 13px)
 .btn.btn-white
   background-color: $white
   color: $black-70
@@ -263,7 +261,7 @@ textarea::placeholder
     @include font(19px, 30px)
   .btn
     @include font(18px, 24px)
-    height: 44px
+    // height: 44px
   a.btn,
   .btn
     @include font(18px, 24px)

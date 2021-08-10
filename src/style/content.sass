@@ -71,6 +71,7 @@
     flex-direction: column
     margin: 0 auto
     margin-bottom: 100px
+    margin-top: 20px
     color: $black-100
     .btn-start
       width: fit-content
@@ -78,15 +79,16 @@
       margin-left: auto
       margin-right: auto
     img
-      width: 100%
+      width: 400px
+      margin: 0 auto
     h1
       margin-bottom: 30px
-      margin-top: 60px
+      margin-top: 40px
       text-align: center
-    .course_descr
-      @include font(18px, 24px)
-      margin-bottom: 40px
-      text-align: center
+    // .course_descr
+    //   @include font(18px, 24px)
+    //   margin-bottom: 40px
+    //   text-align: center
     .user_problems
       .do_test
         @include font(18px, 24px)
@@ -172,22 +174,58 @@
     .content-descr
       text-align: left
       margin-bottom: 30px
-  .threats-not-ready
-    .materials-threats
-      position: relative
-      height: 900px
-      overflow-y: hidden
-      &::after
-        content: ""
-        position: absolute
-        top: 0
-        left: 0
-        height: 100%
-        width: 100%
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)
+  // .threats-not-ready
+  //   .materials-threats
+  //     position: relative
+  //     height: 900px
+  //     overflow-y: hidden
+  //     &::after
+  //       content: ""
+  //       position: absolute
+  //       top: 0
+  //       left: 0
+  //       height: 100%
+  //       width: 100%
+  //       background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)
 
+
+
+.btn-add-to-list,
+.btn-remove-from-list
+  display: none
+  padding: 3px
+  position: absolute
+  width: 22px
+  height: 22px
+  right: 10px
+  bottom: 10px
+  background: $white
+  border: 1px solid #C7C7CC
+  box-sizing: border-box
+  border-radius: 4px
+  font-size: 16px
+  text-align: center
+  z-index: 1
+  &:hover
+    cursor: pointer
+
+.material-el:hover
+  .btn-add-to-list,
+  .btn-remove-from-list
+    display: block
+
+.btn-add-to-list
+  line-height: 14px
+.btn-remove-from-list
+  line-height: 13px
 
 @media (min-width: 640px)
+  .content-course-ready
+    .content_inner
+      margin-bottom: 100px
+      .user_problems
+        .do_test
+          margin-bottom: 60px
   // .content
   //   .article-situation_header
   //     .descr-img
@@ -248,14 +286,18 @@
             margin-right: 32px
             margin-top: 3px
 
-    .threats-not-ready
-      .materials-threats
-        height: 500px
-        &::after
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 87.86%)
+    // .threats-not-ready
+    //   .materials-threats
+    //     height: 500px
+    //     &::after
+    //       background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 87.86%)
 
 
 @media (min-width: 1200px)
+  .content-course-ready
+    .content_inner
+      margin-bottom: 200px
+
   .content-theory,
   .content-situation
     .content-descr
