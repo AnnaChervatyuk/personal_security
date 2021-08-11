@@ -219,11 +219,13 @@
 
         let arrPoint = []
         let heightPoint = 0
+        let MARGIN = 4
+
 
         for (var i = 0; i < ($(".slide")).length; i++ ) {
-          heightPoint = heightPoint + $(".slide").eq(i).height() + 4
+          heightPoint = heightPoint + $(".slide").eq(i).height() + MARGIN
           if (i == ($(".slide")).length - 1) {
-            heightPoint -= 4
+            heightPoint -= MARGIN
           }
           let el = {
             key: i,
@@ -232,29 +234,31 @@
           arrPoint.push(el)
         }
 
+
+
         let activeClass = 0
         $('.scrollbar__section').eq(activeClass).addClass("active")
         $(".article-exercise").on('scroll', function(e) {
 
           var blockScroll = $(".article-exercise").scrollTop()
 
-          if (blockScroll  > arrPoint[activeClass].point) {
+
+          if ((blockScroll + MARGIN)  > arrPoint[activeClass].point) {
             $('.scrollbar__section').eq(activeClass).addClass("past")
             activeClass += 1
             $('.scrollbar__section').eq(activeClass).addClass("active")
           }
 
           if ( activeClass > 0 ) {
-            if (blockScroll < arrPoint[activeClass - 1].point) {
+            if ((blockScroll + MARGIN) < arrPoint[activeClass - 1].point) {
               $('.scrollbar__section').eq(activeClass).removeClass("active")
               $('.scrollbar__section').eq(activeClass).removeClass("past")
               activeClass -= 1
 
               $('.scrollbar__section').eq(activeClass).removeClass("past")
               $('.scrollbar__section').eq(activeClass).addClass("active")
-
-
             }
+
           }
 
           //

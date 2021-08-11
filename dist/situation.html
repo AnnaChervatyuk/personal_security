@@ -235,6 +235,17 @@
                   listMaterials[j].node.removeClass("hide")
                 }
               }
+
+            }
+            if ($(window).width() >= 640) {
+              let updatedList = $(".material-el").not('.hide')
+              for (var i = 0; i < updatedList.length; i++) {
+                if (i % 2 === 0) {
+                  updatedList.eq(i).css("margin-left",0).css("margin-right","15px")
+                } else {
+                  updatedList.eq(i).css("margin-left","15px").css("margin-right","0")
+                }
+              }
             }
           }
           // -------- фильтр по тегам конец --------
