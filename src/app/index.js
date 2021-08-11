@@ -48,6 +48,7 @@ $(document).ready(function() {
     e.stopPropagation();
   })
 
+
   //----менять стили в навигаторе при ховере начало ----
   var arrNavItem = $(".nav_item")
 
@@ -74,28 +75,25 @@ $(document).ready(function() {
     changeActiveItem(i)
   }
 
-  //----менять стили в навигаторе при ховере начало--------
+//----менять стили в навигаторе при ховере начало--------
 
 
-  //----менять стили в футере при ховере начало--------
+//----менять стили в футере при ховере начало--------
   $(".footer_item").hover(function(){
     $(".footer_item").removeClass("active");
     }, function(){
     $(".footer_item").addClass("active");
   });
-  //----менять стили в футере при ховере конец--------
+//----менять стили в футере при ховере конец--------
 
 
 
 
-  // ----добавлять фон если не загружена картинка начало---
-
+// ----добавлять фон если не загружена картинка начало---
 if ($(".material-el")) {
-
   let arrMaterialEl = $(".material-el")
 
   for (var a = 0; a < arrMaterialEl.length; a++) {
-
     let materialsEl = $(".material-el").eq(a)
 
     function checkImg(i) {
@@ -108,12 +106,10 @@ if ($(".material-el")) {
           var srcName = blocksImg.eq(j).find("img")[0].getAttribute('src');
           var srcNameSplit = srcName.split(".");
           if (srcNameSplit[srcNameSplit.length-1] == "svg") (
-            // blocksImg.eq(j).find("img").css("height", "auto")
             blocksImg.eq(j).find("img").css("object-fit", "contain").css("border-radius", "0px")
           )
         }
       }
-
     }
 
     for (var i = 0; i < materialsEl.length; i++) {
@@ -121,7 +117,9 @@ if ($(".material-el")) {
     }
   }
 }
-  // ----добавлять фон если не загружена картинка конец ---
+// ----добавлять фон если не загружена картинка конец ---
+
+
 
 // ------ туду начало-------
 if ($(".todo-list_wrapper")) {
@@ -207,7 +205,6 @@ if ($(".todo-list_wrapper")) {
 
 
 
-
   function checkBtn (i) { //оправлять на сервер отмеченную таску
       arrBtnCheck.eq(i).on("change", function (e) {
         if (arrTask.eq(i).hasClass("el_task-not-do")) {
@@ -216,13 +213,10 @@ if ($(".todo-list_wrapper")) {
       })
     }
 
-
-
   for (var i = 0; i < arrBtnCheck.length; i++) {
     checkBtn(i)
     arrMarker.eq(i).text(i+1)
   }
-
 
   function toggleInstrauctionVisibility (i) {
     arrBbtnOpenInstr.eq(i).on("click", function (e) {
@@ -244,9 +238,6 @@ if ($(".todo-list_wrapper")) {
       } else {
         arrInstruction.eq(i).addClass("hide");
         arrow.css("transform", "rotate(0deg)");
-        // if ($('body').innerWidth() < 640) {
-        //   $("body").css("overflow-y", "auto")
-        // }
       }
     })
   }
@@ -282,24 +273,11 @@ if ($(".todo-list_wrapper")) {
     }
   })
 }
-  // ------ туду конец-------
-
-// ----убирать фон если загружена картинк начало ---
-if ($(".material")) {
-  let arrMaterialEl = $(".material-el")
-  for (var i = 0; i < arrMaterialEl.length; i++) {
-    if (arrMaterialEl.eq(i).find($('.img')).find('img')) {
-      // arrMaterialEl.eq(i).find($('.img')).css("background", "transparent")
-      }
-    }
-  }
+// ------ туду конец-------
 
 
 
-// ----убирать фон если загружена картинк конец  ---
-
-  // ------ горизонтальный скролл начало -----
-
+// ------ горизонтальный скролл начало -----
 function followScroll () {
   if ($(".material").find($('.material-list')) && $(".material").find($('.material-list')).length > 0) {
     var distance = 500;
@@ -371,6 +349,7 @@ function followScroll () {
   // ------ горизонтальный скролл конец -----
 
 
+
   // ------ служебные сообщения начало -----
   window.showNotification = function showNotification(textNotification) {
     var text = (textNotification.split(";")).filter(String)
@@ -403,17 +382,11 @@ function followScroll () {
         }, 6000);
   }
 
-  // window.showNotification("Сообщение 1.;Сообщение СообщениеСообщениеСообщениеСообщениеСообщение СообщениеСообщениеСообщениеСообщениеСообщение 2;Сообщение 33333333;")
-  // window.addBtnClose()
-  // showNotification ("добавить текст уведомления добавить текст уведомления добавить текст уведомлениядобавить текст уведомлениядобавитьдобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомления") // вызывать когда надо
+// ------ служебные сообщения конец -----
 
 
-  // addBtnClose() // вызывать если надо добавить кнопку для закрытия уведомления
-  // addTimerClosing() // вызывать если надо не нужна кнопка для закрытия уведомления, показывает таймер, через сколько уведомление закроется само
-  // ------ служебные сообщения конец -----
 
-  // ------ ховер на иконку in-coaching начало -----
-
+// ------ ховер на иконку in-coaching начало -----
 window.getInCoachingTooltip = function getInCoachingTooltip() {
 
   if ($(".in-coaching")) {
@@ -477,7 +450,7 @@ window.getInCoachingTooltip()
     let url = "/search.html" + "?q=" + query; //для localhost
     // let url = "/search/" + "?q=" + query; //для dev
     $(location).attr('href', url);
-}
+  }
 
   function clearSearchInput(input,btn) { // очистить инпут с поиском
     input.val("");
@@ -550,51 +523,71 @@ window.getInCoachingTooltip()
 
 
 
-
-// -----начало прогресса----
-  // let progressSkillDigital = 100 // будет приходить с сервера
-  // let progressSkillTwo = 23 // будет приходить с сервера
-  // let progressSkillThree = 53 // будет приходить с сервера
-  //
-  // $("#progress_skill-digital").text(progressSkillDigital)
-  // $("#progress_skill-personal").text(progressSkillTwo)
-  // $("#progress_skill-financial").text(progressSkillThree)
-  //
-  // let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
-  // $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
-  //
-  // let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
-  // $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
-  //
-  // let progressSkillFinancialStyle  = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
-  // $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
-
-
-  // function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
-  //   let skills  = $(".progress-main .skill"),
-  //       skillTitle = $(".progress-main .skill-title"),
-  //       skillWrapper = $(".progress-main .skill_wrapper")
-  //
-  //   if($('body').innerWidth() >= 1200){
-  //       for (var i = 0; i < skills.length; i++){
-  //         skillTitle.eq(i).appendTo(skills.eq(i))
-  //       }
-  //   } else {
-  //     for (var i = 0; i < skills.length; i++){
-  //       skillTitle.eq(i).appendTo(skillWrapper.eq(i))
-  //     }
-  //   }
-  //
-  // }
-  //
-  // $(window).on("resize", function (e) {
-  //     toggleProgressTitleLocation()
-  // })
-  // window.toggleProgressTitleLocation = toggleProgressTitleLocation()
-  // toggleProgressTitleLocation()
+  // удаление/добавление из списка своих занятий ----- НАЧАЛО
+  window.setList = function setList(el, id) {
+    const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+    let isInUserList = el.hasAttribute('data-in-course')
+    if (isInUserList) { //  удалять из списка
+      $.post('/theory/exercise/'+ id + '/remove/', {
+        'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      })
+      el.removeAttribute('data-in-course')
+      $('#exercise-' + id).find('.in-coaching').eq(0).addClass('hide')
+    } else { // добавлять в список
+      $.post('/theory/exercise/'+ id + '/add/', {
+        'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      })
+      el.setAttribute('data-in-course', '')
+      $('#exercise-' + id).find('.in-coaching').eq(0).removeClass('hide')
+    }
+    getBtnSetList()
+  }
+  // удаление/добавление из списка своих занятий ----- КОНЕЦ
 
 
-// -----конец прогресса----
+  // установить кнопку добавить или удалить в свои занятия ----- НАЧАЛО
+  function getBtnSetList() {
+    let popupRemove = $('<div class="popup">Убрать из своей тренировки<div class="arrow"></div></div>')
+    let popupAdd = $('<div class="popup">Добавить в свою тренировку<div class="arrow"></div></div>')
+    popupRemove.appendTo($("body"))
+    popupAdd.appendTo($("body"))
+
+    let arrBtnSetList = $(".btn-set-list")
+
+    for (var i=0; i < arrBtnSetList.length; i++) {
+      if (typeof arrBtnSetList.eq(i).attr("data-in-course") != "undefined") {
+        arrBtnSetList.eq(i).text('-')
+        onHoverIcon(i, true)
+      } else {
+        arrBtnSetList.eq(i).text('+')
+        onHoverIcon(i, false)
+      }
+    }
+
+    function onHoverIcon (i, isInCourse) {
+      let popup = (isInCourse) ? popupRemove : popupAdd
+      arrBtnSetList.eq(i).on("mouseenter", function (e) {
+        var left = arrBtnSetList.eq(i).offset().left
+        popup.css("display", "block")
+        var popupWidth = popup.width()
+        var bodyWidth = $("body").width()
+        var shift = bodyWidth - (left + 15 + popupWidth)
+        if (shift < 0)  {
+          left += shift
+          popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+        }
+        popup.css("top", (arrBtnSetList.eq(i).offset().top + 35))
+        popup.css("left", (left - 15))
+      }).on('mouseleave',function(){
+        popup.css("display", "none")
+        popup.find($(".arrow")).css("left", 15)
+      })
+    }
+  }
+  if ($(".btn-set-list")) {
+    getBtnSetList()
+  }
+  // установить кнопку добавить или удалить в свои занятия ----- КОНЕЦ
 
 
   onChangeWidth();

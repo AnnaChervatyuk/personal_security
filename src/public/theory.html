@@ -130,8 +130,10 @@
                        </svg>
                     </div>
                   </div>
+                  <div class="btn-set-list" onClick="window.setList(this, 5)"></div>
                   <a href="exercise.html" class="link"></a>
                 </div>
+
                 <div class="material-el" data-tag="financial;digital">
                   <div class="img">
                     <img src="./images/Антивирус_2.svg" />
@@ -140,10 +142,10 @@
                   <div class="descr">
                     <div class="time">14 мин</div>
                   </div>
-                  <div class="btn-add-to-list" onClick="setList(this)">+</div>
+                  <div class="btn-set-list" onClick="window.setList(this, 6)"></div>
                   <a href="exercise.html" class="link"></a>
-
                 </div>
+
                 <div class="material-el" data-tag="digital">
                   <div class="img">
                     <img src="./images/network.png" />
@@ -157,9 +159,8 @@
                       </svg>
                     </div>
                   </div>
-                  <div class="btn-remove-from-list" onClick="setList(this)">-</div>
+                  <div class="btn-set-list" data-in-course onClick="window.setList(this, 7)"></div>
                   <a href="exercise.html" class="link"></a>
-
                 </div>
                 <div class="material-el" data-tag="financial">
                   <div class="img">
@@ -174,6 +175,7 @@
                       </svg>
                     </div>
                   </div>
+                  <div class="btn-set-list" data-in-course onClick="window.setList(this, 8)"></div>
                   <a href="exercise.html" class="link"></a>
 
                 </div>
@@ -271,149 +273,21 @@
 
       <script>
 
-        function setList(el) { // добавить удаление/добавление из списка на севрере
-          let isInUserList = false //получать с сервера
-          if (isInUserList) {
-            // +  удалять из списка
-            $(el).removeClass("btn-add-to-list")
-            $(el).addClass("btn-remove-from-list")
-            $(el).text("-")
-          } else {
-            // +  добавлять в список
-            $(el).addClass("btn-add-to-list")
-            $(el).removeClass("btn-remove-from-list")
-            $(el).text("+")
-          }
-        }
-
-        function getTooltip() {
-          if ($(".btn-add-to-list") || $(".btn-add-to-list")) {
-            let arrBtnAdd = $(".btn-add-to-list")
-            let arrBtnRemove = $(".btn-remove-from-list")
-            let popupRemove = $('<div class="popup">Убрать из своей тренировки<div class="arrow"></div></div>')
-            var popupAdd = $('<div class="popup">Добавить в свою тренировку<div class="arrow"></div></div>')
-            popupRemove.appendTo($("body"))
-            popupAdd.appendTo($("body"))
-
-            function onHoverIconAdd (i) {
-              arrBtnAdd.eq(i).on("mouseenter", function (e) {
-                var left = arrBtnAdd.eq(i).offset().left
-                popupRemove.css("display", "block")
-                var popupWidth = popupRemove.width()
-                var bodyWidth = $("body").width()
-                var shift = bodyWidth - (left + 15 + popupWidth)
-                if (shift < 0)  {
-                  left += shift
-                  popupRemove.find($(".arrow")).css("left", ((shift*(-1)) + 15))
-                }
-                popupRemove.css("top", (arrBtnAdd.eq(i).offset().top + 35))
-                popupRemove.css("left", (left - 15))
-              }).on('mouseleave',function(){
-                popupRemove.css("display", "none")
-                popupRemove.find($(".arrow")).css("left", 15)
-              })
-            }
-
-            function onHoverIconRemove (i) {
-              arrBtnRemove.eq(i).on("mouseenter", function (e) {
-                var left = arrBtnRemove.eq(i).offset().left
-                popupAdd.css("display", "block")
-                var popupWidth = popupAdd.width()
-                var bodyWidth = $("body").width()
-                var shift = bodyWidth - (left + 15 + popupWidth)
-                if (shift < 0)  {
-                  left += shift
-                  popupAdd.find($(".arrow")).css("left", ((shift*(-1)) + 15))
-                }
-                popupAdd.css("top", (arrBtnRemove.eq(i).offset().top + 35))
-                popupAdd.css("left", (left - 15))
-              }).on('mouseleave',function(){
-                popupAdd.css("display", "none")
-                popupAdd.find($(".arrow")).css("left", 15)
-              })
-            }
-
-            for (var i = 0; i < arrBtnAdd.length; i++) {
-              onHoverIconAdd(i)
-            }
-            for (var i = 0; i < arrBtnRemove.length; i++) {
-              onHoverIconRemove(i)
-            }
-          }
-        }
-        getTooltip()
-        let isTop = false
-        function setStyle (scrollTop) {
-          if (scrollTop >= heightToSkills) {
-            $(".skills").css("flex-direction", "row").css("overflow", "auto")
-            $(".skills__wrapper").css("top", 0).css("position", "fixed")
-            if ( $(window).width() >= 640) {
-              $(".skills").css("display", "flex").css("justify-content", "center").css("margin-bottom", "10px")
-              $(".skills__wrapper").css("max-width", "1200px")
-              // $(".skills").css("flex-direction", "row").css("margin-bottom", 0)
-            }
-            for (var j = 0; j < $(".skills").find($(".skill")).length; j++) {
-              $(".skills").find($(".skill")).eq(j).find($("h3")).css("font-size", "12px").css("line-height", "16px").css("font-weight", "400").css("margin-bottom", "0").css("white-space", "nowrap")
-              $(".skills").find($(".skill")).eq(j).find($(".text")).css("display", "none")
-              $(".skills").find($(".skill")).eq(j).find($(".checkbox-inner")).css("padding", "8px 14px").css("height", "auto")
-              $(".skills").find($(".skill")).eq(j).css("margin-right", "10px").css("min-height", "auto")
-
-              if ( $(window).width() >= 640) {
-                $(".skills").find($(".skill")).eq(j).find($("img")).css("display", "none")
-                $(".skills").find($(".skill")).eq(j).find($(".amount")).css("display", "none")
-              }
-
-            }
-            isTop = true
-          } else {
-            $(".skills__wrapper").css("top", "auto").css("position", "relative")
-            $(".skills").css("flex-direction", "column").css("overflow", "hidden")
-            $(".skills__wrapper").css("max-width", "auto")
-            if ( $(window).width() >= 640) {
-
-              $(".skills").css("margin-bottom","40px").css("display", "grid")
-            }
-            for (var j = 0; j < $(".skills").find($(".skill")).length; j++) {
-              $(".skills").find($(".skill")).eq(j).find($("h3")).css("font-size", "27px").css("line-height", "33px").css("font-weight", "700").css("margin-bottom", "5px").css("white-space", "break-spaces")
-              $(".skills").find($(".skill")).eq(j).find($(".text")).css("display", "block")
-              $(".skills").find($(".skill")).eq(j).find($(".checkbox-inner")).css("padding", "30px")
-
-              if ( $(window).width() >= 640) {
-                $(".skills").find($(".skill")).eq(j).find($("img")).css("display", "block")
-                $(".skills").find($(".skill")).eq(j).find($(".amount")).css("display", "block")
-
-                if ($(".skills").find($(".skill")).eq(j).find($("input")).is($(':checked'))) {
-                  $(".skills").find($(".skill")).eq(j).find($("img")).css("display", "none")
-                  $(".skills").find($(".skill")).eq(j).find($(".amount")).css("display", "block")
-                } else {
-                  $(".skills").find($(".skill")).eq(j).find($("img")).css("display", "block")
-                  $(".skills").find($(".skill")).eq(j).find($(".amount")).css("display", "none")
-                }
-              //   $(".skills").find($(".skill")).eq(j).find($(".checkbox-inner")).css("height", "100%")
-              }
-
-            }
-
-            // if ( $(window).width() >= 640) {
-            //   $(".skills").css("display", "grid")
-            //   // $(".skill").css("min-height", $(".skills").eq(0).outerHeight())
-            //
-            // }
-            isTop = false
-          }
-        }
         let heightToSkills = $(".skills__wrapper").eq(0).offset().top
 
-        $(window).on('scroll', function(e) {
-          // var blockScroll = $(".skills__wrapper").eq(0).offset().top
-            setStyle($(window).scrollTop())
-
-        })
+        function setStyleClass (scrollTop) {
+          if (scrollTop >= heightToSkills) {
+            $(".skills__wrapper").addClass("skills__wrapper-top")
+            $(".materials").addClass("materials-top")
+          } else {
+            $(".skills__wrapper").removeClass("skills__wrapper-top")
+            $(".materials").removeClass("materials-top")
+          }
+        }
 
         $(document).ready(function() {
           if ( $(window).width() >= 640) {
             $(".skill").css("min-height", $(".checkbox-inner").eq(0).outerHeight())
-
           }
         })
 
@@ -423,9 +297,20 @@
           } else {
             $(".skill").css("min-height", "auto")
           }
+          setStyleClass($(window).scrollTop())
+        })
+
+        $(window).on('scroll', function(e) {
+            setStyleClass($(window).scrollTop())
+
+            if ( $(window).width() >= 640) {
+              $(".skill").css("min-height", "auto")
+            }
+
         })
 
       </script>
+
       <script>
       // -------- фильтр по тегам начало --------
       let listMaterials =  jQuery.map( ($(".material-el")), function( node, key ) {
@@ -442,10 +327,6 @@
         let arrCheckedTags = []
         let listForRender = listMaterials
         for (var i = 0; i < elements.length; i++) {
-
-        if (!isTop) {
-          setStyle($(window).scrollTop())
-        }
 
           let el = elements.eq(i).attr('id')
           arrCheckedTags.push(el)
@@ -485,6 +366,7 @@
         }
       }
       // -------- фильтр по тегам конец --------
+
       </script>
     </body>
 </html>

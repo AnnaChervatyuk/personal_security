@@ -1289,8 +1289,7 @@ footer {
   margin-bottom: 30px;
 }
 
-.btn-add-to-list,
-.btn-remove-from-list {
+.btn-set-list {
   display: none;
   padding: 3px;
   position: absolute;
@@ -1305,23 +1304,14 @@ footer {
   font-size: 16px;
   text-align: center;
   z-index: 1;
+  line-height: 13px;
 }
-.btn-add-to-list:hover,
-.btn-remove-from-list:hover {
+.btn-set-list:hover {
   cursor: pointer;
 }
 
-.material-el:hover .btn-add-to-list,
-.material-el:hover .btn-remove-from-list {
+.material-el:hover .btn-set-list {
   display: block;
-}
-
-.btn-add-to-list {
-  line-height: 14px;
-}
-
-.btn-remove-from-list {
-  line-height: 13px;
 }
 
 @media (min-width: 640px) {
@@ -1400,18 +1390,16 @@ footer {
   }
 }
 .content-theory .skills__wrapper {
-  position: sticky;
-  position: -webkit-sticky;
   top: 0;
-  z-index: 1;
+  z-index: 5;
   width: 100%;
   background-color: #fff;
 }
-.content-theory .skills {
+.content-theory .skills__wrapper .skills {
   display: flex;
   flex-direction: column;
 }
-.content-theory .skills .skill input[type=checkbox] {
+.content-theory .skills__wrapper .skills .skill input[type=checkbox] {
   z-index: -1;
   opacity: 0;
   display: block;
@@ -1419,7 +1407,7 @@ footer {
   height: 0;
   position: absolute;
 }
-.content-theory .skills .checkbox-inner {
+.content-theory .skills__wrapper .skills .checkbox-inner {
   margin: 10px 0;
   border-radius: 20px;
   color: #fff;
@@ -1429,123 +1417,235 @@ footer {
   flex-direction: column;
   position: relative;
 }
-.content-theory .skills .checkbox-inner .text {
+.content-theory .skills__wrapper .skills .checkbox-inner .text {
   opacity: 0.8;
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 15px;
 }
-.content-theory .skills .checkbox-inner h3 {
+.content-theory .skills__wrapper .skills .checkbox-inner h3 {
   margin-bottom: 5px;
 }
-.content-theory .skills .checkbox-inner img {
+.content-theory .skills__wrapper .skills .checkbox-inner img {
   margin-top: auto;
   width: 100%;
   height: 280px;
   display: none;
 }
-.content-theory .skills .checkbox-inner .amount {
+.content-theory .skills__wrapper .skills .checkbox-inner .amount {
   display: none;
 }
-.content-theory .skills .skill.skill-personal input[type=checkbox] + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill.skill-personal input[type=checkbox] + .checkbox-inner {
   color: #2C28C2;
 }
-.content-theory .skills .skill.skill-personal input[type=checkbox] + .checkbox-inner h3 {
+.content-theory .skills__wrapper .skills .skill.skill-personal input[type=checkbox] + .checkbox-inner h3 {
   color: #2C28C2;
 }
-.content-theory .skills .skill.skill-digital input[type=checkbox] + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill.skill-digital input[type=checkbox] + .checkbox-inner {
   color: #13B881;
 }
-.content-theory .skills .skill.skill-digital input[type=checkbox] + .checkbox-inner h3 {
+.content-theory .skills__wrapper .skills .skill.skill-digital input[type=checkbox] + .checkbox-inner h3 {
   color: #13B881;
 }
-.content-theory .skills .skill.skill-financial input[type=checkbox] + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill.skill-financial input[type=checkbox] + .checkbox-inner {
   color: #0F7DA1;
 }
-.content-theory .skills .skill.skill-financial input[type=checkbox] + .checkbox-inner h3 {
+.content-theory .skills__wrapper .skills .skill.skill-financial input[type=checkbox] + .checkbox-inner h3 {
   color: #0F7DA1;
 }
-.content-theory .skills .skill.skill-financial input[type=checkbox]:checked + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill.skill-financial input[type=checkbox]:checked + .checkbox-inner {
   background-color: #0F7DA1;
 }
-.content-theory .skills .skill.skill-personal input[type=checkbox]:checked + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill.skill-personal input[type=checkbox]:checked + .checkbox-inner {
   background-color: #2C28C2;
 }
-.content-theory .skills .skill.skill-digital input[type=checkbox]:checked + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill.skill-digital input[type=checkbox]:checked + .checkbox-inner {
   background-color: #13B881;
 }
-.content-theory .skills .skill:hover input[type=checkbox] + .checkbox-inner,
-.content-theory .skills .skill:hover input[type=checkbox]:checked + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill:hover input[type=checkbox] + .checkbox-inner,
+.content-theory .skills__wrapper .skills .skill:hover input[type=checkbox]:checked + .checkbox-inner {
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
 }
-.content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner {
+.content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner {
   color: #fff;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-out;
 }
-.content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
+.content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 13px;
+  background-color: #fff;
+  right: 15px;
+  top: 15px;
+  transform: rotate(45deg);
+}
+.content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 13px;
+  background-color: #fff;
+  right: 15px;
+  top: 15px;
+  transform: rotate(-45deg);
+}
+.content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
   display: none;
   color: #fff;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-out;
   margin-top: auto;
 }
-.content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount .number {
+.content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount .number {
   font-size: 70px;
   line-height: 55px;
 }
-.content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner h3 {
+.content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner h3 {
   color: #fff;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-out;
 }
-.content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner img {
+.content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner img {
   display: none;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-out;
 }
+.content-theory .skills__wrapper-top {
+  top: 0;
+  position: fixed;
+}
+.content-theory .skills__wrapper-top .skills {
+  flex-direction: row;
+  overflow: auto;
+  padding-right: 20px;
+}
+.content-theory .skills__wrapper-top .skills .skill {
+  margin-right: 10px;
+  min-height: auto;
+}
+.content-theory .skills__wrapper-top .skills .skill .checkbox-inner {
+  padding: 8px 14px;
+  height: auto;
+}
+.content-theory .skills__wrapper-top .skills .skill .text {
+  display: none;
+}
+.content-theory .skills__wrapper-top .skills .skill h3 {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+.content-theory .skills__wrapper-top .skills .skill input[type=checkbox]:checked + .checkbox-inner {
+  padding-right: 30px;
+}
+.content-theory .skills__wrapper-top .skills .skill input[type=checkbox]:checked + .checkbox-inner::after, .content-theory .skills__wrapper-top .skills .skill input[type=checkbox]:checked + .checkbox-inner::before {
+  top: 10px;
+}
+.content-theory .materials-top {
+  padding-top: 50px;
+  min-height: calc(100vh - 150px);
+}
 
 @media (min-width: 640px) {
-  .content-theory .skills {
+  .content-theory .skills__wrapper .skills {
     display: grid;
     grid-auto-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
   }
-  .content-theory .skills .skill input[type=checkbox] + .checkbox-inner {
+  .content-theory .skills__wrapper .skills .skill {
+    padding: 10px 0;
+  }
+  .content-theory .skills__wrapper .skills .skill input[type=checkbox] + .checkbox-inner {
     width: auto;
     box-sizing: border-box;
-    margin: 10px 15px;
+    margin: 0 15px;
     height: 100%;
     padding: 37px;
     padding-top: 50px;
   }
-  .content-theory .skills .skill input[type=checkbox] + .checkbox-inner img {
+  .content-theory .skills__wrapper .skills .skill input[type=checkbox] + .checkbox-inner img {
     display: block;
   }
-  .content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
+  .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
     display: block;
   }
-  .content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner .text {
+  .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .text {
     margin-bottom: 30px;
   }
-  .content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
+  .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
     margin-top: auto;
   }
-  .content-theory .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount .number {
+  .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount .number {
     font-size: 70px;
     line-height: 55px;
   }
+  .content-theory .skills__wrapper-top {
+    top: 0;
+    position: fixed;
+    max-width: 1200px;
+  }
+  .content-theory .skills__wrapper-top .skills {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    padding-right: 0;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .content-theory .skills__wrapper-top .skills .skill {
+    margin-right: 10px;
+    min-height: auto;
+    height: auto;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox] + .checkbox-inner {
+    padding: 8px 14px;
+    height: auto;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox] + .checkbox-inner img {
+    display: none;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox] + .checkbox-inner .text {
+    display: none;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox] + .checkbox-inner .amount {
+    display: none;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox] + .checkbox-inner h3 {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox]:checked + .checkbox-inner {
+    padding-right: 30px;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox]:checked + .checkbox-inner::after, .content-theory .skills__wrapper-top .skills .skill input[type=checkbox]:checked + .checkbox-inner::before {
+    top: 10px;
+  }
+  .content-theory .skills__wrapper-top .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
+    display: none;
+  }
 }
 @media (min-width: 1200px) {
-  .content-theory .skills {
+  .content-theory .skills__wrapper .skills {
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 80px;
   }
-  .content-theory .skills .skill:last-child {
+  .content-theory .skills__wrapper .skills .skill:last-child {
     margin-right: 0;
+  }
+  .content-theory .skills__wrapper-top .skills {
+    margin-bottom: 10px;
   }
 }
 .materials {
@@ -1641,7 +1741,7 @@ footer {
 }
 .article > .related_lessons > .material-list .material-el .in-coaching,
 .materials > .material > .material-list .material-el .in-coaching {
-  z-index: 100;
+  z-index: 4;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -2726,7 +2826,7 @@ footer {
 .container-first_page .content {
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
+  padding: 20px 0 0;
 }
 .container-first_page .content h2 {
   font-size: 50px;
@@ -2762,6 +2862,9 @@ footer {
 }
 .container-first_page .content .content_inner .contet_el .content_img {
   width: 100vw;
+}
+.container-first_page .content .content_inner .contet_el .content_img img {
+  display: none;
 }
 .container-first_page .content .content_inner .contet_el .content_img-first {
   height: 100vw;
@@ -2827,9 +2930,8 @@ footer {
   margin-top: 10px;
 }
 .container-first_page .content .block_bottom {
-  margin-top: 74px;
-  margin-bottom: 70px;
-  padding: 0 20px;
+  padding: 74px 20px 120px;
+  margin-bottom: -30px;
 }
 .container-first_page .content .block_bottom svg {
   transform: rotate(180deg);
@@ -2850,6 +2952,9 @@ footer {
 }
 .container-first_page .materials > .material > .material-list .material-el .time {
   display: block;
+}
+.container-first_page .block_bottom {
+  background: #F9F9FB;
 }
 
 @media (min-width: 640px) {
@@ -2922,7 +3027,7 @@ footer {
     padding-bottom: 70px;
   }
   .container-first_page .content .block_bottom {
-    margin-bottom: 100px;
+    padding-bottom: 100px;
   }
   .container-first_page .content .block_bottom .img {
     width: 420px;
@@ -2953,14 +3058,19 @@ footer {
   .container-first_page .navigator,
 .container-first_page .block-top_first,
 .container-first_page .content_inner,
-.container-first_page .materials__wrapper .materials,
-.container-first_page .block_bottom {
+.container-first_page .materials__wrapper .materials {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
   }
+  .container-first_page .content .content_inner {
+    padding-top: 220px;
+  }
+  .container-first_page .content .content_inner .contet_el .column {
+    width: 100%;
+  }
   .container-first_page .content .content_inner .contet_el .column .content_text {
-    font-size: 42px;
+    font-size: 40px;
     line-height: 48px;
   }
   .container-first_page .content .content_inner .contet_second {

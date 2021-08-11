@@ -81,7 +81,7 @@
             <div class="block-email-done hide">
               <h2>Проверьте почту</h2>
               <div class="mail-address">
-                Ссылка на вход лежит на почте <span class="email-address"></span>
+                Ссылка на вход лежит на почте <span class="full_email"><span class="email-address"></span><a class="email-address_link link_txt " href="" target="_blank"></a></span>
               </div>
               <div class="btn-return" id="btn-return"><a href="link_btn">Назад к форме входа</a></div>
             </div>
@@ -109,7 +109,10 @@
         let blockErrorEmail = $(".error-email")
         let blockEmailDone = $(".block-email-done")
         let blockEmail = $(".block-email")
-        let emailAddress = $(".email-address")
+        let targetEmailAfterAt = $(".email-address_link")
+        let targetEmailBeforeAt = $(".email-address")
+        let emailAfterAt = "";
+        let emailBeforeAt = "";
 
         function validateEmail() {
           var re = /\S+@\S+\.\S+/;
@@ -120,6 +123,7 @@
           if (!blockErrorEmail.hasClass("hide")) {
             blockErrorEmail.addClass("hide");
           };
+
         });
 
         btnReturn.on("click", function (e) {
@@ -129,14 +133,19 @@
         })
 
         btnSendEmail.on("click", function (e) {
+          emailAfterAt += inputEmail[0].value.substring(inputEmail[0].value.indexOf('@') + 1);
+          emailBeforeAt = inputEmail[0].value.substring(0, inputEmail[0].value.indexOf('@') + 1);
           if (validateEmail()) {
             blockEmailDone.removeClass("hide")
             blockEmail.addClass("hide")
-            emailAddress.text(inputEmail[0].value)
+            targetEmailAfterAt.text(emailAfterAt)
+            targetEmailBeforeAt.text(emailBeforeAt)
+            targetEmailAfterAt.attr({href: "http://" + emailAfterAt})
           } else {
             blockErrorEmail.removeClass("hide");
           }
           e.stopPropagation();
+
         })
       </script>
 
