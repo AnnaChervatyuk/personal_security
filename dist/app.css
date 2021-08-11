@@ -1,18 +1,18 @@
 @font-face {
   font-family: "PT Root UI";
-  src: url(/assets/fonts/webfonts/PT-Root-UI_Regular.woff);
+  src: url(/static/fonts/webfonts/PT-Root-UI_Regular.woff);
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
   font-family: "PT Root UI";
-  src: url(/assets/fonts/webfonts/PT-Root-UI_Bold.woff) format("woff"), url(/assets/fonts/webfonts/PT-Root-UI_Bold.woff2) format("woff2");
+  src: url(/static/fonts/webfonts/PT-Root-UI_Bold.woff) format("woff"), url(/static/fonts/webfonts/PT-Root-UI_Bold.woff2) format("woff2");
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
   font-family: "PT Root UI";
-  src: url(/assets/fonts/webfonts/PT-Root-UI_Regular.woff) format("woff"), url(/assets/fonts/webfonts/PT-Root-UI_Regular.woff2) format("woff2");
+  src: url(/static/fonts/webfonts/PT-Root-UI_Regular.woff) format("woff"), url(/static/fonts/webfonts/PT-Root-UI_Regular.woff2) format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -1042,10 +1042,10 @@ footer {
   object-fit: cover;
 }
 .cards .card .card_img-news {
-  background: url(/assets/fonts/webfonts/card-img_news.svg) no-repeat;
+  background: url(/static/images/card-img_news.svg) no-repeat;
 }
 .cards .card .card_img-task {
-  background: url(/assets/fonts/webfonts/card-img_task.svg) no-repeat;
+  background: url(/static/images/card-img_task.svg) no-repeat;
 }
 .cards .card .card_img-news,
 .cards .card .card_img-task {
@@ -2693,7 +2693,7 @@ footer {
   }
 }
 .container-first_page {
-  background: url(/dist/img/test_backround_img-1.png) no-repeat;
+  background: url(/static/images/test_backround_img-1.png) no-repeat;
   background-position-x: center;
 }
 .container-first_page .content {
