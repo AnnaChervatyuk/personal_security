@@ -12,26 +12,17 @@
     flex-direction: column
     position: relative
     background-color: $white
-    .time
-      margin-top: -15px
+
     .title
       @include title()
-      margin-bottom: 20px
-    // .threat-title
-    //   text-align: center
-    // .text-threat
-    //   text-align: center
-    // .add-text
-    //   height: 80px
-    //   // background: url('../public/images/bg_cards_advice.png') no-repeat
-    //   background-size: contain
-    //   background-position-x: right
-    //   display: flex
+      @include font(21px, 26px)
+      margin-bottom: 0
+
     .card_img
       width: 100%
       padding-top: 65%
       position: relative
-      margin-top: auto
+      margin-bottom: 20px
       img
         border-radius: 4px
         width: 100%
@@ -42,41 +33,23 @@
         left: 50%
         transform: translate(-50%, -50%)
         object-fit: cover
-    .card_img-news
-      background: url('../public/images/card-img_news.svg') no-repeat
+    .card_img-icons
+      img
+        height: auto
+        width: 50px
+
     .card_img-task
       background: url('../public/images/card-img_task.svg') no-repeat
-    .card_img-news,
+      margin-top: auto
+      margin-bottom: 0
     .card_img-task
       background-size: 80px 80px
       background-position: right bottom
-  .card_situation
-    .card_img
-      // background: linear-gradient(0deg, #E7F9E7, #E7F9E7), #E0FFF4
-      width: 100%
-      padding-top: 65%
-      position: relative
-      // border-radius: 4px
-      // img
-      //   width: 100%
-      //   height: 100%
-      //   display: block
-      //   position: absolute
-      //   top: 50%
-      //   left: 50%
-      //   transform: translate(-50%, -50%)
-      //   object-fit: cover
+
+
 
   .card_task
     background-color: $color-bg-task
-
-  // .card_news
-  //   .add-text-news
-  //
-  //     // background: url('../public/images/icon_news.svg') no-repeat
-  //     // background-size: 55px 55px
-  //     // background-position: right bottom
-  //     margin-top: auto
 
 .all_cards
   @include font(19px, 24px)
@@ -100,8 +73,17 @@
         margin-left: 0
       &:nth-child(even)
         margin-right: 0
-      .title
-        margin-bottom: 30px
-        @include font(27px, 33px)
-      .time
-        margin-top: -20px
+
+
+@media (min-width: 1200px)
+  .cards
+    grid-template-columns: repeat(3, 1fr)
+    .card
+      &:nth-child(even)
+        margin-right: 15px
+      &:nth-child(odd)
+        margin-left: 15px
+      &:nth-child(3n)
+        margin-right: 0
+      &:nth-child(3n+1)
+        margin-left: 0

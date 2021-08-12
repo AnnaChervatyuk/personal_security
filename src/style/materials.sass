@@ -20,7 +20,8 @@
   .material
     h5
       margin-top: 0
-      @include font(27px, 33px)
+      margin-bottom: 0
+      @include font(21px, 26px)
 
 .content-situation .materials > .material > .material-list .material-el
   margin-right: 0
@@ -29,8 +30,7 @@
   .descr
     margin-bottom: 10px
   .img
-    margin-bottom: 0
-    margin-top: auto
+    margin-bottom: 20px
   img
     border-radius: 4px
 
@@ -127,7 +127,7 @@
 .material-list .material-el
     .img
       width: 100%
-      padding-top: 100%
+      padding-top: 66%
       position: relative
       img
         width: 100%
@@ -179,6 +179,8 @@
       margin-bottom: 30px
       .img
         padding-top: 65%
+    .full_img.material-el
+      padding: 0
 
 .materials > .material > .material-list .material-el.material-last > h5
     margin-top: 0
@@ -324,7 +326,8 @@
   .content-all-theory .materials-start.materials .material .material-list,
   .container-article .related_lessons .material-list,
   .content-all-theory  .materials.materials-skills .material .material-list,
-  .materials-theory.materials > .material > .material-list
+  .materials-theory.materials > .material > .material-list,
+  .content-situation .materials > .material > .material-list
     grid-template-columns: repeat(3, 1fr)
     .material-el
       &:nth-child(even)

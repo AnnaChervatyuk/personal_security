@@ -1013,22 +1013,21 @@ footer {
   position: relative;
   background-color: #fff;
 }
-.cards .card .time {
-  margin-top: -15px;
-}
 .cards .card .title {
   font-weight: bold;
   font-size: 21px;
   line-height: 26px;
   color: #17171C;
   margin: 10px 0;
-  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: 26px;
+  margin-bottom: 0;
 }
 .cards .card .card_img {
   width: 100%;
   padding-top: 65%;
   position: relative;
-  margin-top: auto;
+  margin-bottom: 20px;
 }
 .cards .card .card_img img {
   border-radius: 4px;
@@ -1041,21 +1040,18 @@ footer {
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
-.cards .card .card_img-news {
-  background: url(/assets/fonts/webfonts/card-img_news.svg) no-repeat;
+.cards .card .card_img-icons img {
+  height: auto;
+  width: 50px;
 }
 .cards .card .card_img-task {
   background: url(/assets/fonts/webfonts/card-img_task.svg) no-repeat;
+  margin-top: auto;
+  margin-bottom: 0;
 }
-.cards .card .card_img-news,
 .cards .card .card_img-task {
   background-size: 80px 80px;
   background-position: right bottom;
-}
-.cards .card_situation .card_img {
-  width: 100%;
-  padding-top: 65%;
-  position: relative;
 }
 .cards .card_task {
   background-color: #E8E8FA;
@@ -1090,13 +1086,22 @@ footer {
   .cards .card:nth-child(even) {
     margin-right: 0;
   }
-  .cards .card .title {
-    margin-bottom: 30px;
-    font-size: 27px;
-    line-height: 33px;
+}
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .cards .card .time {
-    margin-top: -20px;
+  .cards .card:nth-child(even) {
+    margin-right: 15px;
+  }
+  .cards .card:nth-child(odd) {
+    margin-left: 15px;
+  }
+  .cards .card:nth-child(3n) {
+    margin-right: 0;
+  }
+  .cards .card:nth-child(3n+1) {
+    margin-left: 0;
   }
 }
 .content .descr .descr-img {
@@ -1674,8 +1679,9 @@ footer {
 
 .materials-situation .material h5 {
   margin-top: 0;
-  font-size: 27px;
-  line-height: 33px;
+  margin-bottom: 0;
+  font-size: 21px;
+  line-height: 26px;
 }
 
 .content-situation .materials > .material > .material-list .material-el {
@@ -1687,8 +1693,7 @@ footer {
   margin-bottom: 10px;
 }
 .content-situation .materials > .material > .material-list .material-el .img {
-  margin-bottom: 0;
-  margin-top: auto;
+  margin-bottom: 20px;
 }
 .content-situation .materials > .material > .material-list .material-el img {
   border-radius: 4px;
@@ -1800,7 +1805,7 @@ footer {
 .content-my-course .materials > .material > .material-list .material-el .img,
 .material-list .material-el .img {
   width: 100%;
-  padding-top: 100%;
+  padding-top: 66%;
   position: relative;
 }
 .article > .related_lessons > .material-list > .material-el .img img,
@@ -1870,6 +1875,9 @@ footer {
 }
 .content-situation .materials > .material > .material-list .material-el .img {
   padding-top: 65%;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el {
+  padding: 0;
 }
 
 .materials > .material > .material-list .material-el.material-last > h5 {
@@ -2070,7 +2078,8 @@ footer {
 .content-all-theory .materials-start.materials .material .material-list,
 .container-article .related_lessons .material-list,
 .content-all-theory .materials.materials-skills .material .material-list,
-.materials-theory.materials > .material > .material-list {
+.materials-theory.materials > .material > .material-list,
+.content-situation .materials > .material > .material-list {
     grid-template-columns: repeat(3, 1fr);
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(even),
@@ -2081,7 +2090,8 @@ footer {
 .content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(even),
 .container-article .related_lessons .material-list .material-el:nth-child(even),
 .content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(even),
-.materials-theory.materials > .material > .material-list .material-el:nth-child(even) {
+.materials-theory.materials > .material > .material-list .material-el:nth-child(even),
+.content-situation .materials > .material > .material-list .material-el:nth-child(even) {
     margin-right: 15px;
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(odd),
@@ -2092,7 +2102,8 @@ footer {
 .content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(odd),
 .container-article .related_lessons .material-list .material-el:nth-child(odd),
 .content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(odd),
-.materials-theory.materials > .material > .material-list .material-el:nth-child(odd) {
+.materials-theory.materials > .material > .material-list .material-el:nth-child(odd),
+.content-situation .materials > .material > .material-list .material-el:nth-child(odd) {
     margin-left: 15px;
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n),
@@ -2103,7 +2114,8 @@ footer {
 .content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(3n),
 .container-article .related_lessons .material-list .material-el:nth-child(3n),
 .content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(3n),
-.materials-theory.materials > .material > .material-list .material-el:nth-child(3n) {
+.materials-theory.materials > .material > .material-list .material-el:nth-child(3n),
+.content-situation .materials > .material > .material-list .material-el:nth-child(3n) {
     margin-right: 0;
   }
   .container-safety .materials-safety.materials .material .material-list .material-el:nth-child(3n+1),
@@ -2114,7 +2126,8 @@ footer {
 .content-all-theory .materials-start.materials .material .material-list .material-el:nth-child(3n+1),
 .container-article .related_lessons .material-list .material-el:nth-child(3n+1),
 .content-all-theory .materials.materials-skills .material .material-list .material-el:nth-child(3n+1),
-.materials-theory.materials > .material > .material-list .material-el:nth-child(3n+1) {
+.materials-theory.materials > .material > .material-list .material-el:nth-child(3n+1),
+.content-situation .materials > .material > .material-list .material-el:nth-child(3n+1) {
     margin-left: 0;
   }
 }
@@ -2342,8 +2355,11 @@ footer {
   font-size: 11px;
   line-height: 21px;
   color: #2E2E38;
+}
+.article-situation_header .header_inner .set_exercise .link_txt-blue:hover {
   cursor: pointer;
 }
+
 @media (min-width: 768px) {
   .article h4, .article h3 {
     margin-bottom: 20px;
@@ -4510,11 +4526,94 @@ footer {
   align-items: center;
 }
 
+.content-situation .materials > .material > .material-list .full_img.material-el,
+.cards .card.full_img {
+  padding: 0;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el .descr,
+.cards .card.full_img .descr {
+  position: absolute;
+  top: 0;
+  margin: 20px;
+  margin-bottom: 10px;
+  z-index: 3;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el .descr .type, .content-situation .materials > .material > .material-list .full_img.material-el .descr .time, .content-situation .materials > .material > .material-list .full_img.material-el .descr .date,
+.cards .card.full_img .descr .type,
+.cards .card.full_img .descr .time,
+.cards .card.full_img .descr .date {
+  color: #fff;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el .background,
+.cards .card.full_img .background {
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.84265) 4.9%, rgba(0, 0, 0, 0.819817) 9.79%, rgba(0, 0, 0, 0.780589) 14.69%, rgba(0, 0, 0, 0.7247) 19.59%, rgba(0, 0, 0, 0.652991) 24.48%, rgba(0, 0, 0, 0.567899) 29.38%, rgba(0, 0, 0, 0.473712) 34.27%, rgba(0, 0, 0, 0.376288) 39.17%, rgba(0, 0, 0, 0.282101) 44.07%, rgba(0, 0, 0, 0.197009) 48.96%, rgba(0, 0, 0, 0.1253) 53.86%, rgba(0, 0, 0, 0.0694109) 58.76%, rgba(0, 0, 0, 0.0301835) 63.65%, rgba(0, 0, 0, 0.00735012) 68.55%, rgba(0, 0, 0, 0) 73.44%);
+}
+.content-situation .materials > .material > .material-list .full_img.material-el .img,
+.content-situation .materials > .material > .material-list .full_img.material-el .card_img,
+.cards .card.full_img .img,
+.cards .card.full_img .card_img {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  padding-top: 100%;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el h5,
+.content-situation .materials > .material > .material-list .full_img.material-el .title,
+.cards .card.full_img h5,
+.cards .card.full_img .title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  z-index: 3;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el .title,
+.cards .card.full_img .title {
+  margin-top: 20px;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el a,
+.cards .card.full_img a {
+  z-index: 4;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el .card_img-task,
+.cards .card.full_img .card_img-task {
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  .content-situation .materials > .material > .material-list .full_img.material-el .descr,
+.cards .card.full_img .descr {
+    margin: 30px;
+    margin-bottom: 10px;
+  }
+  .content-situation .materials > .material > .material-list .full_img.material-el .title,
+.cards .card.full_img .title {
+    margin-top: 20px;
+  }
+  .content-situation .materials > .material > .material-list .full_img.material-el h5,
+.content-situation .materials > .material > .material-list .full_img.material-el .title,
+.cards .card.full_img h5,
+.cards .card.full_img .title {
+    top: 30px;
+    left: 30px;
+    right: 30px;
+  }
+}
 .tags__wrapper {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 1;
+  z-index: 5;
   width: 100%;
   background-color: #fff;
 }

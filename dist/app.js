@@ -259,20 +259,6 @@ if ($(".todo-list_wrapper")) {
 }
   // ------ туду конец-------
 
-// ----убирать фон если загружена картинк начало ---
-if ($(".material")) {
-  let arrMaterialEl = $(".material-el")
-  for (var i = 0; i < arrMaterialEl.length; i++) {
-    if (arrMaterialEl.eq(i).find($('.img')).find('img')) {
-      // arrMaterialEl.eq(i).find($('.img')).css("background", "transparent")
-      }
-    }
-  }
-
-
-
-// ----убирать фон если загружена картинк конец  ---
-
   // ------ горизонтальный скролл начало -----
 
 function followScroll () {
@@ -369,14 +355,8 @@ function followScroll () {
 
 
   }
-  // window.showNotification()
-  // addBtnClose()
-  // showNotification ("добавить текст уведомления добавить текст уведомления добавить текст уведомлениядобавить текст уведомлениядобавитьдобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомлениядобавить текст уведомления") // вызывать когда надо
 
-
-  // addBtnClose() // вызывать если надо добавить кнопку для закрытия уведомления
-  // addTimerClosing() // вызывать если надо не нужна кнопка для закрытия уведомления, показывает таймер, через сколько уведомление закроется само
-  // ------ служебные сообщения конец -----
+// ------ служебные сообщения конец -----
 
   // ------ ховер на иконку in-coaching начало -----
 
@@ -555,24 +535,6 @@ window.getInCoachingTooltip()
   })
 
 // -----начало прогресса----
-  // let progressSkillDigital = 100 // будет приходить с сервера
-  // let progressSkillTwo = 23 // будет приходить с сервера
-  // let progressSkillThree = 53 // будет приходить с сервера
-  //
-  // $("#progress_skill-digital").text(progressSkillDigital)
-  // $("#progress_skill-personal").text(progressSkillTwo)
-  // $("#progress_skill-financial").text(progressSkillThree)
-  //
-  // let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
-  // $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
-  //
-  // let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillTwo + "%, #D9D9EE " + progressSkillTwo + "%)"
-  // $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
-  //
-  // let progressSkillFinancialStyle  = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillThree + "%, #D9E9EE " + progressSkillThree + "%)"
-  // $("#skill-financial").css({"background-image": progressSkillFinancialStyle })
-
-
   function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
     let skills  = $(".progress-main .skill"),
         skillTitle = $(".progress-main .skill-title"),
