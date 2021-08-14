@@ -8,6 +8,7 @@
   <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
     <body >
       <div class="container container-first_page">
+
       <section class="navigator navigator-main">
         <div class="nav_logo">
           <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Personal security" ></a>
@@ -59,8 +60,15 @@
           </div>
         </div>
       </section>
+      <div class="background_landing">
+        <!-- <img src="./images/landing.svg" > -->
+          <video autoplay muted loop id="myVideo">
+            <source src="./images/landing.mp4" type="video/mp4">
+          </video>
+      </div>
 
       <section class="content content-my-course content-theory">
+
         <div class="block-top_first">
           <h1>Секьюрно</h1>
           <div class="content-descr content-descr_first">Персональный ассистент по безопасности</div>
@@ -231,6 +239,8 @@
       </footer>
 
       <script>
+
+
         let quantityMaterials = 23
         $(".quantity_materials").text(quantityMaterials)
 
