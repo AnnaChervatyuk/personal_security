@@ -133,80 +133,98 @@ if ($(".todo-list_wrapper")) {
   let arrBbtnOpenInstr = $(".el_how-do_btn");
   let arrTask = $(".el_task");
 
-  let arrBtnCheck = $(".el-task-checkbox");
-  let arrRisksBtn = $(".risks-btn")
+  let listTask = jQuery.map( $(".todo-el"), function(node,key){
+    let el = {
+      parent: $(node),
+      btnRisk:  $(node).find($(".risks-btn")),
+      btnCheck:  $(node).find($(".el-task-checkbox")),
+      isTaskRefuse: $(node).find($(".el-task-checkbox")).data('isrefused') - 0,
+      isTaskReady: $(node).find($(".el-task-checkbox")).data('isready') - 0,
+      taskId: $(node).find($(".el-task-checkbox")).data('task-id'),
+    }
+    return el
+  })
+
 
   let arrMarker = $(".marker")
-  let isTaskRefuse = false
+
   let amountTaskRefused = $(".todo-not-do").find(".list-amount").text() - 0
   let amountTaskReady = $(".todo-done").find(".list-amount").text() - 0
 
-  function refuseTask (i) {
-    arrRisksBtn.eq(i).on("click", function (e) {
-      const taskId = e.target.dataset.taskId;
-      var isTaskRefuse = $(e.target).data('isrefused')
-      var parent =$(e.target).parents()[4]
 
-      const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
-      $.post('/tasks/'+taskId+'/toggle/', {
-        'csrfmiddlewaretoken': csrfmiddlewaretoken,
-        'refuse': true,
-      })
+  function setStateTask(i) {
+    listTask[i].btnRisk.on("click", function (e) {
+      // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+      // $.post('/tasks/'+listTask[i].taskId+'/toggle/', {
+      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      //   'refuse': true,
+      // })
 
-      if (isTaskRefuse) { // УДАЛЯЕТ задачу из списка не хочу делать
+      if (listTask[i].isTaskRefuse) { // УДАЛЯЕТ задачу из списка не хочу делать
         amountTaskRefused -= 1
-        isTaskRefuse = 0
-        $(e.target).text("Не хочу делать")
-        $(parent).find($(".risks-text")).text("Не хочу это делать, с некоторыми рисками можно смириться.")
-        $(parent).find($(".el_task")).removeClass("el_task-not-do")
-        $(parent).removeClass($("todo-el_not-do"))
+        listTask[i].isTaskRefuse = 0
+        listTask[i].btnRisk.text("Не хочу делать")
+        listTask[i].parent.find($(".risks-text")).text("Не хочу это делать, с некоторыми рисками можно смириться.")
+        listTask[i].parent.find($(".el_task")).removeClass("el_task-not-do")
+        listTask[i].parent.removeClass($("todo-el_not-do"))
         showNotification("Задание добавлено в Туду-лист")
         addTimerClosing()
-      } else { // ДОБАВЛЯЕТ задачу из списка не хочу делать
-        $(e.target).text("Вернуть в список моих задач")
-        $(parent).find($(".risks-text")).html("Вы отказались от этот задачи.<br>Ничего страшного.")
-        $(parent).find($(".el_task")).addClass("el_task-not-do")
-        $(parent).addClass($("todo-el_not-do"))
+      } else { // ДОБАВЛЯЕТ задачу в список не хочу делать
+        listTask[i].btnRisk.text("Вернуть в список моих задач")
+        listTask[i].parent.find($(".risks-text")).html("Вы отказались от этот задачи.<br>Ничего страшного.")
+        listTask[i].parent.find($(".el_task")).addClass("el_task-not-do")
+        listTask[i].parent.addClass($("todo-el_not-do"))
         showNotification("Перемещено в список 'Не хочу делать'")
         addTimerClosing()
         amountTaskRefused += 1
-        isTaskRefuse = 1
+        listTask[i].isTaskRefuse = 1
+        if (listTask[i].isTaskReady) {
+          amountTaskReady -= 1
+          listTask[i].isTaskReady = 0
+          $(".todo-done").find(".list-amount").text(amountTaskReady)
+          listTask[i].parent.find($(".el-task-checkbox")).data('isready', listTask[i].isTaskReady)
+          listTask[i].btnRisk.data('isready', listTask[i].isTaskReady)
+          listTask[i].btnCheck.attr("checked", false)
+        }
       }
-      $(e.target).data('isrefused', isTaskRefuse)
-      $(parent).data('isrefused', isTaskRefuse)
+      listTask[i].parent.find($(".el-task-checkbox")).data('isrefused', listTask[i].isTaskRefuse)
+      listTask[i].btnRisk.data('isrefused', listTask[i].isTaskRefuse)
       $(".todo-not-do").find(".list-amount").text(amountTaskRefused)
 
       e.stopPropagation();
     })
-  }
-  for (var i = 0; i < arrRisksBtn.length; i++) {
-    refuseTask(i)
-  }
 
-
-  function checkBtn (i) {
-    arrBtnCheck.eq(i).on("change", function (e) {
-      const taskId = e.target.dataset.taskId;
-      var isTaskReady = $(e.target).data('isready')
-      const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
-      $.post('/tasks/'+taskId+'/toggle/', {
-        'csrfmiddlewaretoken': csrfmiddlewaretoken,
-        'check': true,
-      })
-      if (isTaskReady) {
+    listTask[i].btnCheck.on("change", function (e) {
+      // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+      // $.post('/tasks/'+listTask[i].taskId+'/toggle/', {
+      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      //   'check': true,
+      // })
+      if (listTask[i].isTaskReady) {
         amountTaskReady -= 1
-        isTaskReady = 0
+        listTask[i].isTaskReady = 0
         showNotification("Задание добавлено в Туду-лист")
         addTimerClosing()
       } else {
         amountTaskReady += 1
-        isTaskReady = 1
+        listTask[i].isTaskReady = 1
         showNotification("Здорово!")
         addTimerClosing()
+        if (listTask[i].isTaskRefuse) {
+          amountTaskRefused -= 1
+          listTask[i].isTaskRefuse = 0
+          listTask[i].btnRisk.text("Не хочу делать")
+          listTask[i].parent.find($(".risks-text")).text("Не хочу это делать, с некоторыми рисками можно смириться.")
+          listTask[i].parent.find($(".el_task")).removeClass("el_task-not-do")
+          listTask[i].parent.removeClass($("todo-el_not-do"))
+          listTask[i].parent.find($(".el-task-checkbox")).data('isrefused', listTask[i].isTaskRefuse)
+          listTask[i].btnRisk.data('isrefused', listTask[i].isTaskRefuse)
+          $(".todo-not-do").find(".list-amount").text(amountTaskRefused)
+        }
       }
       $(".todo-done").find(".list-amount").text(amountTaskReady)
-      $(e.target).data('isready', isTaskReady)
-      $(e.target).find($('.risks-btn')).data('isready', isTaskReady)
+      listTask[i].parent.find($(".el-task-checkbox")).data('isready', listTask[i].isTaskReady)
+      listTask[i].btnRisk.data('isready', listTask[i].isTaskReady)
 
       if (arrTask.eq(i).hasClass("el_task-not-do")) {
         arrTask.eq(i).removeClass("el_task-not-do")
@@ -214,8 +232,9 @@ if ($(".todo-list_wrapper")) {
       }
     })
   }
-  for (var i = 0; i < arrBtnCheck.length; i++) {
-    checkBtn(i)
+
+  for (var i = 0; i < listTask.length; i++) {
+    setStateTask(i)
     arrMarker.eq(i).text(i+1)
   }
 
