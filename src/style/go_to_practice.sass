@@ -1,8 +1,11 @@
 .go_to_practice__wrapper-bg
   width: 100%
   box-sizing: border-box
-  margin-top: 120px
+  margin-top: 60px
   margin-bottom: 0
+.go_to_practice__wrapper-bg-task
+  margin-top: 0
+  position: relative
 .go_to_practice__wrapper
   width: 100%
   display: flex
@@ -49,6 +52,7 @@
         @include font(11px, 13px)
         color: $white
         margin-left: 10px
+        margin-right: 10px
         height: fit-content
         height: -moz-fit-content
   .go_to_practice__list-section
@@ -68,6 +72,7 @@
     color: $accent
     @include font(16px, 22px)
     border-bottom: none
+    border-bottom: 1px solid transparent
     &:hover
       border-bottom: 1px solid rgba(0, 122, 255, 0.3)
   .btn-arrow_header
@@ -82,8 +87,8 @@
       border-right: 2px solid $black-100
       width: 12px
       height: 12px
-      right: 0
-      top: 33%
+      right: 4px
+      top: 24%
       transform: rotate(45deg)
 
 .slide__inner-go_to_practice
@@ -95,13 +100,15 @@
   .exercise-instruction
     border: 1px solid $grey-20
     padding: 20px
+    position: relative
+    a
+      border-bottom: none
+      // text-decoration: none
   .go_to_practice__wrapper-bg-task
     .go_to_practice__wrapper
       border: none
       .go_to_practice__inner
-        a
-          border-bottom: none
-          // text-decoration: none
+        margin-right: 0
       img
         width: 202px
         margin-left: 0
@@ -146,6 +153,9 @@
       .go_to_practice__wrapper
         flex-direction: row
         align-items: flex-start
+        .go_to_practice__inner
+          margin: 0
+          margin-left: 10px
 
 @media (min-width: 1200px)
   .go_to_test__inner

@@ -69,6 +69,7 @@
           <div class="article-exercise">
           <div class="slide slide-first">
             <div class="slide__inner">
+
               <div class="block_top">
                 <div class="block_return">
                   <a href="index.html">
@@ -81,7 +82,7 @@
 
               <div class="exercise_footer">
                 <div class="descr">
-                  <div class="type">Занятия</div>
+                  <div class="type">Занятие</div>
                 </div>
                 <div class="exercise_footer-title">Регистрация мессенджеров на иностранные номера</div>
               </div>
@@ -94,15 +95,20 @@
                 </div>
                 <div class="descr">
                   <div class="time">4 мин</div>
+                  <div class="in-coaching hide">
+                    <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                       <use xlink:href="sprite.svg#icon-profile"></use>
+                    </svg>
+                  </div>
                   <div class="done">
                      <svg class="icons icons--done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <use xlink:href="sprite.svg#icon-done"></use>
                      </svg>
                   </div>
                 </div>
-                <!-- <div class="set_exercise"><span class="link_txt-blue">Убрать</span> из своей тренировки</div> -->
+                <div class="set_exercise"><span onClick="window.setList(this, 5)" class="link_txt-blue">Добавить</span> себе в тренировку</div>
               </div>
-              <div class="descr-img" ><img src="./images/Антивирус_2.svg" alt="Цифровая безопасность"></div>
+              <div class="descr-img" ><img src="https://d2vxx5bkl3bn4a.cloudfront.net/hi/надежные_пароли.svg" alt="Цифровая безопасность"></div>
             </div>
               <div class="block_scroll">
                   <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -186,11 +192,12 @@
 
                     <div class="go_to_practice__inner">
                       <div class="type black-70 font-11 mr-5 mb-10">Цифровая безопасность</div>
-                      <h5><a href="/theory/exercise/antivirus/" >Настройки конфиденциальности в соцсетях</a></h5>
+                      <h5>Настройки конфиденциальности в соцсетях</h5>
                       <div class="time black-70 font-11 mr-5 mt-10">4 мин</div>
                     </div>
                   </div>
                 </div>
+                <a href="/theory/exercise/antivirus/" class="link"></a>
               </div>
             </div>
 
@@ -223,29 +230,35 @@
           $(".header_inner").css("width", "100%")
         }
 
+        if (!($(".footer").hasClass('hide'))) {
+          $('footer').addClass("hide")
+        }
+
+        let isExersiseRead = false // TODO получить с сервера состояние
         let bodyWidth = $('body').innerWidth()
         let arrSlideLength = $(".slide").length
         let scrollbarSection = $('<div class="scrollbar__section"></div>')
         let scrollbarWrapper = $(".scrollbar__wrapper")
         let heightSlide = $(".slide").height()
         let heightScrollbarSection = (heightSlide - 44) /arrSlideLength - 4
+        let arrPoint = []
+        let heightPoint = 0
+        let MARGIN = 4
+        let activeClass = 0
 
         scrollbarSection.css("height", heightScrollbarSection + "px")
-
 
         for (var i=0; i < arrSlideLength; i++) {
           scrollbarSection.clone().appendTo(scrollbarWrapper);
         }
 
-        let arrPoint = []
-        let heightPoint = 0
-        let MARGIN = 4
-
-
-        let activeClass = 0
         function setHeightScroll() {
           heightSlide = (activeClass == 0) ? $(".slide").height() : $(".container-article").height()
+          console.log("slide_height", $(".slide").height())
+          console.log("container-article_height", $(".container-article").height())
+          console.log("heightSlide", heightSlide)
           heightScrollbarSection = (heightSlide - 44) /arrSlideLength - 4
+          console.log("heightScrollbarSection", heightScrollbarSection)
           for (var i =0; i < ($(".scrollbar__section").length); i++) {
             $(".scrollbar__section").eq(i).css("height", heightScrollbarSection)
           }
@@ -267,6 +280,7 @@
             }
             arrPoint.push(el)
           }
+          console.log("arrPoint", arrPoint)
         }
 
         setPoint()
@@ -282,7 +296,6 @@
           }
 
           if ( activeClass > 0 ) {
-
 
             if (bodyWidth >= 1025 && !($(".navigator").hasClass('hide'))){
                 $(".navigator").addClass('hide')
@@ -309,12 +322,6 @@
             }
 
         } else if (activeClass == 0) {
-
-            if (!($(".footer").hasClass('hide'))) {
-              $('footer').addClass("hide")
-            }
-
-            // if(bodyWidth >= 640 && $(".navigator").hasClass('hide')){
             if(bodyWidth >= 1025 && $(".navigator").hasClass('hide')){
                 $(".navigator").removeClass('hide')
                 $('.block_top').css("position", "relative").css("top", "0").css("left", "0")
@@ -324,26 +331,27 @@
               $('.block_top').css("display", "flex")
             }
           }
-
-        //
-        // if ((activeClass + 1) == arrSlideLength ) {
-        //   console.log("23423")
-        //   if ($("footer").hasClass('hide')) {
-        //     $('footer').removeClass("hide")
-        //   }
-        // } else {
-        //   if (!$("footer").hasClass('hide')) {
-        //     $('footer').addClass("hide")
-        //   }
-        // }
-
           setHeightScroll()
+
+          if (!isExersiseRead) {
+            if ((activeClass + 1) == arrSlideLength) {
+                setExerciseRead()
+            }
+          }
         }
         $(".article-exercise").on('scroll', function(e) {
           onScrollArticle()
-
         })
 
+        function setExerciseRead () {
+          isExersiseRead = true
+            // const exerciseId = {{ exercise.id }};
+            // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+            // $.post("{% url 'toggle_exercise' exercise.id %}", {
+            //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+            //   'check': true,
+            // })
+        }
 
           $(window).on("resize", function (e) {
             e.stopPropagation();
@@ -352,7 +360,6 @@
             setPoint()
             onScrollArticle()
           })
-
 
       </script>
 

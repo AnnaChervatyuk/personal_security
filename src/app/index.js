@@ -385,7 +385,7 @@ function followScroll () {
       span.text(text[i])
       span.appendTo(notification.find($('div')))
     }
-    notification.css("left",  ($("body").width() / 2 - notification.width() / 2))
+    notification.css("left",  ($("body").width() / 2 - notification.innerWidth() / 2))
   }
 
     window.addBtnClose = function addBtnClose() {
@@ -395,6 +395,7 @@ function followScroll () {
       $('#notification').fadeOut(1000);
       $('#notification').remove()
     })
+    $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
   }
 
   window.addTimerClosing = function addTimerClosing() {
@@ -404,6 +405,7 @@ function followScroll () {
         $('#notification').fadeOut(1000);
         setTimeout(function() {$('#notification').remove()}, 1000)
         }, 6000);
+    $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
   }
 
 // ------ служебные сообщения конец -----
@@ -561,8 +563,13 @@ window.getInCoachingTooltip()
       $.post('/theory/exercise/'+ id + '/add/', {
         'csrfmiddlewaretoken': csrfmiddlewaretoken,
       })
-      el.setAttribute('data-in-course', '')
-      $('#exercise-' + id).find('.in-coaching').eq(0).removeClass('hide')
+      if ($('.article')) {
+        $('.article').find('.in-coaching').eq(0).removeClass('hide')
+        $('.set_exercise').addClass('hide')
+      } else {
+        el.setAttribute('data-in-course', '')
+        $('#exercise-' + id).find('.in-coaching').eq(0).removeClass('hide')
+      }
     }
     getBtnSetList()
   }

@@ -70,7 +70,7 @@ a.btn,
   border-radius: 4px;
   text-align: center;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 22px;
 }
 a.btn:hover,
 .btn:hover {
@@ -83,7 +83,7 @@ a.btn:hover,
 
 .btn-go-training {
   font-size: 16px;
-  line-height: 13px;
+  line-height: 22px;
 }
 
 .btn.btn-white {
@@ -705,9 +705,6 @@ footer {
 .progress .progress_inner {
   display: flex;
   flex-direction: column;
-}
-.progress .progress_inner .btn-go-training {
-  line-height: 9px;
 }
 .progress .progress_inner h2 {
   margin: 20px 0;
@@ -1447,10 +1444,10 @@ footer {
   color: #2C28C2;
 }
 .content-theory .skills__wrapper .skills .skill.skill-digital input[type=checkbox] + .checkbox-inner {
-  color: #13B881;
+  color: #13B85F;
 }
 .content-theory .skills__wrapper .skills .skill.skill-digital input[type=checkbox] + .checkbox-inner h3 {
-  color: #13B881;
+  color: #13B85F;
 }
 .content-theory .skills__wrapper .skills .skill.skill-financial input[type=checkbox] + .checkbox-inner {
   color: #0F7DA1;
@@ -1465,7 +1462,7 @@ footer {
   background-color: #2C28C2;
 }
 .content-theory .skills__wrapper .skills .skill.skill-digital input[type=checkbox]:checked + .checkbox-inner {
-  background-color: #13B881;
+  background-color: #13B85F;
 }
 .content-theory .skills__wrapper .skills .skill:hover input[type=checkbox] + .checkbox-inner,
 .content-theory .skills__wrapper .skills .skill:hover input[type=checkbox]:checked + .checkbox-inner {
@@ -4348,8 +4345,13 @@ footer {
 .go_to_practice__wrapper-bg {
   width: 100%;
   box-sizing: border-box;
-  margin-top: 120px;
+  margin-top: 60px;
   margin-bottom: 0;
+}
+
+.go_to_practice__wrapper-bg-task {
+  margin-top: 0;
+  position: relative;
 }
 
 .go_to_practice__wrapper {
@@ -4403,6 +4405,7 @@ footer {
   line-height: 13px;
   color: #fff;
   margin-left: 10px;
+  margin-right: 10px;
   height: fit-content;
   height: -moz-fit-content;
 }
@@ -4427,6 +4430,7 @@ footer {
   font-size: 16px;
   line-height: 22px;
   border-bottom: none;
+  border-bottom: 1px solid transparent;
 }
 .go_to_practice__wrapper .go_to_practice__item_link:hover {
   border-bottom: 1px solid rgba(0, 122, 255, 0.3);
@@ -4444,8 +4448,8 @@ footer {
   border-right: 2px solid #17171C;
   width: 12px;
   height: 12px;
-  right: 0;
-  top: 33%;
+  right: 4px;
+  top: 24%;
   transform: rotate(45deg);
 }
 
@@ -4460,12 +4464,16 @@ footer {
 .slide__inner-go_to_practice .exercise-instruction {
   border: 1px solid #F3F3F6;
   padding: 20px;
+  position: relative;
+}
+.slide__inner-go_to_practice .exercise-instruction a {
+  border-bottom: none;
 }
 .slide__inner-go_to_practice .go_to_practice__wrapper-bg-task .go_to_practice__wrapper {
   border: none;
 }
-.slide__inner-go_to_practice .go_to_practice__wrapper-bg-task .go_to_practice__wrapper .go_to_practice__inner a {
-  border-bottom: none;
+.slide__inner-go_to_practice .go_to_practice__wrapper-bg-task .go_to_practice__wrapper .go_to_practice__inner {
+  margin-right: 0;
 }
 .slide__inner-go_to_practice .go_to_practice__wrapper-bg-task .go_to_practice__wrapper img {
   width: 202px;
@@ -4516,6 +4524,10 @@ footer {
   .slide__inner-go_to_practice .go_to_practice__wrapper-bg-task .go_to_practice__wrapper {
     flex-direction: row;
     align-items: flex-start;
+  }
+  .slide__inner-go_to_practice .go_to_practice__wrapper-bg-task .go_to_practice__wrapper .go_to_practice__inner {
+    margin: 0;
+    margin-left: 10px;
   }
 }
 @media (min-width: 1200px) {
@@ -4570,6 +4582,10 @@ footer {
   font-size: 11px;
   line-height: 13px;
   margin-right: 5px;
+}
+
+.done {
+  height: 24px;
 }
 
 .time {
@@ -4761,6 +4777,9 @@ footer {
   max-height: 100vh;
   overflow-y: hidden;
 }
+.container-exercise .slide {
+  overflow: hidden;
+}
 .container-exercise .slide .exercise_footer {
   display: none;
   position: fixed;
@@ -4806,19 +4825,30 @@ footer {
 }
 .container-exercise .article-exercise .slide-first {
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: auto;
+}
+.container-exercise .article-exercise .slide-first .slide__inner {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+}
+.container-exercise .article-exercise .slide-first .slide__inner .block_scroll {
+  margin: auto;
+  height: 44px;
+  width: 24px;
+  margin-bottom: 30px;
 }
 .container-exercise .article-exercise .slide-text {
   justify-content: flex-start;
   padding-bottom: 50vh;
   box-sizing: border-box;
+  padding-top: 120px;
 }
 .container-exercise .article-exercise .slide-text:last-child {
   padding-bottom: 0;
 }
 .container-exercise .article-exercise .slide-text h3 {
   margin-bottom: 46px;
-  margin-top: 120px;
 }
 .container-exercise .article-exercise .slide-text div {
   font-size: 18px;
@@ -4846,7 +4876,6 @@ footer {
   }
   .container.container-exercise .slide-first {
     min-height: calc(100vh - 90px);
-    justify-content: center;
   }
 }
 @media (min-width: 1025px) {
@@ -4857,6 +4886,8 @@ footer {
   .container-exercise .article-exercise .slide-first .slide__inner {
     max-width: 100%;
     padding-left: 0;
+    height: calc(100vh - 110px);
+    min-height: auto;
   }
 }
 @media (min-width: 1200px) {
