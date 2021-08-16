@@ -138,8 +138,8 @@ if ($(".todo-list_wrapper")) {
       parent: $(node),
       btnRisk:  $(node).find($(".risks-btn")),
       btnCheck:  $(node).find($(".el-task-checkbox")),
-      isTaskRefuse: $(node).find($(".el-task-checkbox")).data('isrefused') - 0,
-      isTaskReady: $(node).find($(".el-task-checkbox")).data('isready') - 0,
+      isTaskRefuse:  parseInt($(node).find($(".el-task-checkbox")).data('isrefused')),
+      isTaskReady:  parseInt($(node).find($(".el-task-checkbox")).data('isready')),
       taskId: $(node).find($(".el-task-checkbox")).data('task-id'),
     }
     return el
@@ -148,8 +148,8 @@ if ($(".todo-list_wrapper")) {
 
   let arrMarker = $(".marker")
 
-  let amountTaskRefused = $(".todo-not-do").find(".list-amount").text() - 0
-  let amountTaskReady = $(".todo-done").find(".list-amount").text() - 0
+  let amountTaskRefused = parseInt($(".todo-not-do").find(".list-amount").text())
+  let amountTaskReady =  parseInt($(".todo-done").find(".list-amount").text())
 
 
   function setStateTask(i) {
@@ -184,7 +184,7 @@ if ($(".todo-list_wrapper")) {
           $(".todo-done").find(".list-amount").text(amountTaskReady)
           listTask[i].parent.find($(".el-task-checkbox")).data('isready', listTask[i].isTaskReady)
           listTask[i].btnRisk.data('isready', listTask[i].isTaskReady)
-          listTask[i].btnCheck.attr("checked", false)
+          listTask[i].btnCheck.prop("checked", false)
         }
       }
       listTask[i].parent.find($(".el-task-checkbox")).data('isrefused', listTask[i].isTaskRefuse)
@@ -268,6 +268,7 @@ if ($(".todo-list_wrapper")) {
 
 
   todoHeaderNotDo.on("click", function (event) {
+    console.log("click")
     if (todoListNotDo.hasClass("hide")) {
       todoListNotDo.removeClass("hide");
       todoHeaderNotDo.addClass("header-border-bottom")
@@ -373,7 +374,10 @@ function followScroll () {
   // ------ служебные сообщения начало -----
   window.showNotification = function showNotification(textNotification) {
     var text = (textNotification.split(";")).filter(String)
+    if ($(".notification")) {
+      $(".notification").remove()
 
+    }
     var notification = $('<div class="notification" id="notification"><div class="notification_inner"></div></div>')
     notification.appendTo($("body"))
     for (var i = 0; i < text.length; i++) {

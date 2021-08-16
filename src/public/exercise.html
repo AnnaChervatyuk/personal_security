@@ -8,6 +8,7 @@
   </head>
     <body>
       <div class="container container-article container-exercise">
+
       <section class="navigator">
         <div class="nav_logo">
           <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Personal security"></a>
@@ -63,21 +64,28 @@
 
 
       <section class="article article-exercise__wrapper">
-          <div class="scrollbar__wrapper">
-          </div>
+          <div class="scrollbar__wrapper"></div>
 
           <div class="article-exercise">
-          <div class=" slide slide-first">
+          <div class="slide slide-first">
             <div class="slide__inner">
-            <div class="block_top">
-              <div class="block_return">
-                <a href="index.html">
-                  <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                     <use xlink:href="sprite.svg#icon-return"></use>
-                  </svg>
-                </a>
+              <div class="block_top">
+                <div class="block_return">
+                  <a href="index.html">
+                    <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                       <use xlink:href="sprite.svg#icon-return"></use>
+                    </svg>
+                  </a>
+                </div>
               </div>
-            </div>
+
+              <div class="exercise_footer">
+                <div class="descr">
+                  <div class="type">Занятия</div>
+                </div>
+                <div class="exercise_footer-title">Регистрация мессенджеров на иностранные номера</div>
+              </div>
+
             <div class="article-situation_header">
               <div class="header_inner">
                 <h1>Резервное копирование</h1>
@@ -92,7 +100,7 @@
                      </svg>
                   </div>
                 </div>
-                <div class="set_exercise"><span class="link_txt-blue">Убрать</span> из своей тренировки</div>
+                <!-- <div class="set_exercise"><span class="link_txt-blue">Убрать</span> из своей тренировки</div> -->
               </div>
               <div class="descr-img" ><img src="./images/Антивирус_2.svg" alt="Цифровая безопасность"></div>
             </div>
@@ -114,6 +122,13 @@
           </div>
         </div>
         <div class="slide slide-text">
+           <div class="slide__inner">
+             <h3>Зачем это делать</h3>
+             <div>Резервное копирование (бэкап) помогает, если ты случайно удалил или изменил важные данные, или данные уничтожил вирус, или информация потерялась при краже или поломке оборудования. Бэкапы бывают локальные (на съемных жестких дисках, флешках и сетевых хранилищах NAS) и "облачные", например, в Dropbox или Google Диске.</div>
+           </div>
+         </div>
+
+        <div class="slide slide-text">
           <div class="slide__inner">
             <h3>Как</h3>
             <div>При выборе системы резервного копирования ответь себе на вопросы:</div>
@@ -127,7 +142,6 @@
             <img src="./images/img_example/image_1.png" />
           </div>
         </div>
-
         <div class="slide">
           <div class="slide__inner">
             <div class="go_to_practice__wrapper-bg">
@@ -151,34 +165,39 @@
 
               </div>
             </div>
+
+            <!--  ДЛЯ НЕЗАЛОГИНЕННЫХ
             <div class="go_to_test__inner">
               <h3>Пройдите тест и мы составим для вас персональную программу тренировки по безопасности</h3>
               <a class="btn link_btn" href="">Настроить персональную тренировку</a>
             </div>
-          </div>
-        </div>
+            -->
 
-        <div class="slide">
-          <div class="slide__inner slide__inner-go_to_practice">
-            <h3 >Следующее занятие</h3>
-            <div class="exercise-instruction">
-              <div class="go_to_practice__wrapper-bg go_to_practice__wrapper-bg-task">
+            <!--  ДЛЯ ЗАЛОГИНЕННЫХ -->
 
-                <div class="go_to_practice__wrapper">
+            <div class="slide__inner-go_to_practice">
+              <h3 >Следующее занятие</h3>
+              <div class="exercise-instruction">
+                <div class="go_to_practice__wrapper-bg go_to_practice__wrapper-bg-task">
 
-                  <img class="go_to_practice__img" src="./images/safety_img.png" alt="Цифровая безопасность">
+                  <div class="go_to_practice__wrapper">
 
-                  <div class="go_to_practice__inner">
-                    <div class="type black-70 font-11 mr-5 mb-10">Цифровая безопасность</div>
-                    <h5><a href="/theory/exercise/antivirus/" >Настройки конфиденциальности в соцсетях</a></h5>
-                    <div class="time black-70 font-11 mr-5 mt-10">4 мин</div>
+                    <img class="go_to_practice__img" src="./images/safety_img.png" alt="Цифровая безопасность">
+
+                    <div class="go_to_practice__inner">
+                      <div class="type black-70 font-11 mr-5 mb-10">Цифровая безопасность</div>
+                      <h5><a href="/theory/exercise/antivirus/" >Настройки конфиденциальности в соцсетях</a></h5>
+                      <div class="time black-70 font-11 mr-5 mt-10">4 мин</div>
+                    </div>
                   </div>
-
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
+
 
       </div>
       </section>
@@ -204,14 +223,15 @@
           $(".header_inner").css("width", "100%")
         }
 
+        let bodyWidth = $('body').innerWidth()
         let arrSlideLength = $(".slide").length
         let scrollbarSection = $('<div class="scrollbar__section"></div>')
         let scrollbarWrapper = $(".scrollbar__wrapper")
         let heightSlide = $(".slide").height()
         let heightScrollbarSection = (heightSlide - 44) /arrSlideLength - 4
 
-
         scrollbarSection.css("height", heightScrollbarSection + "px")
+
 
         for (var i=0; i < arrSlideLength; i++) {
           scrollbarSection.clone().appendTo(scrollbarWrapper);
@@ -222,34 +242,61 @@
         let MARGIN = 4
 
 
-        for (var i = 0; i < ($(".slide")).length; i++ ) {
-          heightPoint = heightPoint + $(".slide").eq(i).height() + MARGIN
-          if (i == ($(".slide")).length - 1) {
-            heightPoint -= MARGIN
+        let activeClass = 0
+        function setHeightScroll() {
+          heightSlide = (activeClass == 0) ? $(".slide").height() : $(".container-article").height()
+          heightScrollbarSection = (heightSlide - 44) /arrSlideLength - 4
+          for (var i =0; i < ($(".scrollbar__section").length); i++) {
+            $(".scrollbar__section").eq(i).css("height", heightScrollbarSection)
           }
-          let el = {
-            key: i,
-            point: heightPoint
-          }
-          arrPoint.push(el)
         }
 
+        setHeightScroll()
 
+        function setPoint() {
+          arrPoint = []
+          heightPoint = 0
+          for (var i = 0; i < ($(".slide")).length; i++ ) {
+            heightPoint = heightPoint + $(".slide").eq(i).outerHeight()
+            if (i == ($(".slide")).length - 1) {
+              heightPoint -= MARGIN
+            }
+            let el = {
+              key: i,
+              point: heightPoint
+            }
+            arrPoint.push(el)
+          }
+        }
 
-        let activeClass = 0
+        setPoint()
+
         $('.scrollbar__section').eq(activeClass).addClass("active")
-        $(".article-exercise").on('scroll', function(e) {
 
+        function onScrollArticle () {
           var blockScroll = $(".article-exercise").scrollTop()
-
-
-          if ((blockScroll + MARGIN)  > arrPoint[activeClass].point) {
+          if ((blockScroll + MARGIN)  >= arrPoint[activeClass].point) {
             $('.scrollbar__section').eq(activeClass).addClass("past")
             activeClass += 1
             $('.scrollbar__section').eq(activeClass).addClass("active")
           }
 
           if ( activeClass > 0 ) {
+
+
+            if (bodyWidth >= 1025 && !($(".navigator").hasClass('hide'))){
+                $(".navigator").addClass('hide')
+                $('.block_top').css("position", "fixed").css("top", "20px").css("left", "30px").css("display", "flex")
+                $('.exercise_footer').css("display", "flex").css("left", "30px")
+            }
+
+            if (bodyWidth < 1025) {
+              $('.block_top').css("display", "none")
+              $('.exercise_footer').css("display", "none")
+            }
+
+            setPoint()
+
             if ((blockScroll + MARGIN) < arrPoint[activeClass - 1].point) {
               $('.scrollbar__section').eq(activeClass).removeClass("active")
               $('.scrollbar__section').eq(activeClass).removeClass("past")
@@ -257,24 +304,54 @@
 
               $('.scrollbar__section').eq(activeClass).removeClass("past")
               $('.scrollbar__section').eq(activeClass).addClass("active")
+              setHeightScroll()
+              setPoint()
             }
 
+        } else if (activeClass == 0) {
+
+            if (!($(".footer").hasClass('hide'))) {
+              $('footer').addClass("hide")
+            }
+
+            // if(bodyWidth >= 640 && $(".navigator").hasClass('hide')){
+            if(bodyWidth >= 1025 && $(".navigator").hasClass('hide')){
+                $(".navigator").removeClass('hide')
+                $('.block_top').css("position", "relative").css("top", "0").css("left", "0")
+                $('.exercise_footer').css("display", "none")
+            }
+            if (bodyWidth < 1025) {
+              $('.block_top').css("display", "flex")
+            }
           }
 
-          //
-          // if ((activeClass+1) == arrPoint.length) {
-          //   $('footer').removeClass("hide")
-          // } else {
-          //   if (!($('footer').hasClass("hide"))) {
-          //     $('footer').addClass("hide")
-          //
-          //   }
-          // }
+        //
+        // if ((activeClass + 1) == arrSlideLength ) {
+        //   console.log("23423")
+        //   if ($("footer").hasClass('hide')) {
+        //     $('footer').removeClass("hide")
+        //   }
+        // } else {
+        //   if (!$("footer").hasClass('hide')) {
+        //     $('footer').addClass("hide")
+        //   }
+        // }
+
+          setHeightScroll()
+        }
+        $(".article-exercise").on('scroll', function(e) {
+          onScrollArticle()
+
+        })
 
 
-
-         });
-
+          $(window).on("resize", function (e) {
+            e.stopPropagation();
+            bodyWidth = $('body').innerWidth()
+            setHeightScroll()
+            setPoint()
+            onScrollArticle()
+          })
 
 
       </script>

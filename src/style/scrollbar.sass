@@ -1,6 +1,7 @@
 .scrollbar__wrapper
- width: 8px
- margin-left: 7px
+ width: 4px
+ margin-left: 8px
+ margin-right: 5px
  .scrollbar__section
    background-color: $grey-20
    margin-bottom: 4px
@@ -13,3 +14,15 @@
 
  .active
    background-color: #007AFF
+
+.article-exercise::-webkit-scrollbar
+  width: 0
+
+.article-exercise
+  scrollbar-width: none
+
+@media (min-width: 640px)
+  .scrollbar__wrapper
+     width: 8px
+     margin-left: 7px
+     margin-right: 7px
