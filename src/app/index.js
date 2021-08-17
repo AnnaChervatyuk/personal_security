@@ -551,18 +551,18 @@ window.getInCoachingTooltip()
 
   // удаление/добавление из списка своих занятий ----- НАЧАЛО
   window.setList = function setList(el, id) {
-    const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+    // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
     let isInUserList = el.hasAttribute('data-in-course')
     if (isInUserList) { //  удалять из списка
-      $.post('/theory/exercise/'+ id + '/remove/', {
-        'csrfmiddlewaretoken': csrfmiddlewaretoken,
-      })
+      // $.post('/theory/exercise/'+ id + '/remove/', {
+      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      // })
       el.removeAttribute('data-in-course')
       $('#exercise-' + id).find('.in-coaching').eq(0).addClass('hide')
     } else { // добавлять в список
-      $.post('/theory/exercise/'+ id + '/add/', {
-        'csrfmiddlewaretoken': csrfmiddlewaretoken,
-      })
+      // $.post('/theory/exercise/'+ id + '/add/', {
+      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      // })
       if ($('.article')) {
         $('.article').find('.in-coaching').eq(0).removeClass('hide')
         $('.set_exercise').addClass('hide')

@@ -79,6 +79,7 @@ a.btn:hover,
   color: #fff;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 .btn-go-training {
@@ -107,6 +108,7 @@ a.btn:hover,
   left: 0;
   height: 100%;
   width: 100%;
+  border-radius: 4px;
 }
 .link:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
@@ -179,6 +181,7 @@ a.btn:hover,
   left: 17px;
   top: 6px;
   transform: rotate(45deg);
+  border: 1px solid #17171C;
 }
 .el_check:hover::after {
   content: "";
@@ -298,16 +301,20 @@ input {
   border-radius: 4px;
   padding: 8px 15px;
   height: 36px;
+  outline: none;
 }
 
+textarea {
+  outline: none;
+}
+
+input:hover,
 input:active,
 input:focus,
 input:hover,
-input:focus-visible,
 textarea:active,
 textarea:focus,
-textarea:hover,
-textarea:focus-visible {
+textarea:hover {
   border: 1px solid #787882;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
@@ -407,6 +414,14 @@ textarea::placeholder {
 
   .btn-arrow > button.arrow-right {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03551) 13.33%, rgba(255, 255, 255, 0.147411) 26.67%, rgba(255, 255, 255, 0.231775) 33.33%, rgba(255, 255, 255, 0.331884) 40%, rgba(255, 255, 255, 0.442691) 46.67%, rgba(255, 255, 255, 0.557309) 53.33%, rgba(255, 255, 255, 0.668116) 60%, rgba(255, 255, 255, 0.768225) 66.67%, rgba(255, 255, 255, 0.852589) 73.33%, rgba(255, 255, 255, 0.91834) 80%, rgba(255, 255, 255, 0.991353) 93.33%, #FFFFFF 100%);
+  }
+
+  .btn-arrow > button.arrow-left_gray {
+    background: linear-gradient(90deg, #F9F9FB 20%, rgba(249, 249, 251, 0) 100%);
+  }
+
+  .btn-arrow > button.arrow-right_gray {
+    background: linear-gradient(270deg, #F9F9FB 20%, rgba(249, 249, 251, 0) 100%);
   }
 }
 @media (min-width: 768px) {
@@ -1522,6 +1537,9 @@ footer {
 .content-theory .skills__wrapper-top {
   top: 0;
   position: fixed;
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
 }
 .content-theory .skills__wrapper-top .skills {
   flex-direction: row;
@@ -2201,6 +2219,12 @@ footer {
   font-size: 20px;
   line-height: 30px;
 }
+.article .slide-text a {
+  border-bottom: 1px solid rgba(0, 122, 255, 0.4);
+}
+.article .slide-text a:hover {
+  color: #3D95F5;
+}
 .article .related_lessons {
   margin-bottom: 50px;
 }
@@ -2271,9 +2295,20 @@ footer {
 }
 .article .descr-img_article {
   margin-bottom: 40px;
+  width: 100%;
+  padding-top: 50%;
+  position: relative;
 }
 .article .descr-img_article img {
   border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
 }
 
 .article-instruction .todo-list_wrapper {
@@ -2543,6 +2578,7 @@ footer {
 }
 .todo-list_wrapper .todo-list .todo-el .el_task:hover::before {
   background-color: #F9F9FB;
+  border: 1px solid #17171C;
 }
 .todo-list_wrapper .todo-list .todo-el .el_task input[type=checkbox]:checked + span {
   text-decoration: line-through;
@@ -2943,6 +2979,10 @@ footer {
   background: #F9F9FB;
   padding: 120px 20px 0;
 }
+.container-first_page .content .materials__wrapper .material > .material-list .material-el {
+  flex-basis: 0;
+  flex-grow: 1;
+}
 .container-first_page .content .materials-course {
   background: #F9F9FB;
   border-bottom: 1px solid #17171C;
@@ -2962,18 +3002,30 @@ footer {
   padding: 74px 20px 120px;
   margin-bottom: -30px;
 }
+.container-first_page .content .block_bottom .block_bottom__inner {
+  width: fit-content;
+  width: -moz-fit-content;
+  margin: 0 auto;
+}
+.container-first_page .content .block_bottom .block_bottom__inner a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 .container-first_page .content .block_bottom svg {
   transform: rotate(180deg);
   margin-left: 15px;
   margin-right: 0;
 }
-.container-first_page .content .block_bottom .block_return a {
-  margin-left: auto;
-  margin-right: auto;
+.container-first_page .content .block_bottom .block_return {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 .container-first_page .content .block_bottom .img {
-  margin: 0 auto 35px auto;
+  margin: 0;
+  margin-bottom: 35px;
 }
 .container-first_page .content .block_bottom h5 {
   font-size: 32px;
@@ -3001,7 +3053,7 @@ footer {
   }
   .container-first_page .background_landing img,
 .container-first_page .background_landing video {
-    width: 1200px;
+    width: 1145px;
     object-fit: cover;
     margin: 0 auto;
   }
@@ -3115,6 +3167,7 @@ footer {
   .container-first_page .background_landing img,
 .container-first_page .background_landing video {
     max-width: 1280px;
+    width: 100%;
   }
   .container-first_page .navigator,
 .container-first_page .block-top_first,
@@ -3621,7 +3674,8 @@ footer {
   flex-direction: column;
 }
 .notification .notification_inner span {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 .notification .btn-close {
   margin: 0 0 auto 20px;
@@ -3743,7 +3797,7 @@ footer {
   margin-bottom: 40px;
 }
 .content-my-course .materials-course {
-  margin-bottom: 70px;
+  margin-bottom: 100px;
 }
 .content-my-course .instruction .materials.materials-course {
   margin-bottom: 20px;
@@ -3770,6 +3824,7 @@ footer {
   font-size: 14px;
   line-height: 19px;
   text-align: left;
+  margin-bottom: 60px;
 }
 .content-my-course .threats_course h2 {
   margin-bottom: 40px;
@@ -3804,8 +3859,9 @@ footer {
   .content-my-course .threats_course {
     margin-bottom: 130px;
   }
-  .content-my-course .progress_course {
-    margin-bottom: 120px;
+  .content-my-course .progress_course,
+.content-my-course .todo-list_course {
+    margin-bottom: 130px;
   }
   .content-my-course .progress_course .content-descr,
 .content-my-course .todo-list_course .content-descr {
@@ -3815,6 +3871,7 @@ footer {
     text-align: left;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 60px;
   }
   .content-my-course .progress_course .progress {
     padding: 60px;
@@ -4017,14 +4074,16 @@ footer {
   transform: rotate(-45deg);
 }
 
-.content .tooltip {
+.content .tooltip,
+.article .tooltip {
   background: #F3F3F6;
   border: 1px solid #D1D1D6;
   box-sizing: border-box;
   border-radius: 3px;
   padding: 0 4px;
 }
-.content .tooltip:hover {
+.content .tooltip:hover,
+.article .tooltip:hover {
   cursor: pointer;
 }
 
@@ -4370,9 +4429,6 @@ footer {
 .go_to_practice__wrapper .go_to_practice__img img {
   margin-top: 0;
 }
-.go_to_practice__wrapper .go_to_practice__inner {
-  margin-right: 30px;
-}
 .go_to_practice__wrapper .go_to_practice__inner .go_to_practice__header {
   margin: 0;
   margin-bottom: 40px;
@@ -4514,7 +4570,6 @@ footer {
     margin-bottom: 0;
   }
   .go_to_practice__wrapper .go_to_practice__inner {
-    margin-left: 30px;
     margin-top: 50px;
   }
 
@@ -4578,9 +4633,10 @@ footer {
 
 .type,
 .date,
-.time {
+.time,
+.section {
   font-size: 11px;
-  line-height: 13px;
+  line-height: 14px;
   margin-right: 5px;
 }
 
@@ -4605,6 +4661,8 @@ footer {
 .content-situation .materials > .material > .material-list .full_img.material-el,
 .cards .card.full_img {
   padding: 0;
+  min-height: 420px;
+  box-sizing: content-box;
 }
 .content-situation .materials > .material > .material-list .full_img.material-el .descr,
 .cards .card.full_img .descr {
@@ -4691,7 +4749,9 @@ footer {
   top: 0;
   z-index: 5;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
 }
 .tags__wrapper .tags__inner {
   display: flex;
@@ -4864,6 +4924,7 @@ footer {
 }
 .container-exercise .article-exercise .slide-text img {
   margin: 20px 0;
+  height: auto;
 }
 .container-exercise .article-exercise .slide-first .slide__inner {
   width: 100%;

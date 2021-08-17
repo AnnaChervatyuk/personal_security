@@ -53,6 +53,7 @@ a.btn,
     color: $white
     -webkit-transition: 0.1s ease-out
     transition: 0.1s ease-out
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1)
 
 .btn-go-training
   @include font(16px, 22px)
@@ -76,6 +77,7 @@ a.btn,
   left: 0
   height: 100%
   width: 100%
+  border-radius: 4px
   &:hover
     // box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)
@@ -136,6 +138,7 @@ a.btn,
     left: 17px
     top: 6px
     transform: rotate(45deg)
+    border: 1px solid  $black-100
   &::after
     content: ""
     position: absolute
@@ -227,15 +230,18 @@ input
   border-radius: 4px
   padding: 8px 15px
   height: 36px
+  outline: none
 
+textarea
+  outline: none
+
+input:hover,
 input:active,
 input:focus,
 input:hover,
-input:focus-visible,
 textarea:active,
 textarea:focus,
-textarea:hover,
-textarea:focus-visible
+textarea:hover
   border: 1px solid $black-50
   -webkit-transition: 0.1s ease-out
   transition: 0.1s ease-out
@@ -312,6 +318,12 @@ textarea::placeholder
 
   .btn-arrow > button.arrow-right
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03551) 13.33%, rgba(255, 255, 255, 0.147411) 26.67%, rgba(255, 255, 255, 0.231775) 33.33%, rgba(255, 255, 255, 0.331884) 40%, rgba(255, 255, 255, 0.442691) 46.67%, rgba(255, 255, 255, 0.557309) 53.33%, rgba(255, 255, 255, 0.668116) 60%, rgba(255, 255, 255, 0.768225) 66.67%, rgba(255, 255, 255, 0.852589) 73.33%, rgba(255, 255, 255,0.91834) 80%, rgba(255, 255, 255, 0.991353) 93.33%, #FFFFFF 100%)
+
+  .btn-arrow > button.arrow-left_gray
+    background: linear-gradient(90deg, #F9F9FB 20%, rgba(249, 249, 251, 0) 100%)
+
+  .btn-arrow > button.arrow-right_gray
+    background: linear-gradient(270deg, #F9F9FB 20%, rgba(249, 249, 251, 0) 100%)
 
 @media (min-width: 768px)
   .container

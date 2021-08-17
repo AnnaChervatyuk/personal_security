@@ -7,7 +7,8 @@
     <title>Personal security</title>
   <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
     <body>
-      <div class="container container-article container-exercise">
+      <div class="container  container-exercise">
+        <!-- <div class="container container-article container-exercise"> -->
 
       <section class="navigator">
         <div class="nav_logo">
@@ -122,8 +123,11 @@
        <div class="slide slide-text">
           <div class="slide__inner">
             <h3>Зачем это делать</h3>
-            <div>Резервное копирование (бэкап) помогает, если ты случайно удалил или изменил важные данные, или данные уничтожил вирус, или информация потерялась при краже или поломке оборудования. Бэкапы бывают локальные (на съемных жестких дисках, флешках и сетевых хранилищах NAS) и "облачные", например, в Dropbox или Google Диске.</div>
-            <div>Какой способ подходит тебе, зависит от твоей модели угроз, то есть от того, что и от кого ты защищаешь. Но есть и общие правила. Например, люди забывчивы, поэтому автоматические средства бэкапа (например, специальной утилитой в облако или сетевое хранилище) часто оказываются надежнее. Но если ты можешь позволить себе потерять последний месяц цифровой "жизни", тебе может подойти способ вручную копировать данные на съемный жесткий диск и хранить в ящике стола. "Облачное" хранение большого объема данных может быть не бесплатным, но цены на эту услугу постепенно снижаются (вот ссылки на цены хранения в облаке Google и Apple).</div>
+            <div>Резервное <a href="">копирование</a> (бэкап) помогает, если ты случайно удалил или изменил важные данные, или данные уничтожил вирус, или информация потерялась при краже или поломке оборудования. Бэкапы бывают локальные (на съемных жестких дисках, флешках и сетевых хранилищах NAS) и "облачные", например, в Dropbox или Google Диске.</div>
+            <div>Какой способ <span class="tooltip" onClick="showTooltip(this)">подходит тебе<span class="hide">описание термина вставляется в тултип</span></span>, зависит от твоей модели угроз, то есть от того, что и от кого ты защищаешь. Но есть и общие правила. Например, люди забывчивы, поэтому автоматические средства бэкапа (например, специальной утилитой в облако или сетевое хранилище) часто оказываются надежнее. Но если ты можешь позволить себе потерять последний месяц цифровой "жизни", тебе может подойти способ вручную копировать данные на съемный жесткий диск и хранить в ящике стола. "Облачное" хранение большого объема данных может быть не бесплатным, но цены на эту услугу постепенно снижаются (вот ссылки на цены хранения в облаке Google и Apple).</div>
+            <figure class=""><img src="https://securno.s3.eu-central-1.amazonaws.com/ill/phish.jpg" alt="ill/phish.jpg" width="1000" height="662">
+            <figcaption>Предупреждение браузера о переходе на фишинговую страницу</figcaption>
+            </figure>
             <div>Какой способ подходит тебе, зависит от твоей модели угроз, то есть от того, что и от кого ты защищаешь. Но есть и общие правила. Например, люди забывчивы, поэтому автоматические средства бэкапа (например, специальной утилитой в облако или сетевое хранилище) часто оказываются надежнее. Но если ты можешь позволить себе потерять последний месяц цифровой "жизни", тебе может подойти способ вручную копировать данные на съемный жесткий диск и хранить в ящике стола. "Облачное" хранение большого объема данных может быть не бесплатным, но цены на эту услугу постепенно снижаются (вот ссылки на цены хранения в облаке Google и Apple).</div>
           </div>
         </div>
@@ -172,13 +176,11 @@
               </div>
             </div>
 
-            <!--  ДЛЯ НЕЗАЛОГИНЕННЫХ
-            <div class="go_to_test__inner">
+            <!--  ДЛЯ НЕЗАЛОГИНЕННЫХ  -->
+            <!-- <div class="go_to_test__inner">
               <h3>Пройдите тест и мы составим для вас персональную программу тренировки по безопасности</h3>
-              <a class="btn link_btn" href="">Настроить персональную тренировку</a>
-            </div>
-            -->
-
+              <a class="btn link_btn" href="">Настроить тренировку</a>
+            </div> -->
             <!--  ДЛЯ ЗАЛОГИНЕННЫХ -->
 
             <div class="slide__inner-go_to_practice">
@@ -192,7 +194,7 @@
 
                     <div class="go_to_practice__inner">
                       <div class="type black-70 font-11 mr-5 mb-10">Цифровая безопасность</div>
-                      <h5>Настройки конфиденциальности в соцсетях</h5>
+                      <h5>Настройки </h5>
                       <div class="time black-70 font-11 mr-5 mt-10">4 мин</div>
                     </div>
                   </div>
@@ -253,9 +255,9 @@
         }
 
         function setHeightScroll() {
-          heightSlide = (activeClass == 0) ? $(".slide").height() : $(".container-article").height()
+          heightSlide = (activeClass == 0) ? $(".slide").height() : $(".container-exercise").height()
           console.log("slide_height", $(".slide").height())
-          console.log("container-article_height", $(".container-article").height())
+          console.log("container-exercise_height", $(".container-exercise").height())
           console.log("heightSlide", heightSlide)
           heightScrollbarSection = (heightSlide - 44) /arrSlideLength - 4
           console.log("heightScrollbarSection", heightScrollbarSection)
@@ -360,6 +362,53 @@
             setPoint()
             onScrollArticle()
           })
+
+
+          var popup = $('<div class="popup-tooptip hide"><span></span</div>')
+          var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+          btnClose.appendTo(popup)
+          var elem
+
+          $('body').on("click", function (e) {
+             if ( e.target == popup.find($('span'))[0]) {
+              return
+             }
+              if (e.target != elem ) {
+
+                  popup.addClass("hide")
+              }
+            e.stopPropagation();
+          })
+
+          $(window).on("resize", function (e) {
+            if (!popup.hasClass("hide")) {
+              popup.addClass("hide")
+
+            }
+          })
+
+          btnClose.on("click", function (e) {
+            popup.addClass("hide")
+          })
+
+          function showTooltip (el) {
+              elem = el
+              popup.removeClass("hide")
+              popup.appendTo($("body"))
+              var left = $(el).offset().left
+              var descr = $(el).find($(".hide")).text()
+              popup.find($("span")).text(descr)
+              var popupWidth = popup.width()
+              var bodyWidth = $("body").width()
+
+              var shift = bodyWidth - (left + 15 + popupWidth)
+              if (shift < 0)  {
+                left += shift
+              }
+              popup.css("top", ($(el).offset().top + 35))
+              popup.css("left", left)
+              isClickInner = false
+            }
 
       </script>
 
