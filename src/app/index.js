@@ -310,8 +310,17 @@ function followScroll () {
       var el = arrScrollingBox.eq(i).find($('.material-list'))
       var btnRight = arrScrollingBox.eq(i).find($('.arrow-right'))
       var btnLeft = arrScrollingBox.eq(i).find($('.arrow-left'))
-
        max[i] = el[0].scrollWidth - el.width()
+
+      if (max[i] > 0) {
+        if (!$(".material").eq(i).hasClass("hover-material")) {
+          !$(".material").eq(i).addClass("hover-material")
+        }
+      } else {
+        if (!$(".material").eq(i).hasClass("hover-material")) {
+          !$(".material").eq(i).removeClass("hover-material")
+        }
+      }
 
        if (el[0].scrollWidth <=  el.width()) {
          if (!btnRight.hasClass("hide")) {
@@ -476,6 +485,9 @@ window.getInCoachingTooltip()
     let url = "/search.html" + "?q=" + query; //для localhost
     // let url = "/search/" + "?q=" + query; //для dev
     $(location).attr('href', url);
+    if (query != "") {
+      clearBtnInPage.removeClass("hide")
+    }
   }
 
   function clearSearchInput(input,btn) { // очистить инпут с поиском

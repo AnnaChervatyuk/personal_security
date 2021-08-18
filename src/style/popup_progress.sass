@@ -6,11 +6,9 @@
   left: 0
   width: 100%
   height: 100vh
-  // @include bg-navigator()
   background-color: rgba(255, 255, 255, 0.85)
   -webkit-backdrop-filter: blur(15px)
   backdrop-filter: blur(15px)
-  // padding: 20px
   z-index: 200
   .threat_popup_inner_blur
     position: absolute
@@ -29,7 +27,6 @@
       order: 2
       margin-top: 100px
       border: none
-      // justify-content: flex-end
       padding: 0
       .progress_skills
         width: auto
@@ -88,6 +85,10 @@
     .progress_popup_inner,
     .threat_popup_inner,
     .completed_popup_inner
+      .btn-close-top
+        position: sticky
+        width: 40px
+        margin-left: auto
       .btns
         .btn
           line-height: 24px
@@ -118,3 +119,10 @@
     .completed_popup_inner
       .descr
         max-width: 50%
+
+
+@-moz-document url-prefix()
+  .progress_popup_wrapper,
+  .threat_popup_wrapper,
+  .completed_popup_wrapper
+    background-color: rgba(255, 255, 255, 0.97)
