@@ -152,6 +152,19 @@ a.btn:hover,
   text-decoration: none;
 }
 
+.text-error {
+  color: #FF3B30;
+}
+.text-error a {
+  color: #FF3B30;
+  text-decoration: none;
+  border-bottom: 1px solid #FF3B30;
+}
+.text-error a:hover, .text-error a:focus, .text-error a:active {
+  color: #FF3B30;
+  text-decoration: none;
+}
+
 .el_check {
   width: 30px;
   height: 30px;
@@ -1018,6 +1031,7 @@ footer {
   grid-template-columns: repeat(1, 1fr);
   grid-auto-rows: 0fr;
   margin-bottom: 55px;
+  margin-top: 40px;
 }
 .cards .card {
   margin: 15px 0;
@@ -1082,10 +1096,13 @@ footer {
   margin: 0 auto 70px;
 }
 
+.all_cards-top {
+  margin: 60px auto 0;
+}
+
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 80px;
     margin-bottom: 80px;
   }
   .cards .card {
@@ -1152,7 +1169,7 @@ footer {
 .content-theory h1,
 .content-situation h1 {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 80px;
   margin-bottom: 20px;
 }
 
@@ -1403,7 +1420,7 @@ footer {
 
   .content-theory .content-descr,
 .content-situation .content-descr {
-    margin: 10px 300px 150px;
+    margin: 10px 300px 140px;
   }
 
   .content-situation .content-descr {
@@ -1417,8 +1434,15 @@ footer {
   background-color: #fff;
 }
 .content-theory .skills__wrapper .skills {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: auto;
+  margin-bottom: 40px;
+}
+.content-theory .skills__wrapper .skills .skill {
+  margin: 0 15px;
+  width: 289px;
 }
 .content-theory .skills__wrapper .skills .skill input[type=checkbox] {
   z-index: -1;
@@ -1553,6 +1577,7 @@ footer {
 .content-theory .skills__wrapper-top .skills .skill {
   margin-right: 10px;
   min-height: auto;
+  width: auto;
 }
 .content-theory .skills__wrapper-top .skills .skill .checkbox-inner {
   padding: 8px 14px;
@@ -1581,12 +1606,15 @@ footer {
 
 @media (min-width: 640px) {
   .content-theory .skills__wrapper .skills {
+    overflow: hidden;
     display: grid;
     grid-auto-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
   }
   .content-theory .skills__wrapper .skills .skill {
     padding: 10px 0;
+    margin: 0;
+    width: auto;
   }
   .content-theory .skills__wrapper .skills .skill input[type=checkbox] + .checkbox-inner {
     width: auto;
@@ -1674,6 +1702,8 @@ footer {
 }
 .materials {
   position: relative;
+  -webkit-transition: 0.15s ease-out;
+  transition: 0.2s ease-out;
 }
 .materials .material {
   margin: 0;
@@ -1962,6 +1992,11 @@ footer {
 
 .materials.materials-skills > .material > .material-list {
   margin-top: 20px;
+}
+
+.materials_amount {
+  text-align: center;
+  color: #8D8D94;
 }
 
 @media (min-width: 640px) {
@@ -2552,6 +2587,19 @@ footer {
   display: flex;
   flex-direction: column;
 }
+.todo-list_wrapper .todo-list .todo-el .todo_el_inner .todo_btn {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+.todo-list_wrapper .todo-list .todo-el .todo_el_inner .instruction-btn {
+  font-size: 12px;
+  line-height: 16px;
+  height: auto;
+  padding: 4px 8px;
+}
 .todo-list_wrapper .todo-list .todo-el .marker {
   display: none;
 }
@@ -2618,12 +2666,14 @@ footer {
   line-height: 16px;
   color: #AEAEB2;
   display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 .todo-list_wrapper .todo-list .todo-el .el_how-do_btn .btn-arrow_todo {
   display: block;
   position: relative;
   margin-left: 15px;
-  margin-top: -2px;
+  margin-top: -11px;
   width: 8px;
 }
 .todo-list_wrapper .todo-list .todo-el .el_how-do_btn .btn-arrow_todo::after {
@@ -2784,6 +2834,10 @@ footer {
 }
 
 @media (min-width: 640px) {
+  .todo-list_wrapper .todo-list .todo-el .todo_el_inner .todo_btn {
+    margin: 0;
+  }
+
   .empty-todo_list {
     padding: 30px;
     font-size: 18px;
@@ -4891,6 +4945,8 @@ footer {
 }
 .container-exercise .slide {
   overflow: hidden;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
 }
 .container-exercise .slide .exercise_footer {
   display: none;
@@ -4902,6 +4958,8 @@ footer {
   line-height: 16px;
   font-size: 12px;
   max-width: 180px;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
 }
 .container-exercise .slide .block_scroll {
   text-align: center;
@@ -4930,6 +4988,8 @@ footer {
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
 }
 .container-exercise .article-exercise .slide .slide__inner {
   max-width: 750px;
@@ -5051,9 +5111,13 @@ footer {
 .scrollbar__wrapper .past {
   background-color: #007AFF;
   opacity: 0.5;
+  -webkit-transition: 0.6s ease-out;
+  transition: 0.6s ease-out;
 }
 .scrollbar__wrapper .active {
   background-color: #007AFF;
+  -webkit-transition: 0.6s ease-out;
+  transition: 0.6s ease-out;
 }
 
 .article-exercise::-webkit-scrollbar {

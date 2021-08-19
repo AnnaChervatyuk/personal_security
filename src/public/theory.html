@@ -100,8 +100,8 @@
             </div>
           </div>
 
-
           <div class="materials materials-theory">
+            <div class="materials_amount"></div>
             <div class="material">
               <div class="material-list">
 
@@ -253,6 +253,44 @@
                   <a href="exercise.html" class="link"></a>
 
                 </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Четырехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Пятиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Шестиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Четырехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+
+
               </div>
             </div>
           </div>
@@ -272,6 +310,7 @@
       </footer>
 
       <script>
+      console.log($('body').height())
         // let skillsMobile = scrollbarSection.clone().appendTo(scrollbarWrapper)
         let heightBottomSkills = $(".skills__wrapper").eq(0).offset().top +( ($(".skills__wrapper").eq(0).outerHeight() / 3) * 2)
         let addedMargin = $(".skills__wrapper").eq(0).outerHeight() / 3  + $(".skills__wrapper").eq(0).offset().top
@@ -326,6 +365,7 @@
       });
 
       function updateArrTags() {
+        $(".materials").css("opacity",  0.5)
         let elements = ($(".skill")).find($('input:checked'))
         let arrCheckedTags = []
         let listForRender = listMaterials
@@ -367,7 +407,37 @@
             }
           }
         }
+        setMaterialsAmount($(".material-el").not($(".hide")).length)
+        setTimeout(function () {
+          $(".materials").css("opacity",  1)
+        }, 300)
       }
+
+      function setMaterialsAmount (amount) {
+        var phrase = getNoun(amount, "Показан материал", "Показано материала", "Показано материалов")
+        var text = phrase.split(" ")[0] + " " + amount + " " + phrase.split(" ")[1]
+         $(".materials_amount").text(text)
+      }
+
+      function getNoun(number, one, two, five) {
+            let n = Math.abs(number);
+            n %= 100;
+            if (n >= 5 && n <= 20) {
+              return five;
+            }
+            n %= 10;
+            if (n === 1) {
+              return one;
+            }
+            if (n >= 2 && n <= 4) {
+              return two;
+            }
+            return five;
+
+        }
+
+        setMaterialsAmount($(".material-el").not($(".hide")).length)
+
       // -------- фильтр по тегам конец --------
 
       </script>

@@ -103,7 +103,10 @@
                         <span>Придумать и запомнить пароль для менеджера паролей</span>
                       </label>
 
-                      <div class="el_how-do_btn"><span>Как это сделать</span> <div class="btn-arrow_todo"></div></div>
+                      <div class="todo_btn">
+                        <a href="instruction.html" class="link_btn btn instruction-btn btn-white">Инструкция</a>
+                        <div class="el_how-do_btn"><span>Как это сделать</span> <div class="btn-arrow_todo"></div></div>
+                      </div>
                     </div>
 
                     <div class="instruction hide">
@@ -197,13 +200,15 @@
                         <span>Придумать и запомнить пароль для менеджера паролей</span>
                       </label>
 
-                      <div class="el_how-do_btn"><span>Как это сделать</span> <div class="btn-arrow_todo"></div></div>
+                      <div class="todo_btn">
+                        <a href="instruction.html" class="link_btn btn instruction-btn btn-white">Инструкция</a>
+                        <div class="el_how-do_btn"><span>Как это сделать</span> <div class="btn-arrow_todo"></div></div>
+                      </div>
                     </div>
 
                     <div class="instruction hide">
                       <div class="instruction-top">
                         <div class="instruction-top_inner">
-                          <a href="instruction.html" class="link_btn btn instruction-btn">Инструкция</a>
                           <div class="risks">
                             <div class="btn risks-btn">Не хочу делать</div>
                             <div class="risks-text">Не хочу это делать, с некоторыми рисками можно смириться.</div>
@@ -322,4 +327,9 @@
       </footer>
 
     </body>
+    <script>
+      for (var i=0; i<$(".article-instruction").find($(".instruction-btn")).length;i++) {
+        $(".article-instruction").find($(".instruction-btn")).addClass("hide")
+      }
+    </script>
 </html>

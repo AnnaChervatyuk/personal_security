@@ -52,6 +52,16 @@
       .todo_el_inner
         display: flex
         flex-direction: column
+        .todo_btn
+          display: flex
+          flex-wrap: nowrap
+          margin-top: 20px
+          margin-left: 40px
+          margin-bottom: 30px
+        .instruction-btn
+          @include font(12px, 16px)
+          height: auto
+          padding: 4px 8px
       .marker
         display: none
       .el_task
@@ -114,11 +124,13 @@
         @include font(12px, 16px)
         color: $gray-80
         display: flex
+        align-items: center
+        white-space: nowrap
         .btn-arrow_todo
           display: block
           position: relative
           margin-left: 15px
-          margin-top: -2px
+          margin-top: -11px
           width: 8px
           &::after
             content: ""
@@ -256,6 +268,8 @@
         object-fit: contain
 
 @media (min-width: 640px)
+  .todo-list_wrapper .todo-list .todo-el .todo_el_inner .todo_btn
+    margin: 0
   .empty-todo_list
     padding: 30px
     @include font(18px, 24px)
@@ -277,6 +291,7 @@
           flex-direction: row
           align-items: center
           justify-content: space-between
+
         .marker
           display: block
           @include font(12px, 16px)

@@ -111,7 +111,15 @@ a.btn,
 .link_btn.btn:hover
   text-decoration: none
 
-
+.text-error
+  color: $error
+  a
+    color: $error
+    text-decoration: none
+    border-bottom: 1px solid $error
+    &:hover, &:focus, &:active
+      color: $error
+      text-decoration: none
 .el_check
   width: 30px
   height: 30px
@@ -309,7 +317,7 @@ textarea::placeholder
   .hover-material:hover
     .btn-arrow > button::after
       display: block
-      
+
   .btn-arrow > button.arrow-right::after
     transform: rotate(45deg)
     right: 16px

@@ -186,6 +186,7 @@
           });
 
           function updateArrTags() {
+            $(".materials").css("opacity",  0.5)
             let elements = ($(".tags-item")).find($('input:checked'))
             let arrCheckedTags = []
             let listForRender = listMaterials
@@ -228,6 +229,9 @@
                 }
               }
             }
+            setTimeout(function () {
+              $(".materials").css("opacity",  1)
+            }, 300)
           }
           // -------- фильтр по тегам конец --------
       </script>

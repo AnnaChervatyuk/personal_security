@@ -5,8 +5,16 @@
     width: 100%
     background-color: $white
     .skills
-      display: flex
-      flex-direction: column
+      // display: flex
+      // flex-direction: row
+      display: grid
+      grid-auto-rows: 1fr
+      grid-template-columns: repeat(3, 1fr)
+      overflow: auto
+      margin-bottom: 40px
+      .skill
+        margin: 0 15px
+        width: 289px
       .skill input[type=checkbox]
         z-index: -1
         opacity: 0
@@ -14,6 +22,7 @@
         width: 0
         height: 0
         position: absolute
+
 
       .checkbox-inner
         margin: 10px 0
@@ -121,6 +130,8 @@
       .skill
         margin-right: 10px
         min-height: auto
+        width: auto
+
         .checkbox-inner
           padding: 8px 14px
           height: auto
@@ -144,11 +155,14 @@
   .content-theory
     .skills__wrapper
       .skills
+        overflow: hidden
         display: grid
         grid-auto-rows: 1fr
         grid-template-columns: repeat(2, 1fr)
         .skill
           padding: 10px 0
+          margin: 0
+          width: auto
         .skill input[type=checkbox] + .checkbox-inner
           width: auto
           box-sizing: border-box

@@ -3,6 +3,8 @@
   overflow-y: hidden
   .slide
     overflow: hidden
+    -webkit-transition: 0.2s ease-out
+    transition: 0.2s ease-out
     .exercise_footer
       display: none
       position: fixed
@@ -12,6 +14,9 @@
         line-height: 16px
         font-size: 12px
         max-width: 180px
+        -webkit-transition: 0.2s ease-out
+        transition: 0.2s ease-out
+
 
     .block_scroll
       text-align: center
@@ -40,6 +45,8 @@
       scroll-snap-align: start
       display: flex
       flex-direction: column
+      -webkit-transition: 0.2s ease-out
+      transition: 0.2s ease-out
 
       .slide__inner
         max-width: 750px
@@ -84,7 +91,6 @@
       .slide__inner
         width: 100%
         max-width: 100%
-
 
 @media (min-width: 640px)
   .container.container-exercise
