@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Personal security</title>
-  </head>
+  <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
     <body>
       <div class="container  container-exercise">
         <!-- <div class="container container-article container-exercise"> -->
@@ -228,20 +228,6 @@
 
 
       <script>
-      // console.log($('body'))
-      // console.log($(".slide").eq(1))
-      // var container = $('body'),
-      //     scrollTo = $(".slide").eq(1);
-      //
-      // // container.animate({
-      // //     scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
-      // // });
-      //
-      // $(".article-exercise").animate({
-      //     scrollTop: ($(".slide").eq(4)).offset().top
-      // }, 500);
-
-
         if ($(".article").find(".descr-img").length == 0) {
           $(".header_inner").css("width", "100%")
         }
@@ -268,13 +254,7 @@
           scrollbarSection.clone().appendTo(scrollbarWrapper);
         }
 
-
-
-
-
-
-
-        function setHeightScroll() {
+        function setHeightScroll() { // установить высоту скролла и его элементов
           heightSlide = (activeClass == 0) ? $(".slide").height() : $(".container-exercise").height()
           heightScrollbarSection = (heightSlide - 44) /arrSlideLength - 4
           for (var i =0; i < ($(".scrollbar__section").length); i++) {
@@ -284,7 +264,7 @@
 
         setHeightScroll()
 
-        function setPoint() {
+        function setPoint() { // получить точки для скролла
           arrPoint = []
           heightPoint = 0
           for (var i = 0; i < ($(".slide")).length; i++ ) {
@@ -298,74 +278,70 @@
             }
             arrPoint.push(el)
           }
-          console.log("arrPoint",arrPoint)
         }
 
         setPoint()
 
         $('.scrollbar__section').eq(activeClass).addClass("active")
-          // let scroll = true
 
-          // let ttt = ($(".slide").eq(0).height() / 3 * 2)
-          // let ttt = (arrPoint[0].point / 3 * 2)
-          // let mmm = $(".slide").eq(0).height()
+        let scrollPos = 0;
 
-
-
-          // console.log(ttt)
-//
-
-$(document).mousemove(function(e){
-  console.log("activeClass", activeClass)
-    var X = e.pageX; // положения по оси X
-    var Y = e.pageY; // положения по оси Y
-    if (Y > 600) {
-      console.log("X: " + X + " Y: " + Y); // вывод результата в консоль
-      $('body').css('cursor', 'url(images/icons_test/social.png), pointer');
-
-      $("body").on("click", function (e) {
-        console.log("point",arrPoint[activeClass].point)
-        $(".article-exercise").animate({
-          scrollTop: arrPoint[activeClass].point
-        }, 1);
-      })
-
-    } else {
-      $('body').css('cursor', 'default');
-    }
-});
-
-
+        let pointStartScrollDown = $(".slide").eq(activeClass).find($(".slide__inner")).height() / 4
+        let scrollDowm = true
 
         function onScrollArticle () {
           var blockScroll = $(".article-exercise").scrollTop()
 
-          // console.log("blockScroll", blockScroll)
+          if (bodyWidth >= 640 ) { // логика для скролла на планшете и десктопе
+            if (blockScroll > scrollPos){
+              scrollDowm = true
+            } else {
+              scrollDowm = false
+            }
+            scrollPos = blockScroll;
 
-          // if (ttt <= blockScroll ) {
-          //   console.log("activeClass", activeClass)
-          //   console.log("ttt", ttt)
-          //   console.log("blockScroll", blockScroll)
-          //   console.log("next_slide_top",  arrPoint[activeClass+1].point)
-          //
-          //
+            if (scrollDowm) {
+              if (pointStartScrollDown <= blockScroll) {
+                pointStartScrollDown = 0
+                $(".article-exercise").animate({
+                  scrollTop: arrPoint[activeClass].point
+                }, 300);
+                if (activeClass == 0) {
+                  setPoint()
+                }
+                pointStartScrollDown = arrPoint[activeClass].point + $(".slide").eq(activeClass+1).find($(".slide__inner")).height()
+              }
 
-          //
-          //   ttt = (ttt + arrPoint[activeClass].point / 3 ) + arrPoint[activeClass+1].point / 3 * 2
-          //   mmm = mmm + $(".slide").eq(activeClass + 1).height()
-          //   console.log("ttt", ttt)
-          //   scroll = false
-            console.log("--------------")
-          //
-          // }
-          console.log((blockScroll + MARGIN))
-          console.log(arrPoint[activeClass].point)
-          if ((blockScroll + MARGIN)  >= arrPoint[activeClass].point) {
-            $('.scrollbar__section').eq(activeClass).addClass("past")
-            activeClass += 1
-            $('.scrollbar__section').eq(activeClass).addClass("active")
+            } else {
+              if (activeClass > 0) {
+                pointStartScrollDown = arrPoint[activeClass-1].point + $(".slide").eq(activeClass).find($(".slide__inner")).height()
+                  if ((blockScroll + MARGIN) < arrPoint[activeClass - 1].point) {
+                    if (activeClass > 1) {
+                      $(".article-exercise").animate({
+                        scrollTop: arrPoint[activeClass-2].point
+                      }, 300);
+                    } else {
+                      $(".article-exercise").animate({
+                        scrollTop: ((blockScroll) - arrPoint[activeClass-1].point)
+                      }, 300);
+                    }
+                  }
+                  scrollDowm = true
+                } else {
+                  pointStartScrollDown = $(".slide").eq(activeClass).find($(".slide__inner")).height() / 4
+                  scrollDowm = true
+                }
+              }
           }
-          console.log("activeClass", activeClass)
+
+
+            if ((blockScroll + MARGIN)  >= arrPoint[activeClass].point) {
+              $('.scrollbar__section').eq(activeClass).addClass("past")
+              activeClass += 1
+              $('.scrollbar__section').eq(activeClass).addClass("active")
+              $(".slide").eq(activeClass).css("opacity", 1)
+            }
+
           if ( activeClass > 0 ) {
 
             if (bodyWidth >= 1025 && !($(".navigator").hasClass('hide'))){
@@ -382,6 +358,7 @@ $(document).mousemove(function(e){
             setPoint()
 
             if ((blockScroll + MARGIN) < arrPoint[activeClass - 1].point) {
+              $(".slide").eq(activeClass).css("opacity", 0.25)
               $('.scrollbar__section').eq(activeClass).removeClass("active")
               $('.scrollbar__section').eq(activeClass).removeClass("past")
               activeClass -= 1

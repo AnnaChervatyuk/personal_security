@@ -94,11 +94,19 @@
 
 @media (min-width: 640px)
   .container.container-exercise
+    .article-exercise
+      scroll-snap-type: block
+      scroll-snap-stop: normal
     .slide
+      scroll-snap-align: none
+      opacity: 0.25
+      -webkit-transition: 0.2s ease-out
+      transition: 0.2s ease-out
       .article-exercise__wrapper
         padding: 20px
     .slide-first
       min-height: calc(100vh - 90px)
+      opacity: 1
 
 @media (min-width: 1025px)
   .container-exercise
