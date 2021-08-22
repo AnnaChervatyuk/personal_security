@@ -310,20 +310,28 @@
       </footer>
 
       <script>
-      console.log($('body').height())
-        // let skillsMobile = scrollbarSection.clone().appendTo(scrollbarWrapper)
-        let heightBottomSkills = $(".skills__wrapper").eq(0).offset().top +( ($(".skills__wrapper").eq(0).outerHeight() / 3) * 2)
-        let addedMargin = $(".skills__wrapper").eq(0).outerHeight() / 3  + $(".skills__wrapper").eq(0).offset().top
+        let heightBottomSkills = 0
+        let martginContainer = 0
+        let heightFillSkills = $(".skills__wrapper").eq(0).height()
+        if ($(window).width() >= 640 ) {
+          heightBottomSkills = $(".skills__wrapper").eq(0).offset().top + $(".skills__wrapper").eq(0).height() - 84
+          martginContainer = heightFillSkills + 50
+        } else {
+          heightBottomSkills = $(".skills__wrapper").eq(0).offset().top +( ($(".skills__wrapper").eq(0).outerHeight() / 3) * 2)
+          martginContainer = heightFillSkills + 25
+        }
+
+        let addedMargin = $(".skills__wrapper").eq(0).height() / 4  + $(".skills__wrapper").eq(0).offset().top
         function setStyleClass (scrollTop) {
+
           if (scrollTop >= heightBottomSkills) {
-            $(".materials").css("margin-top",  addedMargin + "px")
             $(".skills__wrapper").addClass("skills__wrapper-top")
             $(".materials").addClass("materials-top")
-          } else {
+            $(".container-theory").css("margin-top",martginContainer + "px")
+          } else  {
             $(".skills__wrapper").removeClass("skills__wrapper-top")
             $(".materials").removeClass("materials-top")
-            $(".materials").css("margin-top",  0)
-
+            $(".container-theory").css("margin-top", 0)
           }
         }
 

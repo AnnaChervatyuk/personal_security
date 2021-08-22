@@ -78,8 +78,8 @@
 
       .skill input[type=checkbox]:checked + .checkbox-inner
         color: $white
-        -webkit-transition: 0.4s ease-in-out
-        transition: 0.4s ease-out
+        // -webkit-transition: 0.2s ease-in-out
+        // transition: 0.2s ease-out
         &::before
           content: ""
           position: absolute
@@ -103,19 +103,19 @@
         .amount
           display: none
           color: $white
-          -webkit-transition: 0.4s ease-in-out
-          transition: 0.4s ease-out
+          // -webkit-transition: 0.2s ease-in-out
+          // transition: 0.2s ease-out
           margin-top: auto
           .number
             @include font(70px, 55px)
         h3
           color: $white
-          -webkit-transition: 0.4s ease-in-out
-          transition: 0.4s ease-out
+          // -webkit-transition: 0.2s ease-in-out
+          // transition: 0.2s ease-out
         img
           display: none
-          -webkit-transition: 0.4s ease-in-out
-          transition: 0.4s ease-out
+          // -webkit-transition: 0.2s ease-in-out
+          // transition: 0.2s ease-out
 
   .skills__wrapper-top
     top: 0
@@ -199,6 +199,7 @@
           input[type=checkbox] + .checkbox-inner
             padding: 8px 14px
             height: auto
+            margin: 0
             img
               display: none
             .text

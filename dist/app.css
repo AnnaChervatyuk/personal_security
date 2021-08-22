@@ -1516,8 +1516,6 @@ footer {
 }
 .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner {
   color: #fff;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-out;
 }
 .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner::before {
   content: "";
@@ -1544,8 +1542,6 @@ footer {
 .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount {
   display: none;
   color: #fff;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-out;
   margin-top: auto;
 }
 .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner .amount .number {
@@ -1554,13 +1550,9 @@ footer {
 }
 .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner h3 {
   color: #fff;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-out;
 }
 .content-theory .skills__wrapper .skills .skill input[type=checkbox]:checked + .checkbox-inner img {
   display: none;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-out;
 }
 .content-theory .skills__wrapper-top {
   top: 0;
@@ -1661,6 +1653,7 @@ footer {
   .content-theory .skills__wrapper-top .skills .skill input[type=checkbox] + .checkbox-inner {
     padding: 8px 14px;
     height: auto;
+    margin: 0;
   }
   .content-theory .skills__wrapper-top .skills .skill input[type=checkbox] + .checkbox-inner img {
     display: none;
@@ -3602,9 +3595,10 @@ footer {
 .container-profile .content .delete-profile_wrapper .delete-profile_inner .btns-detele {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .container-profile .content .delete-profile_wrapper .delete-profile_inner .btns-detele .btn {
-  margin: 0 6px;
+  margin: 3px 6px;
 }
 
 @media (min-width: 640px) {
