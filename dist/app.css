@@ -2251,10 +2251,13 @@ footer {
   font-size: 20px;
   line-height: 30px;
 }
-.article .slide-text a {
+.article .slide-text a,
+.article .instruction_wrapper a {
   border-bottom: 1px solid rgba(0, 122, 255, 0.4);
 }
-.article .slide-text a:hover {
+.article .slide-text a:hover,
+.article .instruction_wrapper a:hover {
+  cursor: pointer;
   color: #3D95F5;
 }
 .article .related_lessons {
