@@ -168,14 +168,12 @@ if ($(".todo-list_wrapper")) {
         listTask[i].parent.find($(".el_task")).removeClass("el_task-not-do")
         listTask[i].parent.removeClass($("todo-el_not-do"))
         showNotification("Задание добавлено в Туду-лист")
-        addTimerClosing()
       } else { // ДОБАВЛЯЕТ задачу в список не хочу делать
         listTask[i].btnRisk.text("Вернуть в список моих задач")
         listTask[i].parent.find($(".risks-text")).html("Вы отказались от этот задачи.<br>Ничего страшного.")
         listTask[i].parent.find($(".el_task")).addClass("el_task-not-do")
         listTask[i].parent.addClass($("todo-el_not-do"))
         showNotification("Перемещено в список 'Не хочу делать'")
-        addTimerClosing()
         amountTaskRefused += 1
         listTask[i].isTaskRefuse = 1
         if (listTask[i].isTaskReady) {
@@ -204,12 +202,10 @@ if ($(".todo-list_wrapper")) {
         amountTaskReady -= 1
         listTask[i].isTaskReady = 0
         showNotification("Задание добавлено в Туду-лист")
-        addTimerClosing()
       } else {
         amountTaskReady += 1
         listTask[i].isTaskReady = 1
         showNotification("Здорово!")
-        addTimerClosing()
         if (listTask[i].isTaskRefuse) {
           amountTaskRefused -= 1
           listTask[i].isTaskRefuse = 0
@@ -381,7 +377,7 @@ function followScroll () {
 
 
   // ------ служебные сообщения начало -----
-  window.showNotification = function showNotification(textNotification) {
+  window.showNotification = function showNotification(textNotification, withClosing) {
     var text = (textNotification.split(";")).filter(String)
     if ($(".notification")) {
       $(".notification").remove()
@@ -395,27 +391,41 @@ function followScroll () {
       span.appendTo(notification.find($('div')))
     }
     notification.css("left",  ($("body").width() / 2 - notification.innerWidth() / 2))
-  }
-
-    window.addBtnClose = function addBtnClose() {
-    var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
-    btnClose.appendTo($("#notification"))
-    btnClose.on("click", function (e) {
-      $('#notification').fadeOut(1000);
-      $('#notification').remove()
-    })
-    $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
-  }
-
-  window.addTimerClosing = function addTimerClosing() {
-    var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
-    timerClosing.appendTo($("#notification"))
-    setTimeout(function () {
+    if (withClosing) {
+      var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+      btnClose.appendTo($("#notification"))
+      btnClose.on("click", function (e) {
         $('#notification').fadeOut(1000);
-        setTimeout(function() {$('#notification').remove()}, 1000)
-        }, 6000);
-    $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
+        $('#notification').remove()
+      })
+      $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
+    } else {
+      setTimeout(function () {
+          $('#notification').fadeOut(1000);
+            setTimeout(function() {$('#notification').remove()}, 1000)
+          }, 1000);
+    }
   }
+
+  //   window.addBtnClose = function addBtnClose() {
+  //   var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+  //   btnClose.appendTo($("#notification"))
+  //   btnClose.on("click", function (e) {
+  //     $('#notification').fadeOut(1000);
+  //     $('#notification').remove()
+  //   })
+  //   $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
+  // }
+
+  // window.addTimerClosing = function addTimerClosing() {
+  //   var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
+  //   timerClosing.appendTo($("#notification"))
+  //   setTimeout(function () {
+  //       $('#notification').fadeOut(1000);
+  //       setTimeout(function() {$('#notification').remove()}, 1000)
+  //       }, 6000);
+  //   $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
+  // }
 
 // ------ служебные сообщения конец -----
 

@@ -154,6 +154,14 @@
         </div>
         <div class="slide">
           <div class="slide__inner">
+
+            <div class="exercises_completed__wrapper">
+              <img class="exercises_completed__img" src="./images/cup.svg" width="192" alt="">
+              <h3 class="exercises_completed__header">Поздравляем!</h3>
+              <div class="exercises_completed__text">Все занятия пройдены. Осталось немного практики. Выполните оставшиеся задания в <a href="todo.html">Туду-листе</a>, чтобы завершить тренировку.</div>
+            </div>
+
+
             <div class="go_to_practice__wrapper-bg">
               <div class="go_to_practice__wrapper">
                 <img class="go_to_practice__img" src="./images/go_to_practic.svg" alt="Цифровая безопасность">
@@ -195,7 +203,15 @@
                     <div class="go_to_practice__inner">
                       <div class="type black-70 font-11 mr-5 mb-10">Цифровая безопасность</div>
                       <h5>Настройки </h5>
-                      <div class="time black-70 font-11 mr-5 mt-10">4 мин</div>
+                      <div class="descr">
+                        <div class="time">4 мин</div>
+                        <div class="in-coaching">
+                          <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                             <use xlink:href="sprite.svg#icon-profile"></use>
+                          </svg>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -381,7 +397,8 @@
           }
           setHeightScroll()
 
-          if (!isExersiseRead) {
+          let isInUserList = true // надо сначала получить
+          if (!isExersiseRead && isInUserList) {
             if ((activeClass + 1) == arrSlideLength) {
                 setExerciseRead()
             }

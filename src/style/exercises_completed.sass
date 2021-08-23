@@ -1,0 +1,28 @@
+.exercises_completed__wrapper
+  width: 100%
+  max-width: 750px
+  box-sizing: border-box
+  margin: 100px auto
+  background-color: #FFF5CF
+  border-radius: 4px
+  padding: 50px
+  display: flex
+  flex-direction: column
+  .exercises_completed__img
+    max-width: 320px
+    margin: 0 auto
+    margin-bottom: 40px
+  .exercises_completed__header
+    @include font(32px, 36px)
+    text-align: center
+  .exercises_completed__text
+    @include font(18px, 24px)
+    text-align: center
+    a
+      text-decoration: none
+      border-bottom: 1px solid $black-100
+      &:hover
+        color: $accent-secondary
+        border-bottom: 1px solid $accent-secondary
+        -webkit-transition: 0.1s ease-out
+        transition: 0.1s ease-out
