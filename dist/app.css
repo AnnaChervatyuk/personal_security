@@ -4975,14 +4975,11 @@ footer {
   padding-top: 0;
   height: auto;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-snap-stop: always;
 }
 .container-exercise .article-exercise .slide {
   min-height: 100vh;
   max-width: 1200px;
   overflow-x: hidden;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   -webkit-transition: 0.2s ease-out;
@@ -5041,12 +5038,7 @@ footer {
 }
 
 @media (min-width: 640px) {
-  .container.container-exercise .article-exercise {
-    scroll-snap-type: block;
-    scroll-snap-stop: normal;
-  }
   .container.container-exercise .slide {
-    scroll-snap-align: none;
     opacity: 0.25;
     -webkit-transition: 0.2s ease-out;
     transition: 0.2s ease-out;

@@ -164,6 +164,10 @@ module.exports = {
         template: 'src/public/email.html'
         }),
       new HtmlWebpackPlugin({
+        filename: 'email_progress.html',
+        template: 'src/public/email_progress.html'
+        }),
+      new HtmlWebpackPlugin({
         filename: 'instruction.html',
         template: 'src/public/instruction.html'
         }),
