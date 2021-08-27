@@ -1,14 +1,16 @@
 .scrollbar__wrapper
- width: 4px
+ height: 10px
  margin-left: 8px
- margin-right: 5px
+ flex-grow: 1
+ display: flex
+ max-width: 750px
  .scrollbar__section
    background-color: $grey-20
-   margin-bottom: 4px
+   margin-right: 4px
    // -webkit-transition: 0.2s ease-out
    // transition: 0.2s ease-out
    &:last-child
-     margin-bottom: 0
+     margin-right: 0
 
  .past
    background-color: #007AFF
@@ -29,6 +31,4 @@
 
 @media (min-width: 640px)
   .scrollbar__wrapper
-     width: 8px
-     margin-left: 7px
-     margin-right: 7px
+     height: 8px
