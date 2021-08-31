@@ -60,40 +60,38 @@
         </div>
       </section>
 
-
-
+      <div class="block_top">
+        <div class="block_return">
+          <a href="index.html">
+            <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <use xlink:href="sprite.svg#icon-return"></use>
+            </svg>
+            <h5>Теория</h5>
+          </a>
+        </div>
+        <div class="scrollbar__wrapper"></div>
+      </div>
       <section class="article article-exercise__wrapper">
           <div class="article-exercise">
 
-          <div class="block_top">
-            <div class="block_return">
-              <a href="index.html">
-                <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                   <use xlink:href="sprite.svg#icon-return"></use>
-                </svg>
-                <h5>Теория</h5>
-              </a>
+            <div class="exercise_footer">
+              <div class="descr">
+                <div class="type">Занятие</div>
+              </div>
+              <div class="exercise_footer-title">Регистрация мессенджеров на иностранные номера</div>
             </div>
-
-            <div class="scrollbar__wrapper"></div>
-
-          </div>
 
           <div class="slide slide-first">
 
-            <div class="block_tap block_tap-left"></div>
-            <div class="block_tap block_tap-right"></div>
+            <div class="block_tap block_tap-left">
+              <img src="./images/arrow_left.svg">
+            </div>
+            <div class="block_tap block_tap-right">
+              <img src="./images/arrow_right.svg">
+            </div>
 
             <div class="slide__inner">
               <div class="slide__block">
-
-
-                <div class="exercise_footer">
-                  <div class="descr">
-                    <div class="type">Занятие</div>
-                  </div>
-                  <div class="exercise_footer-title">Регистрация мессенджеров на иностранные номера</div>
-                </div>
 
               <div class="article-situation_header">
                 <div class="header_inner">
@@ -198,10 +196,10 @@
               </div>
 
               <!--  ДЛЯ НЕЗАЛОГИНЕННЫХ  -->
-              <!-- <div class="go_to_test__inner">
+               <div class="go_to_test__inner">
                 <h3>Пройдите тест и мы составим для вас персональную программу тренировки по безопасности</h3>
                 <a class="btn link_btn" href="">Настроить тренировку</a>
-              </div> -->
+              </div> 
               <!--  ДЛЯ ЗАЛОГИНЕННЫХ -->
 
               <div class="slide__inner-go_to_practice">
@@ -271,94 +269,74 @@
         let arrSlideLength = $(".slide").length
         let scrollbarSection = $('<div class="scrollbar__section"></div>')
         let scrollbarWrapper = $(".scrollbar__wrapper")
-        let widthScrollbarWrapper = scrollbarWrapper.outerWidth()
+        let widthScrollbarWrapper = $('body').outerWidth() - $(".block_return").outerWidth(true) - 40
         let widthScrollbarSection = widthScrollbarWrapper / arrSlideLength - 4
-        let arrPoint = []
-        let heightPoint = 0
-        let MARGIN = 4
         let activeClass = 0
+
         scrollbarSection.css("width", widthScrollbarSection + "px")
 
         for (var i=0; i < arrSlideLength; i++) {
           scrollbarSection.clone().appendTo(scrollbarWrapper);
+          clickOnScrollbar(i)
+          if (i != 0) {
+            $(".slide").eq(i).css("display", "none")
+          }
         }
 
         function setWidthScroll() { // установить ширину скролла и его элементов
-          widthScrollbarWrapper = $(".block_top").width() - 55
+          if (bodyWidth >= 1025 && activeClass > 0) {
+            let scrollbarOffset = $('.slide__block').eq(activeClass).offset().left - $('.block_return').outerWidth(true) - $('.block_return').offset().left
+            $(".scrollbar__wrapper").css("margin-left", scrollbarOffset + 'px')
+            $('.exercise_footer').css("margin-left", $('.block_return').offset().left - 30 + 'px')
+          } else {
+            $(".scrollbar__wrapper").css("margin-left", 0 + 'px')
+          }
+
+          widthScrollbarWrapper = $('body').outerWidth() - $(".block_return").outerWidth(true) - 40
           widthScrollbarSection = widthScrollbarWrapper / arrSlideLength - 4
           for (var i =0; i < ($(".scrollbar__section").length); i++) {
             $(".scrollbar__section").eq(i).css("width", widthScrollbarSection)
+
           }
         }
-
-        setWidthScroll()
-
-        function setPoint() { // получить точки для скролла
-          arrPoint = []
-          heightPoint = 0
-          for (var i = 0; i < ($(".slide")).length; i++ ) {
-            heightPoint = heightPoint + $(".slide").eq(i).outerHeight()
-            if (i == ($(".slide")).length - 1) {
-              heightPoint -= MARGIN
-            }
-            let el = {
-              key: i,
-              point: heightPoint
-            }
-            arrPoint.push(el)
-          }
-        }
-
-        setPoint()
 
         $('.scrollbar__section').eq(activeClass).addClass("active")
 
+        function clickOnScrollbar (slide) {
+          $(".scrollbar__section").eq(slide).on("click", function (e) {
+            goToSlide(slide)
+          })
+        }
+
+        function goToSlide (slide) {
+          activeClass = slide
+          for (var i=0; i < arrSlideLength; i++) {
+              $(".slide").eq(i).css("display", "none")
+              $('.scrollbar__section').eq(i).removeClass("active")
+              $('.scrollbar__section').eq(i).removeClass("past")
+          }
+          for (var i =0; i < activeClass; i++) {
+            $('.scrollbar__section').eq(i).addClass("past")
+          }
+          $('.scrollbar__section').eq(activeClass).addClass("active")
+          $(".slide").eq(activeClass).css("opacity", 1).css("display", "flex")
+            updateAfterClick()
+        }
+
+
         $('.block_tap-right').on("click", function (e) {
-
-            $(".article-exercise").animate({
-              scrollTop: arrPoint[activeClass].point
-            }, 1);
-
-            $('.scrollbar__section').eq(activeClass).addClass("past")
-            $(".slide").eq(activeClass).css("opacity", 0.25)
-            activeClass += 1
-            $('.scrollbar__section').eq(activeClass).addClass("active")
-            $(".slide").eq(activeClass).css("opacity", 1)
-
-            onClickTap()
+            let next = activeClass + 1
+            goToSlide(next)
         })
 
 
-          $('.block_tap-left').on("click", function (e) {
-
-              if (activeClass > 1) {
-                $(".article-exercise").animate({
-                  scrollTop: arrPoint[activeClass-2].point
-                }, 1);
-              } else {
-                $(".article-exercise").animate({
-                  scrollTop: 0
-                }, 1);
-              }
-
-              $(".slide").eq(activeClass).css("opacity", 0.25)
-              $('.scrollbar__section').eq(activeClass).removeClass("active")
-              $('.scrollbar__section').eq(activeClass).removeClass("past")
-              activeClass -= 1
-
-              $('.scrollbar__section').eq(activeClass).removeClass("past")
-              $('.scrollbar__section').eq(activeClass).addClass("active")
-              $(".slide").eq(activeClass).css("opacity", 1)
-
-              onClickTap()
-          })
+        $('.block_tap-left').on("click", function (e) {
+            let prev = activeClass - 1
+            goToSlide(prev)
+        })
 
 
-          let offsetLeft = 0 - $('.slide').eq(0).offset().left + 'px'
-          let offsetRight = $('body').width() - $('.slide').eq(0).offset().left + $('.slide').eq(0).width() + 'px'
-
-
-          function onClickTap () {
+          function updateAfterClick () {
 
             let isInUserList = true // надо сначала получить
             if (!isExersiseRead && isInUserList) {
@@ -367,68 +345,28 @@
               }
             }
 
-          if ( activeClass > 0 ) {
-            $('.block_top').css("position", "fixed")
-            if (bodyWidth >= 1025) {
-              $('.block_return').css("margin-left", 0 + 'px')
-              $(".scrollbar__wrapper").css("margin-left",$('.slide__block').eq(activeClass).offset().left - 20 + 'px')
-            } else {
-              $(".scrollbar__wrapper").css("margin-left",0 + 'px')
-            }
-            if (bodyWidth >= 1200) {
-                $(".scrollbar__wrapper").css("margin-left",$('.slide__block').eq(activeClass).offset().left - 78 - 30 + 'px')
-            }
-            if (bodyWidth > 640) {
-              if (!($(".navigator").hasClass('hide'))){
-                $(".navigator").addClass('hide')
-                $('.exercise_footer').css("display", "flex").css("left", "30px")
-              }
+          if (activeClass > 0 && bodyWidth >= 1025) {
+              $('.exercise_footer').css("display", "flex")
+          } else {
+              $('.exercise_footer').css("display", "none")
+          }
+
+          if (bodyWidth > 640) {
+            if (activeClass > 0) {
               if (!$('.block_top').find('h5').hasClass('hide')) {
                 $('.block_top').find('h5').addClass('hide')
               }
-              $('.article-exercise').css("max-height", '100vh')
-            }
-
-            if (bodyWidth >= 1025 && !($(".navigator").hasClass('hide'))){
-              $(".navigator").addClass('hide')
-              $('.exercise_footer').css("display", "flex").css("left", "30px")
-            }
-
-            if (bodyWidth < 1025) {
-              $('.exercise_footer').css("display", "none")
-            }
-
-          } else if (activeClass == 0) {
-            if (bodyWidth >= 1025) {
-              $('.block_return').css("margin-left", $('.article-situation_header').eq(0).offset().left - 30 + 'px')
-              $(".scrollbar__wrapper").css("margin-left",0 + 'px')
-
-            }
-            $('.block_top').css("position", "sticky")
-
-            if (bodyWidth > 640) {
-              if($(".navigator").hasClass('hide')){
-                  $(".navigator").removeClass('hide')
-                  $('.exercise_footer').css("display", "none")
-              }
+            } else {
               if ($('.block_top').find('h5').hasClass('hide')) {
                 $('.block_top').find('h5').removeClass('hide')
               }
             }
-
-            if(bodyWidth >= 1025 && $(".navigator").hasClass('hide')){
-              $(".navigator").removeClass('hide')
-              $('.exercise_footer').css("display", "none")
-            }
-
+            setWidthScroll()
           }
+
 
           $('.block_tap-right').appendTo($(".slide").eq(activeClass))
           $('.block_tap-left').appendTo($(".slide").eq(activeClass))
-
-          $('.block_tap-right').css("height", $(".slide").eq(activeClass).find($(".slide__inner")).outerHeight(true) + "px")
-          $('.block_tap-left').css("height", $(".slide").eq(activeClass).find($(".slide__inner")).outerHeight(true) + "px")
-
 
           if (activeClass + 1 == arrSlideLength) {
             $('.block_tap-right').addClass("hide")
@@ -444,12 +382,10 @@
             $('.block_tap-left').removeClass("hide")
             $('.block_tap-right').removeClass("hide")
           }
-
-          setPoint()
         }
 
 
-        onClickTap()
+        updateAfterClick()
 
         function setExerciseRead () {
           isExersiseRead = true
@@ -465,8 +401,7 @@
             e.stopPropagation();
             bodyWidth = $('body').innerWidth()
             setWidthScroll()
-            setPoint()
-            onClickTap()
+            updateAfterClick()
           })
 
 

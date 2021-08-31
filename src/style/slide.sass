@@ -1,14 +1,34 @@
 .container-exercise
-  max-height: 100vh
+  // max-height: 100vh
   width: 100vw
   max-width: 100vw
-  // overflow-y: hidden
+  height: 100vh
+  .block_top
+    align-items: center
+    margin-bottom: 0
+    z-index: 3
+    position: -webkit-sticky
+    position: sticky
+    top: 0
+    height: 50px
+    padding: 20px
+    background: opacity
+    background-color: rgba(255, 255, 255, 0.9)
+    -webkit-backdrop-filter: blur(4px)
+    backdrop-filter: blur(4px)
+    // width: 100%
+    box-sizing: border-box
+    display: flex
+    .block_return
+      margin-bottom: 0
+      h5
+        display: none
   .slide-first
     justify-content: flex-start
-    min-height: auto
+    // min-height: auto
     .slide__inner
       .slide__block
-        min-height: calc(100vh - 50px)
+        // min-height: calc(100vh - 50px)
         display: flex
         flex-direction: column
         position: relative
@@ -19,72 +39,84 @@
       .block_btn-next
         margin:  auto 20px 50px auto
         z-index: -1
+        padding-bottom: 60px
   .slide
     -webkit-transition: 0.2s ease-out
     transition: 0.2s ease-out
-    overflow-x: hidden
-    overflow-y: auto
+    overflow: hidden
+    // overflow-y: auto
     scrollbar-width: none
-    .exercise_footer
-      display: none
-      position: fixed
-      bottom: 40px
-      flex-direction: column
-      .exercise_footer-title
-        line-height: 16px
-        font-size: 12px
-        max-width: 180px
-        -webkit-transition: 0.2s ease-out
-        transition: 0.2s ease-out
+  .exercise_footer
+    display: none
+    position: fixed
+    bottom: 40px
+    flex-direction: column
+    left: 30px
+    .exercise_footer-title
+      line-height: 16px
+      font-size: 12px
+      max-width: 160px
+      -webkit-transition: 0.2s ease-out
+      transition: 0.2s ease-out
 
   .article.article-exercise__wrapper
     display: flex
     flex-direction: row-reverse
     padding: 0
+    flex-grow: 1
     .article-exercise
-      max-height: 100vh
+      // max-height: 100vh
       padding: 0
-      height: auto
+      // height: auto
       overflow-y: hidden
-      .block_top
-        align-items: center
-        margin-bottom: 0
-        z-index: 3
-        margin-right: 20px
-        position: sticky
-        height: 50px
-        padding: 20px
-        background: opacity
-        background-color: rgba(255, 255, 255, 0.9)
-        -webkit-backdrop-filter: blur(4px)
-        backdrop-filter: blur(4px)
-        width: 100%
-        box-sizing: border-box
-        display: flex
-        .block_return
-          margin-bottom: 0
-          h5
-            display: none
+      display: flex
+      flex-direction: column
+      position: relative
+      flex-grow: 1
+      // .block_top
+      //   align-items: center
+      //   margin-bottom: 0
+      //   z-index: 3
+      //   // margin-right: 20px
+      //   position: -webkit-sticky
+      //   position: sticky
+      //   top: 0
+      //   height: 50px
+      //   padding: 20px
+      //   background: opacity
+      //   background-color: rgba(255, 255, 255, 0.9)
+      //   -webkit-backdrop-filter: blur(4px)
+      //   backdrop-filter: blur(4px)
+      //   width: 100%
+      //   box-sizing: border-box
+      //   display: flex
+      //   .block_return
+      //     margin-bottom: 0
+      //     h5
+      //       display: none
       .slide
-        min-height: 100vh
+        // min-height: 100vh
         max-width: 1200px
         display: flex
         flex-direction: column
         -webkit-transition: 0.2s ease-out
         transition: 0.2s ease-out
         scrollbar-width: none
-        height: 100%
-        min-height: 100vh
+        // height: 100%
+        // min-height: 100vh
         position: relative
-        overflow-x: hidden
-        overflow-y: auto
+        overflow: hidden
+        // overflow-y: auto
         .block_tap
           position: absolute
           top: 0
           height: 100%
+          vertical-align: baseline
           // background-color: red
           // opacity: 0.1
-          min-height: 100vh
+
+          img
+            display: none
         .block_tap-left
           left: 0
           width: 20%
@@ -99,7 +131,6 @@
           display: flex
           flex-direction: column
           padding: 0 20px
-          margin-bottom: 55px
           .slide__block
             margin: 0 auto
       .slide::-webkit-scrollbar
@@ -109,20 +140,21 @@
         box-sizing: border-box
         padding-top: 120px
         padding-bottom: 60px
+        height: 100%
         &:last-child
           padding-bottom: 0
           .slide__inner
             .slide__block
-              max-width: 750px
+              max-width: 600px
         h3
           margin-bottom: 46px
         div
-          @include font(18px, 27px)
+          @include font(20px, 30px)
           margin-bottom: 46px
           &:last-child
             margin-bottom: 0
         ul
-          @include font(18px, 27px)
+          @include font(20px, 30px)
         img
           margin: 20px 0
           height: auto
@@ -138,29 +170,73 @@
 
 @media (min-width: 640px)
   .container.container-exercise
+    .block_top
+      margin-bottom: 40px
+      .block_return
+        margin-right: 77px
     .article.article-exercise__wrapper
       .article-exercise
-        width: 100%
-        max-height: calc(100vh - 90px)
+        // width: 100%
+        // max-height: calc(100vh - 90px)
         .slide
           opacity: 0.25
           -webkit-transition: 0.2s ease-out
           transition: 0.2s ease-out
-          min-height: calc(100vh - 60px - 90px)
+          // min-height: calc(100vh - 60px - 90px)
+          .slide__inner
+            .slide__block
+              max-width: 600px
+
           .article-exercise__wrapper
             padding: 20px
-          .block_top
-            margin-bottom: 40px
-            .block_return
-              margin-right: 77px
+          // .block_top
+          //   margin-bottom: 40px
+          //   .block_return
+          //     margin-right: 77px
 
         .slide-first
           opacity: 1
-          min-height: calc(100vh - 60px - 90px)
+          // min-height: calc(100vh - 60px - 90px)
           .slide__inner
             .slide__block
-              min-height: calc(100vh - 60px - 90px)
+              // min-height: calc(100vh - 60px - 90px)
+              display: flex
+              justify-content: center
+              max-width: 1125px
+              .block_btn-next
+                display: none
 
+@media (min-width: 768px)
+  .container.container-exercise
+    .article.article-exercise__wrapper
+      .article-exercise
+        .slide
+          flex-grow: 1
+          .block_tap
+            img
+              width: 26px
+              height: 26px
+              top: calc(50vh - 13px)
+
+              display: block
+              position: fixed
+              opacity: 0.3
+            &:hover
+              img
+                display: none
+          .block_tap-left
+            img
+              left: 20px
+            &:hover
+              cursor: url('../public/images/arrow_left.svg'), auto
+          .block_tap-right
+            img
+              right: 20px
+            &:hover
+              cursor: url('../public/images/arrow_right.svg'), auto
+        .slide-first
+          .slide__inner
+            margin: auto
 @media (min-width: 1025px)
   .container-exercise
     .article.article-exercise__wrapper
@@ -173,39 +249,39 @@
           .slide__inner
             .slide__block
               max-width: 600px
-              padding-left: 50px
+              // padding-left: 50px
         .slide-first
           .slide__inner
             .slide__block
               max-width: 100%
               padding-left: 0
-              min-height: auto
+              // min-height: auto
               .block_return
                 h5
                   display: block
 
 @media (min-width: 1200px)
   .container.container-exercise
+    overflow-y: auto
+    .block_top
+      padding: 20px 30px
+      max-width: 100%
+      margin: 0 auto
+      width: 1200px
+      .block_return
+        margin-right: 77px
+        h5
+          display: block
     .navigator
       width: 1200px
       margin-left: auto
       margin-right: auto
       position: relative
-    .article
+    .article.article-exercise__wrapper
       padding: 0
       box-sizing: border-box
       .article-exercise
         overflow-y: hidden
-        height: 100vh
-        max-height: 100vh
-        .block_top
-          padding: 20px 30px
-          max-width: 100%
-          margin: 0 auto
-          .block_return
-            margin-right: 77px
-            h5
-              display: block
         .slide
           width: 100%
           max-width: 100%
@@ -215,9 +291,7 @@
             padding-left: 0
             .slide__block
               margin: 0 auto
-        .slide-text
-          .slide__block
-            max-width: 750px
+              max-width: 750px
         .slide-first
           .slide__inner
             max-width: 100%
