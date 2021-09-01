@@ -647,6 +647,7 @@ textarea::placeholder {
   }
   .navigator .menu__wrapper .nav_list-menu .nav_el {
     margin-bottom: 0;
+    width: 24px;
     margin-right: 20px;
   }
   .navigator .menu__wrapper .nav_list-menu .nav_el:last-child {
@@ -1808,8 +1809,13 @@ footer {
 }
 .article > .related_lessons > .material-list .material-el .done,
 .materials > .material > .material-list .material-el .done {
+  z-index: 4;
   height: 24px;
   margin-right: 5px;
+}
+.article > .related_lessons > .material-list .material-el .done:hover,
+.materials > .material > .material-list .material-el .done:hover {
+  cursor: pointer;
 }
 .article > .related_lessons > .material-list .material-el-digital > .img::not(img),
 .materials > .material > .material-list .material-el-digital > .img::not(img) {
@@ -4383,6 +4389,11 @@ footer {
   display: flex;
 }
 
+#confetti-canvas {
+  position: absolute;
+  top: 0;
+}
+
 @media (min-width: 640px) {
   .progress_popup_wrapper .progress_popup_inner .btn-close-top,
 .progress_popup_wrapper .threat_popup_inner .btn-close-top,
@@ -4512,7 +4523,7 @@ footer {
   width: 100%;
   box-sizing: border-box;
   margin-top: 60px;
-  margin-bottom: 0;
+  margin-bottom: 100px;
 }
 
 .go_to_practice__wrapper-bg-task {
@@ -5051,7 +5062,7 @@ footer {
 }
 .container-exercise .article.article-exercise__wrapper .article-exercise .slide .block_tap-right {
   right: 0;
-  width: 30%;
+  width: 80%;
 }
 .container-exercise .article.article-exercise__wrapper .article-exercise .slide .block_tap-right:hover {
   cursor: url(/assets/fonts/webfonts/arrow_right.svg), auto;

@@ -196,10 +196,10 @@
               </div>
 
               <!--  ДЛЯ НЕЗАЛОГИНЕННЫХ  -->
-               <div class="go_to_test__inner">
+               <!-- <div class="go_to_test__inner">
                 <h3>Пройдите тест и мы составим для вас персональную программу тренировки по безопасности</h3>
                 <a class="btn link_btn" href="">Настроить тренировку</a>
-              </div> 
+              </div> -->
               <!--  ДЛЯ ЗАЛОГИНЕННЫХ -->
 
               <div class="slide__inner-go_to_practice">
@@ -283,6 +283,44 @@
           }
         }
 
+
+
+
+        // var blockScroll = $(".container").scrollTop()
+        //
+        // if (blockScroll > scrollPos){
+        //       scrollDowm = true
+        //     } else {
+        //       scrollDowm = false
+        //     }
+        //
+        //     scrollPos = blockScroll;
+        //
+        //     console.log("scrollDowm",scrollDowm)
+        var scrollPos = 0
+
+        $(".container").on('mousewheel', function(e) {
+          console.log($(".container").scrollTop())
+          console.log($(document).height())
+
+          blockScroll = $(".container").scrollTop()
+          // if ($(".container").scrollTop() == 0) {
+          //     console.log('Достигнут верхний предел');
+          // }
+          if (blockScroll > scrollPos){
+                scrollDowm = true
+              } else {
+                scrollDowm = false
+              }
+
+              scrollPos = blockScroll;
+
+              console.log("scrollDowm",scrollDowm)
+          // e.preventDefault()
+          // onScrollArticle()
+        })
+
+
         function setWidthScroll() { // установить ширину скролла и его элементов
           if (bodyWidth >= 1025 && activeClass > 0) {
             let scrollbarOffset = $('.slide__block').eq(activeClass).offset().left - $('.block_return').outerWidth(true) - $('.block_return').offset().left
@@ -291,6 +329,9 @@
           } else {
             $(".scrollbar__wrapper").css("margin-left", 0 + 'px')
           }
+
+          $('.block_tap-left').find('img').css("left", $('.block_return').offset().left + 'px')
+          $('.block_tap-right').find('img').css("right", $('.block_return').offset().left + 'px')
 
           widthScrollbarWrapper = $('body').outerWidth() - $(".block_return").outerWidth(true) - 40
           widthScrollbarSection = widthScrollbarWrapper / arrSlideLength - 4

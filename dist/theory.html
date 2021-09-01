@@ -317,23 +317,22 @@
 
       <script>
         let heightBottomSkills = 0
-        let martginContainer = 0
+        let marginContainer = 0
         let heightFillSkills = $(".skills__wrapper").eq(0).height()
         if ($(window).width() >= 640 ) {
           heightBottomSkills = $(".skills__wrapper").eq(0).offset().top + $(".skills__wrapper").eq(0).height() - 84
-          martginContainer = heightFillSkills + 50
+          marginContainer = heightFillSkills + 50
         } else {
           heightBottomSkills = $(".skills__wrapper").eq(0).offset().top +( ($(".skills__wrapper").eq(0).outerHeight() / 3) * 2)
-          martginContainer = heightFillSkills + 25
+          marginContainer = heightFillSkills + 25
         }
 
-        let addedMargin = $(".skills__wrapper").eq(0).height() / 4  + $(".skills__wrapper").eq(0).offset().top
         function setStyleClass (scrollTop) {
 
           if (scrollTop >= heightBottomSkills) {
             $(".skills__wrapper").addClass("skills__wrapper-top")
             $(".materials").addClass("materials-top")
-            $(".container-theory").css("margin-top",martginContainer + "px")
+            $(".container-theory").css("margin-top",marginContainer + "px")
           } else  {
             $(".skills__wrapper").removeClass("skills__wrapper-top")
             $(".materials").removeClass("materials-top")

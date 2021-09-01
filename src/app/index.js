@@ -264,7 +264,6 @@ if ($(".todo-list_wrapper")) {
 
 
   todoHeaderNotDo.on("click", function (event) {
-    console.log("click")
     if (todoListNotDo.hasClass("hide")) {
       todoListNotDo.removeClass("hide");
       todoHeaderNotDo.addClass("header-border-bottom")
@@ -450,7 +449,11 @@ window.getInCoachingTooltip = function getInCoachingTooltip() {
           left += shift
           popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
         }
-        popup.css("top", (arrIconsCoaching.eq(i).offset().top + 35))
+        let shiftTop = 0
+        if ($(".container-theory")) {
+          shiftTop = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
+        }
+        popup.css("top", (arrIconsCoaching.eq(i).offset().top - shiftTop + 35))
         popup.css("left", (left - 15))
       }).on('mouseleave',function(){
         popup.css("display", "none")
@@ -465,9 +468,47 @@ window.getInCoachingTooltip = function getInCoachingTooltip() {
 }
 window.getInCoachingTooltip()
 
-
-
   // ------ ховер на иконку in-coaching конец -----
+
+
+  // ------ ховер на иконку done начало -----
+  window.getDoneTooltip = function getDoneTooltip() {
+    if ($(".descr").find(".done")) {
+      let arrIconsDone = $(".done") // весь список иконок
+      var popup = $('<div class="popup">Занятие выполнено<div class="arrow"></div></div>')
+      popup.appendTo($("body"))
+      function onHoverIconDone (i) {
+        arrIconsDone.eq(i).on("mouseenter", function (e) {
+          var left = arrIconsDone.eq(i).offset().left
+          popup.css("display", "block")
+          var popupWidth = popup.width()
+          var bodyWidth = $("body").width()
+          var shift = bodyWidth - (left + 15 + popupWidth)
+          if (shift < 0)  {
+            left += shift
+            popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+          }
+          let shiftTopDone = 0
+          if ($(".container-theory").length > 0) {
+            shiftTopDone = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
+          }
+          popup.css("top", (arrIconsDone.eq(i).offset().top - shiftTopDone + 35))
+          popup.css("left", (left - 15))
+        }).on('mouseleave',function(){
+          popup.css("display", "none")
+          popup.find($(".arrow")).css("left", 15)
+        })
+      }
+
+      for (var i = 0; i < arrIconsDone.length; i++) {
+        onHoverIconDone(i)
+      }
+    }
+  }
+  window.getDoneTooltip()
+
+    // ------ ховер на иконку done конец -----
+
 
 
   // ------ поиск начало ------
@@ -629,7 +670,11 @@ window.getInCoachingTooltip()
           left += shift
           popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
         }
-        popup.css("top", (arrBtnSetList.eq(i).offset().top + 35))
+        let shiftTop = 0
+        if ($(".container-theory")) {
+          shiftTop = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
+        }
+        popup.css("top", (arrBtnSetList.eq(i).offset().top - shiftTop + 35))
         popup.css("left", (left - 15))
       }).on('mouseleave',function(){
         popup.css("display", "none")
