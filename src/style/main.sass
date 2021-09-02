@@ -101,9 +101,13 @@ a.btn,
 
 .link_btn
   color: $accent
+  width: fit-content
+  width: -moz-fit-content
+  border-bottom: 1px solid  transparent
   &:hover
     color: $accent-secondary
-    text-decoration: underline
+    text-decoration: none
+    border-bottom: 1px solid  $accent-secondary
     cursor: pointer
     -webkit-transition: 0.1s ease-out
     transition: 0.1s ease-out

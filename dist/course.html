@@ -148,7 +148,7 @@
                               <span>Настроить локальный бэкап</span>
                               </label>
                               <div class="el_how-do_btn">
-                                 <span>Как это сделать</span>
+                                 <span>Подробнее</span>
                                  <div class="btn-arrow_todo"></div>
                               </div>
                            </div>
@@ -667,7 +667,7 @@
                               <span>Настроить резервное копирование в облако</span>
                               </label>
                               <div class="el_how-do_btn">
-                                 <span>Как это сделать</span>
+                                 <span>Подробнее</span>
                                  <div class="btn-arrow_todo"></div>
                               </div>
                            </div>
@@ -1187,7 +1187,7 @@
                               <span>Протестировать автоудаление</span>
                               </label>
                               <div class="el_how-do_btn">
-                                 <span>Как это сделать</span>
+                                 <span>Подробнее</span>
                                  <div class="btn-arrow_todo"></div>
                               </div>
                            </div>
@@ -1720,6 +1720,15 @@
                         <div class="skill-financial_wrapper skill_wrapper">
                            <div class="skill skill-financial" id="skill-financial">
                               <div class="percent"><span id="progress_skill-financial"></span>%</div>
+                           </div>
+                           <div class="skill-title">Финансовая безопасность</div>
+                           <div class="skill-description hide">Как не потерять деньги: защищаем карты и банковские аккаунты от мошенников.</div>
+                           <div class="link" onClick="openPopupProgress('financial', this)"></div>
+                        </div>
+
+                        <div class="skill-financial_wrapper skill_wrapper">
+                           <div class="skill skill-financial" id="skill-personal">
+                              <div class="percent"><span id="progress_skill-personal"></span>%</div>
                            </div>
                            <div class="skill-title">Финансовая безопасность</div>
                            <div class="skill-description hide">Как не потерять деньги: защищаем карты и банковские аккаунты от мошенников.</div>
@@ -3631,6 +3640,7 @@
          //----- открыть попап с прогрессом конец ----
 
       </script>
+
       <script type="text/javascript">
          const progressData = 6;
          const progressSkillDigital = 6;
@@ -3656,7 +3666,7 @@
            let skills  = $(".skill"),
                skillTitle = $(".skill-title"),
                skillWrapper = $(".skill_wrapper")
-           if($('body').innerWidth() >= 1200){
+           if($('body').innerWidth() >= 640){
                for (var i = 0; i < skills.length; i++){
                  skillTitle.eq(i).appendTo(skills.eq(i))
                }

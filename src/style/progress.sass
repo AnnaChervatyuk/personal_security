@@ -184,6 +184,23 @@
             margin-top: 0
             margin-left: 30px
 
+  .progress_course
+    .progress
+      .progress_skills
+        .skill_wrapper
+          width: 180px
+        .skill
+          width: 180px
+          height: 180px
+          border: 9px solid transparent
+          display: flex
+          flex-direction: column
+          .percent
+            @include font(52px, 52px)
+          .skill-title
+            width: 95px
+            margin-top: 6px
+
 
 @media (min-width: 768px)
   .progress
@@ -229,6 +246,7 @@
       .progress_about
         margin: 0
 
+
 @media (min-width: 1200px)
   .progress
     .progress_skills
@@ -245,12 +263,3 @@
           margin-top: 6px
       .skill_wrapper
         width: 156px
-
-  .progress_course
-    .progress
-      .progress_skills
-        .skill_wrapper
-          width: 180px
-        .skill
-          width: 180px
-          height: 180px

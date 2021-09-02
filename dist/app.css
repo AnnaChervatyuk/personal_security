@@ -139,10 +139,14 @@ a.btn:hover,
 
 .link_btn {
   color: #007AFF;
+  width: fit-content;
+  width: -moz-fit-content;
+  border-bottom: 1px solid transparent;
 }
 .link_btn:hover {
   color: #3D95F5;
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid #3D95F5;
   cursor: pointer;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
@@ -948,6 +952,25 @@ footer {
     margin-top: 0;
     margin-left: 30px;
   }
+
+  .progress_course .progress .progress_skills .skill_wrapper {
+    width: 180px;
+  }
+  .progress_course .progress .progress_skills .skill {
+    width: 180px;
+    height: 180px;
+    border: 9px solid transparent;
+    display: flex;
+    flex-direction: column;
+  }
+  .progress_course .progress .progress_skills .skill .percent {
+    font-size: 52px;
+    line-height: 52px;
+  }
+  .progress_course .progress .progress_skills .skill .skill-title {
+    width: 95px;
+    margin-top: 6px;
+  }
 }
 @media (min-width: 768px) {
   .progress {
@@ -1017,14 +1040,6 @@ footer {
   }
   .progress .progress_skills .skill_wrapper {
     width: 156px;
-  }
-
-  .progress_course .progress .progress_skills .skill_wrapper {
-    width: 180px;
-  }
-  .progress_course .progress .progress_skills .skill {
-    width: 180px;
-    height: 180px;
   }
 }
 .cards {
@@ -1159,6 +1174,13 @@ footer {
   color: #787882;
   margin: 10px auto 30px;
   text-align: center;
+}
+.content .disclaimer-theory {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #787882;
+  margin-top: 100px;
 }
 
 .content-situation .suggest_situation {
@@ -2567,6 +2589,7 @@ footer {
   position: relative;
   margin-left: 20px;
   width: 20px;
+  height: 20px;
 }
 .todo-list_wrapper .todo-list-header .btn-arrow_header::after {
   content: "";
@@ -2576,8 +2599,8 @@ footer {
   width: 12px;
   height: 12px;
   right: 0;
-  top: 33%;
-  transform: rotate(-45deg);
+  top: calc(100% - 20px);
+  transform: rotate(135deg);
 }
 .todo-list_wrapper .todo-list {
   font-size: 16px;
@@ -2620,6 +2643,7 @@ footer {
   user-select: none;
   position: relative;
   cursor: pointer;
+  margin-right: 10px;
 }
 .todo-list_wrapper .todo-list .todo-el .el_task input[type=checkbox] {
   position: absolute;
@@ -2683,7 +2707,6 @@ footer {
   display: block;
   position: relative;
   margin-left: 15px;
-  margin-top: -11px;
   width: 8px;
 }
 .todo-list_wrapper .todo-list .todo-el .el_how-do_btn .btn-arrow_todo::after {
@@ -2694,7 +2717,7 @@ footer {
   width: 7px;
   height: 7px;
   right: 0;
-  top: 20%;
+  top: calc(100% - 6px);
   transform: rotate(135deg);
 }
 .todo-list_wrapper .todo-list .todo-el .el_task-not-do {
@@ -3425,6 +3448,9 @@ footer {
   padding: 0;
   margin-bottom: 30px;
 }
+.container-about .content_inner .about_descr h3 {
+  margin: 16px 0;
+}
 .container-about .content_inner .contacts h2 {
   text-align: center;
 }
@@ -3572,7 +3598,8 @@ footer {
 .container-profile .content .delete-profile:hover {
   cursor: pointer;
   color: #3D95F5;
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid #3D95F5;
 }
 .container-profile .content .delete-profile_wrapper {
   position: fixed;
@@ -4529,6 +4556,7 @@ footer {
 .go_to_practice__wrapper-bg-task {
   margin-top: 0;
   position: relative;
+  margin-bottom: 0;
 }
 
 .go_to_practice__wrapper {
