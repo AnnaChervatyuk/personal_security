@@ -283,42 +283,25 @@
           }
         }
 
+        // var position = $('.container').scrollTop();
+        //   $('.container').scroll(function() {
+        //       var scroll = $('.container').scrollTop();
+        //       console.log("scroll", scroll)
+        //       if(scroll > position) {
+        //           console.log('scrollDown');
+        //       } else if (scroll == position && position > 0 ) {
+        //         console.log("конец")
+        //       } else {
+        //            console.log('scrollUp');
+        //       }
+        //       position = scroll;
+        //       console.log("position", position)
+        //   });
 
-
-
-        // var blockScroll = $(".container").scrollTop()
-        //
-        // if (blockScroll > scrollPos){
-        //       scrollDowm = true
-        //     } else {
-        //       scrollDowm = false
-        //     }
-        //
-        //     scrollPos = blockScroll;
-        //
-        //     console.log("scrollDowm",scrollDowm)
-        var scrollPos = 0
-
-        $(".container").on('mousewheel', function(e) {
-          console.log($(".container").scrollTop())
-          console.log($(document).height())
-
-          blockScroll = $(".container").scrollTop()
-          // if ($(".container").scrollTop() == 0) {
-          //     console.log('Достигнут верхний предел');
-          // }
-          if (blockScroll > scrollPos){
-                scrollDowm = true
-              } else {
-                scrollDowm = false
-              }
-
-              scrollPos = blockScroll;
-
-              console.log("scrollDowm",scrollDowm)
-          // e.preventDefault()
-          // onScrollArticle()
-        })
+          // $(window).scroll(function() {
+          //     console.log("scroll", $(window).scrollTop());
+          //
+          // });
 
 
         function setWidthScroll() { // установить ширину скролла и его элементов
@@ -378,6 +361,13 @@
 
 
           function updateAfterClick () {
+            $('html, body').animate({
+                  scrollTop: 0
+                }, 200);
+
+            $('.container').animate({
+                  scrollTop: 0
+                }, 200);
 
             let isInUserList = true // надо сначала получить
             if (!isExersiseRead && isInUserList) {

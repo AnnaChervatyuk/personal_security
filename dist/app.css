@@ -2284,16 +2284,19 @@ footer {
   line-height: 30px;
 }
 .article .slide-text a,
-.article .instruction_wrapper a {
+.article .instruction_wrapper a,
+.article .news_wrapper a {
   border-bottom: 1px solid rgba(0, 122, 255, 0.4);
 }
 .article .slide-text a:hover,
-.article .instruction_wrapper a:hover {
+.article .instruction_wrapper a:hover,
+.article .news_wrapper a:hover {
   cursor: pointer;
   color: #3D95F5;
 }
 .article .slide-text .material-list a,
-.article .instruction_wrapper .material-list a {
+.article .instruction_wrapper .material-list a,
+.article .news_wrapper .material-list a {
   border-bottom: none;
 }
 .article .related_lessons {
@@ -4850,6 +4853,9 @@ footer {
   margin: 0;
   padding: 0;
   z-index: 1;
+}
+.content-situation .materials > .material > .material-list .full_img.material-el .img,
+.cards .card.full_img .img {
   padding-top: 100%;
 }
 .content-situation .materials > .material > .material-list .full_img.material-el h5,
