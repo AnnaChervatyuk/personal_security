@@ -29,7 +29,26 @@
       border: none
       padding: 0
       .progress_skills
-        width: auto
+        width: 100%
+        margin: 0
+
+      .skill_wrapper.skill_wrapper-single
+        max-width: 344px
+        width: 100%
+        height: 156px
+        .skill
+          width: 100%
+          height: 100%
+          border-radius: 100px
+          flex-direction: row
+          border: 9px solid transparent
+          .percent
+            @include font(52px, 52px)
+          .skill-title
+            width: 95px
+            margin-top: 6px
+            text-align: left
+            margin-left: 10px
     .btn-close-top
       position: absolute
       top: 20px

@@ -105,7 +105,7 @@
                         </div>
                         <div class="material-el">
                            <div class="img">
-                              <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/уникальные_сложные_пароли.svg" alt="Иллюстрация к занятию">
+                              <img loading="lazy" src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/уникальные_сложные_пароли.svg" alt="Иллюстрация к занятию">
                            </div>
                            <div class="type">Цифровая безопасность</div>
                            <h5>Блокировка экрана</h5>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="material-el">
                            <div class="img">
-                              <img src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/двухфакторная_аутентефикация_2.svg" alt="Иллюстрация к занятию">
+                              <img loading="lazy" src="https://rks-securno-stage.s3.eu-central-1.amazonaws.com/hi/двухфакторная_аутентефикация_2.svg" alt="Иллюстрация к занятию">
                            </div>
                            <div class="type">Цифровая безопасность</div>
                            <h5>Двухфакторная аутентификация</h5>
@@ -1717,7 +1717,7 @@
                            <div class="skill-description hide">Как сохранить секреты,  и не потерять ценное: защищаем компьютеры, телефоны и аккаунты</div>
                            <div class="link" onClick="openPopupProgress('digital', this)"></div>
                         </div>
-                        <div class="skill-financial_wrapper skill_wrapper">
+                        <!-- <div class="skill-financial_wrapper skill_wrapper">
                            <div class="skill skill-financial" id="skill-financial">
                               <div class="percent"><span id="progress_skill-financial"></span>%</div>
                            </div>
@@ -1733,7 +1733,7 @@
                            <div class="skill-title">Финансовая безопасность</div>
                            <div class="skill-description hide">Как не потерять деньги: защищаем карты и банковские аккаунты от мошенников.</div>
                            <div class="link" onClick="openPopupProgress('financial', this)"></div>
-                        </div>
+                        </div> -->
                      </div>
                   </div>
                </div>
@@ -3677,12 +3677,22 @@
            }
          }
 
+         if ($('.progress').find($(".skill_wrapper")).length == 1) {
+           $('.progress').find($(".skill_wrapper")).addClass("skill_wrapper-single")
+           $('.progress').find($(".skill-title")).appendTo($('.progress').find($(".skill")))
+
+         }
+
          $(window).on("resize", function (e) {
            e.stopPropagation();
-           toggleProgressTitleLocation ()
+           if (!$(".skill_wrapper").hasClass("skill_wrapper-single")) {
+            toggleProgressTitleLocation ()
+          }
          })
 
-         toggleProgressTitleLocation ()
+         if (!$(".skill_wrapper").hasClass("skill_wrapper-single")) {
+          toggleProgressTitleLocation ()
+        }
       </script>
 
    </body>

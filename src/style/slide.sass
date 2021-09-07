@@ -36,16 +36,20 @@
         max-width: 100%
         box-sizing: border-box
         // padding-bottom: 20px
-      .block_btn-next
-        margin:  auto 20px 50px auto
-        z-index: -1
-        padding-bottom: 60px
+
   .slide
     -webkit-transition: 0.2s ease-out
     transition: 0.2s ease-out
     overflow: hidden
     // overflow-y: auto
     scrollbar-width: none
+    .block_btn-next
+      margin:  auto 20px 50px auto
+      z-index: -1
+      padding-bottom: 60px
+      div
+        font-size: 16px
+        line-height: 22px
   .exercise_footer
     display: none
     position: fixed
@@ -73,47 +77,20 @@
       flex-direction: column
       position: relative
       flex-grow: 1
-      // .block_top
-      //   align-items: center
-      //   margin-bottom: 0
-      //   z-index: 3
-      //   // margin-right: 20px
-      //   position: -webkit-sticky
-      //   position: sticky
-      //   top: 0
-      //   height: 50px
-      //   padding: 20px
-      //   background: opacity
-      //   background-color: rgba(255, 255, 255, 0.9)
-      //   -webkit-backdrop-filter: blur(4px)
-      //   backdrop-filter: blur(4px)
-      //   width: 100%
-      //   box-sizing: border-box
-      //   display: flex
-      //   .block_return
-      //     margin-bottom: 0
-      //     h5
-      //       display: none
       .slide
-        // min-height: 100vh
         max-width: 1200px
         display: flex
         flex-direction: column
         -webkit-transition: 0.2s ease-out
         transition: 0.2s ease-out
         scrollbar-width: none
-        // height: 100%
-        // min-height: 100vh
         position: relative
         overflow: hidden
-        // overflow-y: auto
         .block_tap
           position: absolute
           top: 0
           height: 100%
           vertical-align: baseline
-          // background-color: red
-          // opacity: 0.1
 
           img
             display: none
@@ -176,35 +153,25 @@
         margin-right: 77px
     .article.article-exercise__wrapper
       .article-exercise
-        // width: 100%
-        // max-height: calc(100vh - 90px)
         .slide
           opacity: 0.25
           -webkit-transition: 0.2s ease-out
           transition: 0.2s ease-out
-          // min-height: calc(100vh - 60px - 90px)
+          .block_btn-next
+            display: none
           .slide__inner
             .slide__block
               max-width: 600px
-
           .article-exercise__wrapper
             padding: 20px
-          // .block_top
-          //   margin-bottom: 40px
-          //   .block_return
-          //     margin-right: 77px
-
         .slide-first
           opacity: 1
-          // min-height: calc(100vh - 60px - 90px)
           .slide__inner
             .slide__block
-              // min-height: calc(100vh - 60px - 90px)
               display: flex
               justify-content: center
               max-width: 1125px
-              .block_btn-next
-                display: none
+
 
 @media (min-width: 768px)
   .container.container-exercise

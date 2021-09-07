@@ -450,13 +450,13 @@ window.getInCoachingTooltip = function getInCoachingTooltip() {
           popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
         }
         let shiftTop = 0
-        if ($(".container-theory")) {
+        if ($(".container-theory").length > 0) {
           shiftTop = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
         }
         popup.css("top", (arrIconsCoaching.eq(i).offset().top - shiftTop + 35))
         popup.css("left", (left - 15))
       }).on('mouseleave',function(){
-        popup.css("display", "none")
+        popup.css("display", "none").find($(".arrow")).css("left", 15)
         popup.find($(".arrow")).css("left", 15)
       })
     }

@@ -89,6 +89,23 @@
       .skill-financial
         background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 (0%), #D9E9EE (0%)) border-box
 
+    .skill_wrapper.skill_wrapper-single
+      width: 344px
+      height: 156px
+      .skill
+        width: 100%
+        height: 100%
+        border-radius: 100px
+        flex-direction: row
+        border: 9px solid transparent
+        .percent
+          @include font(52px, 52px)
+        .skill-title
+          width: 95px
+          margin-top: 6px
+          text-align: left
+          margin-left: 10px
+
 .content-my-course
   .progress
     .progress_inner
@@ -157,6 +174,8 @@
           margin-top: 0
       .skill_wrapper
         width: 180px
+      .skill_wrapper.skill_wrapper-single
+        width: 344px
 
 @media (min-width: 640px)
   .progress
@@ -189,6 +208,8 @@
       .progress_skills
         .skill_wrapper
           width: 180px
+        .skill_wrapper.skill_wrapper-single
+          width: 344px
         .skill
           width: 180px
           height: 180px

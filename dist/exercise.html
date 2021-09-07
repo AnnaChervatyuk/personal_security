@@ -342,6 +342,12 @@
           for (var i =0; i < activeClass; i++) {
             $('.scrollbar__section').eq(i).addClass("past")
           }
+
+          if (bodyWidth < 640 && (slide + 1) < arrSlideLength) {
+            $(".block_btn-next").appendTo($(".slide").eq(i))
+            $(".block_btn-next > div").css("font-size", "16px").css("line-height", "22px")
+          }
+
           $('.scrollbar__section').eq(activeClass).addClass("active")
           $(".slide").eq(activeClass).css("opacity", 1).css("display", "flex")
             updateAfterClick()

@@ -38,6 +38,11 @@ img {
   box-sizing: border-box;
   min-height: calc(100vh - 140px);
   position: relative;
+  overflow: hidden;
+}
+
+.container-exercise {
+  overflow-y: auto;
 }
 
 .disclaimer {
@@ -638,6 +643,9 @@ textarea::placeholder {
     font-size: 19px;
     line-height: 24px;
   }
+  .navigator .menu__wrapper {
+    min-width: 68px;
+  }
   .navigator .menu__wrapper .nav_menu {
     display: none;
   }
@@ -842,6 +850,27 @@ footer {
 .progress .progress_skills .skill-financial_wrapper .skill-financial {
   background: linear-gradient(white, white) padding-box, conic-gradient(#1299C6 0%, #D9E9EE 0%) border-box;
 }
+.progress .progress_skills .skill_wrapper.skill_wrapper-single {
+  width: 344px;
+  height: 156px;
+}
+.progress .progress_skills .skill_wrapper.skill_wrapper-single .skill {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  flex-direction: row;
+  border: 9px solid transparent;
+}
+.progress .progress_skills .skill_wrapper.skill_wrapper-single .skill .percent {
+  font-size: 52px;
+  line-height: 52px;
+}
+.progress .progress_skills .skill_wrapper.skill_wrapper-single .skill .skill-title {
+  width: 95px;
+  margin-top: 6px;
+  text-align: left;
+  margin-left: 10px;
+}
 
 .content-my-course .progress .progress_inner .block_continue {
   display: flex;
@@ -923,6 +952,9 @@ footer {
 .progress_popup_inner .progress .progress_skills .skill_wrapper {
   width: 180px;
 }
+.progress_popup_inner .progress .progress_skills .skill_wrapper.skill_wrapper-single {
+  width: 344px;
+}
 
 @media (min-width: 640px) {
   .progress .progress_inner .btn-go-training {
@@ -955,6 +987,9 @@ footer {
 
   .progress_course .progress .progress_skills .skill_wrapper {
     width: 180px;
+  }
+  .progress_course .progress .progress_skills .skill_wrapper.skill_wrapper-single {
+    width: 344px;
   }
   .progress_course .progress .progress_skills .skill {
     width: 180px;
@@ -1114,6 +1149,23 @@ footer {
 
 .all_cards-top {
   margin: 60px auto 0;
+}
+
+.all_cards-empty {
+  margin-top: 138px;
+  margin-bottom: 150px;
+}
+.all_cards-empty .all_cards-text {
+  max-width: 395px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  color: #C7C7CC;
+  margin-top: 30px;
+}
+.all_cards-empty .all_cards-img {
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
@@ -4297,7 +4349,62 @@ footer {
 .completed_popup_wrapper .progress_popup_inner .progress .progress_skills,
 .completed_popup_wrapper .threat_popup_inner .progress .progress_skills,
 .completed_popup_wrapper .completed_popup_inner .progress .progress_skills {
-  width: auto;
+  width: 100%;
+  margin: 0;
+}
+.progress_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.progress_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.progress_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.threat_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.threat_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.threat_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.completed_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.completed_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single,
+.completed_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single {
+  max-width: 344px;
+  width: 100%;
+  height: 156px;
+}
+.progress_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.progress_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.progress_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.threat_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.threat_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.threat_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.completed_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.completed_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill,
+.completed_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  flex-direction: row;
+  border: 9px solid transparent;
+}
+.progress_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.progress_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.progress_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.threat_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.threat_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.threat_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.completed_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.completed_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent,
+.completed_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .percent {
+  font-size: 52px;
+  line-height: 52px;
+}
+.progress_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.progress_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.progress_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.threat_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.threat_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.threat_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.completed_popup_wrapper .progress_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.completed_popup_wrapper .threat_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title,
+.completed_popup_wrapper .completed_popup_inner .progress .skill_wrapper.skill_wrapper-single .skill .skill-title {
+  width: 95px;
+  margin-top: 6px;
+  text-align: left;
+  margin-left: 10px;
 }
 .progress_popup_wrapper .progress_popup_inner .btn-close-top,
 .progress_popup_wrapper .threat_popup_inner .btn-close-top,
@@ -5029,16 +5136,20 @@ footer {
   max-width: 100%;
   box-sizing: border-box;
 }
-.container-exercise .slide-first .slide__inner .block_btn-next {
-  margin: auto 20px 50px auto;
-  z-index: -1;
-  padding-bottom: 60px;
-}
 .container-exercise .slide {
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   overflow: hidden;
   scrollbar-width: none;
+}
+.container-exercise .slide .block_btn-next {
+  margin: auto 20px 50px auto;
+  z-index: -1;
+  padding-bottom: 60px;
+}
+.container-exercise .slide .block_btn-next div {
+  font-size: 16px;
+  line-height: 22px;
 }
 .container-exercise .exercise_footer {
   display: none;
@@ -5167,6 +5278,9 @@ footer {
     -webkit-transition: 0.2s ease-out;
     transition: 0.2s ease-out;
   }
+  .container.container-exercise .article.article-exercise__wrapper .article-exercise .slide .block_btn-next {
+    display: none;
+  }
   .container.container-exercise .article.article-exercise__wrapper .article-exercise .slide .slide__inner .slide__block {
     max-width: 600px;
   }
@@ -5180,9 +5294,6 @@ footer {
     display: flex;
     justify-content: center;
     max-width: 1125px;
-  }
-  .container.container-exercise .article.article-exercise__wrapper .article-exercise .slide-first .slide__inner .slide__block .block_btn-next {
-    display: none;
   }
 }
 @media (min-width: 768px) {

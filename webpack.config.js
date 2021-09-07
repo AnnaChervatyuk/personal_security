@@ -191,6 +191,10 @@ module.exports = {
         template: 'src/public/old_link.html'
         }),
 
+      new HtmlWebpackPlugin({
+        filename: 'index_empty.html',
+        template: 'src/public/index_empty.html'
+        }),
 
 
   ],
