@@ -1,21 +1,23 @@
-.exercises_completed__wrapper
+.exercises_completed__wrapper,
+.finished_materials__wrapper
   width: 100%
   max-width: 750px
   box-sizing: border-box
   margin: 100px auto
-  background-color: #FFF5CF
   border-radius: 4px
   padding: 50px
   display: flex
   flex-direction: column
-  .exercises_completed__img
+  .exercises_completed__img,
+  .finished_materials__img
     max-width: 320px
     margin: 0 auto
     margin-bottom: 40px
-  .exercises_completed__header
-    @include font(32px, 36px)
+  .exercises_completed__header,
+  .finished_materials__header
     text-align: center
-  .exercises_completed__text
+  .exercises_completed__text,
+  .finished_materials__text
     @include font(18px, 24px)
     text-align: center
     a
@@ -26,3 +28,15 @@
         border-bottom: 1px solid $accent-secondary
         -webkit-transition: 0.1s ease-out
         transition: 0.1s ease-out
+
+.exercises_completed__wrapper
+  background-color: #FFF5CF
+  .exercises_completed__header
+    @include font(32px, 36px)
+
+.finished_materials__wrapper
+  max-width: 500px
+  .finished_materials__header
+    @include font(27px, 33px)
+  .link_btn
+    margin: 40px auto 0

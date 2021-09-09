@@ -5460,39 +5460,71 @@ footer {
     height: 8px;
   }
 }
-.exercises_completed__wrapper {
+.exercises_completed__wrapper,
+.finished_materials__wrapper {
   width: 100%;
   max-width: 750px;
   box-sizing: border-box;
   margin: 100px auto;
-  background-color: #FFF5CF;
   border-radius: 4px;
   padding: 50px;
   display: flex;
   flex-direction: column;
 }
-.exercises_completed__wrapper .exercises_completed__img {
+.exercises_completed__wrapper .exercises_completed__img,
+.exercises_completed__wrapper .finished_materials__img,
+.finished_materials__wrapper .exercises_completed__img,
+.finished_materials__wrapper .finished_materials__img {
   max-width: 320px;
   margin: 0 auto;
   margin-bottom: 40px;
 }
-.exercises_completed__wrapper .exercises_completed__header {
-  font-size: 32px;
-  line-height: 36px;
+.exercises_completed__wrapper .exercises_completed__header,
+.exercises_completed__wrapper .finished_materials__header,
+.finished_materials__wrapper .exercises_completed__header,
+.finished_materials__wrapper .finished_materials__header {
   text-align: center;
 }
-.exercises_completed__wrapper .exercises_completed__text {
+.exercises_completed__wrapper .exercises_completed__text,
+.exercises_completed__wrapper .finished_materials__text,
+.finished_materials__wrapper .exercises_completed__text,
+.finished_materials__wrapper .finished_materials__text {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
 }
-.exercises_completed__wrapper .exercises_completed__text a {
+.exercises_completed__wrapper .exercises_completed__text a,
+.exercises_completed__wrapper .finished_materials__text a,
+.finished_materials__wrapper .exercises_completed__text a,
+.finished_materials__wrapper .finished_materials__text a {
   text-decoration: none;
   border-bottom: 1px solid #17171C;
 }
-.exercises_completed__wrapper .exercises_completed__text a:hover {
+.exercises_completed__wrapper .exercises_completed__text a:hover,
+.exercises_completed__wrapper .finished_materials__text a:hover,
+.finished_materials__wrapper .exercises_completed__text a:hover,
+.finished_materials__wrapper .finished_materials__text a:hover {
   color: #3D95F5;
   border-bottom: 1px solid #3D95F5;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
+}
+
+.exercises_completed__wrapper {
+  background-color: #FFF5CF;
+}
+.exercises_completed__wrapper .exercises_completed__header {
+  font-size: 32px;
+  line-height: 36px;
+}
+
+.finished_materials__wrapper {
+  max-width: 500px;
+}
+.finished_materials__wrapper .finished_materials__header {
+  font-size: 27px;
+  line-height: 33px;
+}
+.finished_materials__wrapper .link_btn {
+  margin: 40px auto 0;
 }
