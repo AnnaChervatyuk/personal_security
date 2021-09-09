@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Personal security</title>
+
   <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
     <body>
       <div class="container container-exercise">
@@ -95,7 +96,7 @@
 
               <div class="article-situation_header">
                 <div class="header_inner">
-                  <h1>Резервное копирование</h1>
+                  <h1 >Самоудаляющиеся чаты</h1>
                   <div class="about_exercise">
                     Все уроки lorem вот одна из задачек с этого экзамена. Её задавали на экзамене 2019 года. На рисунке вы видите треугольник. Также известна длина некоторых частей треугольника.
                   </div>
@@ -166,14 +167,14 @@
         <div class="slide">
           <div class="slide__inner">
             <div class="slide__block">
-              <div class="exercises_completed__wrapper">
+              <!-- <div class="exercises_completed__wrapper">
                 <img class="exercises_completed__img" src="./images/cup.svg" width="192" alt="">
                 <h3 class="exercises_completed__header">Поздравляем!</h3>
                 <div class="exercises_completed__text">Все занятия пройдены. Осталось немного практики. Выполните оставшиеся задания в <a href="todo.html">Туду-листе</a>, чтобы завершить тренировку.</div>
-              </div>
+              </div> -->
 
 
-              <div class="go_to_practice__wrapper-bg">
+              <!-- <div class="go_to_practice__wrapper-bg">
                 <div class="go_to_practice__wrapper">
                   <img class="go_to_practice__img" src="./images/go_to_practic.svg" alt="Цифровая безопасность">
 
@@ -193,7 +194,7 @@
 
 
                 </div>
-              </div>
+              </div> -->
 
               <!--  ДЛЯ НЕЗАЛОГИНЕННЫХ  -->
                <!-- <div class="go_to_test__inner">
@@ -314,6 +315,8 @@
           }
 
           $('.block_tap-left').find('img').css("left", $('.block_return').offset().left + 'px')
+          $('.block_tap-left').css("width", $('.scrollbar__section').offset().left + 'px')
+          $('.block_tap-right').css("width", bodyWidth - $('.scrollbar__section').offset().left + 'px')
           $('.block_tap-right').find('img').css("right", $('.block_return').offset().left + 'px')
 
           widthScrollbarWrapper = $('body').outerWidth() - $(".block_return").outerWidth(true) - 40

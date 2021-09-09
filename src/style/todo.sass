@@ -81,7 +81,12 @@
         width: 0
         height: 0
         display: block
-      .el_task::before
+
+      .el_task:hover::before
+        background-color: #F9F9FB
+        border: 1px solid $black-100
+
+      .el_task .checked_el
         content: ""
         display: inline-block
         width: 30px
@@ -92,35 +97,54 @@
         margin: 0
         margin-right: 10px
         min-width: 30px
-
-      .el_task:hover::before
-        background-color: #F9F9FB
-        border: 1px solid $black-100
+        svg
+          fill: transparent
+          position: absolute
+          top: 7px
+          left: 6px
+          display: none
 
       .el_task input[type=checkbox]:checked + span
         text-decoration: line-through
+        position: relative
 
-      .el_task input[type=checkbox]:checked + span::before
-        content: ""
-        position: absolute
-        display: inline-block
-        width: 2px
-        height: 17px
-        background-color: #007AFF
-        left: 18px
-        bottom: 20%
-        transform: rotate(45deg)
+      .el_task > svg
+          display: none
+      .el_task input[type=checkbox]:checked > svg
+          display: block
 
-      .el_task input[type=checkbox]:checked + span::after
-        content: ""
-        position: absolute
-        display: inline-block
-        width: 2px
-        height: 9px
-        background-color: #007AFF
-        left: 10px
-        bottom: 25%
-        transform: rotate(-45deg)
+      // .el_task input[type=checkbox]:checked + span::before
+      //   content: ""
+      //   position: absolute
+      //   display: inline-block
+      //   width: 2px
+      //   height: 17px
+      //   background-color: #007AFF
+      //   left: 18px
+      //   top: 20%
+      //   transform: rotate(45deg)
+      //
+      // .el_task input[type=checkbox]:checked + span::after
+      //   content: ""
+      //   position: absolute
+      //   display: inline-block
+      //   width: 2px
+      //   height: 9px
+      //   background-color: #007AFF
+      //   left: 10px
+      //   top: 25%
+      //   transform: rotate(-45deg)
+      .el_task input[type=checkbox] + span
+        svg
+          display: none
+          fill: transparent
+          left: -35px
+          top: 7px
+          position: absolute
+
+      .el_task input[type=checkbox]:checked + span
+        svg
+          display: block
 
       .el_how-do_btn
         margin-left: 40px
@@ -133,7 +157,6 @@
           display: block
           position: relative
           margin-left: 15px
-          // margin-top: -11px
           width: 8px
           &::after
             content: ""
@@ -143,8 +166,8 @@
             width: 7px
             height: 7px
             right: 0
-            top: calc(100% - 6px)
-            transform: rotate(135deg)
+            top: calc(100% - 4px)
+            transform: rotate(55deg)
       .el_task-not-do
         color: $black-50
         &::before
@@ -303,6 +326,15 @@
         .el_task
           align-items: center
           flex-grow: 1
+        .el_task input[type=checkbox] + span
+          svg
+            top: 4px
+        .el_how-do_btn
+          .btn-arrow_todo
+            &::after
+              transform: rotate(135deg)
+              top: calc(100% - 6px)
+
         .instruction
           padding: 33px 30px
           margin-left: 65px
