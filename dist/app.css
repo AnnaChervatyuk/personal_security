@@ -5528,3 +5528,30 @@ footer {
 .finished_materials__wrapper .link_btn {
   margin: 40px auto 0;
 }
+
+.report_bug {
+  display: flex;
+  flex-direction: row;
+  max-width: 580px;
+  margin: 20px auto;
+  align-items: center;
+  padding-top: 20px;
+}
+.report_bug .report_bug__img {
+  margin-right: 15px;
+  width: auto;
+}
+.report_bug .report_bug__text a {
+  text-decoration: none;
+  color: #3D95F5;
+}
+.report_bug .report_bug__text a:hover {
+  border-bottom: 1px solid #3D95F5;
+}
+
+@media (min-width: 640px) {
+  .report_bug {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

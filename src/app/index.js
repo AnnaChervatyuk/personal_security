@@ -615,24 +615,23 @@ window.getInCoachingTooltip()
   // удаление/добавление из списка своих занятий ----- НАЧАЛО
   window.setList = function setList(el, id) {
     // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
-    let isInUserList = el.hasAttribute('data-in-course')
-    if (isInUserList) { //  удалять из списка
-      // $.post('/theory/exercise/'+ id + '/remove/', {
-      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
-      // })
-      el.removeAttribute('data-in-course')
-      $('#exercise-' + id).find('.in-coaching').eq(0).addClass('hide')
-    } else { // добавлять в список
+    if (typeof isInUserList === 'undefined') {
+      var isInUserList = el.hasAttribute('data-in-course')
+    }
+    if (!isInUserList) { // добавлять в список
       // $.post('/theory/exercise/'+ id + '/add/', {
       //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
       // })
-      if ($('.article')) {
-        $('.article').find('.in-coaching').eq(0).removeClass('hide')
-        $('.set_exercise').addClass('hide')
+      if ($('.article-exercise').length) {
+          $('.article-exercise').find('.in-coaching').eq(0).removeClass('hide')
+          $('.set_exercise').addClass('hide')
       } else {
         el.setAttribute('data-in-course', '')
         $('#exercise-' + id).find('.in-coaching').eq(0).removeClass('hide')
+        $(el).addClass('hide')
       }
+      isInUserList = true
+      showNotification('Занятие добавлено в тренировку', false)
     }
     getBtnSetList()
   }
@@ -641,9 +640,7 @@ window.getInCoachingTooltip()
 
   // установить кнопку добавить или удалить в свои занятия ----- НАЧАЛО
   function getBtnSetList() {
-    let popupRemove = $('<div class="popup">Убрать из своей тренировки<div class="arrow"></div></div>')
     let popupAdd = $('<div class="popup">Добавить в свою тренировку<div class="arrow"></div></div>')
-    popupRemove.appendTo($("body"))
     popupAdd.appendTo($("body"))
 
     let arrBtnSetList = $(".btn-set-list")
@@ -659,7 +656,7 @@ window.getInCoachingTooltip()
     }
 
     function onHoverIcon (i, isInCourse) {
-      let popup = (isInCourse) ? popupRemove : popupAdd
+      let popup = popupAdd
       arrBtnSetList.eq(i).on("mouseenter", function (e) {
         var left = arrBtnSetList.eq(i).offset().left
         popup.css("display", "block")
@@ -671,7 +668,7 @@ window.getInCoachingTooltip()
           popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
         }
         let shiftTop = 0
-        if ($(".container-theory")) {
+        if ($(".container-theory").length > 0) {
           shiftTop = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
         }
         popup.css("top", (arrBtnSetList.eq(i).offset().top - shiftTop + 35))

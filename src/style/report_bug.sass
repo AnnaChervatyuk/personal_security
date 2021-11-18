@@ -1,0 +1,20 @@
+.report_bug
+  display: flex
+  flex-direction: row
+  max-width: 580px
+  margin: 20px auto
+  align-items: center
+  padding-top: 20px
+  .report_bug__img
+    margin-right: 15px
+    width: auto
+  .report_bug__text a
+    text-decoration: none
+    color: $accent-secondary
+    &:hover
+      border-bottom: 1px solid $accent-secondary
+
+
+@media (min-width: 640px)
+  .report_bug
+    @include font(18px, 24px)
