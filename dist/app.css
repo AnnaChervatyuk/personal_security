@@ -3632,6 +3632,15 @@ footer {
 }
 .container-profile .content .notifications {
   margin-top: 40px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+.container-profile .content .notifications-disclaimer {
+  font-size: 16px;
+  line-height: 22px;
+  color: #787882;
+  margin-bottom: 20px;
+  margin-top: 30px;
 }
 .container-profile .content .setting-notification {
   display: flex;
