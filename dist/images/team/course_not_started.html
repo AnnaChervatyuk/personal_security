@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+  </head>
+    <body>
+      <div class="container container-safety container__team">
+        <section class="navigator">
+          <div class="nav_logo">
+            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./../images/logo.svg" alt="Personal security" ></a>
+          </div>
+          <ul class="nav_list">
+            <li class="nav_item active"><a href="course.html">Тренировки</a></li>
+            <li class="nav_item"><a href="team.html">Команда</a></li>
+          </ul>
+          <div class="nav_list menu__wrapper">
+            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="./../sprite.svg#icon-menu"></use>
+                </svg>
+            </div>
+            <div class="nav_list nav_list-menu hide" id="menu-nav">
+              <div class="nav_el nav_team-menu" id="open-team-menu-btn">
+                <svg class="icons icons--teammenu" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="../sprite.svg#icon-teammenu"></use>
+                </svg>
+              </div>  
+              <div class="nav_el nav_search" id="open-search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+                <div class="nav_list-text">Поиск</div>
+              </div>
+              <a class="nav_el nav_profile" href="profile_leader.html">
+                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-profile"></use>
+                </svg>
+                <div class="nav_list-text">Аккаунт</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="team-menu_popup hide" id="team-menu_popup">
+            <div class="team-menu_list">
+              <div class="team-menu_item">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo.svg" alt="Personal security" >
+                    <div>Персональный ассистент по&nbsp;безопасности</div>
+                  </a>
+              </div>
+              <div class="team-menu_item active">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo_team.svg" alt="Personal security" >
+                    <div>Проверка информационной безопасности вашей команды</div>
+                  </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="search-panel hide" id="search-panel">
+            <div class="search-input_wrapper">
+              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+              <div class="search-btn" id="search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="search-panel-close" id="close-search-btn">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="content content-course">
+          <div class="descr">
+            <div>
+              <h1>Хотим узнать вас поближе</h1>
+              <div class="content-descr content-descr-test">Ваши ответы помогут сформировать программу тренировки для вашей команды. Тренировки будут состоять из теории и практических заданий.</div>
+              <div class="btns-login">
+                <a href="login.html" class="link_btn btn btn-white">Войти</a>
+                <div class="btn-to-login">Если у вас уже есть аккаунт</div>
+              </div>
+            </div>
+            <div class="descr-img_wrapper" >
+              <img class="descr-img" src="./../images/safety_img.png" alt="Цифровая безопасность">
+            </div>
+          </div>
+
+          <div class="test_wrapper">
+            <div class="test_inner">
+              <div class="progress_test">
+                <div class="block_return">
+                    <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                       <use xlink:href="./../sprite.svg#icon-return"></use>
+                    </svg>
+                </div>
+                <div class="progress_line"><div class="progress_question"></div></div>
+              </div>
+
+              <div class="block_question">
+                  <div class="question-number">1</div>
+                  <div class="question-title">Выберите **** проблемы, которые вы хотели бы решить в первую очередь</div>
+                  <div class="question-descr">Описание</div>
+                  <div class="question-variants">
+
+                    <label class="question-item">
+                      <input type="checkbox">
+                      <div class="checkbox-inner">
+                        <img class="question-item_img" src="./../images/icons_test/phone.png" width="38" height="38">
+                        <div class="question-item_text">Я веду конфиденциальную переписку в мессенджерах и соцсетях</div>
+                      </div>
+                    </label>
+
+                    <label class="question-item">
+                      <input type="checkbox">
+                      <div class="checkbox-inner">
+                        <img class="question-item_img" src="./../images/icons_test/email.png" width="38" height="38">
+                        <div class="question-item_text">Обмениваюсь конфиденциальной информацией по email</div>
+                      </div>
+                    </label>
+
+                    <label class="question-item">
+                      <input type="checkbox">
+                      <div class="checkbox-inner">
+                        <img class="question-item_img" src="./../images/icons_test/social.png" width="38" height="38">
+                        <div class="question-item_text">Публикую важный контент в соцсетях</div>
+                      </div>
+                    </label>
+
+                    <label class="question-item">
+                      <input type="checkbox">
+                      <div class="checkbox-inner">
+                        <img class="question-item_img" src="./../images/icons_test/cloud.png" width="38" height="38">
+                        <div class="question-item_text">Храню секреты и приватные данные в облачных хранилищах, таких как Dropbox, Google Диск и тд.</div>
+                      </div>
+                    </label>
+
+                    <label class="question-item">
+                      <input type="checkbox">
+                      <div class="checkbox-inner">
+                        <img class="question-item_img" src="./../images/icons_test/disk.png" width="38" height="38">
+                        <div class="question-item_text">Мне нужно сохранять информацию долгое время</div>
+                      </div>
+                    </label>
+
+                    <label class="question-item nothing">
+                      <input type="checkbox" class="nothing">
+                      <div class="checkbox-inner">
+                        <img class="question-item_img" src="./../images/icons_test/nothing_1.png" width="38" height="38">
+                        <div class="question-item_text">Не знаю/ничего из перечисленного</div>
+                      </div>
+                    </label>
+
+                  </div>
+              </div>
+              <div class="block_question hide">
+                <div class="question-number">2</div>
+                <div class="question-title">Выберите **** проблемы, которые вы хотели бы решить в первую очередь</div>
+                <div class="question-descr">Описание</div>
+                <div class="question-variants">
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/block.png" width="38" height="38">
+                      <div class="question-item_text">Посещаю заблокированные сайты</div>
+                    </div>
+                  </label>
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/password.png" width="38" height="38">
+                      <div class="question-item_text">У меня много паролей и доступов к важным аккаунтам</div>
+                    </div>
+                  </label>
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/phone.png" width="38" height="38">
+                      <div class="question-item_text">Я много общаюсь по сотовой связи</div>
+                    </div>
+                  </label>
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/comp.png" width="38" height="38">
+                      <div class="question-item_text">Если мой компьютер или телефон сломается или их украдут - это будет для меня катастрофа</div>
+                    </div>
+                  </label>
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/comp_share.png" width="38" height="38">
+                      <div class="question-item_text">Я использую компьютер совместно с другими людьми</div>
+                    </div>
+                  </label>
+
+                  <label class="question-item nothing">
+                    <input type="checkbox" class="nothing">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/nothing_2.png" width="38" height="38">
+                      <div class="question-item_text">Не знаю/ничего из перечисленного</div>
+                    </div>
+                  </label>
+
+                </div>
+              </div>
+              <div class="block_question hide">
+                <div class="question-number">3</div>
+                <div class="question-title">Выберите **** проблемы, которые вы хотели бы решить в первую очередь</div>
+                <div class="question-descr">Описание</div>
+                <div class="question-variants">
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/pirate.png" width="38" height="38">
+                      <div class="question-item_text">Пользуюсь пиратским ПО</div>
+                    </div>
+                  </label>
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/privacy.png" width="38" height="38">
+                      <div class="question-item_text">Меня беспокоит проблема приватности и слежки онлайн</div>
+                    </div>
+                  </label>
+
+                  <label class="question-item">
+                    <input type="checkbox">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/card.png" width="38" height="38">
+                      <div class="question-item_text">Я беспокоюсь, что мошенники украдут деньги с моих банковских карт</div>
+                    </div>
+                  </label>
+                  <label class="question-item nothing">
+                    <input type="checkbox" class="nothing">
+                    <div class="checkbox-inner">
+                      <img class="question-item_img" src="./../images/icons_test/nothing_3.png" width="38" height="38">
+                      <div class="question-item_text">Ничего из перечисленного (расскажите свою версию)</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="block_question hide" id="block_question-email">
+                <div class="question-number">4</div>
+                <div class="question-title">И последний вопрос: ваша почта?</div>
+                <div class="question-descr">Нужна, чтобы сохранить прогресс тренировок. Сюда же будем высылать волшебную ссылку для входа в аккаунт, вместо пароля.</div>
+                <div class="question-variants">
+                  <div class="mail-address">
+                    <input type="text" class="email__input" placeholder="e-mail" id="email-address">
+                  </div>
+                  <div class="error-email hide">
+                    <div class="text-error">Некорректный email</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="btn btn-next">Дальше</div>
+
+            </div>
+
+          </div>
+
+        </section>
+      </div>
+
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./../images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item"><a href="about.html">О проекте</a></li>
+            <li class="footer_item"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+      <script>
+      //----переход между вопросами в тесте начало--------
+      // .test_inner - весь блок
+      // .block_return назад
+      // progress_line вся линия
+      // progress_test сколько закрасить
+
+      let userAuth = false // авторизован пользователь или нет
+
+      if (userAuth) {
+        $("#block_question-email").remove()
+      }
+
+      let arrQuestions = $(".block_question") // весь список вопросов
+      let activeQuestion = 0 // активный сейчас вопрос. 0 по умолчанию
+      let btnNext = $(".btn-next")
+      let btnReturn = $(".block_return")
+      let progressLine = $(".progress_line") // вся линия
+      let widthProgressLine = progressLine.width() // вся линия
+
+      let progressTest = $(".progress_question") // закрашенная линия в зависимости от номера выбранного вопроса
+      let widthProgressQuestion = widthProgressLine / arrQuestions.length
+
+      function setProgress () {
+        let width = (activeQuestion + 1) * widthProgressQuestion
+        progressTest.css("width", width + "px")
+      }
+
+      let chooseNothing = false;
+
+      function setCheckbox() {
+
+        var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
+        var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
+        btnNothing.change(function () {
+            if (this.checked) {
+                others.prop('checked', false)
+                chooseNothing = true
+            }
+        });
+        others.change(function () {
+            if (this.checked) {
+                btnNothing.prop('checked', false)
+                chooseNothing = false
+            }
+        })
+      }
+
+      function goTo () {
+        var url = "course_ready.html";
+        $(location).attr('href',url);
+      }
+
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email.val());
+      }
+
+      function checkAnswers(answers) {
+          if (answers.length == 0) {
+            window.showNotification("Выберите хотя бы один вариант")
+            return false
+          } else {
+            return true
+          }
+        }
+
+        ($("#email-address")).on('change paste keyup', function() {
+          if (!$(".error-email").hasClass("hide")) {
+            $(".error-email").addClass("hide");
+          };
+        });
+
+        btnNext.on("click", function (e) {
+          e.stopPropagation();
+          if ($('#notification')) {
+            $('#notification').remove()
+          }
+          if (activeQuestion >= (arrQuestions.length - 1)) {
+            if (userAuth) {
+              if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
+                  goTo()
+              }
+            } else {
+              if (validateEmail($("#email-address"))) {
+                goTo()
+              } else {
+                $(".error-email").removeClass("hide");
+              }
+            }
+          }
+
+          if  (activeQuestion < (arrQuestions.length - 1)) {
+            if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
+                arrQuestions.eq(activeQuestion).addClass("hide");
+                activeQuestion += 1;
+                arrQuestions.eq(activeQuestion).removeClass("hide");
+
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: ($(".progress_test")).offset().top
+                }, 500);
+
+            }
+            if (activeQuestion == (arrQuestions.length - 1)) {
+              btnNext.text("Готово")
+            }
+
+          }
+
+          setProgress()
+          setCheckbox()
+
+        })
+
+        btnReturn.on("click", function (e) {
+          e.stopPropagation();
+          if (activeQuestion > 0) {
+            arrQuestions.eq(activeQuestion).addClass("hide");
+            activeQuestion -= 1;
+            arrQuestions.eq(activeQuestion).removeClass("hide");
+            if (activeQuestion != (arrQuestions.length - 1)) {
+              btnNext.text("Дальше")
+            }
+            setProgress()
+          }
+        })
+
+        setProgress()
+        setCheckbox()
+
+
+
+
+        $(window).on("resize", function (e) {
+          widthProgressLine = progressLine.width() // вся линия
+          widthProgressQuestion = widthProgressLine / arrQuestions.length
+          setProgress();
+        })
+
+
+        //----переход между вопросами в тесте  конец--------
+      </script>
+    </body>
+</html>

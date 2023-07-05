@@ -1,0 +1,502 @@
+.container__team-page
+  .content
+    padding: 0
+    max-width: 1200px
+    &_header
+      text-align: center
+      margin-bottom: 50px
+      padding: 20px
+      margin: 0 0 50px
+    &_table
+      background: $color-bg-block
+      width: 100%
+      height: 200px
+      margin-bottom: 25px
+    .members
+      width: 100%
+      &_top-panel
+        margin: 0 0 30px
+        padding: 0 20px
+        justify-content: space-between
+        align-items: center
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        gap: 20px
+
+
+        .dropdown.dropdown-sorting
+          max-width: 343px
+          position: relative
+
+        .dropdown__input_hidden
+          display: none
+
+        .dropdown__button
+          position: relative
+          display: flex
+          align-items: center
+          text-align: left
+          background: $white
+          border: none
+          cursor: pointer
+          color: $black-70
+          @include font(12px, 16px)
+          white-space: nowrap
+          padding-right: 15px
+          font-family: "PT Root UI", "Arial", sans-serif
+          &::after
+            content: ""
+            position: absolute
+            pointer-events: none
+            transition: 200ms ease
+            border-top: 2px solid $black-70
+            border-right: 2px solid $black-70
+            width: 8px
+            height: 7px
+            right: 0
+            top: 1px
+            transform: rotate(135deg)
+          &_active::after
+            transform: rotate(135deg) scale(-1,-1)
+            top: 6px
+            transition: 200ms ease
+
+        .dropdown__list
+          margin: 0
+          padding: 0
+          list-style-type: none
+          position: absolute
+          left: 0
+          top: 25px
+          z-index: 1
+          opacity: 0
+          visibility: hidden
+          transition: 200ms ease
+
+          background-color: $white
+          color: $black-100
+          overflow: auto
+          max-height: 150px
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
+
+        .dropdown__list_visible
+          opacity: 1
+          visibility: visible
+
+        .dropdown__list-item
+          margin: 0
+          cursor: pointer
+          transition: 200ms ease
+          color: $black-100
+          padding: 10px
+          display: block
+          @include font(12px, 16px)
+          white-space: nowrap
+          &:hover
+            background-color: $grey-20
+
+
+        .dropdown__list-item_active
+          background: $grey-20
+
+              
+        &__btns
+          display: flex
+          flex-direction: row
+          gap: 20px
+          align-items: baseline
+          .btn_add-members
+            padding: 8px 16px
+            font-size: 25px
+            line-height: 28px
+            .btn-label
+              display: none
+          .btn_open-menu-members
+            svg
+              fill: $grey-100
+        &__search
+          flex-wrap: 1
+          width: 100%
+          .search__input
+            width: 100%
+      &_list
+        margin-bottom: 20px
+        .members_item
+          padding: 20px
+          border-top: 1px $grey-50 solid
+          align-items: flex-start
+          gap: 20px
+          display: flex
+          color: $black-50
+          @include font(12px, 16px)
+          flex-direction: row
+          flex-wrap: wrap
+          justify-content: space-between
+          &_btn-check
+            display: none
+          &:last-child
+            border-bottom: 1px $grey-50 solid
+          &_name
+            flex-direction: column
+            justify-content: flex-start
+            align-items: flex-start
+            display: flex
+            &-fio
+              color:$black-70
+              @include font(16px, 19px)
+              font-weight: 600
+          &_btn-menu
+            svg
+              height: 24px
+              width: 24px
+              fill: $grey-100
+          &_progress
+            width: 100%
+            &-header
+              display: flex
+              flex-direction: row
+              margin-bottom: 5px
+            &-title
+              flex-grow: 1
+            &-value
+              color: $black-100
+              font-weight: 600
+            &-bar
+              width: auto
+              height: 6px
+              background: $grey-20
+              border-radius: 3px
+              position: relative
+              &_inner
+                position: absolute
+                width: 0
+                height: 6px
+                left: 0
+                top: 0
+                background-color: $black-100
+                border-radius: 3px
+                -webkit-transition: width 2s
+                transition: width 2s
+          &_resolved-task
+            &-value
+              margin-top: 5px
+              color: $black-100
+              font-weight: 600
+              .task-percent 
+                display: none
+          &_exercise
+            &-value
+              margin-top: 5px
+              color: $black-100
+              font-weight: 600
+              .task-percent 
+                display: none
+          &_activity
+            &-value
+              margin-top: 5px
+              color: $black-100
+              font-weight: 600
+          &-header
+            display: none
+      &_pages 
+        display: flex
+        flex-direction: row
+        margin: 0 auto 5px
+        justify-content: center
+        gap: 5px
+        
+        .members_page.btn.btn-white
+          border-color: transparent
+          padding: 10px
+          min-width: 35px
+          &.active
+            border-color: $grey-50
+            &:hover
+              border-color: $grey-50
+              cursor: pointer
+
+.popup_invite-member
+  position: absolute
+  z-index: 555555
+  background: rgba(248.88, 248.88, 250.92, 0.85)
+  backdrop-filter: blur(20px)
+  display: block
+  top:0
+  left:0
+  width: 100vw
+  height: 100%
+  .btn-close-top
+    position: absolute
+    top: 20px
+    right: 20px
+    order: 1
+    &:hover
+      cursor: pointer
+  &__inner
+    max-width: 600px
+    padding: 30px
+    background: $white
+    border-radius: 4px
+    border: 1px $grey-20 solid
+    color: $black-100
+    box-sizing: border-box
+    margin: 80px auto 10px
+    hr
+      margin: 25px 0
+      height: 1px
+      background-color: $grey-20
+      border: none
+
+  &__title
+    color: #17171C
+    @include font(32px, 36px)
+    font-weight: 700
+    text-align: center
+    margin-bottom: 40px
+
+  .invite__toggle
+    cursor: pointer
+    display: flex
+    width: 100%
+    &-switch
+      display: inline-block
+      background: $grey-20
+      border-radius: 20px
+      width: 30px
+      height: 18px
+      position: relative
+      padding: 2px
+      transition: background 0.25s    
+      border: 1px $grey-60 solid
+      &:before, &:after
+        content: ""
+      &:before
+        display: block
+        border-radius: 50%
+        position: absolute
+        top: 3px
+        transition: left 0.25s
+
+        width: 14px
+        height: 14px
+        border-radius: 50%
+        border: 1px $black-100 solid
+    &-checkbox
+      &:checked + .invite__toggle-switch
+        &:before
+          background: $black-100
+          right: 2px
+      position: absolute
+      visibility: hidden
+
+  .invite_email
+    margin-bottom: 20px
+    &__input
+      width: 100%
+      margin-top: 20px
+      padding: 8px 6px
+  .input_invite-label
+    color: $black-100
+    @include font(20px, 25px)   
+    font-weight: 700
+    margin-right: auto
+  
+
+
+
+
+        
+@media (min-width: 640px)
+  .container__team-page
+    .content
+      &_header
+        margin-bottom: 60px
+        div
+          @include font(18px, 24px)
+      &_table
+        margin: 0 20px 30px
+        width: auto
+      .members
+        &_top-panel
+          flex-wrap: no-wrap
+          .dropdown-sorting
+            display: none
+          &__search
+            order: 1
+            max-width: 300px
+          &__btns
+            order: 2
+
+@media (min-width: 768px)
+  .container__team-page
+    .content
+      .members
+        &_top-panel
+          &__search
+            max-width: 330px
+            .search__input
+              height: 36px
+              font-size: 16px
+          &__btns
+            .btn_add-members
+              padding: 2px 16px
+              height: 32px
+              .btn-label
+                display: inline-block
+                padding-left: 10px
+                color: $white
+                @include font(12px, 16px)
+                font-weight: 400
+                height: 100%
+                vertical-align: middle
+                padding-top: 6px
+        &_list
+          max-width: 1200px
+          padding: 0 20px
+          .members_item
+            padding: 15px 5px 
+            flex-wrap: nowrap
+            display: grid
+            grid-template-columns: 30px 2fr 1fr 1fr 1fr 1fr 30px
+            &_btn-check
+              display: block
+              .member_check
+                display: none
+                position: relative
+                &:hover
+                  cursor: pointer
+                &::before
+                  content: ""
+                  display: inline-block
+                  width: 30px
+                  height: 30px
+                  border: 1px solid $black-50
+                  box-sizing: border-box
+                  border-radius: 4px
+                  margin: 0
+                  margin-right: 10px
+                  min-width: 30px
+                &:hover::before
+                  background-color: #F9F9FB
+              .member_check input[type=checkbox]
+                  position: absolute
+                  z-index: -1
+                  opacity: 0
+                  width: 0
+                  height: 0
+                  display: block
+              .member_check input[type=checkbox]:checked + span
+                position: absolute
+                top: 65%
+              .member_check input[type=checkbox]:checked + span::before
+                  content: ""
+                  position: absolute
+                  display: inline-block
+                  width: 2px
+                  height: 17px
+                  background-color: #007AFF
+                  left: 17px
+                  bottom: 27%
+                  transform: rotate(45deg)
+              .member_check input[type=checkbox]:checked + span::after
+                  content: ""
+                  position: absolute
+                  display: inline-block
+                  width: 2px
+                  height: 9px
+                  background-color: #007AFF
+                  left: 8px
+                  bottom: 28%
+                  transform: rotate(-45deg)
+
+
+                 
+
+
+
+            &:hover
+              cursor: pointer
+              background-color: $color-bg-block
+              .members_item_btn-check
+                .member_check
+                  display: block
+              .members_item_name
+                &-fio
+                  color: $accent-secondary
+              &_btn-check
+                display: block
+            .task-done
+              font-size: 21px
+              color: $black-70
+            .task-all
+              font-size: 15px
+            .task-percent
+              display: block
+              font-size: 12px
+              margin-left: auto
+            &_progress
+              margin-left: 35px 
+            &-header
+              display: grid
+              border: none
+              div
+                text-align: right
+                &.members_item_activity
+                  text-align: left
+            &_name
+              order: 1
+              max-width: 280px
+              &-fio
+                line-height: 26px
+              &-email
+                @include font(14px, 19px)
+            &_activity
+              order: 2
+              max-width: 208px
+              &-title
+                display: none
+              &-value
+                @include font(14px, 19px)
+                font-weight: 400
+            &_resolved-task
+              order: 3
+              max-width: 210px
+              &-value
+                color: $grey-100
+                font-weight: 400
+                text-align: right
+              &-title
+                display: none
+            &_exercise
+              order: 4
+              max-width: 210px
+              &-value
+                color: $grey-100
+                font-weight: 400
+                text-align: right
+              &-title
+                display: none
+            &_progress
+              order: 5
+              max-width: 92px
+              width: 100%
+              &-title
+                display: none
+              &-value
+                margin-left: auto
+                font-size: 21px
+                color: $black-70
+                font-weight: 400
+            &_btn-menu
+              order: 6
+              min-width: 30px
+        &_pages
+          padding: 0 20px
+          justify-content: flex-start
+
+        
+
+
+
+

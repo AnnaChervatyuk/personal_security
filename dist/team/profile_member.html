@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" ></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+    <script defer src="../bundle.js"></script><link href="../app.css" rel="stylesheet"></head>
+    <body>
+      <div class="container container-profile container__team">
+        <section class="navigator">
+          <div class="nav_logo">
+            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./../images/logo.svg" alt="Personal security"></a>
+          </div>
+          <ul class="nav_list">
+            <li class="nav_item active"><a href="course.html">Тренировки</a></li>
+            <li class="nav_item active"><a href="theory.html">Теория</a></li>
+            <li class="nav_item active"><a href="situation.html">Ситуации</a></li>
+          </ul>
+          <div class="nav_list menu__wrapper">
+            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="../sprite.svg#icon-menu"></use>
+                </svg>
+            </div>
+            <div class="nav_list nav_list-menu hide" id="menu-nav">
+              <div class="nav_el nav_team-menu" id="open-team-menu-btn">
+                <svg class="icons icons--teammenu" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="../sprite.svg#icon-teammenu"></use>
+                </svg>
+              </div>  
+              <div class="nav_el nav_search" id="open-search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="../sprite.svg#icon-search"></use>
+                </svg>
+                <div class="nav_list-text">Поиск</div>
+              </div>
+              <a class="nav_el nav_profile" href="profile.html">
+                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="../sprite.svg#icon-profile"></use>
+                </svg>
+                <div class="nav_list-text">Аккаунт</div>
+              </a>
+            </div>
+          </div>
+          <div class="team-menu_popup hide" id="team-menu_popup">
+            <div class="team-menu_list">
+              <div class="team-menu_item">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo.svg" alt="Personal security" >
+                    <div>Персональный ассистент по&nbsp;безопасности</div>
+                  </a>
+              </div>
+              <div class="team-menu_item active">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo_team.svg" alt="Personal security" >
+                    <div>Проверка информационной безопасности вашей команды</div>
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="search-panel hide" id="search-panel">
+            <div class="search-input_wrapper">
+              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+              <div class="search-btn" id="search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="../sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="search-panel-close" id="close-search-btn">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="../sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="content">
+          <div class="header-profile">
+            <h1>Аккаунт</h1>
+            <div class="link_btn">Выйти</div>
+          </div>
+          <div class="border"></div>
+          <div class="setting-mail">
+            <div class="setting-name">Почта</div>
+            <div class="setting-el">
+              <div class="change">
+                <div class="mail-address">2342342343242343@yandeх.ru</div>
+                <div class="change-address link_btn" id="change-address">Сменить почту</div>
+              </div>
+              <div class="in-change hide">
+                <div class="mail-address">
+                  <input type="text" class="email__input" placeholder="e-mail" id="email-address">
+                </div>
+                <div class="in-change-error hide">
+                  <div class="text-error">Некорректный email</div>
+                </div>
+                <div class="change-address btn btn-white" id="save-address">Сохранить</div>
+              </div>
+              <div class="after-save hide">
+                Подтвердите новую почту 2mail@yandeх.ru. Перейдите по ссылке в письме, которые мы вам отправили.
+              </div>
+            </div>
+          </div>
+          <div class="border"></div>
+          <div class="setting__type-profile">
+            <div class="setting__type-profile__item active" id="btnTeamSetting">Для команд</div>
+            <div class="setting__type-profile__item" id="btnPersonalSetting">Персональные тренировки</div>
+          </div>
+          <div class="border"></div>
+          <div class="setting-personal hide" id="personalSetting">
+            <div class="setting-name">Персонализация</div>
+            <div class="setting-el">
+              <div class="descr">Персональные тренировки были подобраны на основе ваших ответов в тесте.</div>
+              <div class="change-answers"><a href="test.html" class="link_btn">Изменить ответы</a></div>
+            </div>
+          </div>
+          <div class="setting-personal" id="teamSetting">
+            <div class="setting-name">Команда</div>
+            <div class="setting-el">
+              <div class="descr">Бодрые бобры</div>
+              <div class="change-answers"><a href="" class="link_btn">Выйти</a></div>
+            </div>
+          </div>
+
+          <div class="border"></div>
+          <h5 class="notifications">Уведомления</h5>
+          <div class="notifications-disclaimer">Присылать уведомления, когда появляются</div>
+          <div class="border"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="new_tasks" checked>
+            	<span>Новые задачи</span>
+            </label>
+          </div>
+
+          <div class="border"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="new_situation" checked>
+            	<span>Новые разборы ситуаций</span>
+            </label>
+          </div>
+
+          <div class="border"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="new_exercise" checked>
+            	<span>Новые тренировки </span>
+            </label>
+          </div>
+          <div class="border"></div>
+
+          <div class="notifications-disclaimer">Полезные, но не очень важные уведомления</div>
+          <div class="border"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="my_progress" checked>
+              <span>О моём прогрессе</span>
+            </label>
+          </div>
+
+          <div class="border"></div>
+
+          <div class="setting_wrapper">
+            <label class="setting-notification">
+              <input type="checkbox" id="tast_reminder" checked>
+              <span>Напоминания о незавершённых задачах</span>
+            </label>
+          </div>
+
+          <div class="border"></div>
+          <div class="delete-profile" id="delete-profile">Удалить аккаунт</div>
+
+          <div class="delete-profile_wrapper hide">
+            <div class="delete-profile_inner">
+              <div class="btn-close-delete" id="btn-close-delete">
+                <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+              <h2>Точно удалить аккаунт?</h2>
+              <div class="btns-detele">
+                <div class="btn btn-cancel" id="btn-cancel">Нет, не удалять</div>
+                <div class="btn btn-white btn-confirm" id='btn-confirm'>Удалить</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./../images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item active"><a href="about.html">О проекте</a></li>
+            <li class="footer_item active"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <script>
+        let blockChangeEmail = $(".in-change")
+        let blockEmail = $(".change")
+        let btnChangeEmail = $("#change-address")
+        let btnSaveEmail = $("#save-address")
+        let inputEmail = $("#email-address")
+        let blockErrorEmail = $(".in-change-error")
+        let blockAfterSave = $(".after-save")
+
+        let btnDeleteProfile = $("#delete-profile")
+        let btnDeleteCancel = $("#btn-cancel")
+        let btnDeleteConfirm = $("#btn-confirm")
+        let btnCloseDelete = $("#btn-close-delete")
+        let blockDeleteProfile = $(".delete-profile_wrapper")
+
+
+
+
+        function validateEmail() {
+          var re = /\S+@\S+\.\S+/;
+          return re.test(inputEmail.val());
+        }
+
+        btnDeleteConfirm.on("click", function (e) {
+          //удалить аккаунт
+          e.stopPropagation();
+        })
+
+        btnDeleteProfile.on("click", function (e) {
+          blockDeleteProfile.removeClass('hide')
+          e.stopPropagation();
+        })
+
+        btnCloseDelete.on("click", function (e) {
+          blockDeleteProfile.addClass('hide')
+          e.stopPropagation();
+        })
+        btnDeleteCancel.on("click", function (e) {
+          blockDeleteProfile.addClass('hide')
+          e.stopPropagation();
+        })
+
+        btnChangeEmail.on("click", function (e) {
+          blockChangeEmail.removeClass("hide");
+          blockEmail.addClass("hide");
+          if (!blockAfterSave.hasClass("hide")) {
+            blockAfterSave.addClass("hide");
+          };
+          e.stopPropagation();
+        })
+
+        inputEmail.on('change paste keyup', function() {
+          if (!blockErrorEmail.hasClass("hide")) {
+            blockErrorEmail.addClass("hide");
+          };
+        });
+
+        btnSaveEmail.on("click", function (e) {
+          if (validateEmail()) {
+            blockChangeEmail.addClass("hide");
+            blockEmail.removeClass("hide")
+            blockAfterSave.removeClass("hide")
+            if (!blockErrorEmail.hasClass("hide")) {
+              blockErrorEmail.addClass("hide");
+            };
+
+          } else {
+            blockErrorEmail.removeClass("hide");
+          }
+          e.stopPropagation();
+        })
+
+        $('#btnTeamSetting').on("click", function (e) {
+          $('#btnTeamSetting').toggleClass('active')
+          $('#btnPersonalSetting').toggleClass('active')
+          $('#personalSetting').toggleClass('hide')
+          $('#teamSetting').toggleClass('hide')
+        })
+        $('#btnPersonalSetting').on("click", function (e) {
+          $('#btnTeamSetting').toggleClass('active')
+          $('#btnPersonalSetting').toggleClass('active')
+          $('#personalSetting').toggleClass('hide')
+          $('#teamSetting').toggleClass('hide')
+        })
+
+        
+      </script>
+    </body>
+</html>

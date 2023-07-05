@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist', // Folder to store generated bundle
     filename: 'bundle.js',  // Name of generated bundle after build
-    publicPath: '/' // public URL of the output directory when referenced in a browser
+    publicPath: '' // public URL of the output directory when referenced in a browser
   },
 
 
@@ -19,25 +19,20 @@ module.exports = {
             test: /\.scss$/,
             use:  [
               'style-loader',
-              {
-                  loader: MiniCssExtractPlugin.loader,
-                  options: {
-                      esModule: false,
-                  },
-              },
+              MiniCssExtractPlugin.loader,
               'css-loader',
               'sass-loader'
             ]
           },
-          {
-              test: /\.(eot|svg|ttf|woff|woff2)$/,
-              use: [
-                     {
-                       // loader: 'file-loader?name=./assets/fonts/webfonts/[name].[ext]'
-                       loader: 'file-loader?name=assets/fonts/webfonts/[name].[ext]'
-                     },
-                   ]
-          },
+          // {
+          //     test: /\.(eot|svg|ttf|woff|woff2)$/,
+          //     use: [
+          //            {
+          //              // loader: 'file-loader?name=./assets/fonts/webfonts/[name].[ext]'
+          //              loader: 'file-loader?name=assets/fonts/webfonts/[name].[ext]'
+          //            },
+          //          ]
+          // },
           {
             test: /\.js$/,
             use: 'babel-loader',
@@ -68,6 +63,16 @@ module.exports = {
                     }
                 },
             ],
+          },
+          {
+            test: /\.(ttf|eot|woff|woff2|svg)$/,
+            use: {
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'fonts/'
+                },
+            },
         },
       ]
   },
@@ -75,8 +80,7 @@ module.exports = {
       new SpriteLoaderPlugin(),
       new CopyWebpackPlugin({
         patterns: [
-            { from: 'src/public/images', to: 'images' },
-            // { from: 'src/public/sprite.svg', to: '/' },
+            { from: 'src/public', to: 'images' },
         ],
       }),
       new MiniCssExtractPlugin({
@@ -109,6 +113,10 @@ module.exports = {
       new HtmlWebpackPlugin({
         filename: 'first_page.html',
         template: 'src/public/first_page.html'
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'team/first_page.html',
+        template: 'src/public/team/first_page.html'
         }),
       new HtmlWebpackPlugin({
         filename: 'search.html',
@@ -127,16 +135,40 @@ module.exports = {
         template: 'src/public/profile.html'
         }),
       new HtmlWebpackPlugin({
+        filename: 'team/profile_leader.html',
+        template: 'src/public/team/profile_leader.html'
+        }),
+      new HtmlWebpackPlugin({
+        filename: 'team/profile_member.html',
+        template: 'src/public/team/profile_member.html'
+        }),
+      new HtmlWebpackPlugin({
         filename: 'course_not_started.html',
         template: 'src/public/course_not_started.html'
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'team/course_not_started.html',
+        template: 'src/public/team/course_not_started.html'
         }),
       new HtmlWebpackPlugin({
         filename: 'course_ready.html',
         template: 'src/public/course_ready.html'
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'team/course_ready.html',
+        template: 'src/public/team/course_ready.html'
         }),
       new HtmlWebpackPlugin({
         filename: 'course.html',
         template: 'src/public/course.html'
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'team/course.html',
+        template: 'src/public/team/course.html'
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'team/team.html',
+        template: 'src/public/team/team.html'
         }),
       new HtmlWebpackPlugin({
         filename: 'course_progress_0.html',

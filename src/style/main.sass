@@ -51,19 +51,23 @@ a.btn,
   @include btn()
   // @include font(16px, 9px)
   @include font(16px, 22px)
+  background-color: #17171C !important
+  color: #fff !important
   &:hover
-    cursor: pointer
-    background-color: $black-70
-    color: $white
-    -webkit-transition: 0.1s ease-out
-    transition: 0.1s ease-out
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1)
+    cursor: pointer !important
+    background-color: #2E2E38 !important
+    color: #fff !important
+    -webkit-transition: 0.1s ease-out !important
+    transition: 0.1s ease-out !important
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1) !important
+    text-decoration: none
+    border-bottom: 1px solid #C7C7CC
 
 .btn-go-training
   @include font(16px, 22px)
 .btn.btn-white
-  background-color: $white
-  color: $black-70
+  background-color: $white !important
+  color: $black-70 !important
   border: 1px solid $grey-60
   width: fit-content
   width: -moz-fit-content
@@ -72,8 +76,8 @@ a.btn,
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.1)
     -webkit-transition: 0.1s ease-out
     transition: 0.1s ease-out
-    background-color: $white
-    color: $black-70
+    background-color: $white !important
+    color: $black-70 !important
 
 .link
   position: absolute

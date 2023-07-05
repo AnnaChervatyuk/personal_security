@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+    <script defer src="../bundle.js"></script><link href="../app.css" rel="stylesheet"></head>
+    <body>
+      <div class="container container__team container__team-page">
+        <section class="navigator">
+          <div class="nav_logo">
+            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./../images/logo.svg" alt="Personal security" ></a>
+          </div>
+          <ul class="nav_list">
+            <li class="nav_item "><a href="course.html">Тренировки</a></li>
+            <li class="nav_item active"><a href="team.html">Команда</a></li>
+          </ul>
+          <div class="nav_list menu__wrapper">
+            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="./../sprite.svg#icon-menu"></use>
+                </svg>
+            </div>
+            <div class="nav_list nav_list-menu hide" id="menu-nav">
+               <div class="nav_el nav_team-menu" id="open-team-menu-btn">
+                  <svg class="icons icons--teammenu" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <use xlink:href="../sprite.svg#icon-teammenu"></use>
+                  </svg>
+               </div>  
+              <div class="nav_el nav_search" id="open-search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+                <div class="nav_list-text">Поиск</div>
+              </div>
+              <a class="nav_el nav_profile" href="profile_leader.html">
+                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-profile"></use>
+                </svg>
+                <div class="nav_list-text">Аккаунт</div>
+              </a>
+            </div>
+          </div>
+          <div class="team-menu_popup hide" id="team-menu_popup">
+            <div class="team-menu_list">
+              <div class="team-menu_item">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo.svg" alt="Personal security" >
+                    <div>Персональный ассистент по&nbsp;безопасности</div>
+                  </a>
+              </div>
+              <div class="team-menu_item active">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo_team.svg" alt="Personal security" >
+                    <div>Проверка информационной безопасности вашей команды</div>
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="search-panel hide" id="search-panel">
+            <div class="search-input_wrapper">
+              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+              <div class="search-btn" id="search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="search-panel-close" id="close-search-btn">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="content">
+
+         <div class="content_header">
+            <div>Команда</div>
+            <h1>Бодрые бобры</h1>
+         </div>
+         <div class="content_table">таблица</div>
+         <div class="content_members members">
+            <div class="members_top-panel">
+
+              <div class='dropdown dropdown-sorting'>
+                <button type='button' class="dropdown__button">По имени</button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item dropdown__list-item_active" data-value="По имени">По имени</li> 
+                  <li class="dropdown__list-item" data-value="По имени 1">По имени 1</li> 
+                  <li class="dropdown__list-item" data-value="По имени 2">По имени 2</li> 
+                  <li class="dropdown__list-item" data-value="По имени 3">По имени 3</li> 
+                </ul>
+                <input type="text" name="select-category" value="" class="dropdown__input_hidden">
+              </div>
+
+
+               <div class="members_top-panel__btns">
+                <div class="btn btn_add-members" onclick="openInviteMember()">+<span class="btn-label">Пригласить</span></div>
+                <div class="btn_open-menu-members">
+                     <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                     </svg>
+                  </div>
+               </div>
+               <div class="members_top-panel__search">
+                  <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+               </div>
+            </div>
+         </div>
+         <div class="members_list">
+
+          <div class="members_item members_item-header">
+            <div class="members_item_btn-check"></div>
+            <div class="members_item_name">Имя</div>
+            <div class="members_item_progress">Общий прогресс</div>
+            <div class="members_item_resolved-task">Выполнено заданий</div>
+            <div class="members_item_exercise">Пройдено занятий</div>
+            <div class="members_item_activity">Последняя активность</div>
+            <div class="members_item_btn-menu"></div>
+          </div>
+
+
+          <div class="members_item"  onclick="checkMembers(this)">
+            <div class="members_item_btn-check">
+              <label class="member_check">
+                <input type="checkbox">
+                <span></span>
+              </label>
+            </div>
+            <div class="members_item_name">
+              <div class="members_item_name-fio">Amazon Marketovich</div>
+              <div class="members_item_name-email">sdfds@proton.io</div>
+            </div>
+
+            <div class="members_item_btn-menu">
+              <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+              </svg>
+           </div>
+
+           <div class="members_item_progress">
+              <div  class="members_item_progress-header">
+                <div class="members_item_progress-title">Общий прогресс</div>
+                <div class="members_item_progress-value">6%</div>
+              </div>
+              <div class="members_item_progress-bar">
+                <div class="members_item_progress-bar_inner"></div>
+              </div>
+            </div>
+
+            <div class="members_item_resolved-task">
+              <div class="members_item_resolved-task-title">Выполнено заданий</div>
+              <div class="members_item_resolved-task-value"><span class="task-done">0</span><span class="task-all">/15</span><span class="task-percent">71%</span></div>
+            </div>
+
+            <div class="members_item_exercise">
+              <div class="members_item_exercise-title">Пройдено занятий</div>
+              <div class="members_item_exercise-value"><span class="task-done">0</span><span class="task-all">/15</span><span class="task-percent">71%</span></div>
+            </div>
+
+            <div class="members_item_activity">
+              <div class="members_item_activity-title">Активность</div>
+              <div class="members_item_activity-value">7 д. назад</div>
+            </div>
+          </div>
+          <div class="members_item" onclick="checkMembers(this)">
+            <div class="members_item_btn-check">
+              <label class="member_check">
+                <input type="checkbox">
+                <span></span>
+              </label>
+            </div>
+
+            <div class="members_item_name">
+              <div class="members_item_name-fio">Amazon Marketovich</div>
+              <div class="members_item_name-email">sdfds@proton.io</div>
+            </div>
+
+            <div class="members_item_btn-menu">
+              <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+              </svg>
+           </div>
+
+           <div class="members_item_progress">
+              <div  class="members_item_progress-header">
+                <div class="members_item_progress-title">Общий прогресс</div>
+                <div class="members_item_progress-value">6%</div>
+              </div>
+              <div class="members_item_progress-bar">
+                <div class="members_item_progress-bar_inner"></div>
+              </div>
+            </div>
+
+            <div class="members_item_resolved-task">
+              <div class="members_item_resolved-task-title">Выполнено заданий</div>
+              <div class="members_item_resolved-task-value"><span class="task-done">0</span><span class="task-all">/15</span><span class="task-percent">71%</span></div>
+            </div>
+
+            <div class="members_item_exercise">
+              <div class="members_item_exercise-title">Пройдено занятий</div>
+              <div class="members_item_exercise-value"><span class="task-done">0</span><span class="task-all">/15</span><span class="task-percent">71%</span></div>
+            </div>
+
+            <div class="members_item_activity">
+              <div class="members_item_activity-title">Активность</div>
+              <div class="members_item_activity-value">7 д. назад</div>
+            </div>
+          </div>
+          <div class="members_item" onclick="checkMembers(this)">
+            <div class="members_item_btn-check">
+              <label class="member_check">
+                <input type="checkbox">
+                <span></span>
+              </label>
+            </div>
+
+            <div class="members_item_name">
+              <div class="members_item_name-fio">Amazon Marketovich</div>
+              <div class="members_item_name-email">sdfds@proton.io</div>
+            </div>
+
+            <div class="members_item_btn-menu">
+              <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+              </svg>
+           </div>
+
+           <div class="members_item_progress">
+              <div  class="members_item_progress-header">
+                <div class="members_item_progress-title">Общий прогресс</div>
+                <div class="members_item_progress-value">6%</div>
+              </div>
+              <div class="members_item_progress-bar">
+                <div class="members_item_progress-bar_inner"></div>
+              </div>
+            </div>
+
+            <div class="members_item_resolved-task">
+              <div class="members_item_resolved-task-title">Выполнено заданий</div>
+              <div class="members_item_resolved-task-value"><span class="task-done">0</span><span class="task-all">/15</span><span class="task-percent">71%</span></div>
+            </div>
+
+            <div class="members_item_exercise">
+              <div class="members_item_exercise-title">Пройдено занятий</div>
+              <div class="members_item_exercise-value"><span class="task-done">0</span><span class="task-all">/15</span><span class="task-percent">71%</span></div>
+            </div>
+
+            <div class="members_item_activity">
+              <div class="members_item_activity-title">Активность</div>
+              <div class="members_item_activity-value">7 д. назад</div>
+            </div>
+          </div>
+         </div>
+         <div class="members_pages">
+            <div class="members_page active btn btn-white">1</div>
+            <div class="members_page btn btn-white">2</div>
+            <div class="members_page btn btn-white">3</div>
+            <div class="members_page btn btn-white">4</div>
+            <div class="members_page btn btn-white">5</div>
+          </div>
+
+        </section>
+
+
+
+
+      </div>
+
+
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./../images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item"><a href="about.html">О проекте</a></li>
+            <li class="footer_item"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <div class="popup_invite-member hide" id="popupInviteMember">
+        <div class="popup_invite-member__inner">
+          <div class="btn-close-top" onclick="closeInviteMember()">
+            <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <use xlink:href="../sprite.svg#icon-close"></use>
+            </svg>
+          </div>
+          <div class="popup_invite-member__title">Приглашение в «Бодрые бобры»</div>
+          <div class="popup_invite-member__invite invite_link">
+            <label class="invite__toggle">
+              <span class="input_invite-label">По ссылке</span>
+              <input class="invite__toggle-checkbox" type="checkbox">
+              <div class="invite__toggle-switch"></div>
+            </label>
+          </div>
+          <hr />
+          <div class="popup_invite-member__invite invite_email">
+            <span class="input_invite-label">По email</span>
+            <input type="text" class="invite_email__input" placeholder="Несколько имейлов через пробел или запятую">
+          </div>
+          <div class="btn btn_send-invite-members">Отправить</div>
+        </div>
+     </div>
+
+      <script>
+
+          document.querySelectorAll('.members_item_progress-bar').forEach(function (membersProgressWrapper) {
+            membersProgressWrapper.querySelector('.members_item_progress-bar_inner').style.width=6 + "%";
+          })
+
+
+          document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
+            const dropdownBtn = dropdownWrapper.querySelector('.dropdown__button');
+            const dropdownList = dropdownWrapper.querySelector('.dropdown__list');
+            const dropdownItems = dropdownList.querySelectorAll('.dropdown__list-item');
+            const dropdownInput = dropdownWrapper.querySelector('.dropdown__input_hidden')
+            
+            dropdownBtn.addEventListener('click', function () {
+              dropdownList.classList.toggle('dropdown__list_visible');
+              this.classList.toggle('dropdown__button_active');
+            });
+            
+            dropdownItems.forEach(function(listItem) {
+              listItem.addEventListener('click', function (e) {
+                dropdownItems.forEach(function(el) {
+                  el.classList.remove('dropdown__list-item_active');
+                })
+                e.target.classList.add('dropdown__list-item_active');
+                dropdownBtn.innerText = this.innerText;
+                dropdownInput.value = this.dataset.value;
+                dropdownList.classList.remove('dropdown__list_visible');
+              })
+            })
+            
+      
+
+            document.querySelector('body').addEventListener('click', function (e) {
+              if ( e.target !== dropdownBtn ){
+                dropdownBtn.classList.remove('dropdown__button_active');
+                dropdownList.classList.remove('dropdown__list_visible');
+              }
+            })
+            
+          })
+
+
+          function checkMembers (event) {
+            event.querySelector('input').checked = !event.querySelector('input').checked
+          }
+
+          let popupInviteMember = $("#popupInviteMember")
+          function openInviteMember () {
+            popupInviteMember.removeClass('hide')
+          }
+          function closeInviteMember () {
+            popupInviteMember.addClass('hide')
+          }
+      </script>
+    </body>
+</html>

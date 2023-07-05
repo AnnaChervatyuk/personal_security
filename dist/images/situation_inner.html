@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" ></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+  </head>
+    <body>
+      <div  class="container container-article">
+      <section class="navigator">
+        <div class="nav_logo">
+          <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Personal security"></a>
+        </div>
+        <ul class="nav_list">
+          <li class="nav_item"><a href="course.html">Тренировки</a></li>
+          <li class="nav_item "><a href="theory.html">Теория</a></li>
+          <li class="nav_item active"><a href="situation.html">Ситуации</a></li>
+        </ul>
+        <div class="nav_list menu__wrapper">
+          <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+              <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <use xlink:href="sprite.svg#icon-menu"></use>
+              </svg>
+          </div>
+          <div class="nav_list nav_list-menu hide" id="menu-nav">
+            <div class="nav_el nav_search" id="open-search-btn">
+              <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-search"></use>
+              </svg>
+              <div class="nav_list-text">Поиск</div>
+            </div>
+            <a class="nav_el nav_profile" href="profile.html">
+              <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-profile"></use>
+              </svg>
+              <div class="nav_list-text">Аккаунт</div>
+            </a>
+          </div>
+        </div>
+        <div class="search-panel hide" id="search-panel">
+          <div class="search-input_wrapper">
+            <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+            <div class="search-btn" id="search-btn">
+              <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-search"></use>
+              </svg>
+            </div>
+            <div class="clear-btn hide" id="clear-btn">
+              <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="search-panel-close" id="close-search-btn">
+            <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <use xlink:href="sprite.svg#icon-close"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="article article-situation">
+        <div class="block_top">
+          <div class="block_return">
+            <a href="index.html">
+              <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-return"></use>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="content">
+          <div class="article-situation_header">
+            <div class="header_inner">
+              <h1>Я потерял смартфон, что мне делать?</h1>
+              <div class="time">7 минут</div>
+            </div>
+          </div>
+          <div class="descr-img_article" ><img loading="lazy" src="./images/first_img_2.svg" alt="Цифровая безопасность"></div>
+          <div class="article_text">
+            <div>Служба безопасности &laquo;Яндекса&raquo; обнаружила внутреннюю утечку информации. По&nbsp;результатам расследования стало известно, что один из&nbsp;сотрудников компании предоставлял несанкционированный доступ к&nbsp;почтовым ящикам пользователей.</div>
+            <div>Злоумышленником оказался один из&nbsp;трех <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултип</span></span> администраторов, обладавших правами доступа для выполнения рабочих задач по&nbsp;обеспечению технической поддержки сервиса. В&nbsp;результате его действий было скомпрометировано 4887 почтовых ящиков.</div>
+            <div>&laquo;Неавторизованный доступ в&nbsp;скомпрометированные ящики уже заблокирован. Их&nbsp;владельцы получили уведомление о&nbsp;необходимости смены пароля от&nbsp;своей учетной записи&raquo;,&nbsp;&mdash; сообщила пресс-служба &laquo;Яндекса&raquo;.</div>
+            <div>По&nbsp;выявленному инциденту проводится внутреннее расследование и&nbsp;будут пересмотрены процессы работы сотрудников, обладающих административными правами такого уровня доступа.</div>
+            <h3>В чем проблема с паролями</h3>
+            <div>Служба безопасности &laquo;Яндекса&raquo; обнаружила внутреннюю утечку информации. По&nbsp;результатам расследования стало известно, что один из&nbsp;сотрудников компании предоставлял несанкционированный доступ к&nbsp;почтовым ящикам пользователей.</div>
+            <div>Злоумышленником оказался один из&nbsp;трех <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина вставляется в тултип</span></span> администраторов, обладавших правами доступа для выполнения рабочих задач по&nbsp;обеспечению технической поддержки сервиса. В&nbsp;результате его действий было скомпрометировано 4887 почтовых ящиков.</div>
+            <div>Служба безопасности &laquo;Яндекса&raquo; обнаружила внутреннюю утечку информации. По&nbsp;результатам расследования стало известно, что один из&nbsp;сотрудников компании предоставлял несанкционированный доступ к&nbsp;почтовым ящикам пользователей.</div>
+            <h4> В чем проблема с паролями </h4>
+            <div>Злоумышленником оказался один из&nbsp;трех системных администраторов, обладавших правами доступа для выполнения рабочих задач по&nbsp;обеспечению технической поддержки сервиса. В&nbsp;результате его действий было скомпрометировано 4887 почтовых ящиков.</div>
+            <h3>Как отключить потерянный телефон от аккаунта:</h3>
+            <div><b>Facebook</b><br>
+            <a href="/" class="link_txt link_txt-blue">изменить пароль</a> от аккаунта и аннулировать доступ старого устройства.</div>
+            <div><b>Telegram</b><br>
+            <a href="/" class="link_txt link_txt-blue">удалить устройство</a> из "Активных сеансов".</div>
+
+          </div>
+        </div>
+
+        <div class="materials materials-theory">
+          <div class="materials_amount"></div>
+          <div class="material">
+            <div class="material-list">
+
+              <div class="material-el  material-el-done" data-tag="financial;personal">
+                <div class="img"></div>
+                <h5>Настройки конфиденциальности в соцсетях</h5>
+                <div class="descr">
+                  <div class="time">4 мин</div>
+                  <div class="in-coaching hide">
+                    <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                       <use xlink:href="sprite.svg#icon-profile"></use>
+                    </svg>
+                  </div>
+                  <div class="done">
+                     <svg class="icons icons--done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-done"></use>
+                     </svg>
+                  </div>
+                </div>
+                  <div class="btn-set-list" onClick="window.setList(this, 4)"></div>
+                <a href="exercise.html" class="link"></a>
+              </div>
+
+              <div class="material-el  material-el-done"  data-tag="financial;personal;digital">
+                <div class="img"></div>
+                <h5>Настройки конфиденциальности в соцсетях</h5>
+                <div class="descr">
+                  <div class="time">4 мин</div>
+                  <div class="in-coaching hide">
+                    <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                       <use xlink:href="sprite.svg#icon-profile"></use>
+                    </svg>
+                  </div>
+                  <div class="done">
+                     <svg class="icons icons--done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-done"></use>
+                     </svg>
+                  </div>
+                </div>
+                <div class="btn-set-list" onClick="window.setList(this, 5)"></div>
+                <a href="exercise.html" class="link"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- БЛОК ДЛЯ НЕ ЗАЛОГИНЕННЫХ -->
+        <div class="go_to_test__inner go_to_test__situation">
+          <h3>Пройдите тест и мы составим для вас персональную программу тренировки по безопасности</h3>
+          <a class="btn link_btn" href="">Настроить персональную тренировку</a>
+        </div>
+        <!-- БЛОК ДЛЯ НЕ ЗАЛОГИНЕННЫХ конец-->
+
+        <div class="block_bottom">
+          <div class="block_return">
+            <a href="situation.html">
+              <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-return"></use>
+              </svg>
+              <h5>Ситауции</h5>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item active"><a href="about.html">О проекте</a></li>
+            <li class="footer_item active"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <script>
+
+        if ($(".article").find(".descr-img").length == 0) {
+          $(".header_inner").css("width", "100%")
+        }
+
+        var popup = $('<div class="popup-tooptip hide"><span></span</div>')
+        var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+        btnClose.appendTo(popup)
+        var elem
+
+        $('body').on("click", function (e) {
+           if ( e.target == popup.find($('span'))[0]) {
+            return
+           }
+            if (e.target != elem ) {
+
+                popup.addClass("hide")
+            }
+          e.stopPropagation();
+        })
+
+        $(window).on("resize", function (e) {
+          if (!popup.hasClass("hide")) {
+            popup.addClass("hide")
+
+          }
+        })
+
+        btnClose.on("click", function (e) {
+          popup.addClass("hide")
+        })
+
+        function showTooltip (el) {
+            elem = el
+            popup.removeClass("hide")
+            popup.appendTo($("body"))
+            var left = $(el).offset().left
+            var descr = $(el).find($(".hide")).text()
+            popup.find($("span")).text(descr)
+            var popupWidth = popup.width()
+            var bodyWidth = $("body").width()
+
+            var shift = bodyWidth - (left + 15 + popupWidth)
+            if (shift < 0)  {
+              left += shift
+            }
+            popup.css("top", ($(el).offset().top + 35))
+            popup.css("left", left)
+            isClickInner = false
+          }
+
+      </script>
+
+    </body>
+</html>

@@ -1,0 +1,136 @@
+.container__team
+  .content_landing_team
+    padding: 0 20px
+    .landing_team
+      max-width: 500px
+      width: 100%
+      margin: 60px auto 85px
+      &__img
+        margin: 0 0 60px
+        width: 100%
+      &__logo
+        margin: 0 auto 25px
+      &__about 
+        text-align: center
+        font-size: 18px
+        line-height: 24px
+
+    .landing_team_steps
+      max-width: 900px
+      margin: 0 auto 70px
+      .landing_team_step
+        display: flex
+        align-items: center
+        user-select: none
+        position: relative
+        margin-top: 10px
+
+
+      .landing_team_step input[type=checkbox]
+        position: absolute
+        z-index: -1
+        opacity: 0
+        width: 0
+        height: 0
+        display: block
+      .landing_team_step::before
+        content: ""
+        display: inline-block
+        width: 30px
+        height: 30px
+        border: 1px solid $black-50
+        box-sizing: border-box
+        border-radius: 4px
+        margin: 0
+        margin-right: 10px
+        min-width: 30px
+      .landing_team_step:hover::before
+        background-color: #F9F9FB
+
+      .landing_team_step input[type=checkbox]:checked + span::before
+        content: ""
+        position: absolute
+        display: inline-block
+        width: 2px
+        height: 17px
+        background-color: #007AFF
+        left: 17px
+        bottom: 27%
+        transform: rotate(45deg)
+
+      .landing_team_step input[type=checkbox]:checked + span::after
+        content: ""
+        position: absolute
+        display: inline-block
+        width: 2px
+        height: 9px
+        background-color: #007AFF
+        left: 8px
+        bottom: 28%
+        transform: rotate(-45deg)
+
+    .landing_team_login
+      border-radius: 4px
+      border: 1px solid $grey-20
+      padding: 30px
+      max-width: 380px
+      width: auto
+      margin: 70px auto
+      h2
+        font-size: 32px
+        font-weight: 700
+        line-height: 36px
+        text-align: center
+      &__form
+        display: flex
+        flex-direction: column
+        margin-bottom: 40px
+        .error-email
+          color: $error
+          margin-top: 5px
+        label
+          @include font(11px, 13px)
+          margin-bottom: 5px
+          margin-top: 30px 
+        input
+          height: 42px
+          @include font(12px, 22px)
+
+      .btn-login
+        width: 100%
+        box-sizing: border-box
+        padding: 10px
+
+      .landing_team_re-login
+        text-align: center
+        margin-top: 30px
+        .re-login__email
+          font-size: 16px
+          font-weight: 500
+          line-height: 22px
+        .re-login__btn
+          color: $accent
+          font-size: 14px
+          line-height: 19px
+          border-bottom: 1px solid transparent
+          width: max-content
+          margin: 0 auto
+          &:hover
+            cursor: pointer
+            border-color: $accent
+
+@media (min-width: 640px)
+  .container__team
+    .content_landing_team
+      .landing_team
+        &__img
+          margin: 0 35px 60px
+          width: auto
+        .landing_team_login
+          width: 100%
+          &__form
+            label
+              @include font(14px, 13px)
+            input
+              height: 42px
+              @include font(16px, 22px)

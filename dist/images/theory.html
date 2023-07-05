@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" ></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+  </head>
+    <body>
+      <div class="container container-theory">
+        <section class="navigator">
+          <div class="nav_logo">
+            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Personal security"></a>
+          </div>
+          <ul class="nav_list">
+            <li class="nav_item"><a href="course.html">Тренировки</a></li>
+            <li class="nav_item active"><a href="theory.html">Теория</a></li>
+            <li class="nav_item"><a href="situation.html">Ситуации</a></li>
+          </ul>
+          <div class="nav_list menu__wrapper">
+            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="sprite.svg#icon-menu"></use>
+                </svg>
+            </div>
+            <div class="nav_list nav_list-menu hide" id="menu-nav">
+              <div class="nav_el nav_search" id="open-search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-search"></use>
+                </svg>
+                <div class="nav_list-text">Поиск</div>
+              </div>
+              <a class="nav_el nav_profile" href="profile.html">
+                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-profile"></use>
+                </svg>
+                <div class="nav_list-text">Аккаунт</div>
+              </a>
+            </div>
+          </div>
+          <div class="search-panel hide" id="search-panel">
+            <div class="search-input_wrapper">
+              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+              <div class="search-btn" id="search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="search-panel-close" id="close-search-btn">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="content content-theory">
+          <h1>Теория</h1>
+          <div class="content-descr">Все уроки lorem вот одна из задачек с этого экзамена. Её задавали на экзамене 2019 года. На рисунке вы видите треугольник. Также известна длина некоторых частей треугольника.</div>
+
+          <div class="skills__wrapper">
+            <div class="skills skills-desktop">
+
+              <label class="skill skill-financial">
+                <input type="checkbox"  id="financial"  onclick="updateArrTags()">
+                <div class="checkbox-inner">
+                  <h3>Финансовая безопасность</h3>
+                  <div class="text">Как не потерять деньги: защищаем карты и банковские аккаунты от мошенников.</div>
+                  <div class="img">
+                    <img src="https://d2vxx5bkl3bn4a.cloudfront.net/hi/%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C.svg" />
+                  </div>
+                  <div class="amount"><span class="number">2</span> материала</div>
+                </div>
+              </label>
+
+              <label class="skill skill-digital">
+                <input type="checkbox" id="digital"  onclick="updateArrTags()">
+                <div class="checkbox-inner">
+                  <h3>Цифровая безопасность</h3>
+                  <div class="text">Как сохранить секреты,  и не потерять ценное: защищаем компьютеры, телефоны и аккаунты</div>
+                  <div class="img">
+                    <img src="https://d2vxx5bkl3bn4a.cloudfront.net/hi/%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C_2_1.svg" />
+                  </div>
+                  <div class="amount"><span class="number">26</span> материалов</div>
+                </div>
+              </label>
+
+              <label class="skill skill-personal" >
+                <input type="checkbox"  id="personal"  onclick="updateArrTags()">
+                <div class="checkbox-inner">
+                  <h3>Личная безопасность</h3>
+                  <div class="text">Пока это пустая категория, в ней нет материалов</div>
+                  <div class="img">
+                    <img src="https://d2vxx5bkl3bn4a.cloudfront.net/hi/%D0%BB%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C_1024%D1%85900.svg" />
+                  </div>
+                  <div class="amount"><span class="number">1</span> материал</div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <div class="materials materials-theory">
+            <div class="materials_amount"></div>
+            <div class="material">
+              <div class="material-list">
+
+                <div class="material-el  material-el-done" data-tag="financial;personal">
+                  <div class="img"></div>
+                  <h5>Настройки конфиденциальности в соцсетях</h5>
+                  <div class="descr">
+                    <div class="time">4 мин</div>
+                    <div class="done">
+                       <svg class="icons icons--done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <use xlink:href="sprite.svg#icon-done"></use>
+                       </svg>
+                    </div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+                </div>
+
+                <div id="exercise-5" class="material-el  material-el-done"  data-tag="financial;personal;digital">
+                  <div class="img"></div>
+                  <h5>Настройки конфиденциальности в соцсетях</h5>
+                  <div class="descr">
+                    <div class="time">4 мин</div>
+                    <div class="done">
+                       <svg class="icons icons--done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <use xlink:href="sprite.svg#icon-done"></use>
+                       </svg>
+                    </div>
+                  </div>
+                  <div class="btn-set-list" onClick="window.setList(this, 5)"></div>
+                  <a href="exercise.html" class="link"></a>
+                </div>
+
+                <div id="exercise-6" class="material-el" data-tag="financial;digital">
+                  <div class="img">
+                    <img src="./images/Антивирус_2.svg" />
+                  </div>
+                  <h5>Двухэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <div class="btn-set-list" onClick="window.setList(this, 6)"></div>
+                  <a href="exercise.html" class="link"></a>
+                </div>
+
+                <div class="material-el" data-tag="digital">
+                  <div class="img">
+                    <img src="./images/network.png" />
+                  </div>
+                  <h5>Трехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                    <div class="in-coaching">
+                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                         <use xlink:href="sprite.svg#icon-profile"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="btn-set-list" data-in-course onClick="window.setList(this, 7)"></div>
+                  <a href="exercise.html" class="link"></a>
+                </div>
+                <div class="material-el" data-tag="financial">
+                  <div class="img">
+                    <img src="./images/VPN.png" />
+                  </div>
+                  <h5>Четырехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                    <div class="in-coaching">
+                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                         <use xlink:href="sprite.svg#icon-profile"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="btn-set-list" data-in-course onClick="window.setList(this, 8)"></div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="financial;personal">
+                  <div class="img"></div>
+                  <h5>Пятиэтапный Пятиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                    <div class="in-coaching">
+                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                         <use xlink:href="sprite.svg#icon-profile"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="financial">
+                  <div class="img"></div>
+                  <h5>Шестиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                    <div class="in-coaching">
+                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                         <use xlink:href="sprite.svg#icon-profile"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+
+                <div class="material-el" data-tag="financial">
+                  <div class="img"></div>
+                  <h5>Двухэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="personal">
+                  <div class="img"></div>
+                  <h5>Трехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Четырехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Пятиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Шестиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Четырехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Пятиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Шестиэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+                <div class="material-el" data-tag="digital">
+                  <div class="img"></div>
+                  <h5>Четырехэтапный вход</h5>
+                  <div class="descr">
+                    <div class="time">14 мин</div>
+                  </div>
+                  <a href="exercise.html" class="link"></a>
+
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item"><a href="about.html">О проекте</a></li>
+            <li class="footer_item"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <script>
+        let heightBottomSkills = 0
+        let marginContainer = 0
+        let heightFillSkills = $(".skills__wrapper").eq(0).height()
+        if ($(window).width() >= 640 ) {
+          heightBottomSkills = $(".skills__wrapper").eq(0).offset().top + $(".skills__wrapper").eq(0).height() - 84
+          marginContainer = heightFillSkills + 50
+        } else {
+          heightBottomSkills = $(".skills__wrapper").eq(0).offset().top +( ($(".skills__wrapper").eq(0).outerHeight() / 3) * 2)
+          marginContainer = heightFillSkills + 25
+        }
+
+        function setStyleClass (scrollTop) {
+
+          if (scrollTop >= heightBottomSkills) {
+            $(".skills__wrapper").addClass("skills__wrapper-top")
+            $(".materials").addClass("materials-top")
+            $(".container-theory").css("margin-top",marginContainer + "px")
+          } else  {
+            $(".skills__wrapper").removeClass("skills__wrapper-top")
+            $(".materials").removeClass("materials-top")
+            $(".container-theory").css("margin-top", 0)
+          }
+        }
+
+        $(document).ready(function() {
+          if ( $(window).width() >= 640) {
+            $(".skill").css("min-height", $(".checkbox-inner").eq(0).outerHeight())
+          }
+        })
+
+        $(window).on("resize", function (e) {
+          if ( $(window).width() >= 640) {
+            $(".skill").css("min-height", $(".checkbox-inner").eq(0).outerHeight())
+          } else {
+            $(".skill").css("min-height", "auto")
+          }
+          setStyleClass($(window).scrollTop())
+        })
+
+        $(window).on('scroll', function(e) {
+            setStyleClass($(window).scrollTop())
+
+            if ( $(window).width() >= 640) {
+              $(".skill").css("min-height", "auto")
+            }
+
+        })
+
+      </script>
+
+      <script>
+      // -------- фильтр по тегам начало --------
+      let listMaterials =  jQuery.map( ($(".material-el")), function( node, key ) {
+        let el = {
+          key: key,
+          node: $(".material-el").eq(key),
+          dataId: $(".material-el").eq(key).attr("data-tag").split(";").filter(String)
+        }
+        return el;
+      });
+
+      function updateArrTags() {
+        $(".materials").css("opacity",  0.5)
+        let elements = ($(".skill")).find($('input:checked'))
+        let arrCheckedTags = []
+        let listForRender = listMaterials
+        for (var i = 0; i < elements.length; i++) {
+
+          let el = elements.eq(i).attr('id')
+          arrCheckedTags.push(el)
+        }
+
+        for (var j = 0; j < listMaterials.length; j++) {
+          let isHide = true
+          let dataId = listMaterials[j].dataId
+          for (var a = 0; a < dataId.length; a++) {
+            if (arrCheckedTags.length > 0 ) {
+              for (var i = 0; i < arrCheckedTags.length; i++) {
+                if (arrCheckedTags[i] == dataId[a]) {
+                  isHide = false
+                }
+              }
+            } else {
+              isHide = false
+            }
+          }
+          if (isHide) {
+            listMaterials[j].node.addClass("hide")
+          } else {
+            if (listMaterials[j].node.hasClass("hide")) {
+              listMaterials[j].node.removeClass("hide")
+            }
+          }
+
+        }
+        if ($(window).width() >= 640) {
+          let updatedList = $(".material-el").not('.hide')
+          for (var i = 0; i < updatedList.length; i++) {
+            updatedList.eq(i).css("margin-left","15px").css("margin-right","15px")
+            if (i % 4 === 0) {
+              updatedList.eq(i).css("margin-left",0)
+            }
+          }
+        }
+        setMaterialsAmount($(".material-el").not($(".hide")).length)
+        setTimeout(function () {
+          $(".materials").css("opacity",  1)
+        }, 300)
+      }
+
+      function setMaterialsAmount (amount) {
+        var phrase = getNoun(amount, "Показан материал", "Показано материала", "Показано материалов")
+        var text = phrase.split(" ")[0] + " " + amount + " " + phrase.split(" ")[1]
+         $(".materials_amount").text(text)
+      }
+
+      function getNoun(number, one, two, five) {
+            let n = Math.abs(number);
+            n %= 100;
+            if (n >= 5 && n <= 20) {
+              return five;
+            }
+            n %= 10;
+            if (n === 1) {
+              return one;
+            }
+            if (n >= 2 && n <= 4) {
+              return two;
+            }
+            return five;
+
+        }
+
+        setMaterialsAmount($(".material-el").not($(".hide")).length)
+
+      // -------- фильтр по тегам конец --------
+
+      </script>
+    </body>
+</html>

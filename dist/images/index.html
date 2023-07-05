@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" ></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Personal security</title>
+   </head>
+   <body>
+      <div class="container container-main">
+         <section class="navigator">
+            <div class="nav_logo">
+               <a class="nav_logo-link" href="/"><img id="nav_logo" src="./images/logo.svg" alt="Securno"></a>
+               <div class="count_new">4</div>
+            </div>
+            <ul class="nav_list">
+               <li class="nav_item active"><a href="/course.html">Тренировка</a></li>
+               <li class="nav_item active"><a href="/theory.html">Теория</a></li>
+               <li class="nav_item active"><a href="/situations.html">Ситуации</a></li>
+            </ul>
+            <div class="nav_list menu__wrapper">
+               <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                  <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <use xlink:href="sprite.svg#icon-menu"></use>
+                  </svg>
+               </div>
+               <div class="nav_list nav_list-menu hide" id="menu-nav">
+                  <div class="nav_el nav_search" id="open-search-btn">
+                     <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-search"></use>
+                     </svg>
+                     <div class="nav_list-text">Поиск</div>
+                  </div>
+                  <a class="nav_el nav_profile" href="/profile/">
+                     <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-profile"></use>
+                     </svg>
+                     <div class="nav_list-text">Аккаунт</div>
+                  </a>
+               </div>
+            </div>
+            <div class="search-panel hide" id="search-panel">
+               <div class="search-input_wrapper">
+                  <input type="text" class="search__input" placeholder="Поиск статей, ситуаций, решений" id="search_input">
+                  <div class="search-btn" id="search-btn">
+                     <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-search"></use>
+                     </svg>
+                  </div>
+                  <div class="clear-btn hide" id="clear-btn">
+                     <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-close"></use>
+                     </svg>
+                  </div>
+               </div>
+               <div class="search-panel-close" id="close-search-btn">
+                  <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <use xlink:href="sprite.svg#icon-close"></use>
+                  </svg>
+               </div>
+            </div>
+         </section>
+         <section class="content">
+            <div class="progress progress-main" id="progress_course-section">
+               <div class="progress_skills">
+                  <div class="skill-digital_wrapper skill_wrapper">
+                     <div class="skill skill-digital" id="skill-digital">
+                        <div class="percent"><span id="progress_skill-digital"></span>%</div>
+                     </div>
+                     <div class="skill-title">Цифровая безопасность</div>
+                     <div class="skill-description hide">Как сохранить секреты,  и не потерять ценное: защищаем компьютеры, телефоны и аккаунты</div>
+                     <div class="link" onClick="openPopupProgress('digital', this)"></div>
+                  </div>
+
+                  <div class="skill-financial_wrapper skill_wrapper">
+                     <div class="skill skill-financial" id="skill-financial">
+                        <div class="percent"><span id="progress_skill-financial"></span>%</div>
+                     </div>
+                     <div class="skill-title">Финансовая безопасность</div>
+                     <div class="skill-description hide">Как не потерять деньги: защищаем карты и банковские аккаунты от мошенников.</div>
+                     <div class="link" onClick="openPopupProgress('financial', this)"></div>
+                  </div>
+
+                  <div class="skill-personal_wrapper skill_wrapper">
+                    <div class="skill skill-personal" id="skill-personal">
+                      <div class="percent"><span id="progress_skill-personal"></span>%</div>
+                    </div>
+                    <div class="skill-title">Личная безопасность</div>
+                    <div class="skill-description hide">personal skill-description skill-description skill-description skill-descriptionthreat-descriptionthreat-description skill-description</div>
+                    <div class="link" onClick="openPopupProgress('personal', this)"></div>
+                  </div>
+               </div>
+               <div class="progress_inner">
+                  <h2>Тренировка</h2>
+                  <div class="progress_about">
+                     <div class="progress_line" id="progress_line">
+                        <div class="progress_line-inner"></div>
+                     </div>
+                     <div class="progress_descr">Пройдено <span id="progress_course"></span>% курса</div>
+                  </div>
+                  <a class="btn btn-go-training" href="/course.html">К тренировке</a>
+               </div>
+            </div>
+            <div class="all_cards all_cards-top">Ситуации, новости, задания</div>
+
+            <div class="cards cards-main">
+               <div class="card   full_img">
+                 <div class="background"></div>
+                 <div class="descr">
+                   <div class="type">Ситуация</div>
+                   <div class="type-new">новая</div>
+                 </div>
+                  <div class="title title-situation">Вирус зашифровал или заблокировал мое устройство, что делать?</div>
+                  <div class="card_img">
+                    <img src="./images/test_situation.png" />
+                  </div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card ">
+                 <div class="card_img card_img-icons">
+                   <img src="./images/icons_test/card.png" />
+                 </div>
+                 <div class="descr">
+                   <div class="type">Ситуация</div>
+                 </div>
+                  <div class="title title-situation">Досмотр и изъятие устройств</div>
+
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card ">
+                 <div class="card_img card_img-icons">
+                   <img src="./images/icons_test/card.png" />
+                 </div>
+                 <div class="descr">
+                   <div class="type">Ситуация</div>
+                 </div>
+                  <div class="title title-situation">Досмотр и изъятие устройств</div>
+
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card ">
+                 <div class="card_img card_img-icons">
+                   <img src="./images/icons_test/card.png" />
+                 </div>
+                 <div class="descr">
+                   <div class="type">Ситуация</div>
+                 </div>
+                  <div class="title title-situation">Можно ли отдавать в ремонт компьютер/телефон, на котором есть секреты?</div>
+                  <a href="article.html" class="link"></a>
+                </div>
+               <div class="card ">
+                 <div class="card_img card_img-icons">
+                   <img src="./images/icons_test/card.png" />
+
+                 </div>
+                 <div class="descr">
+                   <div class="type">Ситуация</div>
+                   <div class="type-new">новая</div>
+                 </div>
+                  <div class="title title-situation">Мой аккаунт Google взломали, что делать?</div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card ">
+                 <div class="card_img">
+                   <img src="./images/img_example/image_1.png" />
+                 </div>
+                 <div class="descr">
+                   <div class="type">Ситуация</div>
+                 </div>
+                  <div class="title title-situation">Я забыл пароль от своего компьютера или телефона!</div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card card_news">
+                 <div class="card_img card_img-news">
+                   <img src="./images/img_example/image_3.png" />
+                 </div>
+                 <div class="descr">
+                 <div class="type ">Новость<span class="date ml-5">22 янв 2019</span></div>
+                  <div class="type-new">новая</div>
+               </div>
+                  <div class="title title-news">У индийской службы доставки еды случилась утечка 20 миллионов паролей пользователей</div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card card_news">
+                 <div class="card_img card_img-news">
+                 </div>
+                 <div class="descr">
+                 <div class="type ">Новость<span class="date ml-5">22 янв 2019</span></div>
+               </div>
+                  <div class="title title-news">На каждом третьем компьютере в России стоит устаревший Windows 7</div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card card_news">
+                 <div class="card_img card_img-news">
+                   <img src="./images/img_example/image_1.png" />
+                 </div>
+                 <div class="descr">
+                 <div class="type ">Новость<span class="date ml-5">22 янв 2019</span></div>
+               </div>
+                  <div class="title title-news">В первом квартале 2021 &quot;Юла&quot; закрыла 1.4 тысячи фишинговых сайтов</div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card card_news">
+                 <div class="card_img card_img-news">
+                 </div>
+
+                 <div class="descr">
+                 <div class="type ">Новость<span class="date ml-5">22 янв 2019</span></div>
+               </div>
+                  <div class="title title-news">46% ссылок в мессенджерах российских пользователей - фишинговые</div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card card_task">
+
+                 <div class="descr">
+                  <div class="type ">Задача</div>
+                  <div class="type-new">новая</div>
+                </div>
+                  <div class="title title-task">Настроить резервное копирование в облако</div>
+                  <div class="card_img card_img-task"></div>
+                  <a href="article.html" class="link"></a>
+               </div>
+               <div class="card card_task">
+
+                 <div class="descr">
+                  <div class="type ">Задача</div>
+                </div>
+                  <div class="title title-task">Протестировать автоудаление</div>
+                  <div class="card_img card_img-task"></div>
+                  <a href="/tasks/protestirovat-ischezayushie-chaty/" class="link"></a>
+               </div>
+            </div>
+            <div class="all_cards">На этом пока всё</div>
+            <div class="report_bug">
+                <img class="report_bug__img" src="./images/bug.svg" width="95" height="70"/>
+                <div class="report_bug__text">У&nbsp;нас есть <a href="" target="_blank">специальный чат в&nbsp;Телеграме</a>, где нам пишут о&nbsp;багах или&nbsp;неточностях в&nbsp;Секьюрно.</div>
+            </div>
+            <div class="progress_popup_wrapper hide" id="progress_popup">
+               <div class="progress_popup_inner">
+                  <div class="btn-close-top" id="btn-close-top">
+                     <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use xlink:href="sprite.svg#icon-close"></use>
+                     </svg>
+                  </div>
+                  <div class="progress">
+                     <div class="progress_skills "></div>
+                  </div>
+                  <h2>Ваш прогресс в области <span class="type_progress"></span> безопасности</h2>
+                  <div class="descr"></div>
+                  <div class="btns">
+                     <a class="btn link_btn" href="" id="btn-go-theory">Перейти к тренировкам</a>
+                     <div class="btn btn-white btn-close" id='btn-close'>Закрыть</div>
+                  </div>
+               </div>
+            </div>
+            <script type="text/javascript">
+
+
+              if ($(".card")) { // уменьшать высоту карточки с ситуацией, если нет изображения
+                let arrCard = $(".card")
+                for (var i = 0; i < arrCard.length; i++) {
+                  checkImgSituation(i)
+                }
+                function checkImgSituation (i) {
+                    let blocksImg = arrCard.eq(i).find($(".card_img"))
+                    for (var j = 0; j < blocksImg.length; j++) {
+                      if (blocksImg.eq(j).find("img").length != 0) {
+                        blocksImg.eq(j).css("background", "none")
+                      }
+                    }
+                }
+              }
+
+               //----- открыть попап с прогрессом начало ----
+                 let btnClose = $("#btn-close")
+                 let btnCloseTop = $("#btn-close-top")
+                 let popupProgress = $("#progress_popup")
+
+                 function openPopupProgress (type, el) {
+                     var progressEl = $(el.parentNode)
+                     var descr = progressEl.find($(".skill-description")).text()
+                     popupProgress.removeClass("hide")
+                     progressEl.clone().prependTo('.progress_popup_inner>.progress>.progress_skills');
+
+                     switch (type) {
+                       case 'digital':
+                         $(".type_progress").text("цифровой")
+                         $("#btn-go-theory").attr("href", "/course.htmltheory.html#digital")
+                         break;
+                       case 'personal':
+                         $(".type_progress").text("личной")
+                         $("#btn-go-theory").attr("href", "/course.htmltheory.html#personal")
+                         break;
+                       case 'financial':
+                         $(".type_progress").text("финансовой")
+                         $("#btn-go-theory").attr("href", "/course.htmltheory.html#financial")
+                         break;
+                     }
+                     let skillsPopup  = $('.progress_popup_inner').find($(".skill"))
+                     let skillTitlePopup = $('.progress_popup_inner').find($(".skill-title"))
+
+                     for (var i = 0; i < skillsPopup.length; i++){
+                       skillTitlePopup.eq(i).appendTo(skillsPopup.eq(i))
+                     }
+
+                     $(".progress_popup_inner").find($(".link")).remove()
+
+                     $(".descr").text(descr)
+                     $("body").css("overflow-y", "hidden")
+                 }
+
+                 function closePopup () {
+                     $('.progress_popup_inner>.progress>.progress_skills>.skill_wrapper').remove()
+                     popupProgress.addClass("hide")
+                     $("body").css("overflow-y", "auto")
+                 }
+
+                 btnClose.on("click", function (event) {
+                   closePopup()
+                 })
+
+                 btnCloseTop.on("click", function (event) {
+                   closePopup()
+                 })
+
+               //----- открыть попап с прогрессом конец ----
+
+            </script>
+         </section>
+      </div>
+      <footer>
+         <div class="footer footer-main">
+            <div class="footer_logo">
+               <a class="footer_logo-link" href="/"><img src="./images/logo_small.svg" alt="Securno" width="26" height="20"></a>
+            </div>
+            <ul class="footer_list">
+               <li class="footer_item active"><a href="/about/">О проекте</a></li>
+               <li class="footer_item active"><a href="/">Предложить новость</a></li>
+            </ul>
+         </div>
+      </footer>
+      <div class="popup" id="popup">
+         <div class="text"></div>
+         <div class="arrow"></div>
+      </div>
+      <script type="text/javascript">
+         const progressData = 6;
+         const progressSkillDigital = 6;
+         const progressSkillPersonal = 0;
+         const progressSkillFinancial = 25;
+         $("#progress_line > .progress_line-inner").css("width", progressData + "%")
+         $("#progress_course").text(progressData)
+
+         $("#progress_skill-digital").text(progressSkillDigital)
+         $("#progress_skill-personal").text(progressSkillPersonal)
+         $("#progress_skill-financial").text(progressSkillFinancial)
+
+         let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
+         $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
+
+         let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillPersonal + "%, #D9D9EE " + progressSkillPersonal + "%)"
+         $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
+
+         let progressSkillFinancialStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillFinancial + "%, #D9E9EE " + progressSkillFinancial + "%)"
+         $("#skill-financial").css({"background-image": progressSkillFinancialStyle})
+
+
+         function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
+           let skills  = $(".skill"),
+               skillTitle = $(".skill-title"),
+               skillWrapper = $(".skill_wrapper")
+           if($('body').innerWidth() >= 1200){
+               for (var i = 0; i < skills.length; i++){
+                 skillTitle.eq(i).appendTo(skills.eq(i))
+               }
+           } else {
+             for (var i = 0; i < skills.length; i++){
+               skillTitle.eq(i).appendTo(skillWrapper.eq(i))
+             }
+           }
+         }
+
+         $(window).on("resize", function (e) {
+           e.stopPropagation();
+           toggleProgressTitleLocation ()
+         })
+
+         toggleProgressTitleLocation ()
+      </script>
+      <script type="text/javascript">
+         const tooltips = $('.tooltip');
+         if (tooltips.length) {
+           tooltips.each((i) => {
+             const termAndDef = tooltips.eq(i).text().split(/[\[\]]/)
+             if (termAndDef.length > 1) {
+               tooltips.eq(i).text(termAndDef[0].trim()).on('click', (e) => {
+                 showTooltip(tooltips.eq(i), termAndDef[1].trim())
+                 e.stopPropagation();
+               })
+             }
+           })
+
+           var tooltipPopup = $('<div class="popup-tooptip hide"><span></span></div>')
+           var tooltipBtnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+           tooltipBtnClose.appendTo(tooltipPopup)
+
+           function showTooltip(term, definition) {
+             tooltipPopup.removeClass("hide")
+             tooltipPopup.appendTo($("body"))
+             var left = $(term).offset().left
+             tooltipPopup.find($("span")).text(definition)
+             var popupWidth = tooltipPopup.width()
+             var bodyWidth = $("body").width()
+
+             var shift = bodyWidth - (left + 15 + popupWidth)
+             if (shift < 0) {
+               left += shift
+             }
+             tooltipPopup.css("top", ($(term).offset().top + 35))
+             tooltipPopup.css("left", left)
+           }
+
+           $('body').on("click", function(e) {
+             if (e.target != tooltipPopup[0] && !tooltipPopup.find($(e.target)).length) {
+               tooltipPopup.addClass("hide")
+             }
+           })
+           tooltipBtnClose.on("click", function (e) {
+             tooltipPopup.addClass("hide")
+           })
+
+           $(window).on("resize", function(e) {
+             if (!tooltipPopup.hasClass("hide")) {
+               tooltipPopup.addClass("hide")
+             }
+           })
+         }
+      </script>
+      <script type="text/javascript">
+         if ($(".article").find(".descr-img").length == 0) {
+           $(".header_inner").css("width", "100%")
+         }
+
+      </script>
+   </body>
+</html>

@@ -3,19 +3,69 @@ import '../style/app.scss';
 $(document).ready(function() {
 
 
+  window.isTeamPage = (document.location.pathname.includes('/team')) ? true: false
+
   let windowWidth = $('body').innerWidth()
   let menuNavBtn = $("#nav-menu-mob")
-  let menuNav = $("#menu-nav")
+  let menuNav=$("#menu-nav")
+  
+  let urlImage =  window.isTeamPage ? './../images/' : './images/'
+    
+
+
+
+  /// ------- TEAM BLOCK START ------
+  let popupTeamMenu = $("#team-menu_popup")
+  let btnOpenTeamMenu = $("#open-team-menu-btn")
+
+
+  function toggleTeamMenuVisibility() { // показать, скрыть попап с выбором секьюрно
+    if (popupTeamMenu.hasClass("hide")) {
+      popupTeamMenu.removeClass("hide");
+      searchInput.focus();
+    } else {
+      popupTeamMenu.addClass("hide");
+    }
+  }
+
+  $('body').on("click", function (e) {
+    if(windowWidth < 640) {
+      // if (!popupTeamMenu.hasClass("hide")) { //закрыть меню при клике в любое место. используется для мобилы
+      //     toggleMenuVisibility()
+      //   }
+      }
+    if (!popupTeamMenu.hasClass("hide")) { 
+      toggleTeamMenuVisibility()
+      }
+      e.stopPropagation();
+  })
+
+  btnOpenTeamMenu.on("click", function (e) { 
+    toggleTeamMenuVisibility()
+    e.stopPropagation();
+  })
+  
+  /// ------- TEAM BLOCK END ------
+
 
 
   function onChangeWidth() { // меняет расположение меню
     var logoImg = $("#nav_logo");
-    if(windowWidth >= 640){
-      logoImg.attr("src", "./images/logo.svg");
+    if (windowWidth>=640) {
+      if (window.isTeamPage) {
+        logoImg.attr("src", `${urlImage}logo_team.svg`);
+      } else {
+        logoImg.attr("src", `${urlImage}logo.svg`);
+      }
+      
       menuNav.removeClass("hide");
     } else {
-      logoImg.attr("src", "./images/logo_small.svg");
-        menuNav.addClass("hide");
+      if (window.isTeamPage) {
+        logoImg.attr("src", `${urlImage}logo_team.svg`);
+      } else {
+        logoImg.attr("src", `${urlImage}logo_small.svg`);
+      }
+      menuNav.addClass("hide");
     }
     clearSearchInput(searchInput, clearBtn)
   }
