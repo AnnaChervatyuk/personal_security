@@ -197,11 +197,11 @@
   .container__team .content_landing_team .landing_team .landing_team_login {
     width: 100%;
   }
-  .container__team .content_landing_team .landing_team .landing_team_login__form label {
+  .container__team .content_landing_team .landing_team_login__form label {
     font-size: 14px;
     line-height: 13px;
   }
-  .container__team .content_landing_team .landing_team .landing_team_login__form input {
+  .container__team .content_landing_team .landing_team_login__form input {
     height: 42px;
     font-size: 16px;
     line-height: 22px;
@@ -525,15 +525,15 @@
   justify-content: center;
   gap: 5px;
 }
-.container__team-page .content .members_pages .members_page.btn.btn-white {
+.container__team-page .content .members_pages .members_page.btn-white {
   border-color: transparent;
   padding: 10px;
   min-width: 35px;
 }
-.container__team-page .content .members_pages .members_page.btn.btn-white.active {
+.container__team-page .content .members_pages .members_page.btn-white.active {
   border-color: #D1D1D6;
 }
-.container__team-page .content .members_pages .members_page.btn.btn-white.active:hover {
+.container__team-page .content .members_pages .members_page.btn-white.active:hover {
   border-color: #D1D1D6;
   cursor: pointer;
 }
@@ -679,11 +679,10 @@
     padding-left: 10px;
     color: #fff;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 29px;
     font-weight: 400;
     height: 100%;
     vertical-align: middle;
-    padding-top: 6px;
   }
   .container__team-page .content .members_list {
     max-width: 1200px;
