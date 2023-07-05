@@ -1,169 +1,151 @@
 $(document).ready(function() {
 
+
+  window.isTeamPage = (document.location.pathname.includes('/team')) ? true: false
+
   let windowWidth = $('body').innerWidth()
   let menuNavBtn = $("#nav-menu-mob")
-  let menuNav = $("#menu-nav")
+  let menuNav=$("#menu-nav")
+  
+  let urlImage =  window.isTeamPage ? './../images/' : './images/'
+    
+
+
+
+  /// ------- TEAM BLOCK START ------
+  let popupTeamMenu = $("#team-menu_popup")
+  let btnOpenTeamMenu = $("#open-team-menu-btn")
+
+
+  function toggleTeamMenuVisibility() { // показать, скрыть попап с выбором секьюрно
+    if (popupTeamMenu.hasClass("hide")) {
+      popupTeamMenu.removeClass("hide");
+      searchInput.focus();
+    } else {
+      popupTeamMenu.addClass("hide");
+    }
+  }
+
+  $('body').on("click", function (e) {
+    if(windowWidth < 640) {
+      // if (!popupTeamMenu.hasClass("hide")) { //закрыть меню при клике в любое место. используется для мобилы
+      //     toggleMenuVisibility()
+      //   }
+      }
+    if (!popupTeamMenu.hasClass("hide")) { 
+      toggleTeamMenuVisibility()
+      }
+      e.stopPropagation();
+  })
+
+  btnOpenTeamMenu.on("click", function (e) { 
+    toggleTeamMenuVisibility()
+    e.stopPropagation();
+  })
+  
+  /// ------- TEAM BLOCK END ------
+
+
+
+  function onChangeWidth() { // меняет расположение меню
+    var logoImg = $("#nav_logo");
+    if (windowWidth>=640) {
+      if (window.isTeamPage) {
+        logoImg.attr("src", `${urlImage}logo_team.svg`);
+      } else {
+        logoImg.attr("src", `${urlImage}logo.svg`);
+      }
+      
+      menuNav.removeClass("hide");
+    } else {
+      if (window.isTeamPage) {
+        logoImg.attr("src", `${urlImage}logo_team.svg`);
+      } else {
+        logoImg.attr("src", `${urlImage}logo_small.svg`);
+      }
+      menuNav.addClass("hide");
+    }
+    clearSearchInput(searchInput, clearBtn)
+  }
+
+  function toggleMenuVisibility() { // меняет видимость меню. используется для мобилы
+      if(windowWidth < 640){
+        if (menuNav.hasClass("hide")) {
+          menuNav.removeClass("hide");
+        } else {
+          menuNav.addClass("hide");
+        }
+      }
+  }
+
+  $('body').on("click", function (e) {
+      if(windowWidth < 640) {
+        if (!menuNav.hasClass("hide")) { //закрыть меню при клике в любое место. используется для мобилы
+            toggleMenuVisibility()
+          }
+        }
+      if (!panelSearch.hasClass("hide")) { //закрыть поиск при клике в любое место. используется для мобилы
+          toggleSearchVisibility()
+          clearSearchInput(searchInput, clearBtn)
+        }
+        e.stopPropagation();
+  })
+
+  menuNavBtn.on("click", function (e) {
+    toggleMenuVisibility()
+    e.stopPropagation();
+  })
+
 
   //----менять стили в навигаторе при ховере начало ----
-  $(".nav_item").hover(function(){
-    $(".nav_item").removeClass("active");
+  var arrNavItem = $(".nav_item")
+
+  function changeActiveItem (i) {
+    arrNavItem.eq(i).hover(function(){
+
+      for (var j = 0; j < arrNavItem.length; j++) {
+        arrNavItem.eq(j).find($("a")).css("color", "#787882")
+      }
+
+      arrNavItem.eq(i).find($("a")).css("color", "#17171C")
     }, function(){
-    $(".nav_item").addClass("active");
-  });
-  //----менять стили в навигаторе при ховере начало--------
+      arrNavItem.eq(i).find($("a")).css("color", "#787882")
+
+      for (var j = 0; j < arrNavItem.length; j++) {
+        if (arrNavItem.eq(j).hasClass("active")){
+          arrNavItem.eq(j).find($("a")).css("color", "#17171C")
+        }
+      }
+    })
+  }
+
+  for (i = 0; i < arrNavItem.length; i++) {
+    changeActiveItem(i)
+  }
+
+//----менять стили в навигаторе при ховере начало--------
 
 
-  //----менять стили в футере при ховере начало--------
+//----менять стили в футере при ховере начало--------
   $(".footer_item").hover(function(){
     $(".footer_item").removeClass("active");
     }, function(){
     $(".footer_item").addClass("active");
   });
-  //----менять стили в футере при ховере конец--------
-
-
-  //----переход между вопросами в тесте начало--------
-  // .test_inner - весь блок
-  // .block_return назад
-  // progress_line вся линия
-  // progress_test сколько закрасить
-
-  let userAuth = false // авторизован пользователь или нет
-
-  if (userAuth) {
-    $("#block_question-email").remove()
-  }
-
-  let arrQuestions = $(".block_question") // весь список вопросов
-  let activeQuestion = 0 // активный сейчас вопрос. 0 по умолчанию
-  let btnNext = $(".btn-next")
-  let btnReturn = $(".block_return")
-  let progressLine = $(".progress_line") // вся линия
-  let widthProgressLine = progressLine.width() // вся линия
-
-  let progressTest = $(".progress_question") // закрашенная линия в зависимости от номера выбранного вопроса
-  let widthProgressQuestion = widthProgressLine / arrQuestions.length
-
-  function setProgress () {
-    let width = (activeQuestion + 1) * widthProgressQuestion
-    progressTest.css("width", width + "px")
-  }
-
-  let chooseNothing = false;
-
-  function setCheckbox() {
-
-    var others = arrQuestions.eq(activeQuestion).find($('input').not('.nothing'))
-    var btnNothing = arrQuestions.eq(activeQuestion).find($('.nothing'))
-    btnNothing.change(function () {
-        if (this.checked) {
-            others.prop('checked', false)
-            chooseNothing = true
-        }
-    });
-    others.change(function () {
-        if (this.checked) {
-            btnNothing.prop('checked', false)
-            chooseNothing = false
-        }
-    })
-  }
-
-  function goTo () {
-    var url = "course_ready.html";
-    $(location).attr('href',url);
-  }
-
-  function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email.val());
-  }
-
-  function checkAnswers(answers) {
-    if (answers.length == 0) {
-      showNotification()
-      $('.notification').text("Выберите хотя бы один вариант")
-      $('.notification').css("display", "block")
-      $('.notification').fadeOut(6000);
-      return false
-    } else {
-      return true
-    }
-  }
-
-
-
-  btnNext.on("click", function (e) {
-    e.stopPropagation();
-
-    if (activeQuestion >= (arrQuestions.length - 1)) {
-      if (userAuth) {
-        if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
-            goTo()
-        }
-      } else {
-        if (validateEmail($("#email-address"))) {
-          goTo()
-        } else {
-          $('.notification').text("Некорректный email")
-          $('.notification').css("display", "block")
-          $('.notification').fadeOut(4000);
-        }
-      }
-    }
-
-    if  (activeQuestion < (arrQuestions.length - 1)) {
-      if (checkAnswers (arrQuestions.eq(activeQuestion).find($('input:checked')))) {
-          arrQuestions.eq(activeQuestion).addClass("hide");
-          activeQuestion += 1;
-          arrQuestions.eq(activeQuestion).removeClass("hide");
-      }
-      if (activeQuestion == (arrQuestions.length - 1)) {
-        btnNext.text("Готово")
-      }
-
-    }
-
-    setProgress()
-    setCheckbox()
-
-  })
-
-  btnReturn.on("click", function (e) {
-    e.stopPropagation();
-    if (activeQuestion > 0) {
-      arrQuestions.eq(activeQuestion).addClass("hide");
-      activeQuestion -= 1;
-      arrQuestions.eq(activeQuestion).removeClass("hide");
-      if (activeQuestion != (arrQuestions.length - 1)) {
-        btnNext.text("Дальше")
-      }
-      setProgress()
-    }
-  })
-
-  setProgress()
-  setCheckbox()
+//----менять стили в футере при ховере конец--------
 
 
 
 
-  $(window).on("resize", function (e) {
-    widthProgressLine = progressLine.width() // вся линия
-    widthProgressQuestion = widthProgressLine / arrQuestions.length
-    setProgress();
-  })
+// ----добавлять фон если не загружена картинка начало---
+if ($(".material-el")) {
+  let arrMaterialEl = $(".material-el")
 
-
-  //----переход между вопросами в тесте  конец--------
-
-  // ----добавлять фон если не загружена картинка начало---
-
-
-  if ($(".material-el")) {
-    let materialsEl = $(".material-el")
+  for (var a = 0; a < arrMaterialEl.length; a++) {
+    let materialsEl = $(".material-el").eq(a)
 
     function checkImg(i) {
+      materialsEl.eq(i)
       let blocksImg = materialsEl.eq(i).find($(".img"))
 
       for (var j = 0; j < blocksImg.length; j++) {
@@ -172,18 +154,20 @@ $(document).ready(function() {
           var srcName = blocksImg.eq(j).find("img")[0].getAttribute('src');
           var srcNameSplit = srcName.split(".");
           if (srcNameSplit[srcNameSplit.length-1] == "svg") (
-            blocksImg.eq(j).find("img").css("height", "auto")
+            blocksImg.eq(j).find("img").css("object-fit", "contain").css("border-radius", "0px")
           )
         }
       }
-
     }
 
     for (var i = 0; i < materialsEl.length; i++) {
       checkImg(i)
     }
   }
-  // ----добавлять фон если не загружена картинка конец ---
+}
+// ----добавлять фон если не загружена картинка конец ---
+
+
 
 // ------ туду начало-------
 if ($(".todo-list_wrapper")) {
@@ -197,18 +181,104 @@ if ($(".todo-list_wrapper")) {
   let arrBbtnOpenInstr = $(".el_how-do_btn");
   let arrTask = $(".el_task");
 
-  let arrBtnCheck = $(".el-task-checkbox");
+  let listTask = jQuery.map( $(".todo-el"), function(node,key){
+    let el = {
+      parent: $(node),
+      btnRisk:  $(node).find($(".risks-btn")),
+      btnCheck:  $(node).find($(".el-task-checkbox")),
+      isTaskRefuse:  parseInt($(node).find($(".el-task-checkbox")).data('isrefused')),
+      isTaskReady:  parseInt($(node).find($(".el-task-checkbox")).data('isready')),
+      taskId: $(node).find($(".el-task-checkbox")).data('task-id'),
+    }
+    return el
+  })
+
 
   let arrMarker = $(".marker")
 
-  function checkBtn (i) {
-      arrBtnCheck.eq(i).on("change", function (e) {
-        //оправлять на сервер отмеченную таску
-      })
-    }
+  let amountTaskRefused = parseInt($(".todo-not-do").find(".list-amount").text())
+  let amountTaskReady =  parseInt($(".todo-done").find(".list-amount").text())
 
-  for (var i = 0; i < arrBtnCheck.length; i++) {
-    checkBtn(i)
+
+  function setStateTask(i) {
+    listTask[i].btnRisk.on("click", function (e) {
+      // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+      // $.post('/tasks/'+listTask[i].taskId+'/toggle/', {
+      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      //   'refuse': true,
+      // })
+
+      if (listTask[i].isTaskRefuse) { // УДАЛЯЕТ задачу из списка не хочу делать
+        amountTaskRefused -= 1
+        listTask[i].isTaskRefuse = 0
+        listTask[i].btnRisk.text("Не хочу делать")
+        listTask[i].parent.find($(".risks-text")).text("Не хочу это делать, с некоторыми рисками можно смириться.")
+        listTask[i].parent.find($(".el_task")).removeClass("el_task-not-do")
+        listTask[i].parent.removeClass($("todo-el_not-do"))
+        showNotification("Задание добавлено в Туду-лист")
+      } else { // ДОБАВЛЯЕТ задачу в список не хочу делать
+        listTask[i].btnRisk.text("Вернуть в список моих задач")
+        listTask[i].parent.find($(".risks-text")).html("Вы отказались от этот задачи.<br>Ничего страшного.")
+        listTask[i].parent.find($(".el_task")).addClass("el_task-not-do")
+        listTask[i].parent.addClass($("todo-el_not-do"))
+        showNotification("Перемещено в список 'Не хочу делать'")
+        amountTaskRefused += 1
+        listTask[i].isTaskRefuse = 1
+        if (listTask[i].isTaskReady) {
+          amountTaskReady -= 1
+          listTask[i].isTaskReady = 0
+          $(".todo-done").find(".list-amount").text(amountTaskReady)
+          listTask[i].parent.find($(".el-task-checkbox")).data('isready', listTask[i].isTaskReady)
+          listTask[i].btnRisk.data('isready', listTask[i].isTaskReady)
+          listTask[i].btnCheck.prop("checked", false)
+        }
+      }
+      listTask[i].parent.find($(".el-task-checkbox")).data('isrefused', listTask[i].isTaskRefuse)
+      listTask[i].btnRisk.data('isrefused', listTask[i].isTaskRefuse)
+      $(".todo-not-do").find(".list-amount").text(amountTaskRefused)
+
+      e.stopPropagation();
+    })
+
+    listTask[i].btnCheck.on("change", function (e) {
+      // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+      // $.post('/tasks/'+listTask[i].taskId+'/toggle/', {
+      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      //   'check': true,
+      // })
+      if (listTask[i].isTaskReady) {
+        amountTaskReady -= 1
+        listTask[i].isTaskReady = 0
+        showNotification("Задание добавлено в Туду-лист")
+      } else {
+        amountTaskReady += 1
+        listTask[i].isTaskReady = 1
+        showNotification("Здорово!")
+        if (listTask[i].isTaskRefuse) {
+          amountTaskRefused -= 1
+          listTask[i].isTaskRefuse = 0
+          listTask[i].btnRisk.text("Не хочу делать")
+          listTask[i].parent.find($(".risks-text")).text("Не хочу это делать, с некоторыми рисками можно смириться.")
+          listTask[i].parent.find($(".el_task")).removeClass("el_task-not-do")
+          listTask[i].parent.removeClass($("todo-el_not-do"))
+          listTask[i].parent.find($(".el-task-checkbox")).data('isrefused', listTask[i].isTaskRefuse)
+          listTask[i].btnRisk.data('isrefused', listTask[i].isTaskRefuse)
+          $(".todo-not-do").find(".list-amount").text(amountTaskRefused)
+        }
+      }
+      $(".todo-done").find(".list-amount").text(amountTaskReady)
+      listTask[i].parent.find($(".el-task-checkbox")).data('isready', listTask[i].isTaskReady)
+      listTask[i].btnRisk.data('isready', listTask[i].isTaskReady)
+
+      if (arrTask.eq(i).hasClass("el_task-not-do")) {
+        arrTask.eq(i).removeClass("el_task-not-do")
+
+      }
+    })
+  }
+
+  for (var i = 0; i < listTask.length; i++) {
+    setStateTask(i)
     arrMarker.eq(i).text(i+1)
   }
 
@@ -217,8 +287,18 @@ if ($(".todo-list_wrapper")) {
       let arrow =  ($(".btn-arrow_todo")).eq(i)
       if (arrInstruction.eq(i).hasClass("hide")) {
         arrInstruction.eq(i).removeClass("hide");
-        arrow.css("transform", "rotate(90deg)");
+        arrow.css("transform", "rotate(-180deg)");
         followScroll()
+        if ($('body').innerWidth() < 640) {
+          arrInstruction.eq(i).find($('.instruction_btn-close-todo')).on("click", function (event) {
+            arrInstruction.eq(i).addClass("hide");
+            arrow.css("transform", "rotate(0deg)");
+            if ($('body').innerWidth() < 640) {
+              $("body").css("overflow-y", "auto")
+            }
+          })
+          $("body").css("overflow-y", "hidden")
+        }
       } else {
         arrInstruction.eq(i).addClass("hide");
         arrow.css("transform", "rotate(0deg)");
@@ -257,13 +337,14 @@ if ($(".todo-list_wrapper")) {
     }
   })
 }
-  // ------ туду конец-------
+// ------ туду конец-------
 
-  // ------ горизонтальный скролл начало -----
 
+
+// ------ горизонтальный скролл начало -----
 function followScroll () {
   if ($(".material").find($('.material-list')) && $(".material").find($('.material-list')).length > 0) {
-    var distance = 250;
+    var distance = 500;
     var arrScrollingBox = $(".material")
     var max = []
     var min = []
@@ -272,16 +353,27 @@ function followScroll () {
       var el = arrScrollingBox.eq(i).find($('.material-list'))
       var btnRight = arrScrollingBox.eq(i).find($('.arrow-right'))
       var btnLeft = arrScrollingBox.eq(i).find($('.arrow-left'))
-
        max[i] = el[0].scrollWidth - el.width()
+
+      if (max[i] > 0) {
+        if (!$(".material").eq(i).hasClass("hover-material")) {
+          !$(".material").eq(i).addClass("hover-material")
+        }
+      } else {
+        if (!$(".material").eq(i).hasClass("hover-material")) {
+          !$(".material").eq(i).removeClass("hover-material")
+        }
+      }
 
        if (el[0].scrollWidth <=  el.width()) {
          if (!btnRight.hasClass("hide")) {
            btnRight.addClass("hide")
+           btnRight.css("z-index", "0")
          }
        } else {
           if (btnRight.hasClass("hide")) {
             btnRight.removeClass("hide")
+            btnRight.css("z-index", "2")
           }
        }
 
@@ -294,20 +386,24 @@ function followScroll () {
          if ((el.scrollLeft() + (distance * $(this).data('factor'))) >=  max[i]) {
            if (!btnRight.hasClass("hide")) {
              btnRight.addClass("hide")
+             btnRight.css("z-index", "0")
            }
          } else {
             if (btnRight.hasClass("hide")) {
               btnRight.removeClass("hide")
+              btnRight.css("z-index", "2")
             }
          }
 
          if ((el.scrollLeft() + (distance * $(this).data('factor'))) <=  0) {
            if (!btnLeft.hasClass("hide")) {
              btnLeft.addClass("hide")
+             btnLeft.css("z-index", "0")
            }
          } else {
             if (btnLeft.hasClass("hide")) {
               btnLeft.removeClass("hide")
+              btnLeft.css("z-index", "2")
             }
          }
 
@@ -326,41 +422,65 @@ function followScroll () {
   // ------ горизонтальный скролл конец -----
 
 
+
   // ------ служебные сообщения начало -----
-  window.showNotification = function showNotification(textNotification) {
-    var notification = $('<div class="notification" id="notification"><span></span></div>')
+  window.showNotification = function showNotification(textNotification, withClosing) {
+    var text = (textNotification.split(";")).filter(String)
+    if ($(".notification")) {
+      $(".notification").remove()
+
+    }
+    var notification = $('<div class="notification" id="notification"><div class="notification_inner"></div></div>')
     notification.appendTo($("body"))
-    notification.find($('span')).text(textNotification)
-    notification.css("left",  ($("body").width() / 2 - notification.width() / 2))
-  }
-
-  function addBtnClose() {
-    var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
-    btnClose.appendTo($("#notification"))
-    btnClose.on("click", function (e) {
-      $('#notification').fadeOut(1000);
-      $('#notification').remove()
-    })
-  }
-
-  function addTimerClosing() {
-    console.log($("#notification"))
-
-    var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
-    timerClosing.appendTo($("#notification"))
-    setTimeout(function () {
+    for (var i = 0; i < text.length; i++) {
+      var span = $('<span></span>')
+      span.text(text[i])
+      span.appendTo(notification.find($('div')))
+    }
+    notification.css("left",  ($("body").width() / 2 - notification.innerWidth() / 2))
+    if (withClosing) {
+      var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+      btnClose.appendTo($("#notification"))
+      btnClose.on("click", function (e) {
         $('#notification').fadeOut(1000);
-        setTimeout(function() {$('#notification').remove()}, 1000)
-        }, 6000);
-
-
+        $('#notification').remove()
+      })
+      $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
+    } else {
+      setTimeout(function () {
+          $('#notification').fadeOut(1000);
+            setTimeout(function() {$('#notification').remove()}, 1000)
+          }, 1000);
+    }
   }
+
+  //   window.addBtnClose = function addBtnClose() {
+  //   var btnClose = $('<div class="btn-close"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="sprite.svg#icon-close"></use></svg></div>')
+  //   btnClose.appendTo($("#notification"))
+  //   btnClose.on("click", function (e) {
+  //     $('#notification').fadeOut(1000);
+  //     $('#notification').remove()
+  //   })
+  //   $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
+  // }
+
+  // window.addTimerClosing = function addTimerClosing() {
+  //   var timerClosing = $('<div class="btn-timer"><div class="wrapper" data-anim="base wrapper"><div class="circle" data-anim="base left"></div><div class="circle" data-anim="base right"></div></div></div>')
+  //   timerClosing.appendTo($("#notification"))
+  //   setTimeout(function () {
+  //       $('#notification').fadeOut(1000);
+  //       setTimeout(function() {$('#notification').remove()}, 1000)
+  //       }, 6000);
+  //   $("#notification").css("left",  ($("body").width() / 2 - $("#notification").innerWidth() / 2))
+  // }
 
 // ------ служебные сообщения конец -----
 
-  // ------ ховер на иконку in-coaching начало -----
 
+
+// ------ ховер на иконку in-coaching начало -----
 window.getInCoachingTooltip = function getInCoachingTooltip() {
+
   if ($(".in-coaching")) {
     let arrIconsCoaching = $(".in-coaching") // весь список иконок
     var popup = $('<div class="popup">Это занятие включено в вашу тренировку<div class="arrow"></div></div>')
@@ -377,10 +497,14 @@ window.getInCoachingTooltip = function getInCoachingTooltip() {
           left += shift
           popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
         }
-        popup.css("top", (arrIconsCoaching.eq(i).offset().top + 35))
+        let shiftTop = 0
+        if ($(".container-theory").length > 0) {
+          shiftTop = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
+        }
+        popup.css("top", (arrIconsCoaching.eq(i).offset().top - shiftTop + 35))
         popup.css("left", (left - 15))
       }).on('mouseleave',function(){
-        popup.css("display", "none")
+        popup.css("display", "none").find($(".arrow")).css("left", 15)
         popup.find($(".arrow")).css("left", 15)
       })
     }
@@ -392,9 +516,47 @@ window.getInCoachingTooltip = function getInCoachingTooltip() {
 }
 window.getInCoachingTooltip()
 
-
-
   // ------ ховер на иконку in-coaching конец -----
+
+
+  // ------ ховер на иконку done начало -----
+  window.getDoneTooltip = function getDoneTooltip() {
+    if ($(".descr").find(".done")) {
+      let arrIconsDone = $(".done") // весь список иконок
+      var popup = $('<div class="popup">Занятие выполнено<div class="arrow"></div></div>')
+      popup.appendTo($("body"))
+      function onHoverIconDone (i) {
+        arrIconsDone.eq(i).on("mouseenter", function (e) {
+          var left = arrIconsDone.eq(i).offset().left
+          popup.css("display", "block")
+          var popupWidth = popup.width()
+          var bodyWidth = $("body").width()
+          var shift = bodyWidth - (left + 15 + popupWidth)
+          if (shift < 0)  {
+            left += shift
+            popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+          }
+          let shiftTopDone = 0
+          if ($(".container-theory").length > 0) {
+            shiftTopDone = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
+          }
+          popup.css("top", (arrIconsDone.eq(i).offset().top - shiftTopDone + 35))
+          popup.css("left", (left - 15))
+        }).on('mouseleave',function(){
+          popup.css("display", "none")
+          popup.find($(".arrow")).css("left", 15)
+        })
+      }
+
+      for (var i = 0; i < arrIconsDone.length; i++) {
+        onHoverIconDone(i)
+      }
+    }
+  }
+  window.getDoneTooltip()
+
+    // ------ ховер на иконку done конец -----
+
 
 
   // ------ поиск начало ------
@@ -422,7 +584,10 @@ window.getInCoachingTooltip()
     let url = "/search.html" + "?q=" + query; //для localhost
     // let url = "/search/" + "?q=" + query; //для dev
     $(location).attr('href', url);
-}
+    if (query != "") {
+      clearBtnInPage.removeClass("hide")
+    }
+  }
 
   function clearSearchInput(input,btn) { // очистить инпут с поиском
     input.val("");
@@ -494,72 +659,78 @@ window.getInCoachingTooltip()
   // ------ конец блока с поискам ------
 
 
-  function onChangeWidth() { // меняет расположение меню
-    var logoImg = $("#nav_logo");
-    if(windowWidth >= 640){
-      logoImg.attr("src", "./images/logo.svg");
-      menuNav.removeClass("hide");
-    } else {
-      logoImg.attr("src", "./images/logo_small.svg");
-        menuNav.addClass("hide");
+
+  // удаление/добавление из списка своих занятий ----- НАЧАЛО
+  window.setList = function setList(el, id) {
+    // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+    if (typeof isInUserList === 'undefined') {
+      var isInUserList = el.hasAttribute('data-in-course')
     }
-    clearSearchInput(searchInput, clearBtn)
-  }
-
-  function toggleMenuVisibility() { // меняет видимость меню. используется для мобилы
-      if(windowWidth < 640){
-        if (menuNav.hasClass("hide")) {
-          menuNav.removeClass("hide");
-        } else {
-          menuNav.addClass("hide");
-        }
+    if (!isInUserList) { // добавлять в список
+      // $.post('/theory/exercise/'+ id + '/add/', {
+      //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+      // })
+      if ($('.article-exercise').length) {
+          $('.article-exercise').find('.in-coaching').eq(0).removeClass('hide')
+          $('.set_exercise').addClass('hide')
+      } else {
+        el.setAttribute('data-in-course', '')
+        $('#exercise-' + id).find('.in-coaching').eq(0).removeClass('hide')
+        $(el).addClass('hide')
       }
+      isInUserList = true
+      showNotification('Занятие добавлено в тренировку', false)
+    }
+    getBtnSetList()
   }
+  // удаление/добавление из списка своих занятий ----- КОНЕЦ
 
-  $('body').on("click", function (e) {
-      if(windowWidth < 640) {
-        if (!menuNav.hasClass("hide")) { //закрыть меню при клике в любое место. используется для мобилы
-            toggleMenuVisibility()
-          }
-        }
-      if (!panelSearch.hasClass("hide")) { //закрыть поиск при клике в любое место. используется для мобилы
-          toggleSearchVisibility()
-          clearSearchInput(searchInput, clearBtn)
-        }
-        e.stopPropagation();
-  })
 
-  menuNavBtn.on("click", function (e) {
-    toggleMenuVisibility()
-    e.stopPropagation();
-  })
+  // установить кнопку добавить или удалить в свои занятия ----- НАЧАЛО
+  function getBtnSetList() {
+    let popupAdd = $('<div class="popup">Добавить в свою тренировку<div class="arrow"></div></div>')
+    popupAdd.appendTo($("body"))
 
-// -----начало прогресса----
-  function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
-    let skills  = $(".progress-main .skill"),
-        skillTitle = $(".progress-main .skill-title"),
-        skillWrapper = $(".progress-main .skill_wrapper")
+    let arrBtnSetList = $(".btn-set-list")
 
-    if($('body').innerWidth() >= 1200){
-        for (var i = 0; i < skills.length; i++){
-          skillTitle.eq(i).appendTo(skills.eq(i))
-        }
-    } else {
-      for (var i = 0; i < skills.length; i++){
-        skillTitle.eq(i).appendTo(skillWrapper.eq(i))
+    for (var i=0; i < arrBtnSetList.length; i++) {
+      if (typeof arrBtnSetList.eq(i).attr("data-in-course") != "undefined") {
+        arrBtnSetList.eq(i).text('-')
+        onHoverIcon(i, true)
+      } else {
+        arrBtnSetList.eq(i).text('+')
+        onHoverIcon(i, false)
       }
     }
 
+    function onHoverIcon (i, isInCourse) {
+      let popup = popupAdd
+      arrBtnSetList.eq(i).on("mouseenter", function (e) {
+        var left = arrBtnSetList.eq(i).offset().left
+        popup.css("display", "block")
+        var popupWidth = popup.width()
+        var bodyWidth = $("body").width()
+        var shift = bodyWidth - (left + 15 + popupWidth)
+        if (shift < 0)  {
+          left += shift
+          popup.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+        }
+        let shiftTop = 0
+        if ($(".container-theory").length > 0) {
+          shiftTop = $(".container-theory").outerHeight(true) - $(".container-theory").height() - 130
+        }
+        popup.css("top", (arrBtnSetList.eq(i).offset().top - shiftTop + 35))
+        popup.css("left", (left - 15))
+      }).on('mouseleave',function(){
+        popup.css("display", "none")
+        popup.find($(".arrow")).css("left", 15)
+      })
+    }
   }
-
-  $(window).on("resize", function (e) {
-      toggleProgressTitleLocation()
-  })
-  window.toggleProgressTitleLocation = toggleProgressTitleLocation()
-  toggleProgressTitleLocation()
-
-
-// -----конец прогресса----
+  if ($(".btn-set-list")) {
+    getBtnSetList()
+  }
+  // установить кнопку добавить или удалить в свои занятия ----- КОНЕЦ
 
 
   onChangeWidth();
