@@ -16,15 +16,52 @@
         line-height: 24px
 
     .landing_team_steps
-      max-width: 900px
-      margin: 0 auto 70px
+      margin: 0 auto
+      position: relative
+      max-width: 380px
+      width: 100%
+      padding-left: 3px
+      .svg-lines
+        position: relative
+        display: none
+      .svg-lines__mob
+        margin-right: 10px
+        position: relative
+
+      .landing_team_steps__finish
+        position: absolute
+        width: auto
+        height: 36px
+        left: 16px
+        bottom: 14px
+        z-index: 4
+      .step__item,
+      .step__text
+        position: absolute
+      .step__item
+        display: flex
+        width: 100%
+        left: 0 
+      .step__text
+        // top: 55px
+        // left: 0
+        left: 40px
+      .step-1
+        // bottom: 15px
+        top: 0
+      .step-2
+        // top: 17px
+        // left: 33%
+        top: 33%
+      .step-3
+        top: 66%
+      //   bottom: 25px
+      //   left: 66%
       .landing_team_step
         display: flex
         align-items: center
         user-select: none
         position: relative
-        margin-top: 10px
-
 
       .landing_team_step input[type=checkbox]
         position: absolute
@@ -44,6 +81,7 @@
         margin: 0
         margin-right: 10px
         min-width: 30px
+        background-color: #fff
       .landing_team_step:hover::before
         background-color: #F9F9FB
 
@@ -75,7 +113,7 @@
       padding: 30px
       max-width: 380px
       width: auto
-      margin: 70px auto
+      margin: 60px auto 70px
       h2
         font-size: 32px
         font-weight: 700
@@ -85,6 +123,15 @@
         display: flex
         flex-direction: column
         margin-bottom: 40px
+        .team_name__label
+          position: relative
+          .update_team_name__btn
+            width: 24px
+            height: 24px
+            position: absolute
+            top: 27px
+            right: 10px
+            cursor: pointer
         .error-email
           color: $error
           margin-top: 5px
@@ -95,6 +142,8 @@
         input
           height: 42px
           @include font(12px, 22px)
+          &.team_name__input
+            padding-right: 40px
 
       .btn-login
         width: 100%
@@ -134,3 +183,44 @@
           input
             height: 42px
             @include font(16px, 22px)
+
+
+@media (min-width: 700px)
+  .container__team
+    .content_landing_team
+      .landing_team_login
+        margin: 180px auto 70px
+      .landing_team_steps 
+        max-height: 49px
+        max-width: 777px
+        margin: 0 auto 70px
+        padding-left: 0
+        .svg-lines__mob
+          display: none
+        .svg-lines
+          display: block
+          position: relative
+        .landing_team_steps__finish
+          right: -22px
+          bottom: 34px
+          left: auto
+        .step__item,
+        .step__text
+          position: absolute
+        .step__item
+          width: 30%
+          .step__text
+            top: 55px
+            left: 0
+        .step-1
+          bottom: 15px
+          left: 0            
+        .step-2
+          top: 23px
+          left: 33%
+        .step-3
+          bottom: 25px
+          left: 66%
+          top: 0
+
+
