@@ -190,7 +190,7 @@
 .container__team .content_landing_team .landing_team_login__form .team_name__label {
   position: relative;
 }
-.container__team .content_landing_team .landing_team_login__form .team_name__label .update_team_name__btn {
+.container__team .content_landing_team .landing_team_login__form .team_name__label .icons--update {
   width: 24px;
   height: 24px;
   position: absolute;
