@@ -77,32 +77,42 @@
   position: relative;
   max-width: 380px;
   width: 100%;
-  padding-left: 3px;
 }
 .container__team .content_landing_team .landing_team_steps .svg-lines {
   position: relative;
   display: none;
 }
-.container__team .content_landing_team .landing_team_steps .svg-lines__mob {
-  margin-right: 10px;
-  position: relative;
+.container__team .content_landing_team .landing_team_steps .lines__mob {
+  width: 4px;
+  height: 100%;
+  background-color: #E2E3D8;
+  position: absolute;
+  left: 13px;
+}
+.container__team .content_landing_team .landing_team_steps .lines__mob::after {
+  content: "";
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  background-color: #E2E3D8;
+  border-radius: 50%;
+  bottom: -23px;
+  left: -9px;
 }
 .container__team .content_landing_team .landing_team_steps .landing_team_steps__finish {
   position: absolute;
   width: auto;
   height: 36px;
-  left: 16px;
-  bottom: 14px;
+  left: 17px;
+  bottom: -12px;
   z-index: 4;
-}
-.container__team .content_landing_team .landing_team_steps .step__item,
-.container__team .content_landing_team .landing_team_steps .step__text {
-  position: absolute;
 }
 .container__team .content_landing_team .landing_team_steps .step__item {
   display: flex;
   width: 100%;
   left: 0;
+  align-items: flex-start;
+  margin-bottom: 60px;
 }
 .container__team .content_landing_team .landing_team_steps .step__text {
   left: 40px;
@@ -174,7 +184,7 @@
   padding: 30px;
   max-width: 380px;
   width: auto;
-  margin: 60px auto 70px;
+  margin: 80px auto 70px;
 }
 .container__team .content_landing_team .landing_team_login h2 {
   font-size: 32px;
@@ -271,7 +281,7 @@
     margin: 0 auto 70px;
     padding-left: 0;
   }
-  .container__team .content_landing_team .landing_team_steps .svg-lines__mob {
+  .container__team .content_landing_team .landing_team_steps .lines__mob {
     display: none;
   }
   .container__team .content_landing_team .landing_team_steps .svg-lines {
@@ -279,7 +289,6 @@
     position: relative;
   }
   .container__team .content_landing_team .landing_team_steps .landing_team_steps__finish {
-    height: 36px;
     right: -22px;
     bottom: 34px;
     left: auto;

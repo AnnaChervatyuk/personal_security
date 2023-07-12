@@ -107,21 +107,7 @@
           <path d="M214 45.0008L214.267 43.0187L214 45.0008ZM430 3.00088L430.12 4.99725L430 3.00088ZM574.5 20.9998L573.905 22.9091L573.915 22.9123L573.925 22.9154L574.5 20.9998ZM754.833 14.5C754.833 20.391 759.609 25.1667 765.5 25.1667C771.391 25.1667 776.167 20.391 776.167 14.5C776.167 8.60896 771.391 3.83333 765.5 3.83333C759.609 3.83333 754.833 8.60896 754.833 14.5ZM1.38425 25.4627C48.3099 16.276 87.661 19.7851 122.113 26.5212C139.36 29.8933 155.36 34.0694 170.525 37.8807C185.661 41.6847 199.981 45.1298 213.733 46.9829L214.267 43.0187C200.765 41.1993 186.646 37.808 171.5 34.0013C156.383 30.202 140.258 25.9931 122.881 22.5955C88.0853 15.7924 48.1901 12.2235 0.615751 21.5373L1.38425 25.4627ZM213.733 46.9829C249.468 51.7982 285.236 42.2811 321.103 31.159C357.108 19.9941 393.189 7.22599 430.12 4.99725L429.879 1.00452C392.339 3.27005 355.67 16.2519 319.918 27.3384C284.028 38.4676 249.032 47.7034 214.267 43.0187L213.733 46.9829ZM430.12 4.99725C487.843 1.51378 527.599 8.47003 573.905 22.9091L575.095 19.0904C528.401 4.52997 488.157 -2.51245 429.879 1.00452L430.12 4.99725ZM573.925 22.9154C611.793 34.276 655.723 34.0005 692.143 30.2394C728.572 26.4774 757.719 19.2019 766.132 16.3974L764.868 12.6026C756.781 15.2981 727.928 22.5226 691.732 26.2606C655.527 29.9994 612.207 30.2238 575.075 19.0841L573.925 22.9154Z" fill="url(#gradhoriz)"/>
         </svg>
         <img class="landing_team_steps__finish hide" id="finishImage" src="../images/finish_icon.png"/>
-
-        <div class="svg-lines__mob" >
-         
-
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="100%" viewBox="0 0 22 375" fill="none" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="gradvert" x1='0' y1="0" x2="0" y2="0" gradientTransform="rotate(90)">
-                <stop offset="0%" style="stop-color:#2C29C2;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#E2E3D8;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <path d="M8.99871 99.4473L10.9831 99.6965L8.99871 99.4473ZM14.6159 199.034L12.619 199.146L14.6159 199.034ZM6.87071 265.755L4.95016 265.197L4.94732 265.207L4.94458 265.216L6.87071 265.755ZM11 353.281C5.10896 353.281 0.333333 358.056 0.333333 363.947C0.333333 369.838 5.10896 374.614 11 374.614C16.891 374.614 21.6667 369.838 21.6667 363.947C21.6667 358.056 16.891 353.281 11 353.281ZM9.8273 1.30623C17.7177 44.5538 10.1989 73.8394 7.01429 99.1981L10.9831 99.6965C14.1198 74.7188 21.7939 44.6095 13.7623 0.588296L9.8273 1.30623ZM7.01429 99.1981C4.94174 115.702 5.88125 132.181 7.55923 148.754C9.2448 165.402 11.655 182.006 12.619 199.146L16.6127 198.921C15.6427 181.674 13.2004 164.762 11.5389 148.351C9.86978 131.866 8.96769 115.745 10.9831 99.6965L7.01429 99.1981ZM12.619 199.146C14.1107 225.669 11.136 243.91 4.95016 265.197L8.79126 266.313C15.0843 244.658 18.1334 225.96 16.6127 198.921L12.619 199.146ZM4.94458 265.216C2.49048 273.994 1.50063 280.606 1.43139 286.614C1.36227 292.611 2.21333 297.918 3.33774 304.013C5.57412 316.136 9 331.883 9 363.947L13 363.947C13 331.512 9.52017 315.478 7.27136 303.287C6.15318 297.226 5.36678 292.243 5.43112 286.66C5.49534 281.088 6.40986 274.831 8.79685 266.293L4.94458 265.216Z" fill="url(#gradvert)"/>
-          </svg>
-        </div>
-
+        <div class="lines__mob" id="linesStepsMob"></div>
         <div class="step__item step-1">
           <label class="landing_team_step">
             <input type="checkbox" disabled id="step1">
@@ -202,38 +188,45 @@
           var blockSteps = document.getElementById('landing_team_steps')
           var gradhoriz = document.getElementById('gradhoriz')
           var gradvert = document.getElementById('gradvert')
+          var linesStepsMob = document.getElementById('linesStepsMob')
+          
+          function setGradient (el, x1, x2, isMobile) {
 
-          function setGradient (el, x1, x2) {
-            el.setAttribute("x1", x1);
-            el.setAttribute("x2", x2);
+            if (isMobile) {
+              el.style.background = `linear-gradient(180deg, rgba(44,41,194,1) ${x1}, rgba(226,227,216,1) ${x2})`;
+            } else {
+              el.setAttribute("x1", x1);
+              el.setAttribute("x2", x2);
+            }
+
           }
 
           $(window).scroll(function() {
             var windowHeight = window.innerHeight;
             var windowWidth = window.innerWidth;
             var coordsBlockSteps = blockSteps.getBoundingClientRect()
-
-            var coordsBlockSteps = (windowWidth < 700) ? coordsBlockSteps.top : coordsBlockSteps.bottom
-            var gradient = (windowWidth < 700) ? gradvert : gradhoriz
+            var isMobile = windowWidth < 700
+            var coordsBlockSteps = isMobile ? coordsBlockSteps.top : coordsBlockSteps.bottom
+            var gradient = isMobile ? linesStepsMob : gradhoriz
 
             if (coordsBlockSteps <= windowHeight) {
-              setGradient(gradient, '0%', '0%')
+              setGradient(gradient, '0%', '0%', isMobile)
               document.getElementById('step1').checked = false
             }
             if (coordsBlockSteps <=( windowHeight / 4 * 3 )) {
-              setGradient(gradient, '23%', '33%')
+              setGradient(gradient, '23%', '33%', isMobile)
               document.getElementById('step1').checked = true
               document.getElementById('step2').checked = false
             }
             if (coordsBlockSteps <=( windowHeight / 4 * 2)) {
-              setGradient(gradient, '56%', '66%')
+              setGradient(gradient, '56%', '66%', isMobile)
               document.getElementById('step2').checked = true
               document.getElementById('step3').checked = false
               if (!document.getElementById('finishImage').classList.contains('hide')) document.getElementById('finishImage').classList.add('hide')
             }
 
             if (coordsBlockSteps <=( windowHeight / 4)) {
-              setGradient(gradient, '89%', '99%')
+              setGradient(gradient, '89%', '99%', isMobile)
               document.getElementById('step3').checked = true
               document.getElementById('finishImage').classList.remove('hide')
             }
