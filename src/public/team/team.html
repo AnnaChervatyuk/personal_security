@@ -104,7 +104,7 @@
 
                <div class="members_top-panel__btns">
                 <div class="btn btn_add-members" onclick="openInviteMember()">+<span class="btn-label">Пригласить</span></div>
-                <div class="btn_open-menu-members">
+                <div class="btn_open-menu-members" onclick="openTeamMenu(this)">
                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
                      </svg>
@@ -289,7 +289,7 @@
       </footer>
 
       <div class="popup_invite-member hide" id="popupInviteMember">
-        <div class="popup_invite-member__inner">
+          <div class="popup_invite-member__inner">
           <div class="btn-close-top" onclick="closeInviteMember()">
             <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="../sprite.svg#icon-close"></use>
@@ -303,14 +303,134 @@
               <div class="invite__toggle-switch"></div>
             </label>
           </div>
+
+          <div class="popup_invite-member__invite share_link">
+            <div class="share_link__copy" onclick="copyLink()">
+              <svg class="icons icons--link" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <use xlink:href="../sprite.svg#icon-link"></use>
+              </svg>
+              <span>Копировать ссылку на приглашение</span>
+            </div>
+            <svg  onclick="setNewLink()" class="icons icons--update" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <use xlink:href="../sprite.svg#icon-update"></use>
+            </svg>
+          </div>
+
           <hr />
-          <div class="popup_invite-member__invite invite_email">
+          <div class="popup_invite-member__invite invite_email">      
             <span class="input_invite-label">По email</span>
             <input type="text" class="invite_email__input" placeholder="Несколько имейлов через пробел или запятую">
           </div>
           <div class="btn btn_send-invite-members">Отправить</div>
+          <div class="popup_invite-member__invite invited_emails">
+            <hr />
+            <div class="invited_emails__list">
+                <div class="invited_emails__list-item item-header">
+                  <div class="invited_emails__list_number"></div>
+                  <div class="invited_emails__list_email">Email</div>
+                  <div class="invited_emails__list_date">Дата</div>
+                  <div class="invited_emails__list_status">Состояние</div>
+                  <div class="invited_emails__list_btn-menu"></div>
+                </div>
+                <div class="invited_emails__list-scroll">
+                  <div class="invited_emails__list-item">
+                    <div class="invited_emails__list_number">1</div>
+                    <div class="invited_emails__list_email">dfasdad.ru</div>
+                    <div class="invited_emails__list_date">18 авг 2023 17:11</div>
+                    <div class="invited_emails__list_status">Ошибка</div>
+                    <div class="invited_emails__list_btn-menu" onclick="openInvitedEmailsMenu(this)">
+                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="invited_emails__list-item">
+                    <div class="invited_emails__list_number">2</div>
+                    <div class="invited_emails__list_email">dfasdad.adsasdы545345andexdfasdad.adsasdы545345andex.ru</div>
+                    <div class="invited_emails__list_date">18 авг 2023 17:11</div>
+                    <div class="invited_emails__list_status">Ошибка</div>
+                    <div class="invited_emails__list_btn-menu" onclick="openInvitedEmailsMenu(this)">
+                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="invited_emails__list-item">
+                    <div class="invited_emails__list_number">34</div>
+                    <div class="invited_emails__list_email">dfasdad.adsasdы545345andex.ru</div>
+                    <div class="invited_emails__list_date">18 авг 2023 17:11</div>
+                    <div class="invited_emails__list_status">Ошибка</div>
+                    <div class="invited_emails__list_btn-menu" onclick="openInvitedEmailsMenu(this)">
+                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="invited_emails__list-item">
+                    <div class="invited_emails__list_number">2</div>
+                    <div class="invited_emails__list_email">dfasdad.adsasdы545345andexdfasdad.adsasdы545345andex.ru</div>
+                    <div class="invited_emails__list_date">18 авг 2023 17:11</div>
+                    <div class="invited_emails__list_status">Ошибка</div>
+                    <div class="invited_emails__list_btn-menu" onclick="openInvitedEmailsMenu(this)">
+                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="invited_emails__list-item">
+                    <div class="invited_emails__list_number">34</div>
+                    <div class="invited_emails__list_email">dfasdad.adsasdы545345andex.ru</div>
+                    <div class="invited_emails__list_date">18 авг 2023 17:11</div>
+                    <div class="invited_emails__list_status">Ошибка</div>
+                    <div class="invited_emails__list_btn-menu" onclick="openInvitedEmailsMenu(this)">
+                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="invited_emails__list-item">
+                    <div class="invited_emails__list_number">2</div>
+                    <div class="invited_emails__list_email">dfasdad.adsasdы545345andexdfasdad.adsasdы545345andex.ru</div>
+                    <div class="invited_emails__list_date">18 авг 2023 17:11</div>
+                    <div class="invited_emails__list_status">Ошибка</div>
+                    <div class="invited_emails__list_btn-menu" onclick="openInvitedEmailsMenu(this)">
+                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="invited_emails__list-item">
+                    <div class="invited_emails__list_number">34</div>
+                    <div class="invited_emails__list_email">dfasdad.adsasdы545345andex.ru</div>
+                    <div class="invited_emails__list_date">18 авг 2023 17:11</div>
+                    <div class="invited_emails__list_status">Ошибка</div>
+                    <div class="invited_emails__list_btn-menu" onclick="openInvitedEmailsMenu(this)">
+                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
         </div>
      </div>
+
+
+     
+     <div id="popupMenuInvitedEmail" class="popup_menu popup_menu_invited_email hide">
+      <div class="popup_menu_list">
+          <div class="popup_menu__item invited_email__delete-invite">Отозвать приглашение</div>
+      </div>
+     </div>
+
+     <div id="popupMenuTeam" class="popup_menu popup_menu_team hide">
+      <div class="popup_menu_list">
+        <div class="popup_menu__item invited_email__rename-team" onclick="renameTeam()">Переименовать</div>
+        <div class="popup_menu__item invited_email__delete-team">Удалить команду</div>
+      </div>
+     </div>
+     
 
       <script>
 
@@ -361,10 +481,61 @@
           let popupInviteMember = $("#popupInviteMember")
           function openInviteMember () {
             popupInviteMember.removeClass('hide')
+            $('body').css("overflow-y", 'hidden')
           }
           function closeInviteMember () {
             popupInviteMember.addClass('hide')
+            $('body').css("overflow-y", 'auto')
           }
+
+          function copyLink (event) {
+            navigator.clipboard.writeText(`скопированная ссылка`);
+          }
+
+          function setNewLink () {
+            console.log('click_setNewLink')
+          }
+
+
+          let popupMenuInvitedEmail = $("#popupMenuInvitedEmail")
+          let popupMenuTeam = $("#popupMenuTeam")
+
+          function openInvitedEmailsMenu (elem) {
+            popupMenuInvitedEmail.removeClass("hide")
+
+            var left = $(elem).offset().left - popupMenuInvitedEmail.innerWidth() + $(elem).innerWidth()
+            var top = $(elem).offset().top + $(elem).innerHeight()
+           
+            popupMenuInvitedEmail.css("top", top)
+            popupMenuInvitedEmail.css("left", left)
+
+            var elparent = $(elem).closest('.invited_emails__list-scroll');
+            elparent.on("scroll", function (e) {
+              if (!popupMenuInvitedEmail.hasClass("hide")) {
+                popupMenuInvitedEmail.addClass("hide")
+              }
+            })
+          }
+
+          function openTeamMenu (elem) {
+            popupMenuTeam.removeClass("hide")
+
+            var left = $(elem).offset().left - popupMenuTeam.innerWidth() + $(elem).innerWidth()
+            var top = $(elem).offset().top + $(elem).innerHeight()
+           
+            popupMenuTeam.css("top", top)
+            popupMenuTeam.css("left", left)
+
+          }
+
+          function renameTeam () {
+            popupMenuTeam.addClass("hide")
+            console.log('open popup renameTeam')
+
+          }
+
+
+
       </script>
     </body>
 </html>

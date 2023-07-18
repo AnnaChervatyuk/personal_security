@@ -526,6 +526,10 @@
 .container__team-page .content .members_top-panel__btns .btn_open-menu-members svg {
   fill: #8D8D94;
 }
+.container__team-page .content .members_top-panel__btns .btn_open-menu-members:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 .container__team-page .content .members_top-panel__search {
   flex-wrap: 1;
   width: 100%;
@@ -650,8 +654,8 @@
 }
 
 .popup_invite-member {
-  position: absolute;
-  z-index: 555555;
+  position: fixed;
+  z-index: 500;
   background: rgba(249, 249, 251, 0.85);
   backdrop-filter: blur(20px);
   display: block;
@@ -678,19 +682,21 @@
   color: #17171C;
   box-sizing: border-box;
   margin: 80px auto 10px;
+  display: flex;
+  flex-direction: column;
 }
 .popup_invite-member__inner hr {
-  margin: 25px 0;
+  margin-bottom: 25px;
   height: 1px;
   background-color: #F3F3F6;
   border: none;
+  width: 100%;
 }
 .popup_invite-member__title {
   color: #17171C;
   font-size: 32px;
   line-height: 36px;
   font-weight: 700;
-  text-align: center;
   margin-bottom: 40px;
 }
 .popup_invite-member .invite__toggle {
@@ -731,13 +737,91 @@
   background: #17171C;
   right: 2px;
 }
+.popup_invite-member .invite_link {
+  margin-bottom: 25px;
+}
 .popup_invite-member .invite_email {
   margin-bottom: 20px;
 }
 .popup_invite-member .invite_email__input {
   width: 100%;
   margin-top: 20px;
-  padding: 8px 6px;
+}
+.popup_invite-member .share_link {
+  color: #007AFF;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.popup_invite-member .share_link svg {
+  fill: #007AFF;
+}
+.popup_invite-member .share_link__copy {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  cursor: pointer;
+}
+.popup_invite-member .share_link .icons--update {
+  cursor: pointer;
+}
+.popup_invite-member .invited_emails {
+  margin-top: 25px;
+  min-height: 280px;
+  overflow: hidden;
+}
+.popup_invite-member .invited_emails hr {
+  margin-bottom: 40px;
+}
+.popup_invite-member .invited_emails__list {
+  border-radius: 10px;
+  background: #F9F9FB;
+  padding-left: 10px;
+  color: #17171C;
+  display: flex;
+  flex-direction: column;
+  max-height: 240px;
+  overflow: hidden;
+}
+.popup_invite-member .invited_emails__list-scroll {
+  overflow-y: auto;
+}
+.popup_invite-member .invited_emails__list-item {
+  display: grid;
+  grid-template-columns: 15px 3fr 2fr 1fr 20px;
+  border-bottom: 1px solid #F3F3F6;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 10px 0;
+  padding-right: 8px;
+  align-items: center;
+}
+.popup_invite-member .invited_emails__list-item:last-child {
+  border: none;
+}
+.popup_invite-member .invited_emails__list-item .invited_emails__list_number {
+  color: #AEAEB2;
+  font-size: 11px;
+  line-height: 13px;
+}
+.popup_invite-member .invited_emails__list-item .invited_emails__list_email {
+  word-break: break-all;
+}
+.popup_invite-member .invited_emails__list-item .invited_emails__list_btn-menu svg {
+  vertical-align: middle;
+  fill: #AEAEB2;
+}
+.popup_invite-member .invited_emails__list-item .invited_emails__list_btn-menu:hover {
+  cursor: pointer;
+}
+.popup_invite-member .invited_emails__list-item.item-header {
+  font-size: 11px;
+  line-height: 13px;
 }
 .popup_invite-member .input_invite-label {
   color: #17171C;
@@ -746,7 +830,24 @@
   font-weight: 700;
   margin-right: auto;
 }
+.popup_invite-member ::-webkit-scrollbar {
+  width: 3px;
+  background-color: #F9F9FB;
+}
+.popup_invite-member ::-webkit-scrollbar-thumb {
+  background-color: #AEAEB2;
+}
 
+@media (min-width: 640px) {
+  .popup_invite-member .share_link {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .popup_invite-member .invited_emails__list-item {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
 @media (min-width: 640px) {
   .container__team-page .content_header {
     margin-bottom: 60px;
@@ -971,4 +1072,30 @@
     padding: 0 20px;
     justify-content: flex-start;
   }
+}
+.popup_menu {
+  position: absolute;
+  z-index: 600;
+  background-color: #fff;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px;
+}
+.popup_menu .popup_menu_list {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 22px;
+  gap: 20px;
+}
+.popup_menu .popup_menu_list .invited_email__delete-invite {
+  font-weight: 700;
+  color: #FF3B30;
+}
+.popup_menu .popup_menu_list .invited_email__delete-team {
+  color: #FF3B30;
+}
+.popup_menu .popup_menu_list .popup_menu__item:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
