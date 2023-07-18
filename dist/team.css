@@ -1099,3 +1099,26 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+.container__team .content .content_inner .block-email .block-email__descr {
+  color: #2E2E38;
+  text-align: center;
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 30px;
+}
+.container__team .content_add-to-team .content_inner {
+  text-align: center;
+}
+.container__team .content_add-to-team .content_inner h2 {
+  margin-bottom: 30px;
+}
+.container__team .content_add-to-team .content_inner .email-address {
+  margin-bottom: 5px;
+}
+.container__team .content_add-to-team .content_inner .btn_re-login {
+  margin: 0 auto 30px;
+  width: fit-content;
+  font-size: 14px;
+  line-height: 19px;
+}

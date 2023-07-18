@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" ></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+    <script defer src="../bundle.js"></script>
+    <script defer src="../app.js"></script>
+    <link href="../app.css" rel="stylesheet">
+    <link href="../team.css" rel="stylesheet"></head>
+    <body>
+      <div class="container container-login container__team">
+        <section class="navigator">
+          <div class="nav_logo">
+            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./../images/logo.svg" alt="Personal security"></a>
+          </div>
+          <ul class="nav_list">
+            <li class="nav_item active"><a href="course.html">Тренировки</a></li>
+            <li class="nav_item active"><a href="theory.html">Теория</a></li>
+            <li class="nav_item active"><a href="situation.html">Ситуации</a></li>
+          </ul>
+          <div class="nav_list menu__wrapper">
+            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="./../sprite.svg#icon-menu"></use>
+                </svg>
+            </div>
+            <div class="nav_list nav_list-menu hide" id="menu-nav">
+              <div class="nav_el nav_search" id="open-search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+                <div class="nav_list-text">Поиск</div>
+              </div>
+              <a class="nav_el nav_profile" href="profile.html">
+                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-profile"></use>
+                </svg>
+                <div class="nav_list-text">Аккаунт</div>
+              </a>
+            </div>
+          </div>
+          <div class="search-panel hide" id="search-panel">
+            <div class="search-input_wrapper">
+              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+              <div class="search-btn" id="search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="search-panel-close" id="close-search-btn">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="content ">
+          <div class="content_inner">
+            <img class="" src="./../images/team_landing.svg" >
+
+            <div class="block-email">
+              <h2>Присоединяйтесь к команде Бодрые бобры</h2>
+              <div class="block-email__descr">Если у вас нет аккаунта, мы его создадим</div>
+              <div class="mail-address">
+                <form id="login-form" action="/profile/login/" method="post" class="mail-address">
+                  <label class="email__label" for="email-address">Email</label>
+                  <input type="text" class="email__input" placeholder="Сюда мы пришлём ссылку для входа" id="email-address">
+                </form>
+                <div class="error-email hide">
+                  <div class="text-error">Некорректный email</div>
+                </div>
+              </div>
+              <div class="btn btn-sent-email" id="btn-send-email">Продолжить</div>
+              <div class="text-error"><ul class="errorlist nonfield"><li>Не удалось отправить ссылку на test@test.ru, попробуйте использовать другую почту или <a href="mailto:errors@securno.org?subject=Ошибка при авторизации" class="link_btn">напишите&nbsp;нам</a></li></ul></div>
+            </div>
+
+            <div class="block-email-done hide">
+              <h2>Проверьте почту</h2>
+              <div class="mail-address">
+                Ссылка на вход лежит на почте <span class="full_email"><span class="email-address"></span><a class="email-address_link link_txt " href="" target="_blank"></a></span>
+              </div>
+              <div class="btn-return" id="btn-return"><a href="link_btn">Назад к форме входа</a></div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./../images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item active"><a href="about.html">О проекте</a></li>
+            <li class="footer_item active"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <script>
+        let btnSendEmail = $("#btn-send-email")
+        let btnReturn = $("#btn-return")
+        let inputEmail = $("#email-address")
+        let blockErrorEmail = $(".error-email")
+        let blockEmailDone = $(".block-email-done")
+        let blockEmail = $(".block-email")
+        let targetEmailAfterAt = $(".email-address_link")
+        let targetEmailBeforeAt = $(".email-address")
+        let emailAfterAt = "";
+        let emailBeforeAt = "";
+
+        function validateEmail() {
+          var re = /\S+@\S+\.\S+/;
+          return re.test(inputEmail.val());
+        }
+
+        inputEmail.on('change paste keyup', function() {
+          if (!blockErrorEmail.hasClass("hide")) {
+            blockErrorEmail.addClass("hide");
+          };
+
+        });
+
+        btnReturn.on("click", function (e) {
+            blockEmailDone.addClass("hide")
+            blockEmail.removeClass("hide")
+            e.stopPropagation();
+        })
+
+        btnSendEmail.on("click", function (e) {
+          emailAfterAt += inputEmail[0].value.substring(inputEmail[0].value.indexOf('@') + 1);
+          emailBeforeAt = inputEmail[0].value.substring(0, inputEmail[0].value.indexOf('@') + 1);
+          if (validateEmail()) {
+            blockEmailDone.removeClass("hide")
+            blockEmail.addClass("hide")
+            targetEmailAfterAt.text(emailAfterAt)
+            targetEmailBeforeAt.text(emailBeforeAt)
+            targetEmailAfterAt.attr({href: "http://" + emailAfterAt})
+          } else {
+            blockErrorEmail.removeClass("hide");
+          }
+          e.stopPropagation();
+
+        })
+      </script>
+
+    </body>
+</html>
