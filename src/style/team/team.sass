@@ -154,6 +154,10 @@
               height: 24px
               width: 24px
               fill: $grey-100
+            &:hover
+              svg
+                cursor: pointer
+                fill: $black-100
           &_progress
             width: 100%
             &-header
@@ -202,6 +206,13 @@
               font-weight: 600
           &-header
             display: none
+        .members-not-registred
+          .members_item_progress-value,
+          .members_item_resolved-task-value,
+          .members_item_exercise-value
+            color: $grey-100
+            @include font(15px, 26px)
+            font-weight: 400
       &_pages 
         display: flex
         flex-direction: row
@@ -219,7 +230,7 @@
               border-color: $grey-50
               cursor: pointer
 
-.popup_invite-member
+.popup_team-full
   position: fixed
   z-index: 500
   background: rgba(248.88, 248.88, 250.92, 0.85)
@@ -256,10 +267,166 @@
 
   &__title
     color: #17171C
-    @include font(32px, 36px)
+    @include font(27px, 33px)
     font-weight: 700
     margin-bottom: 40px
 
+
+.popup_change-tasks
+  .popup_team-full__inner
+    .popup_team-full__title
+      margin-bottom: 10px
+    .popup_change-tasks_members
+      margin-bottom: 30px
+      .popup_change-tasks_members_count
+        margin-bottom: 10px
+        color: $black-50
+        @include font(14px, 19px)
+      .popup_change-tasks_members_list
+        gap: 5px
+        display: flex
+        flex-wrap: wrap
+        flex-direction: row
+        .popup_change-tasks_members_item
+          border-radius: 5px
+          border: 1px solid $grey-50
+          padding: 3px 4px
+          color: $black-70
+          @include font(12px, 13px)
+    .popup_change-tasks_list-wrapper
+      .popup_change-tasks_list_search
+        margin-bottom: 20px
+        .search__input
+          width: 100%
+      .popup_change-tasks_list
+        .popup_change-tasks_item
+          display: flex
+          margin-bottom: 20px
+          align-items: center
+          // &:last-child
+          //   margin-bottom: 0
+          .btn-open_link
+            opacity: 0
+            padding: 5px 10px
+            svg
+              vertical-align: sub
+              fill: $accent
+            &:hover
+              cursor: pointer
+              svg
+                opacity: 0.8
+          &:hover 
+            .btn-open_link
+              opacity: 1
+          .popup_change-tasks_item_check
+            width: 100%
+            display: flex
+            align-items: center
+            position: relative
+            &:hover
+              cursor: pointer
+            &::before
+              content: ""
+              display: inline-block
+              width: 30px
+              height: 30px
+              border: 1px solid $black-50
+              box-sizing: border-box
+              border-radius: 4px
+              margin: 0
+              margin-right: 10px
+              min-width: 30px
+            &:hover::before
+              background-color: #F9F9FB
+          .popup_change-tasks_item_check input[type=checkbox]
+            position: absolute
+            z-index: -1
+            opacity: 0
+            width: 0
+            height: 0
+            display: block
+          .popup_change-tasks_item_check input[type=checkbox]:checked + span::before
+            content: ""
+            position: absolute
+            display: inline-block
+            width: 2px
+            height: 17px
+            background-color: #007AFF
+            left: 17px
+            bottom: 27%
+            transform: rotate(45deg)
+          .popup_change-tasks_item_check input[type=checkbox]:checked + span::after
+            content: ""
+            position: absolute
+            display: inline-block
+            width: 2px
+            height: 9px
+            background-color: #007AFF
+            left: 8px
+            bottom: 28%
+            transform: rotate(-45deg)
+
+    .popup_change-tasks_footer
+      display: flex
+      width: 100%
+      justify-content: space-between
+      align-items: center
+      .btn_save-team-tasks
+        width: fit-content
+      .popup_change-tasks_count
+        color: $grey-100
+        @include font(16px, 22px)
+
+@media (min-width: 640px) 
+  .popup_change-tasks
+    .popup_team-full__inner
+      .popup_team-full__title
+        @include font(27px, 33px)
+
+
+.popup_rename-team
+  .btn_save-rename-team
+    width: fit-content
+  &_name
+    margin-bottom: 40px
+    .team_name__label
+      position: relative
+      .icons--update
+        width: 24px
+        height: 24px
+        position: absolute
+        top: 27px
+        right: 10px
+        cursor: pointer
+    label
+      @include font(11px, 13px)
+      margin-bottom: 5px
+      width: 100%
+      display: inline-block
+    input
+      height: 42px
+      @include font(12px, 22px)
+      width: 100%
+      &.team_name__input
+        padding-right: 40px
+
+
+@media (min-width: 640px)
+  .popup_team-full
+    .popup_team-full__title
+      @include font(32px, 36px)
+  .popup_rename-team
+    .popup_team-full__inner
+      transform: translateY(50%)
+    &_name
+      label
+        @include font(14px, 13px)
+      input
+        @include font(16px, 22px)
+
+.popup_invite-member
+  .btn_send-invite-members
+    width: fit-content
   .invite__toggle
     cursor: pointer
     display: flex
@@ -488,12 +655,6 @@
                   left: 8px
                   bottom: 28%
                   transform: rotate(-45deg)
-
-
-                 
-
-
-
             &:hover
               cursor: pointer
               background-color: $color-bg-block
@@ -570,6 +731,11 @@
             &_btn-menu
               order: 6
               min-width: 30px
+          .members-not-registred
+            .members_item_progress-value,
+            .members_item_resolved-task-value,
+            .members_item_exercise-value
+              margin-top: 0
         &_pages
           padding: 0 20px
           justify-content: flex-start
@@ -591,10 +757,8 @@
     flex-direction: column
     @include font(16px, 22px)
     gap: 20px
-    .invited_email__delete-invite 
-      font-weight: 700
-      color: $error
-    .invited_email__delete-team
+    font-weight: 700
+    .menu_item__warning
       color: $error
     .popup_menu__item
       &:hover

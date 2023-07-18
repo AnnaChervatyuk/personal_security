@@ -143,7 +143,7 @@
               <div class="members_item_name-email">sdfds@proton.io</div>
             </div>
 
-            <div class="members_item_btn-menu">
+            <div class="members_item_btn-menu" onclick="openMemberMenu(this)">
               <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
               </svg>
@@ -187,7 +187,7 @@
               <div class="members_item_name-email">sdfds@proton.io</div>
             </div>
 
-            <div class="members_item_btn-menu">
+            <div class="members_item_btn-menu"  onclick="openMemberMenu(this)">
               <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
               </svg>
@@ -218,6 +218,49 @@
               <div class="members_item_activity-value">7 д. назад</div>
             </div>
           </div>
+
+          <div class="members_item members-not-registred" onclick="checkMembers(this)">
+            <div class="members_item_btn-check">
+              <label class="member_check">
+                <input type="checkbox">
+                <span></span>
+              </label>
+            </div>
+
+            <div class="members_item_name">
+              <div class="members_item_name-fio">Amazon Marketovich</div>
+              <div class="members_item_name-email">sdfds@proton.io</div>
+            </div>
+
+            <div class="members_item_btn-menu" onclick="openNotRegistredMemberMenu(this)">
+              <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+              </svg>
+           </div>
+
+           <div class="members_item_progress">
+              <div  class="members_item_progress-header">
+                <div class="members_item_progress-title">Общий прогресс</div>
+                <div class="members_item_progress-value">—</div>
+              </div>
+            </div>
+
+            <div class="members_item_resolved-task">
+              <div class="members_item_resolved-task-title">Выполнено заданий</div>
+              <div class="members_item_resolved-task-value">—</div>
+            </div>
+
+            <div class="members_item_exercise">
+              <div class="members_item_exercise-title">Пройдено занятий</div>
+              <div class="members_item_exercise-value">—</div>
+            </div>
+
+            <div class="members_item_activity">
+              <div class="members_item_activity-title">Активность</div>
+              <div class="members_item_activity-value">Не зарегистрирован</div>
+            </div>
+          </div>
+
           <div class="members_item" onclick="checkMembers(this)">
             <div class="members_item_btn-check">
               <label class="member_check">
@@ -231,7 +274,7 @@
               <div class="members_item_name-email">sdfds@proton.io</div>
             </div>
 
-            <div class="members_item_btn-menu">
+            <div class="members_item_btn-menu"  onclick="openMemberMenu(this)">
               <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
               </svg>
@@ -270,12 +313,7 @@
             <div class="members_page btn-white">4</div>
             <div class="members_page btn-white">5</div>
           </div>
-
         </section>
-
-
-
-
       </div>
 
 
@@ -291,14 +329,14 @@
         </div>
       </footer>
 
-      <div class="popup_invite-member hide" id="popupInviteMember">
-          <div class="popup_invite-member__inner">
-          <div class="btn-close-top" onclick="closeInviteMember()">
-            <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <use xlink:href="../sprite.svg#icon-close"></use>
-            </svg>
-          </div>
-          <div class="popup_invite-member__title">Приглашение в «Бодрые бобры»</div>
+      <div class="popup_team-full popup_invite-member hide" id="popupInviteMember">
+        <div class="btn-close-top" onclick="closeInviteMember()">
+          <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <use xlink:href="../sprite.svg#icon-close"></use>
+          </svg>
+        </div>
+          <div class="popup_team-full__inner">
+          <div class="popup_team-full__title">Приглашение в «Бодрые бобры»</div>
           <div class="popup_invite-member__invite invite_link">
             <label class="invite__toggle">
               <span class="input_invite-label">По ссылке</span>
@@ -420,21 +458,146 @@
      </div>
 
 
-     
+     <div class="popup_team-full popup_rename-team hide" id="popupRenameTeam">
+      <div class="btn-close-top" onclick="closeRenameTeam()">
+        <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use xlink:href="../sprite.svg#icon-close"></use>
+        </svg>
+      </div>
+      <div class="popup_team-full__inner">
+
+        <div class="popup_team-full__title">Новое название команды Бодрые бобры</div>
+        <div class="popup_rename-team_name">
+          <label class="team_name__label" for="name">Название команды
+            <svg class="icons icons--update" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <use xlink:href="./../sprite.svg#icon-update"></use>
+            </svg>
+          </label>
+          <input type="text" class="team_name__input" placeholder="Название команды" id="name">
+        </div>
+        <div class="btn btn_save-rename-team">Сохранить</div>
+      </div>
+    </div>
+
+
+    <div class="popup_team-full popup_change-tasks hide" id="popupChangeTasks">
+      <div class="btn-close-top" onclick="closePopupChangeTasks()">
+        <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use xlink:href="../sprite.svg#icon-close"></use>
+        </svg>
+      </div>
+      <div class="popup_team-full__inner">
+        <div class="popup_team-full__title">Какие занятия назначить?</div>
+        <div class="popup_change-tasks_members">
+          <div class="popup_change-tasks_members_count">9 человек</div>
+          <div class="popup_change-tasks_members_list">
+            <div class="popup_change-tasks_members_item">Amazon Marketovich</div>
+            <div class="popup_change-tasks_members_item">Amazon</div>
+            <div class="popup_change-tasks_members_item">Froton</div>
+            <div class="popup_change-tasks_members_item">Marketovich</div>
+            <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
+            <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
+          </div>
+        </div>
+        <div class="popup_change-tasks_list-wrapper">
+          <div class="popup_change-tasks_list_search">
+            <input type="text" class="search__input" placeholder="Поиск">
+          </div>
+          <div class="popup_change-tasks_list">
+            <div class="popup_change-tasks_item">
+              <label class="popup_change-tasks_item_check">
+                <input type="checkbox">
+                <span>Надежные пароли</span>
+              </label>
+              <div class="btn-open_link">
+                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="../sprite.svg#icon-open_link"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="popup_change-tasks_item">
+              <label class="popup_change-tasks_item_check">
+                <input type="checkbox">
+                <span>Менеджер паролей</span>
+              </label>
+              <div class="btn-open_link">
+                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="../sprite.svg#icon-open_link"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="popup_change-tasks_item">
+              <label class="popup_change-tasks_item_check">
+                <input type="checkbox">
+                <span>Двухфакторная аутентификация</span>
+              </label>
+              <div class="btn-open_link">
+                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="../sprite.svg#icon-open_link"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="popup_change-tasks_item">
+              <label class="popup_change-tasks_item_check">
+                <input type="checkbox">
+                <span>Полнодисковое шифрование</span>
+              </label>
+              <div class="btn-open_link">
+                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="../sprite.svg#icon-open_link"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="popup_change-tasks_item">
+              <label class="popup_change-tasks_item_check">
+                <input type="checkbox">
+                <span>Резервное копирование</span>
+              </label>
+              <div class="btn-open_link">
+                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="../sprite.svg#icon-open_link"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="popup_change-tasks_footer">
+          <div class="btn btn_save-team-tasks">Назначить занятия</div>
+          <div class="popup_change-tasks_count">Выбрано 0</div>
+        </div>
+      </div>
+    </div>
+
+
      <div id="popupMenuInvitedEmail" class="popup_menu popup_menu_invited_email hide">
       <div class="popup_menu_list">
-          <div class="popup_menu__item invited_email__delete-invite">Отозвать приглашение</div>
+          <div class="popup_menu__item menu_item__warning">Отозвать приглашение</div>
       </div>
      </div>
 
      <div id="popupMenuTeam" class="popup_menu popup_menu_team hide">
       <div class="popup_menu_list">
-        <div class="popup_menu__item invited_email__rename-team" onclick="renameTeam()">Переименовать</div>
-        <div class="popup_menu__item invited_email__delete-team">Удалить команду</div>
+        <div class="popup_menu__item" onclick="renameTeam()">Переименовать</div>
+        <div class="popup_menu__item menu_item__warning">Удалить команду</div>
+      </div>
+     </div>
+
+     <div id="popupNotRegistredMember" class="popup_menu popup_menu_not-registred-member hide">
+      <div class="popup_menu_list">
+        <div class="popup_menu__item">Отправить приглашение повторно</div>
+        <div class="popup_menu__item menu_item__warning">Удалить участника</div>
+      </div>
+     </div>
+
+     <div id="popupMemberMenu" class="popup_menu popup_menu_member hide">
+      <div class="popup_menu_list">
+        <div class="popup_menu__item" onclick="openPopupChangeTasks()">Добавить/убрать занятия</div>
+        <div class="popup_menu__item">Изменить ник</div>
+        <div class="popup_menu__item menu_item__warning">Удалить участника</div>
       </div>
      </div>
      
-
       <script>
 
           document.querySelectorAll('.members_item_progress-bar').forEach(function (membersProgressWrapper) {
@@ -465,6 +628,10 @@
               })
             })
             
+            
+      
+
+    
       
 
             document.querySelector('body').addEventListener('click', function (e) {
@@ -480,14 +647,31 @@
           function checkMembers (event) {
             event.querySelector('input').checked = !event.querySelector('input').checked
           }
-
+          
+          let popupMenuTeam = $("#popupMenuTeam")
+          let popupMenuInvitedEmail = $("#popupMenuInvitedEmail")
+          let popupRenameTeam = $("#popupRenameTeam")
           let popupInviteMember = $("#popupInviteMember")
+          let popupNotRegistredMember = $("#popupNotRegistredMember")
+          let popupMemberMenu = $("#popupMemberMenu")
+          let popupChangeTasks = $("#popupChangeTasks")
+          
+
           function openInviteMember () {
             popupInviteMember.removeClass('hide')
             $('body').css("overflow-y", 'hidden')
           }
+
           function closeInviteMember () {
             popupInviteMember.addClass('hide')
+            if (!popupMenuInvitedEmail.hasClass("hide")) {
+                popupMenuInvitedEmail.addClass("hide")
+              }
+            $('body').css("overflow-y", 'auto')
+          }
+
+          function closeRenameTeam() {
+            popupRenameTeam.addClass('hide')
             $('body').css("overflow-y", 'auto')
           }
 
@@ -500,6 +684,11 @@
           }
 
 
+
+          let popupMenuInvitedEmail = $("#popupMenuInvitedEmail")
+          let popupMenuTeam = $("#popupMenuTeam")
+
+          
           let popupMenuInvitedEmail = $("#popupMenuInvitedEmail")
           let popupMenuTeam = $("#popupMenuTeam")
 
@@ -533,11 +722,38 @@
 
           function renameTeam () {
             popupMenuTeam.addClass("hide")
-            console.log('open popup renameTeam')
-
+            popupRenameTeam.removeClass("hide")
+            $('body').css("overflow-y", 'hidden')
+          
           }
 
 
+          function openNotRegistredMemberMenu (elem) {
+            popupNotRegistredMember.removeClass("hide")
+            var left = $(elem).offset().left - popupNotRegistredMember.innerWidth() + $(elem).innerWidth()
+            var top = $(elem).offset().top + $(elem).innerHeight()
+            popupNotRegistredMember.css("top", top)
+            popupNotRegistredMember.css("left", left)
+          }
+
+          function openMemberMenu (elem) {
+            popupMemberMenu.removeClass("hide")
+            var left = $(elem).offset().left - popupMemberMenu.innerWidth() + $(elem).innerWidth()
+            var top = $(elem).offset().top + $(elem).innerHeight()
+            popupMemberMenu.css("top", top)
+            popupMemberMenu.css("left", left)
+          }
+
+          function openPopupChangeTasks () {
+            popupMemberMenu.addClass("hide")
+            popupChangeTasks.removeClass("hide")
+            $('body').css("overflow", 'hidden')
+          }
+
+          function closePopupChangeTasks () {
+            popupChangeTasks.addClass('hide')
+            $('body').css("overflow-y", 'auto')
+          }
 
       </script>
     </body>

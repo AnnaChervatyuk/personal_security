@@ -576,6 +576,10 @@
   width: 24px;
   fill: #8D8D94;
 }
+.container__team-page .content .members_list .members_item_btn-menu:hover svg {
+  cursor: pointer;
+  fill: #17171C;
+}
 .container__team-page .content .members_list .members_item_progress {
   width: 100%;
 }
@@ -633,6 +637,14 @@
 .container__team-page .content .members_list .members_item-header {
   display: none;
 }
+.container__team-page .content .members_list .members-not-registred .members_item_progress-value,
+.container__team-page .content .members_list .members-not-registred .members_item_resolved-task-value,
+.container__team-page .content .members_list .members-not-registred .members_item_exercise-value {
+  color: #8D8D94;
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 400;
+}
 .container__team-page .content .members_pages {
   display: flex;
   flex-direction: row;
@@ -653,7 +665,7 @@
   cursor: pointer;
 }
 
-.popup_invite-member {
+.popup_team-full {
   position: fixed;
   z-index: 500;
   background: rgba(249, 249, 251, 0.85);
@@ -664,16 +676,16 @@
   width: 100vw;
   height: 100%;
 }
-.popup_invite-member .btn-close-top {
+.popup_team-full .btn-close-top {
   position: absolute;
   top: 20px;
   right: 20px;
   order: 1;
 }
-.popup_invite-member .btn-close-top:hover {
+.popup_team-full .btn-close-top:hover {
   cursor: pointer;
 }
-.popup_invite-member__inner {
+.popup_team-full__inner {
   max-width: 600px;
   padding: 30px;
   background: #fff;
@@ -685,19 +697,204 @@
   display: flex;
   flex-direction: column;
 }
-.popup_invite-member__inner hr {
+.popup_team-full__inner hr {
   margin-bottom: 25px;
   height: 1px;
   background-color: #F3F3F6;
   border: none;
   width: 100%;
 }
-.popup_invite-member__title {
+.popup_team-full__title {
   color: #17171C;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 27px;
+  line-height: 33px;
   font-weight: 700;
   margin-bottom: 40px;
+}
+
+.popup_change-tasks .popup_team-full__inner .popup_team-full__title {
+  margin-bottom: 10px;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_members {
+  margin-bottom: 30px;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_members .popup_change-tasks_members_count {
+  margin-bottom: 10px;
+  color: #787882;
+  font-size: 14px;
+  line-height: 19px;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_members .popup_change-tasks_members_list {
+  gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_members .popup_change-tasks_members_list .popup_change-tasks_members_item {
+  border-radius: 5px;
+  border: 1px solid #D1D1D6;
+  padding: 3px 4px;
+  color: #2E2E38;
+  font-size: 12px;
+  line-height: 13px;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list_search {
+  margin-bottom: 20px;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list_search .search__input {
+  width: 100%;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .btn-open_link {
+  opacity: 0;
+  padding: 5px 10px;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .btn-open_link svg {
+  vertical-align: sub;
+  fill: #007AFF;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .btn-open_link:hover {
+  cursor: pointer;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .btn-open_link:hover svg {
+  opacity: 0.8;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item:hover .btn-open_link {
+  opacity: 1;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check:hover {
+  cursor: pointer;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #787882;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin: 0;
+  margin-right: 10px;
+  min-width: 30px;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check:hover::before {
+  background-color: #F9F9FB;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check input[type=checkbox] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  display: block;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check input[type=checkbox]:checked + span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 17px;
+  background-color: #007AFF;
+  left: 17px;
+  bottom: 27%;
+  transform: rotate(45deg);
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check input[type=checkbox]:checked + span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 9px;
+  background-color: #007AFF;
+  left: 8px;
+  bottom: 28%;
+  transform: rotate(-45deg);
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_footer .btn_save-team-tasks {
+  width: fit-content;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_footer .popup_change-tasks_count {
+  color: #8D8D94;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (min-width: 640px) {
+  .popup_change-tasks .popup_team-full__inner .popup_team-full__title {
+    font-size: 27px;
+    line-height: 33px;
+  }
+}
+.popup_rename-team .btn_save-rename-team {
+  width: fit-content;
+}
+.popup_rename-team_name {
+  margin-bottom: 40px;
+}
+.popup_rename-team_name .team_name__label {
+  position: relative;
+}
+.popup_rename-team_name .team_name__label .icons--update {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 27px;
+  right: 10px;
+  cursor: pointer;
+}
+.popup_rename-team_name label {
+  font-size: 11px;
+  line-height: 13px;
+  margin-bottom: 5px;
+  width: 100%;
+  display: inline-block;
+}
+.popup_rename-team_name input {
+  height: 42px;
+  font-size: 12px;
+  line-height: 22px;
+  width: 100%;
+}
+.popup_rename-team_name input.team_name__input {
+  padding-right: 40px;
+}
+
+@media (min-width: 640px) {
+  .popup_team-full .popup_team-full__title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .popup_rename-team .popup_team-full__inner {
+    transform: translateY(50%);
+  }
+  .popup_rename-team_name label {
+    font-size: 14px;
+    line-height: 13px;
+  }
+  .popup_rename-team_name input {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+.popup_invite-member .btn_send-invite-members {
+  width: fit-content;
 }
 .popup_invite-member .invite__toggle {
   cursor: pointer;
@@ -1068,6 +1265,11 @@
     order: 6;
     min-width: 30px;
   }
+  .container__team-page .content .members_list .members-not-registred .members_item_progress-value,
+.container__team-page .content .members_list .members-not-registred .members_item_resolved-task-value,
+.container__team-page .content .members_list .members-not-registred .members_item_exercise-value {
+    margin-top: 0;
+  }
   .container__team-page .content .members_pages {
     padding: 0 20px;
     justify-content: flex-start;
@@ -1087,12 +1289,9 @@
   font-size: 16px;
   line-height: 22px;
   gap: 20px;
-}
-.popup_menu .popup_menu_list .invited_email__delete-invite {
   font-weight: 700;
-  color: #FF3B30;
 }
-.popup_menu .popup_menu_list .invited_email__delete-team {
+.popup_menu .popup_menu_list .menu_item__warning {
   color: #FF3B30;
 }
 .popup_menu .popup_menu_list .popup_menu__item:hover {
