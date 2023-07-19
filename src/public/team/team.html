@@ -302,6 +302,24 @@
               <div class="members_item_activity-value">7 д. назад</div>
             </div>
           </div>
+
+          <div class="members_list-panel" id="panelTeam">
+            <div class="members_list-panel_inner">
+              <div>Выбрано 1:</div>
+              <div class="members_list-panel_item" onclick="openPopupChangeTasks()">Добавить занятия</div>
+              <div class="members_list-panel_item" onclick="openPopupChangeTasks()">Удалить занятия</div>
+              <div class="members_list-panel_item members_list-panel_item-remove">Удалить участников</div>
+
+              <div class="members_list-panel_item btn-close-panel" onclick="closePanelTeam()">
+                <svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+
+
          </div>
          <div class="members_pages">
             <div class="members_page active btn btn-white">1</div>
@@ -477,89 +495,161 @@
     </div>
 
 
-    <div class="popup_team-full popup_change-tasks hide" id="popupChangeTasks">
+    <div class="popup_team-full popup_change-tasks " id="popupChangeTasks">
       <div class="btn-close-top" onclick="closePopupChangeTasks()">
         <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <use xlink:href="../sprite.svg#icon-close"></use>
         </svg>
       </div>
-      <div class="popup_team-full__inner">
-        <div class="popup_team-full__title">Какие занятия назначить?</div>
-        <div class="popup_change-tasks_members">
-          <div class="popup_change-tasks_members_count">9 человек</div>
-          <div class="popup_change-tasks_members_list">
-            <div class="popup_change-tasks_members_item">Amazon Marketovich</div>
-            <div class="popup_change-tasks_members_item">Amazon</div>
-            <div class="popup_change-tasks_members_item">Froton</div>
-            <div class="popup_change-tasks_members_item">Marketovich</div>
-            <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
-            <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
+      <!-- <div class="popup_change-tasks__wrapper"> -->
+        <div class="popup_team-full__inner">
+
+          <div class="popup_change-tasks__block-scroll">
+            <div class="popup_team-full__title">Какие занятия назначить?</div>
+            <div class="popup_change-tasks_members">
+              <div class="popup_change-tasks_members_count">9 человек</div>
+              <div class="popup_change-tasks_members_list">
+                <div class="popup_change-tasks_members_item">Amazon Marketovich</div>
+                <div class="popup_change-tasks_members_item">Amazon</div>
+                <div class="popup_change-tasks_members_item">Froton</div>
+                <div class="popup_change-tasks_members_item">Marketovich</div>
+                <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
+                <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
+              </div>
+            </div>
+            <div class="popup_change-tasks_list-wrapper">
+              <div class="popup_change-tasks_list_search" id="taskSearch">
+                <input type="text" class="search__input" placeholder="Поиск">
+              </div>
+              <div class="popup_change-tasks_list">
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Двухфакторная аутентификация</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Полнодисковое шифрование</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Резервное копирование</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
           </div>
-        </div>
-        <div class="popup_change-tasks_list-wrapper">
-          <div class="popup_change-tasks_list_search">
-            <input type="text" class="search__input" placeholder="Поиск">
-          </div>
-          <div class="popup_change-tasks_list">
-            <div class="popup_change-tasks_item">
-              <label class="popup_change-tasks_item_check">
-                <input type="checkbox">
-                <span>Надежные пароли</span>
-              </label>
-              <div class="btn-open_link">
-                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <use xlink:href="../sprite.svg#icon-open_link"></use>
-                </svg>
-              </div>
-            </div>
-            <div class="popup_change-tasks_item">
-              <label class="popup_change-tasks_item_check">
-                <input type="checkbox">
-                <span>Менеджер паролей</span>
-              </label>
-              <div class="btn-open_link">
-                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <use xlink:href="../sprite.svg#icon-open_link"></use>
-                </svg>
-              </div>
-            </div>
-            <div class="popup_change-tasks_item">
-              <label class="popup_change-tasks_item_check">
-                <input type="checkbox">
-                <span>Двухфакторная аутентификация</span>
-              </label>
-              <div class="btn-open_link">
-                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <use xlink:href="../sprite.svg#icon-open_link"></use>
-                </svg>
-              </div>
-            </div>
-            <div class="popup_change-tasks_item">
-              <label class="popup_change-tasks_item_check">
-                <input type="checkbox">
-                <span>Полнодисковое шифрование</span>
-              </label>
-              <div class="btn-open_link">
-                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <use xlink:href="../sprite.svg#icon-open_link"></use>
-                </svg>
-              </div>
-            </div>
-            <div class="popup_change-tasks_item">
-              <label class="popup_change-tasks_item_check">
-                <input type="checkbox">
-                <span>Резервное копирование</span>
-              </label>
-              <div class="btn-open_link">
-                <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <use xlink:href="../sprite.svg#icon-open_link"></use>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="popup_change-tasks_footer">
+          <!-- <hr/> -->
           <div class="btn btn_save-team-tasks">Назначить занятия</div>
           <div class="popup_change-tasks_count">Выбрано 0</div>
         </div>
@@ -592,11 +682,12 @@
         <div class="popup_menu__item" onclick="openPopupChangeTasks()">Добавить/убрать занятия</div>
         <div class="popup_menu__item">Изменить ник</div>
         <div class="popup_menu__item menu_item__warning">Удалить участника</div>
+        
       </div>
      </div>
      
       <script>
-
+          let countSelectedMembers = 0;
           document.querySelectorAll('.members_item_progress-bar').forEach(function (membersProgressWrapper) {
             membersProgressWrapper.querySelector('.members_item_progress-bar_inner').style.width=6 + "%";
           })
@@ -635,8 +726,25 @@
           })
 
 
+          let panelTeam = $("#panelTeam")
+
+
           function checkMembers (event) {
             event.querySelector('input').checked = !event.querySelector('input').checked
+            if (event.querySelector('input').checked) {
+              $(event).addClass('selected-member')
+              countSelectedMembers ++
+            } else {
+              $(event).removeClass('selected-member')
+              countSelectedMembers --
+            }
+             if (countSelectedMembers > 0) {
+              panelTeam.removeClass('hide')
+             }
+          }
+
+          function closePanelTeam () {
+            panelTeam.addClass('hide')
           }
           
           let popupMenuTeam = $("#popupMenuTeam")
@@ -646,7 +754,6 @@
           let popupNotRegistredMember = $("#popupNotRegistredMember")
           let popupMemberMenu = $("#popupMemberMenu")
           let popupChangeTasks = $("#popupChangeTasks")
-          
 
           function openInviteMember () {
             popupInviteMember.removeClass('hide')
@@ -737,7 +844,17 @@
             popupChangeTasks.addClass('hide')
             $('body').css("overflow-y", 'auto')
           }
+          
 
+          let taskSearch = $("#taskSearch")
+          
+          $(popupChangeTasks[0].getElementsByClassName('popup_change-tasks__block-scroll')[0]).on("scroll", function (e) {
+            if (taskSearch.position().top <= 45 ){
+              taskSearch.css('width', '80%')
+            } else {
+              taskSearch.css('width', '100%')
+            }
+          })
       </script>
     </body>
 </html>

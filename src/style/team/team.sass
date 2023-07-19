@@ -1,3 +1,5 @@
+body
+  overflow: hidden
 .container__team-page
   .content
     padding: 0
@@ -125,6 +127,7 @@
             width: 100%
       &_list
         margin-bottom: 20px
+        position: relative
         .members_item
           padding: 20px
           border-top: 1px $grey-50 solid
@@ -213,6 +216,37 @@
             color: $grey-100
             @include font(15px, 26px)
             font-weight: 400
+        .members_list-panel
+          padding: 10px
+          position: absolute
+          width: 100%
+          bottom: -45px
+          box-sizing: border-box
+          .members_list-panel_inner
+            padding: 10px 15px
+            background: rgba(22.95, 22.95, 28.05, 0.90)
+            color: $white
+            border-radius: 10px
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            align-items: center
+            gap: 20px
+            margin: 0 auto
+            width: fit-content
+            @include font(14px, 19px)
+            .members_list-panel_item
+              font-weight: 500
+              &:hover
+                cursor: pointer
+                opacity: 0.8
+              &.members_list-panel_item-remove
+                color: #FF8680
+              &.btn-close-panel
+                svg
+                  vertical-align: sub
+                  fill: $grey-100
+
       &_pages 
         display: flex
         flex-direction: row
@@ -298,13 +332,12 @@
         margin-bottom: 20px
         .search__input
           width: 100%
+          height: 42px
       .popup_change-tasks_list
         .popup_change-tasks_item
           display: flex
           margin-bottom: 20px
           align-items: center
-          // &:last-child
-          //   margin-bottom: 0
           .btn-open_link
             opacity: 0
             padding: 5px 10px
@@ -377,11 +410,79 @@
         color: $grey-100
         @include font(16px, 22px)
 
+
+.popup_change-tasks
+  .btn-close-top
+    z-index: 1
+    top: 10px
+  .popup_team-full__inner
+    overflow-x: hidden
+    margin: 0 auto
+    position: relative
+    display: flex
+    flex-direction: column
+    height: 100vh
+    padding: 0
+    .popup_change-tasks__block-scroll
+      flex-grow: 1
+      overflow-y: auto
+      padding: 0 30px
+    .popup_team-full__title
+      @include font(27px, 33px)
+      padding-top: 70px
+    .popup_change-tasks_list-wrapper
+      .popup_change-tasks_list_search
+        position: sticky
+        padding: 10px 0
+        top: 0
+        background-color: $white
+        z-index: 1
+      .popup_change-tasks_list
+        .popup_change-tasks_item          
+          .popup_change-tasks_item_check
+            span
+              font-weight: 500
+    .popup_change-tasks_footer
+      border-top: 1px solid $grey-50
+      padding: 10px 20px
+      background: $white
+      box-sizing: border-box
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+
+
+
 @media (min-width: 640px) 
   .popup_change-tasks
+    .btn-close-top
+      top: 20px
     .popup_team-full__inner
+      max-height: 80vh
+      overflow: hidden
+      height: 100%
+      margin: 80px auto 10px
+      padding: 30px
+      .popup_change-tasks__block-scroll
+        padding: 0
+        overflow: hidden
+        display: flex
+        flex-direction: column
+      .popup_change-tasks_footer
+        position: relative
+        padding: 40px 0 0
       .popup_team-full__title
-        @include font(27px, 33px)
+        padding-top: 0
+      .popup_change-tasks_list-wrapper
+        flex-grow: 1
+        display: flex
+        flex-direction: column
+        height: inherit
+        overflow: hidden
+        .popup_change-tasks_list
+          overflow: auto
+          flex-grow: 1
 
 
 .popup_rename-team
@@ -413,6 +514,11 @@
 
 @media (min-width: 640px)
   .popup_team-full
+    ::-webkit-scrollbar 
+      width: 3px
+      background-color: $color-bg-block
+    ::-webkit-scrollbar-thumb 
+      background-color: $gray-80
     .popup_team-full__title
       @include font(32px, 36px)
   .popup_rename-team
@@ -535,12 +641,7 @@
     font-weight: 700
     margin-right: auto
 
-  ::-webkit-scrollbar 
-    width: 3px
-    background-color: $color-bg-block
 
-  ::-webkit-scrollbar-thumb 
-    background-color: $gray-80
 
   
 @media (min-width: 640px) 
@@ -731,6 +832,12 @@
             &_btn-menu
               order: 6
               min-width: 30px
+            &.selected-member
+              background-color: #F9F9FB
+              .members_item_btn-check
+                display: block
+                .member_check
+                  display: block
           .members-not-registred
             .members_item_progress-value,
             .members_item_resolved-task-value,
