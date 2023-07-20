@@ -402,9 +402,7 @@
     flex-direction: row;
   }
 }
-body {
-  overflow: hidden;
-}
+
 
 .container__team-page .content {
   padding: 0;
