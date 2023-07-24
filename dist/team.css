@@ -402,8 +402,14 @@
     flex-direction: row;
   }
 }
-
-
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 .container__team-page .content {
   padding: 0;
   max-width: 1200px;
@@ -415,9 +421,8 @@
   margin: 0 0 50px;
 }
 .container__team-page .content_table {
-  background: #F9F9FB;
   width: 100%;
-  height: 200px;
+  height: 260px;
   margin-bottom: 25px;
 }
 .container__team-page .content .members {
@@ -1072,6 +1077,14 @@
   gap: 10px;
   margin-bottom: 25px;
 }
+.popup_invite-member .share_link .btn_set-new-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.popup_invite-member .share_link .btn_set-new-link.click {
+  animation: rotation 0.6s ease-out forwards;
+  display: block;
+}
 .popup_invite-member .share_link svg {
   fill: #007AFF;
 }
@@ -1081,9 +1094,6 @@
   align-items: center;
   width: 100%;
   gap: 10px;
-  cursor: pointer;
-}
-.popup_invite-member .share_link .icons--update {
   cursor: pointer;
 }
 .popup_invite-member .invited_emails {
@@ -1419,6 +1429,31 @@
 .popup_menu .popup_menu_list .popup_menu__item:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.dxc-tooltip .teamChart_tooltip .teamChart_tooltip_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+}
+.dxc-tooltip .teamChart_tooltip .teamChart_tooltip_title .tooltip_item-title {
+  font-weight: 700;
+}
+.dxc-tooltip .tooltip_resolvedTask {
+  margin-bottom: 10px;
+}
+.dxc-tooltip .tooltip_item-value {
+  font-weight: 700;
+}
+.dxc-tooltip .tooltip_completedTask-digital .tooltip_item-value {
+  color: #0EA767;
+}
+.dxc-tooltip .tooltip_completedTask-personal .tooltip_item-value {
+  color: #605DF9;
+}
+.dxc-tooltip .tooltip_completedTask-finance .tooltip_item-value {
+  color: #29C5F6;
 }
 
 .container__team .content .content_inner .block-email .block-email__descr {
