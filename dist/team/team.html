@@ -7,7 +7,10 @@
     <title>Personal security</title>
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.1.6/css/dx.light.css">
     <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/dx.all.js" ></script>
-  <script defer src="/bundle.js"></script><link href="/app.css" rel="stylesheet"></head>
+    <script defer src="../bundle.js"></script>
+    <script defer src="../app.js"></script>
+    <link href="../app.css" rel="stylesheet">
+    <link href="../team.css" rel="stylesheet"></head>
     <body>
       <div class="container container__team container__team-page">
         <section class="navigator">
@@ -88,7 +91,7 @@
             <div>Команда</div>
             <h1>Бодрые бобры</h1>
          </div>
-         <div class="content_table">таблица</div>
+         <div class="content_table" id="teamChart"></div>
          <div class="content_members members">
             <div class="members_top-panel">
 
@@ -369,7 +372,7 @@
               </svg>
               <span>Копировать ссылку на приглашение</span>
             </div>
-            <svg  onclick="setNewLink()" class="icons icons--update" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg  onclick="setNewLink()" id="setNewLink" class="icons icons--update btn_set-new-link" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="../sprite.svg#icon-update"></use>
             </svg>
           </div>
@@ -503,7 +506,6 @@
           <use xlink:href="../sprite.svg#icon-close"></use>
         </svg>
       </div>
-      <!-- <div class="popup_change-tasks__wrapper"> -->
         <div class="popup_team-full__inner">
 
           <div class="popup_change-tasks__block-scroll">
@@ -651,7 +653,6 @@
           </div>
 
         <div class="popup_change-tasks_footer">
-          <!-- <hr/> -->
           <div class="btn btn_save-team-tasks">Назначить занятия</div>
           <div class="popup_change-tasks_count">Выбрано 0</div>
         </div>
@@ -717,20 +718,7 @@
                 dropdownList.classList.remove('dropdown__list_visible');
               })
             })
-            
-            
-            
-      
-
-    
-      
-
-    
-            
-      
-
-    
-      
+                  
 
             document.querySelector('body').addEventListener('click', function (e) {
               if ( e.target !== dropdownBtn ){
@@ -771,9 +759,6 @@
           let popupMemberMenu = $("#popupMemberMenu")
           let popupChangeTasks = $("#popupChangeTasks")
           
-          
-
-
 
           function openInviteMember () {
             popupInviteMember.removeClass('hide')
@@ -798,7 +783,12 @@
           }
 
           function setNewLink () {
-            console.log('click_setNewLink')
+            $('#setNewLink').addClass('click');
+            window.showNotification("Ссылка обновлена")
+            setTimeout(function() {
+              $('#setNewLink').removeClass('click'); 
+            }, 400);
+
           }
 
           
@@ -876,5 +866,10 @@
             }
           })
       </script>
+
+      <script src="teamChart.js" defer></script>
+
+
+
     </body>
 </html>
