@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Personal security</title>
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.1.6/css/dx.light.css">
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/dx.all.js" ></script>
   </head>
     <body>
       <div class="container container__team container__team-page">
@@ -86,7 +88,8 @@
             <div>Команда</div>
             <h1>Бодрые бобры</h1>
          </div>
-         <div class="content_table">таблица</div>
+         <div class="content_table" id="teamChart"></div>
+         <div id="chart"></div>
          <div class="content_members members">
             <div class="members_top-panel">
 
@@ -344,7 +347,7 @@
         </div>
       </footer>
 
-      <div class="popup_team-full popup_invite-member hide" id="popupInviteMember">
+      <div class="popup_team-full popup_invite-member " id="popupInviteMember">
         <div class="btn-close-top" onclick="closeInviteMember()">
           <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <use xlink:href="../sprite.svg#icon-close"></use>
@@ -367,7 +370,7 @@
               </svg>
               <span>Копировать ссылку на приглашение</span>
             </div>
-            <svg  onclick="setNewLink()" class="icons icons--update" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg  onclick="setNewLink()" id="setNewLink" class="icons icons--update btn_set-new-link" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="../sprite.svg#icon-update"></use>
             </svg>
           </div>
@@ -495,13 +498,12 @@
     </div>
 
 
-    <div class="popup_team-full popup_change-tasks " id="popupChangeTasks">
+    <div class="popup_team-full popup_change-tasks hide" id="popupChangeTasks">
       <div class="btn-close-top" onclick="closePopupChangeTasks()">
         <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <use xlink:href="../sprite.svg#icon-close"></use>
         </svg>
       </div>
-      <!-- <div class="popup_change-tasks__wrapper"> -->
         <div class="popup_team-full__inner">
 
           <div class="popup_change-tasks__block-scroll">
@@ -649,7 +651,6 @@
           </div>
 
         <div class="popup_change-tasks_footer">
-          <!-- <hr/> -->
           <div class="btn btn_save-team-tasks">Назначить занятия</div>
           <div class="popup_change-tasks_count">Выбрано 0</div>
         </div>
@@ -778,7 +779,12 @@
           }
 
           function setNewLink () {
-            console.log('click_setNewLink')
+            $('#setNewLink').addClass('click');
+            window.showNotification("Ссылка обновлена")
+            setTimeout(function() {
+              $('#setNewLink').removeClass('click'); 
+            }, 400);
+
           }
 
           
@@ -856,5 +862,10 @@
             }
           })
       </script>
+
+      <script src="teamChart.js" defer></script>
+
+
+
     </body>
 </html>
