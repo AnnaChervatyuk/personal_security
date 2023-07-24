@@ -1,18 +1,18 @@
 @font-face {
   font-family: "PT Root UI";
-  src: url(/static/fonts/webfonts/PT-Root-UI_Regular.woff);
+  src: url(fonts/PT-Root-UI_Medium.woff);
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
   font-family: "PT Root UI";
-  src: url(/static/fonts/webfonts/PT-Root-UI_Bold.woff) format("woff"), url(/static/fonts/webfonts/PT-Root-UI_Bold.woff2) format("woff2");
+  src: url(fonts/PT-Root-UI_Bold.woff) format("woff"), url(fonts/PT-Root-UI_Bold.woff2) format("woff2");
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
   font-family: "PT Root UI";
-  src: url(/static/fonts/webfonts/PT-Root-UI_Regular.woff) format("woff"), url(/static/fonts/webfonts/PT-Root-UI_Regular.woff2) format("woff2");
+  src: url(fonts/PT-Root-UI_Regular.woff) format("woff"), url(fonts/PT-Root-UI_Regular.woff2) format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -26,6 +26,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   position: relative;
+  background-color: #ffffff !important;
 }
 
 img {
@@ -3913,6 +3914,7 @@ footer {
   bottom: 100px;
   display: flex;
   align-items: baseline;
+  z-index: 501;
 }
 
 .notification .notification_inner {
@@ -6023,4 +6025,22 @@ footer {
     .footer .footer_list .footer_item {
       width: 100% !important;
     }
+}
+
+.section {
+  display: flex;
+}
+
+.new_exercise_notification {
+    max-width: 30px;
+    width: 100%;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 13px;
+    font-weight: 700;
+    padding: 0px 5px;
+    font-size: 8px;
+    color: #FF9500;
+    border: 1px solid #FFCC00;
+    border-radius: 5px;
 }
