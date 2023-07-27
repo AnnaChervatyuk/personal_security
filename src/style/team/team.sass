@@ -765,7 +765,7 @@
                   left: 8px
                   bottom: 28%
                   transform: rotate(-45deg)
-            &:hover
+            &:not(.members_item-header):hover
               cursor: pointer
               background-color: $color-bg-block
               .members_item_btn-check
@@ -794,6 +794,36 @@
                 text-align: right
                 &.members_item_activity
                   text-align: left
+                &:hover
+                  cursor: pointer
+                  opacity: 0.8
+                span
+                  position: relative
+
+                &.sorting-ascending
+                  span::after
+                    position: absolute
+                    content: ''
+                    bottom: 2px
+                    right: -16px
+                    border: solid $black-70
+                    border-width: 0 1px 1px 0
+                    display: inline-block
+                    padding: 3px
+                    transform: rotate(-135deg)
+                    -webkit-transform: rotate(-135deg)
+                &.sorting-descending
+                  span::after
+                    position: absolute
+                    content: ''
+                    top: 2px
+                    right: -16px
+                    border: solid $black-70
+                    border-width: 0 1px 1px 0
+                    display: inline-block
+                    padding: 3px
+                    transform: rotate(45deg)
+                    -webkit-transform: rotate(45deg)
             &_name
               order: 1
               max-width: 280px

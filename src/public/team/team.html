@@ -122,11 +122,11 @@
 
           <div class="members_item members_item-header">
             <div class="members_item_btn-check"></div>
-            <div class="members_item_name">Имя</div>
-            <div class="members_item_progress">Общий прогресс</div>
-            <div class="members_item_resolved-task">Выполнено заданий</div>
-            <div class="members_item_exercise">Пройдено занятий</div>
-            <div class="members_item_activity">Последняя активность</div>
+            <div class="members_item_name" onclick="sortingMembers (this)" id="nameColumn"><span>Имя</span></div>
+            <div class="members_item_progress" onclick="sortingMembers (this)" id="progressolumn"><span>Общий прогресс</span></div>
+            <div class="members_item_resolved-task" onclick="sortingMembers (this)" id="resolvedTaskColumn"><span>Выполнено заданий</span></div>
+            <div class="members_item_exercise" onclick="sortingMembers (this)" id="exerciseColumn"><span>Пройдено занятий</span></div>
+            <div class="members_item_activity" onclick="sortingMembers (this)" id="activityColumn"><span>Последняя активность</span></div>
             <div class="members_item_btn-menu"></div>
           </div>
 
@@ -347,7 +347,7 @@
         </div>
       </footer>
 
-      <div class="popup_team-full popup_invite-member " id="popupInviteMember">
+      <div class="popup_team-full popup_invite-member hide" id="popupInviteMember">
         <div class="btn-close-top" onclick="closeInviteMember()">
           <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <use xlink:href="../sprite.svg#icon-close"></use>
@@ -756,6 +756,9 @@
           let popupMemberMenu = $("#popupMemberMenu")
           let popupChangeTasks = $("#popupChangeTasks")
 
+          let elementPopup;
+          let elementBtn;
+
           function openInviteMember () {
             popupInviteMember.removeClass('hide')
             $('body').css("overflow-y", 'hidden')
@@ -789,6 +792,8 @@
 
           
           function openInvitedEmailsMenu (elem) {
+            elementPopup = popupMenuInvitedEmail[0]
+            elementBtn = elem
             popupMenuInvitedEmail.removeClass("hide")
 
             var left = $(elem).offset().left - popupMenuInvitedEmail.innerWidth() + $(elem).innerWidth()
@@ -806,6 +811,9 @@
           }
 
           function openTeamMenu (elem) {
+            elementPopup = popupMenuTeam[0]
+            elementBtn = elem
+
             popupMenuTeam.removeClass("hide")
 
             var left = $(elem).offset().left - popupMenuTeam.innerWidth() + $(elem).innerWidth()
@@ -825,6 +833,8 @@
 
 
           function openNotRegistredMemberMenu (elem) {
+            elementPopup = popupNotRegistredMember[0]
+            elementBtn = elem
             popupNotRegistredMember.removeClass("hide")
             var left = $(elem).offset().left - popupNotRegistredMember.innerWidth() + $(elem).innerWidth()
             var top = $(elem).offset().top + $(elem).innerHeight()
@@ -833,6 +843,8 @@
           }
 
           function openMemberMenu (elem) {
+            elementPopup = popupMemberMenu[0]
+            elementBtn = elem
             popupMemberMenu.removeClass("hide")
             var left = $(elem).offset().left - popupMemberMenu.innerWidth() + $(elem).innerWidth()
             var top = $(elem).offset().top + $(elem).innerHeight()
@@ -861,6 +873,32 @@
               taskSearch.css('width', '100%')
             }
           })
+ 
+          document.addEventListener( 'click', (e) => {
+            const withinBoundaries = e.composedPath().includes(elementPopup) || e.composedPath().includes(elementBtn);
+            if ( ! withinBoundaries ) {
+              $(elementPopup).addClass("hide") // скрываем элемент т к клик был за его пределами
+              elementPopup = null;
+              elementBtn = null
+            }
+          })
+
+          let sorting = {column: null, ascending: false}
+          function sortingMembers  (elem) {
+            if (sorting.column) {
+              $(`#${sorting.column}`).removeClass('sorting-ascending')
+              $(`#${sorting.column}`).removeClass('sorting-descending')
+            }
+            sorting.ascending = (sorting.column != elem.id) ? true : !sorting.ascending
+            sorting.column = elem.id
+
+             if (sorting.ascending) {
+              $(elem).addClass('sorting-ascending')
+            } else {
+              $(elem).addClass('sorting-descending')
+            }
+          }
+
       </script>
 
       <script src="teamChart.js" defer></script>

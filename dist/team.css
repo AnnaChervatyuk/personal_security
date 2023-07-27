@@ -1285,17 +1285,17 @@
     bottom: 28%;
     transform: rotate(-45deg);
   }
-  .container__team-page .content .members_list .members_item:hover {
+  .container__team-page .content .members_list .members_item:not(.members_item-header):hover {
     cursor: pointer;
     background-color: #F9F9FB;
   }
-  .container__team-page .content .members_list .members_item:hover .members_item_btn-check .member_check {
+  .container__team-page .content .members_list .members_item:not(.members_item-header):hover .members_item_btn-check .member_check {
     display: block;
   }
-  .container__team-page .content .members_list .members_item:hover .members_item_name-fio {
+  .container__team-page .content .members_list .members_item:not(.members_item-header):hover .members_item_name-fio {
     color: #3D95F5;
   }
-  .container__team-page .content .members_list .members_item:hover_btn-check {
+  .container__team-page .content .members_list .members_item:not(.members_item-header):hover_btn-check {
     display: block;
   }
   .container__team-page .content .members_list .members_item .task-done {
@@ -1322,6 +1322,37 @@
   }
   .container__team-page .content .members_list .members_item-header div.members_item_activity {
     text-align: left;
+  }
+  .container__team-page .content .members_list .members_item-header div:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  .container__team-page .content .members_list .members_item-header div span {
+    position: relative;
+  }
+  .container__team-page .content .members_list .members_item-header div.sorting-ascending span::after {
+    position: absolute;
+    content: "";
+    bottom: 2px;
+    right: -16px;
+    border: solid #2E2E38;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  .container__team-page .content .members_list .members_item-header div.sorting-descending span::after {
+    position: absolute;
+    content: "";
+    top: 2px;
+    right: -16px;
+    border: solid #2E2E38;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
   }
   .container__team-page .content .members_list .members_item_name {
     order: 1;
