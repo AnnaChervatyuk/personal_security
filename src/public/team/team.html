@@ -792,6 +792,7 @@
 
           
           function openInvitedEmailsMenu (elem) {
+            $(elementPopup).addClass('hide')
             elementPopup = popupMenuInvitedEmail[0]
             elementBtn = elem
             popupMenuInvitedEmail.removeClass("hide")
@@ -811,6 +812,7 @@
           }
 
           function openTeamMenu (elem) {
+            $(elementPopup).addClass('hide')
             elementPopup = popupMenuTeam[0]
             elementBtn = elem
 
@@ -833,6 +835,7 @@
 
 
           function openNotRegistredMemberMenu (elem) {
+            $(elementPopup).addClass('hide')
             elementPopup = popupNotRegistredMember[0]
             elementBtn = elem
             popupNotRegistredMember.removeClass("hide")
@@ -843,6 +846,7 @@
           }
 
           function openMemberMenu (elem) {
+            $(elementPopup).addClass('hide')
             elementPopup = popupMemberMenu[0]
             elementBtn = elem
             popupMemberMenu.removeClass("hide")
@@ -873,9 +877,9 @@
               taskSearch.css('width', '100%')
             }
           })
- 
-          document.addEventListener( 'click', (e) => {
-            const withinBoundaries = e.composedPath().includes(elementPopup) || e.composedPath().includes(elementBtn);
+          
+          $('body').on('click', (e)=>{
+            const withinBoundaries = e.target == elementBtn ||  e.target.parentElement== elementBtn;
             if ( ! withinBoundaries ) {
               $(elementPopup).addClass("hide") // скрываем элемент т к клик был за его пределами
               elementPopup = null;
