@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.1.6/css/dx.light.css">
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/dx.all.js" ></script>
+  </head>
+    <body>
+      <div class="container container-exercise">
+      <section class="navigator">
+        <div class="nav_logo">
+          <a class="nav_logo-link" href="/"><img id="nav_logo" src="./../images/logo.svg" alt="Personal security"></a>
+        </div>
+        <ul class="nav_list">
+          <li class="nav_item"><a href="course.html">Тренировки</a></li>
+          <li class="nav_item active"><a href="theory.html">Теория</a></li>
+          <li class="nav_item"><a href="situation.html">Ситуации</a></li>
+        </ul>
+        <div class="nav_list menu__wrapper">
+          <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+              <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <use xlink:href="./../sprite.svg#icon-menu"></use>
+              </svg>
+          </div>
+          <div class="nav_list nav_list-menu hide" id="menu-nav">
+            <div class="nav_el nav_search" id="open-search-btn">
+              <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-search"></use>
+              </svg>
+              <div class="nav_list-text">Поиск</div>
+            </div>
+            <a class="nav_el nav_profile" href="profile.html">
+              <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-profile"></use>
+              </svg>
+              <div class="nav_list-text">Аккаунт</div>
+            </a>
+          </div>
+        </div>
+        <div class="search-panel hide" id="search-panel">
+          <div class="search-input_wrapper">
+            <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+            <div class="search-btn" id="search-btn">
+              <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-search"></use>
+              </svg>
+            </div>
+            <div class="clear-btn hide" id="clear-btn">
+              <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="search-panel-close" id="close-search-btn">
+            <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <use xlink:href="./../sprite.svg#icon-close"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <div class="block_top">
+        <div class="block_return">
+          <a href="index.html">
+            <svg class="icons icons--return" width="44" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <use xlink:href="./../sprite.svg#icon-return"></use>
+            </svg>
+            <h5>Теория</h5>
+          </a>
+        </div>
+        <div class="scrollbar__wrapper"></div>
+      </div>
+      <section class="article article-exercise__wrapper">
+          <div class="article-exercise">
+
+            <div class="exercise_footer">
+              <div class="descr">
+                <div class="type">Занятие</div>
+              </div>
+              <div class="exercise_footer-title">Регистрация мессенджеров на иностранные номера</div>
+            </div>
+
+          <div class="slide slide-first">
+
+            <div class="block_tap block_tap-left">
+              <img src="./../images/arrow_left.svg">
+            </div>
+            <div class="block_tap block_tap-right">
+              <img src="./../images/arrow_right.svg">
+            </div>
+
+            <div class="slide__inner">
+              <div class="slide__block">
+
+              <div class="article-situation_header">
+                <div class="header_inner">
+                  <h1 >Самоудаляющиеся чаты</h1>
+                  <div class="about_exercise">
+                    Все уроки lorem вот одна из задачек с этого экзамена. Её задавали на экзамене 2019 года. На рисунке вы видите треугольник. Также известна длина некоторых частей треугольника.
+                  </div>
+                  <div class="descr">
+                    <div class="time">4 мин</div>
+                    <div class="in-coaching hide">
+                      <svg class="icons icons--profile" width="13" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                         <use xlink:href="./../sprite.svg#icon-profile"></use>
+                      </svg>
+                    </div>
+                    <div class="done">
+                       <svg class="icons icons--done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <use xlink:href="./../sprite.svg#icon-done"></use>
+                       </svg>
+                    </div>
+                  </div>
+                  <div class="set_exercise"><span onClick="window.setList(this, 5)" class="link_txt-blue">Добавить</span> себе в тренировку</div>
+                </div>
+                <div class="descr-img" ><img src="https://d2vxx5bkl3bn4a.cloudfront.net/hi/надежные_пароли.svg" alt="Цифровая безопасность"></div>
+              </div>
+                <div class="block_btn-next">
+                  <div class="btn">Далее&nbsp;&rarr;</div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="slide slide-text">
+       <div class="slide__inner">
+         <div class="slide__block">
+           <p><strong>Что такое Tor?</strong></p>
+<p>Tor (The Onion Router, &laquo;луковичный&raquo; или <a href="">многослойный</a> маршрутизатор) &mdash; свободное <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина вставляется в тултипописание термина вставляется в тултипописание 
+  термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултип</span></span> и открытое ПО для анонимного использования интернета за счёт &laquo;луковой&raquo; маршрутизации.</p>
+<p>Луковая маршрутизация &mdash; технология анонимного обмена информацией в интернете, по которой сообщения неоднократно шифруются, проходя слой за слоем через несколько устройств, называемых луковыми маршрутизаторами. Они представляют собой входящий узел (ноду), промежуточные узлы и выходной узел. Промежуточные узлы не знают источник, пункт назначения и содержание сообщения. Кроме того, входной узел не знает информации выходного узла, а выходной &mdash; входного.</p>
+<p>Tor-браузер &mdash; тот же Firefox с интегрированной поддержкой пропуска трафика через сеть Tor и отключением по умолчанию как минимум некоторых из фич браузера, которые могут использоваться для отслеживания пользователя. Он произвольно подключается к одной из публичных нод входа и дальше передаёт информацию от ноды к ноде, шифруя её. Узлы и маршруты меняются при переподключении. Tor-браузер считается удобным вариантом для среднестатистического пользователя.</p>
+
+         </div>
+       </div>
+     </div>
+
+    <div class="slide slide-text">
+       <div class="slide__inner">
+         <div class="slide__block">
+
+<p><strong>Чем Tor отличается от VPN?</strong></p>
+<p>И то, и другое &mdash; сети поверх интернета. Но они имеют разное технологическое решение. Tor, как вы уже поняли, пропускает информацию через несколько слоёв шифрования. VPN &mdash; через один.&nbsp; В процессе задействовано одно устройство провайдера VPN-сервиса. Таким образом, степень анонимности у Tor выше, но и эта сеть не лишена недостатков. Например, Tor работает как прокси и требует либо специальной поддержки со стороны приложений, либо использования специальных программ, способных &laquo;проксировать&raquo; трафик (только TCP), либо программ по типу onioncat (VPN поверх Tor). А при использовании VPN шифруется&nbsp; весь трафик с компьютера.</p>
+
+         </div>
+       </div>
+     </div>
+
+    <div class="slide slide-text">
+       <div class="slide__inner">
+         <div class="slide__block">
+
+              <p><strong>Зачем использовать Tor?</strong></p>
+              <p>Как видно из текста выше, для сохранения анонимности вообще или в конкретных ситуациях. Например, журналисты и политические активисты <a href="https://www.vedomosti.ru/technology/articles/2019/04/03/798234-tor-ne-dolzhen-zaviset-ot-pravitelstva" target="_blank" rel="noopener">применяют</a>&nbsp;его для поиска и передачи&nbsp; информации, запрещённой властями в тех или иных странах, реализуя таким образом право на свободу слова. <a href="https://roskomsvoboda.org/cards/card/theValueofPrivacy/" target="_blank" rel="noopener">Анонимность</a> &mdash; всего лишь инструмент. Как любой инструмент, её можно использовать как во благо, так и во вред. Надо искать, как бороться со злоупотреблениями, не нарушая при этом прав остальных людей.&nbsp;Darknet, по аналогии с анонимностью, не обязательно означает что-то плохое. Да, злоумышленники&nbsp;<a href="https://roskomsvoboda.org/63934/" target="_blank" rel="noopener">могут сливать</a>&nbsp;туда базы данных, но также там&nbsp;<a href="https://trends.rbc.ru/trends/industry/602f668a9a7947d5f06e0c7a" target="_blank" rel="noopener">есть</a>&nbsp;онлайн-библиотеки без государственной цензуры, порталы для общения, аналоги социальных сетей и даже обычные соцсети. Так, в мае 2021 года Facebook&nbsp;<a href="https://roskomsvoboda.org/post/fb-over-tor-3/" target="_blank" rel="noopener">запустил</a>&nbsp;третью версию сайта в сети Tor. Страницы в Darknet ещё&nbsp;<a href="https://github.com/alecmuffett/real-world-onion-sites" target="_blank" rel="noopener">есть</a>, например, у BBC News (Russian в том числе), поисковой системы DuckDuckGo, почты с шифрованием Protonmail и других.<a href="https://www.pnas.org/content/early/2020/11/24/2011893117" target="_blank" rel="noopener">Исследование</a> показало, что только малая часть используемого Tor шифрования&nbsp;<a href="https://roskomsvoboda.org/post/bolshinstvo-polzovatelej-tor-ne-intere/" target="_blank" rel="noopener">приходится</a> на посещение сайтов с незаконным контентом (6,7%). В авторитарных странах люди чаще прибегают к анонимности и обходу блокировок в политических целях. В демократических же государствах подобные инструменты используются для сохранения приватности и защиты от слежки.</p>
+
+         </div>
+       </div>
+     </div>
+
+
+    <div class="slide slide-text">
+       <div class="slide__inner">
+         <div class="slide__block">
+
+            <p><strong>Чем Tor отличается от VPN? В России могут привлечь к ответственности за использование Tor?</strong></p>
+            <p>Пользователей &mdash; нет. А вот для владельцев ресурсов, помогающих обходить заблокированные на территории России сайты, эта ответственность может наступить.&nbsp;<a href="http://publication.pravo.gov.ru/Document/View/0001201707300002?index=0&amp;rangeSize=1">Закон</a>&nbsp;2017 года&nbsp; предписывает владельцам ресурсов, используемых в Tor, VPN, анонимайзерах и т.п.,&nbsp;<a href="https://roskomsvoboda.org/33192/">блокировать</a>&nbsp;ссылки на информационные ресурсы, включённые в соответствующий перечень блокировок Роскомнадзора.</p>
+            <p>Несмотря на разного рода проблемы и ограничения, развитие инструмента продолжается, ведь по-настоящему запретить его невозможно. Постепенно растёт и его популярность. В 2021 году доля россиян среди ежедневных пользователей&nbsp;<a href="https://metrics.torproject.org/userstats-relay-table.html?start=2021-01-01&amp;end=2021-05-27">составляля</a> 324 705 человек (14,87%), что помещает страну на второе место после США с 452 040 человек (20,70%). При каждом скачке цензуры интерес пользователей к таким технологиям&nbsp;<a href="https://www.bbc.com/russian/news-49007476">увеличивается</a>.&nbsp;</p>
+         </div>
+       </div>
+     </div>
+        <div class="slide">
+          <div class="slide__inner">
+            <div class="slide__block">
+
+
+              <div class="finished_materials__wrapper">
+                <img class="finished_materials__img" src="./../images/bhole.svg" width="192" alt="">
+                <h3 class="finished_materials__header">Кажется, вы прочитали все, что было</h3>
+                <div class="finished_materials__text">Новые занятия ещё будут добавляться по мере создания. Мы дадим вам знать.</div>
+                <a class="btn link_btn" href="">Вернуться на главную</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      </section>
+
+    </div>
+
+    <footer class="hide">
+      <div class="footer footer-main">
+        <div class="footer_logo">
+          <a class="footer_logo-link" href="/"><img src="./../images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+        </div>
+        <ul class="footer_list">
+          <li class="footer_item active"><a href="about.html">О проекте</a></li>
+          <li class="footer_item active"><a href="/">Предложить новость</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <div class="add_comment__btn hide" id="addCommentBtn">
+        <svg class="icons icons--add_comment"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use xlink:href="./../sprite.svg#add_comment"></use>
+      </svg>
+    </div>
+
+    <div class="add_comment__popup hide" id="addCommentPopup">
+      <textarea rows="4" class="add_comment__popup-descr" placeholder="Тут можно написать комментарий, который будет виден вашей команде" id="editComment"></textarea>
+      <div class="add_comment__popup-btns">
+        <div class="btn btn_save-comment" onclick="saveComment()">Добавить</div>
+        <div class="btn btn_close-add-comment btn-white" onclick="cancelPopupAddComment(this)">Отмена</div>
+
+      </div>
+    </div>
+    
+
+      <script>
+        if ($(".article").find(".descr-img").length == 0) {
+          $(".header_inner").css("width", "100%")
+        }
+
+        if (!($(".footer").hasClass('hide'))) {
+          $('footer').addClass("hide")
+        }
+
+        let isExersiseRead = false // TODO получить с сервера состояние
+        let bodyWidth = $('body').innerWidth()
+        let arrSlideLength = $(".slide").length
+        let scrollbarSection = $('<div class="scrollbar__section"></div>')
+        let scrollbarWrapper = $(".scrollbar__wrapper")
+        let widthScrollbarWrapper = $('body').outerWidth() - $(".block_return").outerWidth(true) - 40
+        let widthScrollbarSection = widthScrollbarWrapper / arrSlideLength - 4
+        let activeClass = 0
+
+        scrollbarSection.css("width", widthScrollbarSection + "px")
+
+        for (var i=0; i < arrSlideLength; i++) {
+          scrollbarSection.clone().appendTo(scrollbarWrapper);
+          clickOnScrollbar(i)
+          if (i != 0) {
+            $(".slide").eq(i).css("display", "none")
+          }
+        }
+
+
+        function setWidthScroll() { // установить ширину скролла и его элементов
+          if (bodyWidth >= 1025 && activeClass > 0) {
+            let scrollbarOffset = $('.slide__block').eq(activeClass).offset().left - $('.block_return').outerWidth(true) - $('.block_return').offset().left
+            $(".scrollbar__wrapper").css("margin-left", scrollbarOffset + 'px')
+            $('.exercise_footer').css("margin-left", $('.block_return').offset().left - 30 + 'px')
+          } else {
+            $(".scrollbar__wrapper").css("margin-left", 0 + 'px')
+          }
+
+          $('.block_tap-left').find('img').css("left", $('.block_return').offset().left + 'px')
+          // $('.block_tap-left').css("width", $('.scrollbar__section').offset().left + 'px')
+          // $('.block_tap-right').css("width", bodyWidth - $('.scrollbar__section').offset().left + 'px')
+          $('.block_tap-left').css("width", '20%')
+          $('.block_tap-right').css("width", '20%')
+          $('.block_tap-right').find('img').css("right", $('.block_return').offset().left + 'px')
+
+          widthScrollbarWrapper = $('body').outerWidth() - $(".block_return").outerWidth(true) - 40
+          widthScrollbarSection = widthScrollbarWrapper / arrSlideLength - 4
+          for (var i =0; i < ($(".scrollbar__section").length); i++) {
+            $(".scrollbar__section").eq(i).css("width", widthScrollbarSection)
+
+          }
+        }
+
+        $('.scrollbar__section').eq(activeClass).addClass("active")
+
+        function clickOnScrollbar (slide) {
+          $(".scrollbar__section").eq(slide).on("click", function (e) {
+            goToSlide(slide)
+          })
+        }
+
+        function goToSlide (slide) {
+          activeClass = slide
+          for (var i=0; i < arrSlideLength; i++) {
+              $(".slide").eq(i).css("display", "none")
+              $('.scrollbar__section').eq(i).removeClass("active")
+              $('.scrollbar__section').eq(i).removeClass("past")
+          }
+          for (var i =0; i < activeClass; i++) {
+            $('.scrollbar__section').eq(i).addClass("past")
+          }
+
+          if (bodyWidth < 640 && (slide + 1) < arrSlideLength) {
+            $(".block_btn-next").appendTo($(".slide").eq(i))
+            $(".block_btn-next > div").css("font-size", "16px").css("line-height", "22px")
+          }
+
+          $('.scrollbar__section').eq(activeClass).addClass("active")
+          $(".slide").eq(activeClass).css("opacity", 1).css("display", "flex")
+            updateAfterClick()
+        }
+
+
+        $('.block_tap-right').on("click", function (e) {
+            let next = activeClass + 1
+            goToSlide(next)
+        })
+
+
+        $('.block_tap-left').on("click", function (e) {
+            let prev = activeClass - 1
+            goToSlide(prev)
+        })
+
+
+          function updateAfterClick () {
+            $('html, body').animate({
+                  scrollTop: 0
+                }, 200);
+
+            $('.container').animate({
+                  scrollTop: 0
+                }, 200);
+
+            let isInUserList = true // надо сначала получить
+            if (!isExersiseRead && isInUserList) {
+              if ((activeClass + 1) == arrSlideLength) {
+                  setExerciseRead()
+              }
+            }
+
+          if (activeClass > 0 && bodyWidth >= 1025) {
+              $('.exercise_footer').css("display", "flex")
+          } else {
+              $('.exercise_footer').css("display", "none")
+          }
+
+          if (bodyWidth > 640) {
+            if (activeClass > 0) {
+              if (!$('.block_top').find('h5').hasClass('hide')) {
+                $('.block_top').find('h5').addClass('hide')
+              }
+            } else {
+              if ($('.block_top').find('h5').hasClass('hide')) {
+                $('.block_top').find('h5').removeClass('hide')
+              }
+            }
+            setWidthScroll()
+          }
+
+
+          $('.block_tap-right').appendTo($(".slide").eq(activeClass))
+          $('.block_tap-left').appendTo($(".slide").eq(activeClass))
+
+          if (activeClass + 1 == arrSlideLength) {
+            $('.block_tap-right').addClass("hide")
+            $('.block_tap-left').removeClass("hide")
+          }
+
+          if (activeClass == 0) {
+            $('.block_tap-right').removeClass("hide")
+            $('.block_tap-left').addClass("hide")
+          }
+
+          if (activeClass > 0 && activeClass + 1 < arrSlideLength) {
+            $('.block_tap-left').removeClass("hide")
+            $('.block_tap-right').removeClass("hide")
+          }
+        }
+
+
+        updateAfterClick()
+
+        function setExerciseRead () {
+          isExersiseRead = true
+            // const exerciseId = {{ exercise.id }};
+            // const csrfmiddlewaretoken = $("[name=csrfmiddlewaretoken]")[0].value
+            // $.post("{% url 'toggle_exercise' exercise.id %}", {
+            //   'csrfmiddlewaretoken': csrfmiddlewaretoken,
+            //   'check': true,
+            // })
+        }
+
+          $(window).on("resize", function (e) {
+            e.stopPropagation();
+            bodyWidth = $('body').innerWidth()
+            setWidthScroll()
+            updateAfterClick()
+          })
+
+
+          var popupEtalon = $('<div class="popup-tooptip hide"><div class="popup-tooptip__inner"><span></span><div class="add_comment__popup-btns"><div class="btn btn_edit-comment" onclick="editComment()">Изменить</div><div class="btn btn_close-add-comment btn-white" onclick="deleteComment()"><div class="btn-label">Удалить</div></div></div></div></div>')
+          var btnClose = $('<div class="btn-close" onclick="closePopupTooltip()"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="./../sprite.svg#icon-close"></use></svg></div>')
+          btnClose.appendTo(popupEtalon)
+          var popup = popupEtalon.clone()
+
+
+          var isCommentEdit = false
+          var elem
+          var openConfirmSavingPopup = false
+          var isCommentAddNew = false
+          $('body').on("click", function (e) {
+            if (openConfirmSavingPopup) return
+            if ($(e.target).closest('.popup-tooptip').length == 0 && $(e.target)[0] != $(elem)[0] && $(e.target).closest('.add_comment__popup').length == 0 && !$(e.target).hasClass('btn_return_edit-comment') && !isCommentAddNew) {
+                closePopupTooltip()
+                if ($(e.target).closest('.add_comment__btn').length == 0 && !isCommentEdit) {
+                  checkEpmtyCommemts()
+                }
+            }
+
+
+            if ($(e.target).closest('.add_comment__popup').length == 0 && $(e.target).closest('.add_comment__btn').length == 0) {
+              cancelPopupAddComment($(e.target), true)
+            }
+
+            e.stopPropagation();
+
+          })
+
+          $(window).on("resize", function (e) {
+            if (!popup.hasClass("hide")) {
+              popup.addClass("hide")
+            }
+          })
+
+          function closePopupTooltip (props) { // закрыть попап с комментарием, отмена изменений в существующем комментарии
+            if (!isCommentEdit || $(props).hasClass('btn_close-add-comment')) {
+              popup.addClass("hide")
+              popup = popupEtalon.clone()
+              isCommentEdit = false
+              openConfirmSavingPopup = false
+              this.textNewComment = ''
+            } else {
+              openConfirmSavingPopup = true
+              this.textNewComment = popup.find('textArea')[0].value;
+              
+              popup.find('textArea').replaceWith($('<span>Сохранить изменения?</span>'))
+              popup.find('.btn_edit-comment')[0].setAttribute('onClick', 'saveChanges(this);');
+              popup.find('.btn_close-add-comment').text('Не сохранять') 
+              popup.find('.btn_close-add-comment')[0].setAttribute('onClick', 'closePopupTooltip(this);');
+
+              var btnReturn = $('<div class="btn btn_return_edit-comment btn-white">Назад</div>')
+              btnReturn[0].setAttribute('onClick', 'returnToEdit();');
+              popup.find('.add_comment__popup-btns').append(btnReturn);
+
+            }
+
+
+            
+          }
+
+          function showTooltip (el) {
+              elem = el
+              popup.removeClass("hide")
+              popup.appendTo($("body"))
+              var left = $(el).offset().left
+              var descr = $(el).find($(".hide")).text()
+              popup.find($("span")).text(descr)
+              var popupWidth = popup.width()
+              var bodyWidth = $("body").width()
+
+              var shift = bodyWidth - (left + 15 + popupWidth)
+              if (shift < 0)  {
+                left += shift
+              }
+              popup.css("top", ($(el).offset().top + 35))
+              popup.css("left", left)
+              isClickInner = false
+            }
+
+        let positionAddCommentBtnY = 0;
+        let positionAddCommentBtnX = 0;
+        let positionAddPopupX = 0;
+        let positionAddPopupY = 0;
+
+        $('.article-exercise').on('mousedown', (e)=>{
+          positionAddCommentBtnY = e.clientY
+          positionAddPopupY = e.clientY
+          positionAddPopupX = e.clientX
+        })
+
+        $('.article-exercise').on('mouseup', (e)=>{
+          if (e.clientX < positionAddPopupX) positionAddPopupX = e.clientX
+          if (e.clientY > positionAddPopupY) positionAddPopupY = e.clientY
+        })
+
+        $('#addCommentBtn').on('click', (e)=>{
+          $('#addCommentPopup').removeClass('hide');
+          $('#addCommentPopup').css('top', positionAddPopupY)
+          $('#addCommentPopup').css('left', positionAddPopupX)
+          isCommentAddNew = true
+        })
+
+        var selectedSpan = null
+        var selected_text = ''
+        $('body').on('click', (e)=>{
+            $('#addCommentBtn').addClass('hide')
+            
+            $('.article-exercise').on('click', (e)=>{
+              setTimeout(() => {
+                positionAddCommentBtnX = e.target.offsetLeft + e.target.clientWidth
+                  var selected_text_new = window.getSelection().toString().replace("\n", ' ');
+                  if (selected_text_new.length > 0 && selected_text != selected_text_new) {
+                    if (isCommentEdit || isCommentAddNew) return
+                    selected_text = selected_text_new
+                    $('#addCommentBtn').css('top', positionAddCommentBtnY)
+                    $('#addCommentBtn').css('left', positionAddCommentBtnX)
+                    $('#addCommentBtn').removeClass('hide')
+                    
+                    var range = window.getSelection().getRangeAt(0);
+                    var selectionContents = range.extractContents();
+                    var span = document.createElement("span");
+                    span.appendChild(selectionContents);
+                    span.setAttribute("class", "tooltip");
+                    span.setAttribute('onClick', 'showTooltip(this);');
+                    range.insertNode(span);
+                    selectedSpan = span
+                  }
+              }, 10);
+            });
+          })
+          var savingPopup;
+          function cancelPopupAddComment (props, isBodyClick) { //отменить добавление нового комментария
+            if ($(props).hasClass('btn_close-add-comment')) {
+              $("#editComment").val('')
+              $('#addCommentPopup').addClass('hide')
+              if (savingPopup) savingPopup.remove()
+              checkEpmtyCommemts()
+              isCommentAddNew = false
+              return
+            }
+
+              if (isCommentAddNew && $("#editComment")[0].value.length > 0 && isBodyClick) {
+                openConfirmSavingPopup = true
+                this.textNewComment = $("#editComment")[0].value;
+                savingPopup = $('#addCommentPopup').clone()
+                savingPopup.appendTo($("body"))
+                $('#addCommentPopup').addClass('hide')
+                savingPopup.find('textArea').replaceWith($('<span>Сохранить изменения?</span>'))
+                savingPopup.find('.btn_save-comment')[0].setAttribute('onClick', 'saveComment();');
+                savingPopup.find('.btn_save-comment').text('Сохранить') 
+                savingPopup.find('.btn_close-add-comment').text('Не сохранять') 
+                savingPopup.find('.btn_close-add-comment')[0].setAttribute('onClick', 'cancelPopupAddComment(this);');
+
+                var btnReturn = $('<div class="btn btn_return_edit-comment btn-white">Назад</div>')
+                btnReturn[0].setAttribute('onClick', 'returnToEditAddComment();');
+                savingPopup.find('.add_comment__popup-btns').append(btnReturn);
+
+
+              } else {
+                if (savingPopup) savingPopup.remove()
+                $("#editComment").val('')
+                $('#addCommentPopup').addClass('hide')
+                checkEpmtyCommemts()
+                isCommentAddNew = false
+              }
+              
+          }
+          function returnToEditAddComment () {
+            openConfirmSavingPopup = false
+            savingPopup.remove()
+            $('#addCommentPopup').removeClass('hide');
+            isCommentAddNew = true
+            $("#editComment").val(this.textNewComment)
+          }
+
+          function saveComment () { //сохранение нового комментария
+            console.log('saveComment')
+            var newComment = document.createElement("span")
+            newComment.innerHTML=this.textNewComment || $("#editComment")[0].value;
+            $(selectedSpan).append(newComment)
+            newComment.setAttribute("class", "hide");
+            $('#addCommentPopup').addClass('hide');
+            $("#editComment").val('')
+            this.textNewComment = ''
+            isCommentAddNew = false
+            openConfirmSavingPopup = false
+            isCommentEdit = false
+            if (savingPopup) savingPopup.remove()
+          }
+
+          function returnToEdit () {
+            openConfirmSavingPopup = false
+            editComment(this.textNewComment)
+          }
+
+          function editComment(textNewComment) { //редактирование уже существующего комментария 
+            isCommentEdit = true;
+
+            popup.find('.btn_edit-comment').text('Сохранить') 
+            popup.find('.btn_edit-comment')[0].setAttribute('onClick', 'saveChanges(this);');
+
+            popup.find('.btn_close-add-comment').text('Отменить') 
+            popup.find('.btn_close-add-comment')[0].setAttribute('onClick', 'closePopupTooltip(this);');
+
+            popup.find('.btn-close').addClass('hide');
+            popup.find('.btn_return_edit-comment').remove();
+
+            var textInside = textNewComment || popup.find('span')[0].textContent; 
+            var textArea = document.createElement("textArea");
+            textArea.setAttribute('rows', 4)
+            textArea.setAttribute('class', 'add_comment__popup-descr')
+
+            $(textArea).val(textInside)
+            popup.find('span').replaceWith(textArea)
+          }
+
+          function saveChanges(props){ // сохранение изменений в существующем комментарии
+            var textNewComment = this.textNewComment || popup.find('textArea')[0].value;
+            $(elem).find('span').text(textNewComment);
+            isCommentEdit = false
+            openConfirmSavingPopup = false
+            closePopupTooltip()
+          }
+
+          function deleteComment() { //удалить существующий комментарий
+            $(elem).find('span').empty()
+            // var parent = $(elem).parent()           
+            var textInside = elem.textContent;
+            $(elem).replaceWith(textInside)
+            isCommentEdit = false
+            closePopupTooltip()
+          }
+
+          function checkEpmtyCommemts () { //проверка и удаление пустых комментариев
+            var textInside;
+            for (let i = 0; i < $('.tooltip').length; i++) {
+              let el = $($('.tooltip')[i]).find('span')
+              if (el.length == 0 || el[0].textContent.length == 0) {
+                textInside = $('.tooltip')[i].textContent;
+                $($('.tooltip')[i]).replaceWith(textInside)
+              } 
+            }
+          }
+         
+
+      </script>
+
+    </body>
+</html>

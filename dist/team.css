@@ -1509,3 +1509,92 @@
   font-size: 14px;
   line-height: 19px;
 }
+
+.add_comment__btn {
+  display: block;
+  position: absolute;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  border: 0.5px #F3F3F6 solid;
+  top: 327px;
+  left: 50%;
+  line-height: 0;
+}
+.add_comment__btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.add_comment__btn .icons--add_comment {
+  width: 20px;
+  height: 20px;
+  fill: #007AFF;
+}
+
+.add_comment__popup {
+  display: block;
+  position: absolute;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  border: 0.5px #F3F3F6 solid;
+  z-index: 500;
+  max-width: 370px;
+  top: 0;
+  left: 0;
+}
+
+.popup-tooptip,
+.add_comment__popup {
+  max-width: 100vw;
+}
+
+@media (min-width: 640px) {
+  .popup-tooptip,
+.add_comment__popup {
+    max-width: 475px;
+  }
+
+  .add_comment__btn .icons--add_comment {
+    width: 24px;
+    height: 24px;
+  }
+}
+.popup-tooptip .btn-close,
+.add_comment__popup .btn-close {
+  height: fit-content;
+}
+.popup-tooptip .add_comment__popup-btns,
+.add_comment__popup .add_comment__popup-btns {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+.popup-tooptip .add_comment__popup-descr,
+.add_comment__popup .add_comment__popup-descr {
+  color: #17171C;
+  border: none;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "PT Root UI", "Arial", sans-serif;
+  width: 100%;
+}
+.popup-tooptip .add_comment__popup-descr::placeholder,
+.add_comment__popup .add_comment__popup-descr::placeholder {
+  color: #AEAEB2;
+}
+
+textarea::-webkit-scrollbar {
+  width: 3px;
+  background-color: #F9F9FB;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #AEAEB2;
+}
