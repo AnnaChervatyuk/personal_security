@@ -1576,6 +1576,10 @@
   line-height: 22px;
   white-space: nowrap;
 }
+.popup-tooptip .add_comment__popup-btns .btn,
+.add_comment__popup .add_comment__popup-btns .btn {
+  padding: 10px 20px
+}
 .popup-tooptip .add_comment__popup-descr,
 .add_comment__popup .add_comment__popup-descr {
   color: #17171C;
