@@ -130,7 +130,7 @@
        <div class="slide__inner">
          <div class="slide__block">
            <p><strong>Что такое Tor?</strong></p>
-<p>Tor (The Onion Router, &laquo;луковичный&raquo; или <a href="">многослойный</a> маршрутизатор) &mdash; свободное <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина вставляется в тултипописание термина вставляется в тултипописание 
+<p>Tor (The Onion Router, &laquo;луковичный&raquo; или <a href="">многослойный</a> маршрутизатор) &mdash; свободное <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина https://www.google.pt/  вставляется в тултипописание термина вставляется в тултипописание 
   термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултип</span></span> и открытое ПО для анонимного использования интернета за счёт &laquo;луковой&raquo; маршрутизации.</p>
 <p>Луковая маршрутизация &mdash; технология анонимного обмена информацией в интернете, по которой сообщения неоднократно шифруются, проходя слой за слоем через несколько устройств, называемых луковыми маршрутизаторами. Они представляют собой входящий узел (ноду), промежуточные узлы и выходной узел. Промежуточные узлы не знают источник, пункт назначения и содержание сообщения. Кроме того, входной узел не знает информации выходного узла, а выходной &mdash; входного.</p>
 <p>Tor-браузер &mdash; тот же Firefox с интегрированной поддержкой пропуска трафика через сеть Tor и отключением по умолчанию как минимум некоторых из фич браузера, которые могут использоваться для отслеживания пользователя. Он произвольно подключается к одной из публичных нод входа и дальше передаёт информацию от ноды к ноде, шифруя её. Узлы и маршруты меняются при переподключении. Tor-браузер считается удобным вариантом для среднестатистического пользователя.</p>
@@ -221,6 +221,7 @@
 
       </div>
     </div>
+    <div class="popup-background hide"></div>
     
 
       <script>
@@ -393,7 +394,6 @@
             updateAfterClick()
           })
 
-
           var popupEtalon = $('<div class="popup-tooptip hide"><div class="popup-tooptip__inner"><span></span><div class="add_comment__popup-btns"><div class="btn btn_edit-comment" onclick="editComment()">Изменить</div><div class="btn btn_close-add-comment btn-white" onclick="deleteComment()"><div class="btn-label">Удалить</div></div></div></div></div>')
           var btnClose = $('<div class="btn-close" onclick="closePopupTooltip()"><svg class="icons icons--close" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="./../sprite.svg#icon-close"></use></svg></div>')
           btnClose.appendTo(popupEtalon)
@@ -425,12 +425,14 @@
           $(window).on("resize", function (e) {
             if (!popup.hasClass("hide")) {
               popup.addClass("hide")
+              $('.popup-background').addClass('hide')
             }
           })
 
           function closePopupTooltip (props) { // закрыть попап с комментарием, отмена изменений в существующем комментарии
             if (!isCommentEdit || $(props).hasClass('btn_close-add-comment')) {
               popup.addClass("hide")
+              $('.popup-background').addClass('hide')
               popup = popupEtalon.clone()
               isCommentEdit = false
               openConfirmSavingPopup = false
@@ -456,11 +458,13 @@
 
           function showTooltip (el) {
               elem = el
+              var descr = $(el).find($(".hide")).html()
+              if (descr.length == 0) return;
+              descr = descr.replace(/(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig, '<a href="$&">$&</a>');              
               popup.removeClass("hide")
               popup.appendTo($("body"))
               var left = $(el).offset().left
-              var descr = $(el).find($(".hide")).text()
-              popup.find($("span")).text(descr)
+              popup.find($("span")).append(descr)
               var popupWidth = popup.width()
               var bodyWidth = $("body").width()
 
@@ -469,6 +473,14 @@
                 left += shift
               }
               popup.css("top", ($(el).offset().top + 35))
+              if ($('body').innerWidth() < 768 ) {
+                $('.popup-background').removeClass('hide')
+                while (shift < 0) {
+                  left += shift;
+                  shift = bodyWidth - (left + 15 + popupWidth)
+                }
+                if (left < 0) left = 0
+              }
               popup.css("left", left)
               isClickInner = false
             }
@@ -491,13 +503,31 @@
 
         $('#addCommentBtn').on('click', (e)=>{
           $('#addCommentPopup').removeClass('hide');
-          $('#addCommentPopup').css('top', positionAddPopupY)
-          $('#addCommentPopup').css('left', positionAddPopupX)
+          var popupWidth = $('#addCommentPopup').width()
+          var bodyWidth = $("body").width()
+          var left = positionAddPopupX
+          var shift = bodyWidth - (left + 15 + popupWidth)
+
+          if ($('body').innerWidth() < 768 ) {
+            $('.popup-background').removeClass('hide')
+            if (left > shift) {
+              $('#addCommentPopup').css('right', 0)
+            } else {
+              $('#addCommentPopup').css('left', positionAddPopupX)
+            }
+            $('#addCommentPopup').css('bottom', '50px')
+            
+          } else {
+            $('#addCommentPopup').css('top', positionAddPopupY)
+            $('#addCommentPopup').css('left', (positionAddPopupX - popupWidth / 2))
+          }
           isCommentAddNew = true
         })
 
-        var selectedSpan = null
-        var selected_text = ''
+        var selectedSpan = null;
+        var selected_text = '';
+        var savingPopup;
+
         $('body').on('click', (e)=>{
             $('#addCommentBtn').addClass('hide')
             
@@ -505,11 +535,20 @@
               setTimeout(() => {
                 positionAddCommentBtnX = e.target.offsetLeft + e.target.clientWidth
                   var selected_text_new = window.getSelection().toString().replace("\n", ' ');
+                  if (selected_text_new.length == 0) {
+                    selected_text = '';
+                    return;
+                  }
                   if (selected_text_new.length > 0 && selected_text != selected_text_new) {
                     if (isCommentEdit || isCommentAddNew) return
                     selected_text = selected_text_new
-                    $('#addCommentBtn').css('top', positionAddCommentBtnY)
-                    $('#addCommentBtn').css('left', positionAddCommentBtnX)
+                    if ($('body').innerWidth() < 768 ) {
+                      $('#addCommentBtn').css('bottom', '65px')
+                      $('#addCommentBtn').css('right', '30px')
+                    } else {
+                      $('#addCommentBtn').css('top', positionAddCommentBtnY)
+                      $('#addCommentBtn').css('left', positionAddCommentBtnX)
+                    }
                     $('#addCommentBtn').removeClass('hide')
                     
                     var range = window.getSelection().getRangeAt(0);
@@ -524,14 +563,16 @@
               }, 10);
             });
           })
-          var savingPopup;
+          
           function cancelPopupAddComment (props, isBodyClick) { //отменить добавление нового комментария
             if ($(props).hasClass('btn_close-add-comment')) {
               $("#editComment").val('')
               $('#addCommentPopup').addClass('hide')
+              $('.popup-background').addClass('hide')
               if (savingPopup) savingPopup.remove()
               checkEpmtyCommemts()
               isCommentAddNew = false
+              openConfirmSavingPopup = false
               return
             }
 
@@ -556,6 +597,7 @@
                 if (savingPopup) savingPopup.remove()
                 $("#editComment").val('')
                 $('#addCommentPopup').addClass('hide')
+                $('.popup-background').addClass('hide')
                 checkEpmtyCommemts()
                 isCommentAddNew = false
               }
@@ -570,12 +612,12 @@
           }
 
           function saveComment () { //сохранение нового комментария
-            console.log('saveComment')
             var newComment = document.createElement("span")
             newComment.innerHTML=this.textNewComment || $("#editComment")[0].value;
             $(selectedSpan).append(newComment)
             newComment.setAttribute("class", "hide");
             $('#addCommentPopup').addClass('hide');
+            $('.popup-background').addClass('hide')
             $("#editComment").val('')
             this.textNewComment = ''
             isCommentAddNew = false
