@@ -525,10 +525,11 @@
 .container__team-page .content .members_top-panel__btns .btn_add-members {
   padding: 8px 16px;
   font-size: 25px;
-  line-height: 28px;
+  line-height: 33px
 }
 .container__team-page .content .members_top-panel__btns .btn_add-members .btn-label {
   display: none;
+  line-height: 26px
 }
 .container__team-page .content .members_top-panel__btns .btn_open-menu-members svg {
   fill: #8D8D94;

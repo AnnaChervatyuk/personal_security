@@ -689,8 +689,50 @@
         
       </div>
      </div>
-     
+     <div class="popup" id="tooltip" style="max-width: 200px;"><div class="text">Задания будут появляться по&nbsp;мере прохождения занятий</div><div class="arrow"></div></div>
+
       <script>
+        let arrBTaskAllList = $(".members_item_resolved-task-value").find('.task-all')
+        for (var i=0; i < arrBTaskAllList.length; i++) {
+          onHoverIcon(i)
+        }
+
+        function onHoverIcon (i) {
+          let taskTooltip = $("#tooltip")
+          arrBTaskAllList.eq(i).on("mouseenter", function (e) {
+            var left = arrBTaskAllList.eq(i).offset().left
+            taskTooltip.css("display", "block")
+            var taskTooltipWidth = taskTooltip.width()
+            var bodyWidth = $("body").width()
+            var shift = bodyWidth - (left + 15 + taskTooltipWidth)
+            if (shift < 0)  {
+              left += shift
+              taskTooltip.find($(".arrow")).css("left", ((shift*(-1)) + 15))
+            }
+            taskTooltip.css("top", (arrBTaskAllList.eq(i).offset().top  + 35))
+            taskTooltip.css("left", (left - 15))
+          }).on('mouseleave',function(){
+            taskTooltip.css("display", "none")
+            taskTooltip.find($(".arrow")).css("left", 15)
+          })
+        }
+
+        let listForTestingSearch = [
+            {id:1, name:"задание 1"},
+            {id:2, name:"тестовое задание"},
+            {id:3, name:"test"},
+            {id:4, name:"exercise"},
+            {id:5, name:"статья"},
+            {id:6, name:"прочитанная статья"},
+            {id:7, name:"тестовая статья"},
+            {id:8, name:"прочитанное задание 2"}
+          ]
+          $("#taskSearch").find('input').keyup(function(event){
+            let valueInput = $("#taskSearch").find('input').val()
+            let filteredList = listForTestingSearch.filter(e => e.name.includes(valueInput))
+            console.log('filteredList', filteredList)
+          });
+
           let countSelectedMembers = 0;
           document.querySelectorAll('.members_item_progress-bar').forEach(function (membersProgressWrapper) {
             membersProgressWrapper.querySelector('.members_item_progress-bar_inner').style.width=6 + "%";
