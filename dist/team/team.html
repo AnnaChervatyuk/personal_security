@@ -110,7 +110,7 @@
 
                <div class="members_top-panel__btns">
                 <div class="btn btn_add-members" onclick="openInviteMember()">+<span class="btn-label">Пригласить</span></div>
-                <div class="btn_open-menu-members" onclick="openTeamMenu(this)">
+                <div class="btn_open-menu-members" id="openTeamMenu">
                      <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                      <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
                      </svg>
@@ -146,7 +146,7 @@
               <div class="members_item_name-email">sdfds@proton.io</div>
             </div>
 
-            <div class="members_item_btn-menu" onclick="openMemberMenu(this)">
+            <div class="members_item_btn-menu">
               <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
               </svg>
@@ -190,7 +190,7 @@
               <div class="members_item_name-email">sdfds@proton.io</div>
             </div>
 
-            <div class="members_item_btn-menu"  onclick="openMemberMenu(this)">
+            <div class="members_item_btn-menu">
               <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
               </svg>
@@ -277,7 +277,7 @@
               <div class="members_item_name-email">sdfds@proton.io</div>
             </div>
 
-            <div class="members_item_btn-menu"  onclick="openMemberMenu(this)">
+            <div class="members_item_btn-menu">
               <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
               </svg>
@@ -689,10 +689,12 @@
         
       </div>
      </div>
+     
      <div class="popup" id="tooltip" style="max-width: 200px;"><div class="text">Задания будут появляться по&nbsp;мере прохождения занятий</div><div class="arrow"></div></div>
 
       <script>
         let arrBTaskAllList = $(".members_item_resolved-task-value").find('.task-all')
+
         for (var i=0; i < arrBTaskAllList.length; i++) {
           onHoverIcon(i)
         }
@@ -716,22 +718,6 @@
             taskTooltip.find($(".arrow")).css("left", 15)
           })
         }
-
-        let listForTestingSearch = [
-            {id:1, name:"задание 1"},
-            {id:2, name:"тестовое задание"},
-            {id:3, name:"test"},
-            {id:4, name:"exercise"},
-            {id:5, name:"статья"},
-            {id:6, name:"прочитанная статья"},
-            {id:7, name:"тестовая статья"},
-            {id:8, name:"прочитанное задание 2"}
-          ]
-          $("#taskSearch").find('input').keyup(function(event){
-            let valueInput = $("#taskSearch").find('input').val()
-            let filteredList = listForTestingSearch.filter(e => e.name.includes(valueInput))
-            console.log('filteredList', filteredList)
-          });
 
           let countSelectedMembers = 0;
           document.querySelectorAll('.members_item_progress-bar').forEach(function (membersProgressWrapper) {
@@ -762,6 +748,18 @@
               })
             })
                   
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
                   
                   
 
@@ -866,21 +864,25 @@
             })
           }
 
-          function openTeamMenu (elem) {
-            $(elementPopup).addClass('hide')
-            elementPopup = popupMenuTeam[0]
-            elementBtn = elem
-
+          const openTeamMenu = document.querySelector('#openTeamMenu')
+          openTeamMenu.addEventListener('click', (e) => {
+                       
             popupMenuTeam.removeClass("hide")
 
-            var left = $(elem).offset().left - popupMenuTeam.innerWidth() + $(elem).innerWidth()
-            var top = $(elem).offset().top + $(elem).innerHeight()
-           
+            const left = $(e.target).offset().left - popupMenuTeam.innerWidth() + $(e.target).innerWidth()
+            const top = $(e.target).offset().top + $(e.target).innerHeight()
+
             popupMenuTeam.css("top", top)
             popupMenuTeam.css("left", left)
 
-          }
+            elementBtn = e.target
+            elementPopup = popupMenuTeam[0]
 
+
+          })
+
+          console.log('elementPopu1111', elementPopup)
+          console.log('elementBtn1111', elementBtn)
           function renameTeam () {
             popupMenuTeam.addClass("hide")
             popupRenameTeam.removeClass("hide")
@@ -900,16 +902,48 @@
             popupNotRegistredMember.css("left", left)
           }
 
-          function openMemberMenu (elem) {
-            $(elementPopup).addClass('hide')
-            elementPopup = popupMemberMenu[0]
-            elementBtn = elem
-            popupMemberMenu.removeClass("hide")
-            var left = $(elem).offset().left - popupMemberMenu.innerWidth() + $(elem).innerWidth()
-            var top = $(elem).offset().top + $(elem).innerHeight()
-            popupMemberMenu.css("top", top)
-            popupMemberMenu.css("left", left)
-          }
+          const menuActions = document.querySelectorAll('.members_item_btn-menu')
+
+          for (const action of menuActions) {
+              action.addEventListener('click', (event) => {
+                const elem = event.target
+                const teamMember = elem.closest('.team-member')
+
+                // const memberPk = teamMember.dataset.memberPk
+                // const memberNickname = teamMember.dataset.memberNickname
+
+                // const currentMemberNickname = changeMemberNickname.querySelector('.current-member-nickname')
+                // currentMemberNickname.textContent = memberNickname
+
+                // saveMemberNickname.setAttribute('data-member-pk', memberPk)
+                // menuDeleteUserButton.setAttribute('data-member-pk', memberPk)
+                // menuChangeExercisesButton.setAttribute('data-member-pk', memberPk)
+                $(elementPopup).addClass('hide')
+                popupMemberMenu.removeClass("hide")
+                const left = $(elem).offset().left - popupMemberMenu.innerWidth() + $(elem).innerWidth()
+                const top = $(elem).offset().top + $(elem).innerHeight()
+                popupMemberMenu.css("top", top)
+                popupMemberMenu.css("left", left)
+
+                elementPopup = popupMemberMenu[0]
+                elementBtn = elem
+
+                console.log('elementPopup22', elementPopup)
+                console.log('elementBtn22', elementBtn)
+
+              })
+            }
+
+          // function openMemberMenu (elem) {
+            // $(elementPopup).addClass('hide')
+            // elementPopup = popupMemberMenu[0]
+            // elementBtn = elem
+            // popupMemberMenu.removeClass("hide")
+            // var left = $(elem).offset().left - popupMemberMenu.innerWidth() + $(elem).innerWidth()
+            // var top = $(elem).offset().top + $(elem).innerHeight()
+            // popupMemberMenu.css("top", top)
+            // popupMemberMenu.css("left", left)
+          // }
 
           function openPopupChangeTasks () {
             popupMemberMenu.addClass("hide")
@@ -935,6 +969,8 @@
           
           $('body').on('click', (e)=>{
             const withinBoundaries = e.target == elementBtn ||  e.target.parentElement== elementBtn;
+            console.log('withinBoundaries')
+
             if ( ! withinBoundaries ) {
               $(elementPopup).addClass("hide") // скрываем элемент т к клик был за его пределами
               elementPopup = null;
@@ -957,6 +993,22 @@
               $(elem).addClass('sorting-descending')
             }
           }
+
+          let listForTestingSearch = [
+            {id:1, name:"задание 1"},
+            {id:2, name:"тестовое задание"},
+            {id:3, name:"test"},
+            {id:4, name:"exercise"},
+            {id:5, name:"статья"},
+            {id:6, name:"прочитанная статья"},
+            {id:7, name:"тестовая статья"},
+            {id:8, name:"прочитанное задание 2"}
+          ]
+          $("#taskSearch").find('input').keyup(function(event){
+            let valueInput = $("#taskSearch").find('input').val()
+            let filteredList = listForTestingSearch.filter(e => e.name.includes(valueInput))
+            console.log('filteredList', filteredList)
+          });
 
       </script>
 

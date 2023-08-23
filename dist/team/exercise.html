@@ -132,10 +132,16 @@
 
         <div class="slide slide-text">
        <div class="slide__inner">
-         <div class="slide__block">
+         <div class="slide__block" data-exercise-pk="5" data-exercise-slide-pk="20">
            <p><strong>Что такое Tor?</strong></p>
-<p>Tor (The Onion Router, &laquo;луковичный&raquo; или <a href="">многослойный</a> маршрутизатор) &mdash; свободное <span class="tooltip" onClick="showTooltip(this)">системных<span class="hide">описание термина https://www.google.pt/  вставляется в тултипописание термина вставляется в тултипописание 
+<p>Tor (The Onion Router, &laquo;луковичный&raquo; или <a href="">многослойный</a> маршрутизатор) &mdash; свободное <span class="tooltip">системных<span class="hide">описание термина https://www.google.pt/  вставляется в тултипописание термина вставляется в тултипописание 
+
   термина вставляется в тултипописание термина вставляется в тултипописание термина вставляется в тултип</span></span> и открытое ПО для анонимного использования интернета за счёт &laquo;луковой&raquo; маршрутизации.</p>
+  <ul>
+    <li><span class="tooltip">код из смс уведомления<span class="hide">123</span></span> <em>(доказательство, что ты владеешь номером телефона)</em>.</li>
+    <li>временный код из приложения на смартфоне<em> (доказательство, что у тебя есть доступ к смартфону)</em>.</li>
+    <li>аппаратный <a href="https://yubikey.ru/shop/" target="_blank" rel="noopener">usb-ключик</a>, который нужно вставить в компьютер или приложить к телефону.</li>
+    </ul>
 <p>Луковая маршрутизация &mdash; технология анонимного обмена информацией в интернете, по которой сообщения неоднократно шифруются, проходя слой за слоем через несколько устройств, называемых луковыми маршрутизаторами. Они представляют собой входящий узел (ноду), промежуточные узлы и выходной узел. Промежуточные узлы не знают источник, пункт назначения и содержание сообщения. Кроме того, входной узел не знает информации выходного узла, а выходной &mdash; входного.</p>
 <p>Tor-браузер &mdash; тот же Firefox с интегрированной поддержкой пропуска трафика через сеть Tor и отключением по умолчанию как минимум некоторых из фич браузера, которые могут использоваться для отслеживания пользователя. Он произвольно подключается к одной из публичных нод входа и дальше передаёт информацию от ноды к ноде, шифруя её. Узлы и маршруты меняются при переподключении. Tor-браузер считается удобным вариантом для среднестатистического пользователя.</p>
 
@@ -229,6 +235,17 @@
     
 
       <script>
+
+        let listTooltips = document.querySelectorAll('.tooltip')
+        console.log('listTooltips', listTooltips)
+        listTooltips.forEach(tooltip => {
+          tooltip.addEventListener('click', (e) => {
+            e.stopPropagation()
+            showTooltips(tooltip)
+          })
+        })
+
+
         if ($(".article").find(".descr-img").length == 0) {
           $(".header_inner").css("width", "100%")
         }
@@ -460,7 +477,7 @@
             
           }
 
-          function showTooltip (el) {
+          function showTooltips (el) {
               elem = el
               var descr = $(el).find($(".hide")).html()
               if (descr.length == 0) return;
@@ -468,7 +485,7 @@
               popup.removeClass("hide")
               popup.appendTo($("body"))
               var left = $(el).offset().left
-              popup.find($("span")).append(descr)
+              popup.find($("span")).html(descr)
               var popupWidth = popup.width()
               var bodyWidth = $("body").width()
 
@@ -536,8 +553,16 @@
             $('#addCommentBtn').addClass('hide')
             
             $('.article-exercise').on('click', (e)=>{
+              const currentExerciseSlide = $(e.target).closest('.slide__block')
+                if (currentExerciseSlide.length == 0) {
+                return
+              }
+
+              CURRENT_SLIDE = currentExerciseSlide[0]
+              CURRENT_EXERCISE_PK = currentExerciseSlide[0].dataset.exercisePk
+
               setTimeout(() => {
-                positionAddCommentBtnX = e.target.offsetLeft + e.target.clientWidth
+                positionAddCommentBtnX = e.target.closest('.slide__block').offsetLeft + e.target.closest('.slide__block').clientWidth
                   var selected_text_new = window.getSelection().toString().replace("\n", ' ');
                   if (selected_text_new.length == 0) {
                     selected_text = '';
@@ -560,7 +585,7 @@
                     var span = document.createElement("span");
                     span.appendChild(selectionContents);
                     span.setAttribute("class", "tooltip");
-                    span.setAttribute('onClick', 'showTooltip(this);');
+                    
                     range.insertNode(span);
                     selectedSpan = span
                   }
@@ -614,7 +639,6 @@
             isCommentAddNew = true
             $("#editComment").val(this.textNewComment)
           }
-
           function saveComment () { //сохранение нового комментария
             var newComment = document.createElement("span")
             newComment.innerHTML=this.textNewComment || $("#editComment")[0].value;
@@ -628,6 +652,15 @@
             openConfirmSavingPopup = false
             isCommentEdit = false
             if (savingPopup) savingPopup.remove()
+
+            listTooltips = document.querySelectorAll('.tooltip')
+            listTooltips.forEach(tooltip => {
+              tooltip.addEventListener('click', (e) => {
+                e.stopPropagation()
+                showTooltips(tooltip)
+              })
+            })
+            
           }
 
           function returnToEdit () {
