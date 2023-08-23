@@ -231,7 +231,7 @@
     
 
       <script>
-
+        let isTeamAdmin = true;
         let listTooltips = document.querySelectorAll('.tooltip')
         console.log('listTooltips', listTooltips)
         listTooltips.forEach(tooltip => {
@@ -478,6 +478,9 @@
               var descr = $(el).find($(".hide")).html()
               if (descr.length == 0) return;
               descr = descr.replace(/(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig, '<a href="$&">$&</a>');              
+              if (!isTeamAdmin) {
+                popup.find('.add_comment__popup-btns').remove();
+              }
               popup.removeClass("hide")
               popup.appendTo($("body"))
               var left = $(el).offset().left
@@ -549,6 +552,8 @@
             $('#addCommentBtn').addClass('hide')
             
             $('.article-exercise').on('click', (e)=>{
+              if (!isTeamAdmin) return;
+              
               const currentExerciseSlide = $(e.target).closest('.slide__block')
                 if (currentExerciseSlide.length == 0) {
                 return

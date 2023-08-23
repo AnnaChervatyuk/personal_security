@@ -1548,6 +1548,10 @@
   box-sizing: border-box;
 }
 
+.popup-tooptip {
+  min-width: 300px;
+}
+
 .popup-tooptip,
 .add_comment__popup {
   z-index: 200;
@@ -1563,6 +1567,7 @@
 .popup-tooptip .btn-close,
 .add_comment__popup .btn-close {
   height: fit-content;
+  margin-left: auto;
 }
 .popup-tooptip .add_comment__popup-btns,
 .add_comment__popup .add_comment__popup-btns {
