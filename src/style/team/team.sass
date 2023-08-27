@@ -13,10 +13,6 @@
       margin-bottom: 50px
       padding: 20px
       margin: 0 0 50px
-    &_table
-      width: 100%
-      height: 260px
-      margin-bottom: 25px
     .members
       width: 100%
       &_top-panel
@@ -152,6 +148,9 @@
             justify-content: flex-start
             align-items: flex-start
             display: flex
+            &:hover
+              .members_item_name-fio
+                color: $accent-secondary
             &-fio
               color:$black-70
               @include font(16px, 19px)
@@ -267,6 +266,13 @@
             &:hover
               border-color: $grey-50
               cursor: pointer
+
+.content_table
+  width: 100%
+  height: 260px
+  margin-bottom: 25px
+  // svg
+  //   width: 100% !important
 
 .popup_team-full
   position: fixed
@@ -517,7 +523,8 @@
 
 
 @media (min-width: 640px)
-  .popup_team-full
+  .popup_team-full,
+  .popup_member_info
     ::-webkit-scrollbar 
       width: 3px
       background-color: $color-bg-block
@@ -666,15 +673,15 @@
 
         
 @media (min-width: 640px)
+  .content_table
+    margin: 0 20px 30px
+    width: auto
   .container__team-page
     .content
       &_header
         margin-bottom: 60px
         div
           @include font(18px, 24px)
-      &_table
-        margin: 0 20px 30px
-        width: auto
       .members
         &_top-panel
           flex-wrap: no-wrap
@@ -772,9 +779,6 @@
               .members_item_btn-check
                 .member_check
                   display: block
-              .members_item_name
-                &-fio
-                  color: $accent-secondary
               &_btn-check
                 display: block
             .task-done
@@ -940,3 +944,231 @@
         color: #29C5F6
 
 
+
+.popup_member_info
+  position: fixed
+  z-index: 400
+  background: $white
+  backdrop-filter: blur(20px)
+  display: block
+  top:0
+  left:0
+  width: 100vw
+  height: 100%
+  overflow-y: auto
+  .btn-close-top
+    position: sticky
+    top: 20px
+    width: 45px
+    margin-left: auto
+    order: 1
+    &:hover
+      cursor: pointer
+  &__inner
+    max-width: 1200px
+    padding: 30px
+    background: $white
+    color: $black-100
+    margin: 0 auto 20px
+    .content_table
+      margin-bottom: 60px
+    .popup_member_info__block-progress
+      border-radius: 4px
+      border: 1px solid $color-bg-block
+      background: $color-bg-block
+      padding: 30px
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      margin-bottom: 20px
+      
+      .popup_member_info__member
+        height: inherit
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        .popup_member_info__progress-general
+          color: $black-70
+          font-size: 14px
+          line-height: 19px
+          display: flex
+          flex-direction: column
+          .progress_line
+            width: 100%
+            height: 6px
+            background: $grey-20
+            border-radius: 3px
+            position: relative
+            .progress_line-inner
+              position: absolute
+              width: 0
+              height: 6px
+              left: 0
+              top: 0
+              background-color: $correct
+              border-radius: 3px
+              -webkit-transition: width 2s
+              transition: width 2s
+
+        .member-fio
+          color: $black-100
+          font-size: 32px
+          font-weight: 700
+          line-height: 36px
+          display: flex
+          flex-direction: row
+          gap: 20px
+          .member_item_btn-menu
+            svg
+              height: 24px
+              width: 24px
+              fill: $grey-100
+            &:hover
+              svg
+                cursor: pointer
+                fill: $black-100
+        .member-email
+          margin-bottom: 10px
+          color:$grey-100
+          font-size: 16px
+          font-weight: 400
+          line-height: 22px
+
+      .popup_member_info__progress
+        margin-top: 40px
+        .progress 
+          border: none
+          padding: 0
+          margin: 0
+          .progress_skills
+            width: auto
+          .skill_wrapper:hover
+            cursor: auto
+            .skill
+              div
+                opacity: 1
+
+    .popup_member_info__content
+      .popup_member_info__content-header
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin-bottom: 50px
+        .btn_add-exercise
+          font-size: 25px
+          min-width: 44px
+          position: relative
+          &::after
+            content: '+'
+            position: absolute
+            top: 25%
+            left: 36%
+
+          .btn-label
+            display: none
+
+
+        .header__type-section
+          padding: 13px 25px
+          background: $color-bg-block
+          border-radius: 20px
+          flex-direction: column
+          justify-content: flex-start
+          align-items: flex-start
+          gap: 20px
+          display: flex
+          width: fit-content
+          &__item
+            color: $black-50
+            font-size: 18px
+            line-height: 24px
+            border-bottom: 1px transparent solid
+            &.active,
+            &:hover
+              color: $black-100
+              font-weight: 500
+              border-color: $black-100
+              -webkit-transition: 0.3s ease-out
+              transition: 0.3s ease-out
+            &:hover
+              cursor: pointer
+      .popup_member_info_block
+        margin-bottom: 70px
+        .popup_member_info_descr
+          font-size: 18px
+          line-height: 24px
+          color: $black-50
+          margin-bottom: 30px
+
+        .border
+          height: 2px
+          width: 100%
+          background: $black-70
+          margin-bottom: 35px
+        .popup_member_info__list
+          display: grid
+          grid-template-columns: repeat(auto-fit, minmax(300px, 500px))
+          justify-content: space-between
+          gap: 10px
+          .popup_member_info__item
+            display: flex
+            flex-direction: row
+            gap: 10px
+            width: 100%
+            .popup_member_info__item-title
+              flex-grow: 1
+              &:hover
+                color: $accent
+                cursor: pointer
+            .popup_member_info__item-done
+              min-width: 24px 
+            .popup_member_info__item-menu
+              width: 30px
+              height: 30px
+              display: flex
+              svg
+                margin: auto
+                fill: $gray-80
+              &:hover
+                border-radius: 4px
+                background: $grey-20
+                cursor: pointer
+                svg
+                  cursor: pointer
+                  fill: $black-100
+      .popup_member_info__todo-list
+        .popup_member_info__list
+          grid-template-columns: 1fr
+          .popup_member_info__item
+            .popup_member_info__item-title
+              &:hover
+                cursor: auto
+                color: $black-100
+
+@media (min-width: 700px)
+  .popup_member_info
+    &__inner
+      .popup_member_info__block-progress
+        flex-direction: row
+        .popup_member_info__progress
+          margin-top: 0
+
+
+    .popup_member_info__content
+      .popup_member_info__content-header
+        .header__type-section
+          flex-direction: row
+        .btn_add-exercise
+          &::after
+            content: ''
+          .btn-label
+            display: block
+            font-size: 18px
+      .popup_member_info_block
+        .popup_member_info_descr
+          width: 50%
+
+
+
+.dxc-tooltip
+  z-index: 450

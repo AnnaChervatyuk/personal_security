@@ -420,11 +420,6 @@
   padding: 20px;
   margin: 0 0 50px;
 }
-.container__team-page .content_table {
-  width: 100%;
-  height: 260px;
-  margin-bottom: 25px;
-}
 .container__team-page .content .members {
   width: 100%;
 }
@@ -574,6 +569,9 @@
   align-items: flex-start;
   display: flex;
 }
+.container__team-page .content .members_list .members_item_name:hover .members_item_name-fio {
+  color: #3D95F5;
+}
 .container__team-page .content .members_list .members_item_name-fio {
   color: #2E2E38;
   font-size: 16px;
@@ -708,6 +706,12 @@
 .container__team-page .content .members_pages .members_page.btn-white.active:hover {
   border-color: #D1D1D6;
   cursor: pointer;
+}
+
+.content_table {
+  width: 100%;
+  height: 260px;
+  margin-bottom: 25px;
 }
 
 .popup_team-full {
@@ -995,14 +999,17 @@
 }
 
 @media (min-width: 640px) {
-  .popup_team-full ::-webkit-scrollbar {
+  .popup_team-full ::-webkit-scrollbar,
+.popup_member_info ::-webkit-scrollbar {
     width: 3px;
     background-color: #F9F9FB;
   }
-  .popup_team-full ::-webkit-scrollbar-thumb {
+  .popup_team-full ::-webkit-scrollbar-thumb,
+.popup_member_info ::-webkit-scrollbar-thumb {
     background-color: #AEAEB2;
   }
-  .popup_team-full .popup_team-full__title {
+  .popup_team-full .popup_team-full__title,
+.popup_member_info .popup_team-full__title {
     font-size: 32px;
     line-height: 36px;
   }
@@ -1170,16 +1177,17 @@
   }
 }
 @media (min-width: 640px) {
+  .content_table {
+    margin: 0 20px 30px;
+    width: auto;
+  }
+
   .container__team-page .content_header {
     margin-bottom: 60px;
   }
   .container__team-page .content_header div {
     font-size: 18px;
     line-height: 24px;
-  }
-  .container__team-page .content_table {
-    margin: 0 20px 30px;
-    width: auto;
   }
   .container__team-page .content .members_top-panel {
     flex-wrap: no-wrap;
@@ -1292,9 +1300,6 @@
   }
   .container__team-page .content .members_list .members_item:not(.members_item-header):hover .members_item_btn-check .member_check {
     display: block;
-  }
-  .container__team-page .content .members_list .members_item:not(.members_item-header):hover .members_item_name-fio {
-    color: #3D95F5;
   }
   .container__team-page .content .members_list .members_item:not(.members_item-header):hover_btn-check {
     display: block;
@@ -1486,6 +1491,256 @@
 }
 .dxc-tooltip .tooltip_completedTask-finance .tooltip_item-value {
   color: #29C5F6;
+}
+
+.popup_member_info {
+  position: fixed;
+  z-index: 400;
+  background: #fff;
+  backdrop-filter: blur(20px);
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  overflow-y: auto;
+}
+.popup_member_info .btn-close-top {
+  position: sticky;
+  top: 20px;
+  width: 45px;
+  margin-left: auto;
+  order: 1;
+}
+.popup_member_info .btn-close-top:hover {
+  cursor: pointer;
+}
+.popup_member_info__inner {
+  max-width: 1200px;
+  padding: 30px;
+  background: #fff;
+  color: #17171C;
+  margin: 0 auto 20px;
+}
+.popup_member_info__inner .content_table {
+  margin-bottom: 60px;
+}
+.popup_member_info__inner .popup_member_info__block-progress {
+  border-radius: 4px;
+  border: 1px solid #F9F9FB;
+  background: #F9F9FB;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member .popup_member_info__progress-general {
+  color: #2E2E38;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  flex-direction: column;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member .popup_member_info__progress-general .progress_line {
+  width: 100%;
+  height: 6px;
+  background: #F3F3F6;
+  border-radius: 3px;
+  position: relative;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member .popup_member_info__progress-general .progress_line .progress_line-inner {
+  position: absolute;
+  width: 0;
+  height: 6px;
+  left: 0;
+  top: 0;
+  background-color: #34C759;
+  border-radius: 3px;
+  -webkit-transition: width 2s;
+  transition: width 2s;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member .member-fio {
+  color: #17171C;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member .member-fio .member_item_btn-menu svg {
+  height: 24px;
+  width: 24px;
+  fill: #8D8D94;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member .member-fio .member_item_btn-menu:hover svg {
+  cursor: pointer;
+  fill: #17171C;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__member .member-email {
+  margin-bottom: 10px;
+  color: #8D8D94;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__progress {
+  margin-top: 40px;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__progress .progress {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__progress .progress .progress_skills {
+  width: auto;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__progress .progress .skill_wrapper:hover {
+  cursor: auto;
+}
+.popup_member_info__inner .popup_member_info__block-progress .popup_member_info__progress .progress .skill_wrapper:hover .skill div {
+  opacity: 1;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .btn_add-exercise {
+  font-size: 25px;
+  min-width: 44px;
+  position: relative;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .btn_add-exercise::after {
+  content: "+";
+  position: absolute;
+  top: 25%;
+  left: 36%;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .btn_add-exercise .btn-label {
+  display: none;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .header__type-section {
+  padding: 13px 25px;
+  background: #F9F9FB;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  display: flex;
+  width: fit-content;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .header__type-section__item {
+  color: #787882;
+  font-size: 18px;
+  line-height: 24px;
+  border-bottom: 1px transparent solid;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .header__type-section__item.active, .popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .header__type-section__item:hover {
+  color: #17171C;
+  font-weight: 500;
+  border-color: #17171C;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__content-header .header__type-section__item:hover {
+  cursor: pointer;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block {
+  margin-bottom: 70px;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info_descr {
+  font-size: 18px;
+  line-height: 24px;
+  color: #787882;
+  margin-bottom: 30px;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .border {
+  height: 2px;
+  width: 100%;
+  background: #2E2E38;
+  margin-bottom: 35px;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+  justify-content: space-between;
+  gap: 10px;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-title {
+  flex-grow: 1;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-title:hover {
+  color: #007AFF;
+  cursor: pointer;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-done {
+  min-width: 24px;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-menu {
+  width: 30px;
+  height: 30px;
+  display: flex;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-menu svg {
+  margin: auto;
+  fill: #AEAEB2;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-menu:hover {
+  border-radius: 4px;
+  background: #F3F3F6;
+  cursor: pointer;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-menu:hover svg {
+  cursor: pointer;
+  fill: #17171C;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__todo-list .popup_member_info__list {
+  grid-template-columns: 1fr;
+}
+.popup_member_info__inner .popup_member_info__content .popup_member_info__todo-list .popup_member_info__list .popup_member_info__item .popup_member_info__item-title:hover {
+  cursor: auto;
+  color: #17171C;
+}
+
+@media (min-width: 700px) {
+  .popup_member_info__inner .popup_member_info__block-progress {
+    flex-direction: row;
+  }
+  .popup_member_info__inner .popup_member_info__block-progress .popup_member_info__progress {
+    margin-top: 0;
+  }
+  .popup_member_info .popup_member_info__content .popup_member_info__content-header .header__type-section {
+    flex-direction: row;
+  }
+  .popup_member_info .popup_member_info__content .popup_member_info__content-header .btn_add-exercise::after {
+    content: "";
+  }
+  .popup_member_info .popup_member_info__content .popup_member_info__content-header .btn_add-exercise .btn-label {
+    display: block;
+    font-size: 18px;
+  }
+  .popup_member_info .popup_member_info__content .popup_member_info_block .popup_member_info_descr {
+    width: 50%;
+  }
+}
+.dxc-tooltip {
+  z-index: 450;
 }
 
 .container__team .content .content_inner .block-email .block-email__descr {
