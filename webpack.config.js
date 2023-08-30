@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist', // Folder to store generated bundle
     filename: 'bundle.js',  // Name of generated bundle after build
-    publicPath: '/' // public URL of the output directory when referenced in a browser
+    publicPath: '' // public URL of the output directory when referenced in a browser
   },
 
 
@@ -220,7 +220,10 @@ module.exports = {
         filename: 'exercise.html',
         template: 'src/public/exercise.html'
         }),
-
+      new HtmlWebpackPlugin({
+        filename: 'team/exercise.html',
+        template: 'src/public/team/exercise.html'
+        }),
       new HtmlWebpackPlugin({
         filename: 'all_theory.html',
         template: 'src/public/all_theory.html'
@@ -235,6 +238,11 @@ module.exports = {
         filename: 'index_empty.html',
         template: 'src/public/index_empty.html'
         }),
+      new HtmlWebpackPlugin({
+        filename: 'team/pers_theory.html',
+        template: 'src/public/team/pers_theory.html'
+        }),
+
 
 
   ],

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal security</title>
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.1.6/css/dx.light.css">
+    <script src="https://cdn3.devexpress.com/jslib/22.1.6/js/dx.all.js" ></script>
+  </head>
+    <body>
+      <div class="container container__team container__team-page">
+        <section class="navigator">
+          <div class="nav_logo">
+            <a class="nav_logo-link" href="/"><img id="nav_logo" src="./../images/logo.svg" alt="Personal security" ></a>
+          </div>
+          <ul class="nav_list">
+            <li class="nav_item "><a href="course.html">Тренировки</a></li>
+            <li class="nav_item active"><a href="team.html">Команда</a></li>
+          </ul>
+          <div class="nav_list menu__wrapper">
+            <div class="nav_el nav_menu nav_menu-btn" id="nav-menu-mob">
+                <svg class="icons icons--menu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <use xlink:href="./../sprite.svg#icon-menu"></use>
+                </svg>
+            </div>
+            <div class="nav_list nav_list-menu hide" id="menu-nav">
+               <div class="nav_el nav_team-menu" id="open-team-menu-btn">
+                  <svg class="icons icons--teammenu" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <use xlink:href="../sprite.svg#icon-teammenu"></use>
+                  </svg>
+               </div>  
+              <div class="nav_el nav_search" id="open-search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+                <div class="nav_list-text">Поиск</div>
+              </div>
+              <a class="nav_el nav_profile" href="profile_leader.html">
+                <svg class="icons icons--profile" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-profile"></use>
+                </svg>
+                <div class="nav_list-text">Аккаунт</div>
+              </a>
+            </div>
+          </div>
+          <div class="team-menu_popup hide" id="team-menu_popup">
+            <div class="team-menu_list">
+              <div class="team-menu_item">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo.svg" alt="Personal security" >
+                    <div>Персональный ассистент по&nbsp;безопасности</div>
+                  </a>
+              </div>
+              <div class="team-menu_item active">
+                  <a class="team-menu_item-link" href="/">
+                    <img  src="./../images/logo_team.svg" alt="Personal security" >
+                    <div>Проверка информационной безопасности вашей команды</div>
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="search-panel hide" id="search-panel">
+            <div class="search-input_wrapper">
+              <input type="text" class="search__input" placeholder="Поиск" id="search_input">
+              <div class="search-btn" id="search-btn">
+                <svg class="icons icons--search" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <div class="clear-btn hide" id="clear-btn">
+                <svg class="icons icons--clear" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                   <use xlink:href="./../sprite.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="search-panel-close" id="close-search-btn">
+              <svg class="icons icons--close" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <use xlink:href="./../sprite.svg#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="content content_member_info">
+
+              <div class="content_member_info__inner">
+      
+                <div class="popup_member_info__block-progress">
+      
+                  <div class="popup_member_info__member">
+                      <div class="popup_member_info__member-fio">
+                        <div class="member-fio">
+                          <span>Amazon Marketovich</span>
+                          <div class="member_item_btn-menu" onclick="openMembersMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="member-email">sdfds@proton.io</div>
+                      </div>
+                      <div class="popup_member_info__progress-general">
+                        <div class="progress_descr">Общий прогресс <span id="progress_course"></span>%</div>
+                        <div class="progress_line" id="progress_line">
+                            <div class="progress_line-inner"></div>
+                        </div>
+                      </div>
+                  </div>
+      
+                  <div class="popup_member_info__progress">
+                    <div class="progress progress-main" id="progress_course-section">
+                      <div class="progress_skills">
+                         <div class="skill-digital_wrapper skill_wrapper">
+                            <div class="skill skill-digital" id="skill-digital">
+                               <div class="percent"><span id="progress_skill-digital"></span>%</div>
+                            </div>
+                            <div class="skill-title">Цифровая безопасность</div>
+                         </div>
+       
+                         <div class="skill-financial_wrapper skill_wrapper">
+                            <div class="skill skill-financial" id="skill-financial">
+                               <div class="percent"><span id="progress_skill-financial"></span>%</div>
+                            </div>
+                            <div class="skill-title">Финансовая безопасность</div>
+                         </div>
+       
+                         <div class="skill-personal_wrapper skill_wrapper">
+                           <div class="skill skill-personal" id="skill-personal">
+                             <div class="percent"><span id="progress_skill-personal"></span>%</div>
+                           </div>
+                           <div class="skill-title">Личная безопасность</div>
+                         </div>
+                      </div>
+                   </div>
+                  </div>
+      
+                </div>
+      
+                
+      
+                <div class="content_table" id="memberChart"></div>
+      
+                <div class="popup_member_info__content">
+                  <div class="popup_member_info__content-header">
+                    <div class="header__type-section">
+                      <div class="header__type-section__item active" id="btnShowExercises" onclick="btnShowExercises()">Занятия</div>
+                      <div class="header__type-section__item " id="btnShowToDo" onclick="btnShowToDo()">Задачи (туду-лист)</div>
+                    </div>
+                    <div class="btn btn_add-exercise" onclick="openPopupChangeTasks()"><span class="btn-label">Добавить занятие</span></div>
+      
+                  </div>
+                  <div class="popup_member_info__exercise-list">
+      
+                    <div class="popup_member_info_block block-skill skill-digital">
+                      <div class="block-skill-number">1</div>
+                      <h3>Цифровая безопасность</h3>
+                      <div class="block-skill-descr">Предотвращаем несанкционированный доступ к личной информации</div>
+                      <div class="border"></div>
+                      <div class="popup_member_info__list">
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done " width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done " width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="popup_member_info_block block-skill skill-personal">
+                      <div class="block-skill-number">2</div>
+                      <h3>Личная безопасность</h3>
+                      <div class="block-skill-descr">Как править, не привлекая внимания санитаров</div>
+                      <div class="border"></div>
+                      <div class="popup_member_info__list">
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done " width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done " width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="popup_member_info_block block-skill skill-financial">
+                      <div class="block-skill-number">3</div>
+                      <h3>Финансовая безопасность</h3>
+                      <div class="block-skill-descr">Как не потерять деньги</div>
+                      <div class="border"></div>
+                      <div class="popup_member_info__list">
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done " width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="popup_member_info__item">
+                          <div class="popup_member_info__item-done">
+                            <svg class="icons icons--icon-done " width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-done"></use>
+                            </svg>
+                          </div>
+                          <div class="popup_member_info__item-title">Надежные пароли</div>
+                          <div class="popup_member_info__item-menu" onclick="openMemberItemMenu(this)">
+                            <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                  </div>
+                  <div class="popup_member_info__todo-list hide">
+                    <div class="popup_member_info_block">
+                      <h3>Актуальные</h3>
+                      <div class="popup_member_info_descr">Выполнено 3 из 4 задач</div>
+                      <div class="border"></div>
+                        <div class="popup_member_info__list" id="listAllTask">
+                          <div class="popup_member_info__item">
+                            <div class="popup_member_info__item-done">
+                              <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <use xlink:href="./../sprite.svg#icon-done"></use>
+                              </svg>
+                            </div>
+                            <div class="popup_member_info__item-title">Надежные пароли</div>
+                            <div class="popup_member_info__item-menu">
+                              <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="popup_member_info__item">
+                            <div class="popup_member_info__item-done">
+                              <svg class="icons icons--icon-done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <use xlink:href="./../sprite.svg#icon-done"></use>
+                              </svg>
+                            </div>
+                            <div class="popup_member_info__item-title">Надежные пароли</div>
+                            <div class="popup_member_info__item-menu">
+                              <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="popup_member_info__item">
+                            <div class="popup_member_info__item-done">
+                              <svg class="icons icons--icon-done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <use xlink:href="./../sprite.svg#icon-done"></use>
+                              </svg>
+                            </div>
+                            <div class="popup_member_info__item-title">Надежные пароли</div>
+                            <div class="popup_member_info__item-menu">
+                              <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                              </svg>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="popup_member_info_block">
+                        <h3>Не хочу делать</h3>
+                        <div class="popup_member_info_descr">4 задачи</div>
+                        <div class="border"></div>
+                          <div class="popup_member_info__list"  id="listNotDoTask">
+                            <div class="popup_member_info__item">
+                              <div class="popup_member_info__item-done">
+                                <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <use xlink:href="./../sprite.svg#icon-done"></use>
+                                </svg>
+                              </div>
+                              <div class="popup_member_info__item-title">Надежные пароли</div>
+                              <div class="popup_member_info__item-menu">
+                                <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="popup_member_info__item">
+                              <div class="popup_member_info__item-done">
+                                <svg class="icons icons--icon-done" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <use xlink:href="./../sprite.svg#icon-done"></use>
+                                </svg>
+                              </div>
+                              <div class="popup_member_info__item-title">Надежные пароли</div>
+                              <div class="popup_member_info__item-menu">
+                                <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="popup_member_info__item">
+                              <div class="popup_member_info__item-done">
+                                <svg class="icons icons--icon-done hide" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <use xlink:href="./../sprite.svg#icon-done"></use>
+                                </svg>
+                              </div>
+                              <div class="popup_member_info__item-title">Надежные пароли</div>
+                              <div class="popup_member_info__item-menu">
+                                <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div> 
+                        </div> 
+                    </div>
+                  </div>
+                </div>
+      
+      
+          
+         
+        </section>
+      </div>
+
+
+      <footer>
+        <div class="footer footer-main">
+          <div class="footer_logo">
+            <a class="footer_logo-link" href="/"><img src="./../images/logo_small.svg" alt="Personal security" width="26" height="20"></a>
+          </div>
+          <ul class="footer_list">
+            <li class="footer_item"><a href="about.html">О проекте</a></li>
+            <li class="footer_item"><a href="/">Предложить новость</a></li>
+          </ul>
+        </div>
+      </footer>
+
+
+    <div class="popup_team-full popup_change-tasks hide" id="popupChangeTasks">
+      <div class="btn-close-top" onclick="closePopupChangeTasks()">
+        <svg class="icons icons--close" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use xlink:href="../sprite.svg#icon-close"></use>
+        </svg>
+      </div>
+        <div class="popup_team-full__inner">
+
+          <div class="popup_change-tasks__block-scroll">
+            <div class="popup_team-full__title">Какие занятия назначить?</div>
+            <div class="popup_change-tasks_members">
+              <div class="popup_change-tasks_members_count">9 человек</div>
+              <div class="popup_change-tasks_members_list">
+                <div class="popup_change-tasks_members_item">Amazon Marketovich</div>
+                <div class="popup_change-tasks_members_item">Amazon</div>
+                <div class="popup_change-tasks_members_item">Froton</div>
+                <div class="popup_change-tasks_members_item">Marketovich</div>
+                <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
+                <div class="popup_change-tasks_members_item">sdfds@proton.io</div>
+              </div>
+            </div>
+            <div class="popup_change-tasks_list-wrapper">
+              <div class="popup_change-tasks_list_search" id="taskSearch">
+                <input type="text" class="search__input" placeholder="Поиск">
+              </div>
+              <div class="popup_change-tasks_list">
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Надежные пароли</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Менеджер паролей</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Двухфакторная аутентификация</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Полнодисковое шифрование</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="popup_change-tasks_item">
+                  <label class="popup_change-tasks_item_check">
+                    <input type="checkbox">
+                    <span>Резервное копирование</span>
+                  </label>
+                  <div class="btn-open_link">
+                    <svg class="icons icons--open_link" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <use xlink:href="../sprite.svg#icon-open_link"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+        <div class="popup_change-tasks_footer">
+          <div class="btn btn_save-team-tasks">Назначить занятия</div>
+          <div class="popup_change-tasks_count">Выбрано 0</div>
+        </div>
+      </div>
+    </div>
+
+
+     <div id="popupMemberMenu" class="popup_menu popup_menu_member hide">
+      <div class="popup_menu_list">
+        <div class="popup_menu__item" onclick="openPopupChangeTasks()">Добавить/убрать занятия</div>
+        <div class="popup_menu__item">Изменить ник</div>
+        <div class="popup_menu__item menu_item__warning">Удалить участника</div>
+      </div>
+     </div>
+
+     <div id="popupMemberItemMenu" class="popup_menu popup_menu_member hide">
+      <div class="popup_menu_list">
+        <div class="popup_menu__item menu_item__warning">Удалить занятие</div>
+      </div>
+     </div>    
+
+    <div id="popupMemberAllTaskMenu" class="popup_menu popup_menu_member hide">
+      <div class="popup_menu_list">
+        <div class="popup_menu__item">Пометить как выполненную</div>
+        <div class="popup_menu__item delete_task menu_item__warning">Убрать задачу</div>
+      </div>
+     </div>
+     
+     <div id="popupMemberNotDoTaskMenu" class="popup_menu popup_menu_member hide">
+      <div class="popup_menu_list">
+        <div class="popup_menu__item">Пометить как невыполненную</div>
+        <div class="popup_menu__item">Вернуть задачу в туду-лист</div>
+      </div>
+     </div>
+
+     <div class="popup" id="tooltip" style="max-width: 200px;"><div class="text">Задания будут появляться по&nbsp;мере прохождения занятий</div><div class="arrow"></div></div>
+
+
+     <script type="text/javascript">
+       function btnShowExercises () {
+        $('#btnShowToDo').removeClass('active');
+        $('#btnShowExercises').addClass('active');
+        $('.popup_member_info__exercise-list').removeClass('hide');
+        $('.popup_member_info__todo-list').addClass('hide');
+       }
+
+       function btnShowToDo () {
+        $('#btnShowToDo').addClass('active');
+        $('#btnShowExercises').removeClass('active');
+        $('.popup_member_info__exercise-list').addClass('hide');
+        $('.popup_member_info__todo-list').removeClass('hide');
+       }
+
+        const progressData = 6;
+        const progressSkillDigital = 6;
+        const progressSkillPersonal = 0;
+        const progressSkillFinancial = 25;
+
+        $("#progress_line > .progress_line-inner").css("width", progressData + "%")
+        $("#progress_course").text(progressData)
+
+        $("#progress_skill-digital").text(progressSkillDigital)
+        $("#progress_skill-personal").text(progressSkillPersonal)
+        $("#progress_skill-financial").text(progressSkillFinancial)
+
+        let progressSkillDigitalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#21AF73 " + progressSkillDigital + "%, #D8EDE4 " + progressSkillDigital + "%)"
+        $("#skill-digital").css({"background-image": progressSkillDigitalStyle})
+
+        let progressSkillPersonalStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#5C59EB " + progressSkillPersonal + "%, #D9D9EE " + progressSkillPersonal + "%)"
+        $("#skill-personal").css({"background-image": progressSkillPersonalStyle})
+
+        let progressSkillFinancialStyle = "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), conic-gradient(#1299C6 " + progressSkillFinancial + "%, #D9E9EE " + progressSkillFinancial + "%)"
+        $("#skill-financial").css({"background-image": progressSkillFinancialStyle})
+
+
+        function toggleProgressTitleLocation () { //перемещает тайтлы прогрессов
+          let skills  = $(".skill"),
+              skillTitle = $(".skill-title"),
+              skillWrapper = $(".skill_wrapper")
+          if($('body').innerWidth() >= 1200){
+              for (var i = 0; i < skills.length; i++){
+                skillTitle.eq(i).appendTo(skills.eq(i))
+              }
+          } else {
+            for (var i = 0; i < skills.length; i++){
+              skillTitle.eq(i).appendTo(skillWrapper.eq(i))
+            }
+          }
+        }
+
+        $(window).on("resize", function (e) {
+          e.stopPropagation();
+          toggleProgressTitleLocation ()
+        })
+
+        toggleProgressTitleLocation ()
+
+
+          let popupMemberAllTaskMenu = $("#popupMemberAllTaskMenu")
+          let popupMemberNotDoTaskMenu = $("#popupMemberNotDoTaskMenu")
+          let popupMemberMenu = $("#popupMemberMenu")
+          let popupMemberItemMenu = $("#popupMemberItemMenu")
+          let popupChangeTasks = $("#popupChangeTasks")
+          let elementPopup;
+          let elementBtn;
+
+          const openMemberAllTaskMenu = $('#listAllTask').find('.popup_member_info__item-menu')
+          for (const menuItem of openMemberAllTaskMenu) {
+            menuItem.addEventListener('click', (e) => {
+              popupMemberAllTaskMenu.removeClass("hide")
+              const left = $(e.target).offset().left - popupMemberAllTaskMenu.innerWidth() + $(e.target).innerWidth()
+              const top = $(e.target).offset().top + $(e.target).innerHeight()
+              popupMemberAllTaskMenu.css("top", top)
+              popupMemberAllTaskMenu.css("left", left)
+              elementBtn = e.target
+              elementPopup = popupMemberAllTaskMenu[0]
+            })
+          }
+
+          const openMemberListNotDoTaskMenu = $('#listNotDoTask').find('.popup_member_info__item-menu')
+          for (const menuItem of openMemberListNotDoTaskMenu) {
+            menuItem.addEventListener('click', (e) => {
+              popupMemberNotDoTaskMenu.removeClass("hide")
+              const left = $(e.target).offset().left - popupMemberNotDoTaskMenu.innerWidth() + $(e.target).innerWidth()
+              const top = $(e.target).offset().top + $(e.target).innerHeight()
+              popupMemberNotDoTaskMenu.css("top", top)
+              popupMemberNotDoTaskMenu.css("left", left)
+              elementBtn = e.target
+              elementPopup = popupMemberNotDoTaskMenu[0]
+            })
+          }
+
+
+          function openMembersMenu (elem) {
+            $(elementPopup).addClass('hide')
+            popupMemberMenu.removeClass("hide")
+            const left = $(elem).offset().left - popupMemberMenu.innerWidth() + $(elem).innerWidth()
+            const top = $(elem).offset().top + $(elem).innerHeight()
+            popupMemberMenu.css("top", top)
+            popupMemberMenu.css("left", left)
+            elementPopup = popupMemberMenu[0]
+            elementBtn = elem
+          }
+
+          function openMemberItemMenu (elem){
+            popupMemberItemMenu.removeClass("hide")
+            const left = $(elem).offset().left - popupMemberItemMenu.innerWidth() + $(elem).innerWidth()
+            const top = $(elem).offset().top + $(elem).innerHeight()
+            popupMemberItemMenu.css("top", top)
+            popupMemberItemMenu.css("left", left)
+            elementPopup = popupMemberItemMenu[0]
+            elementBtn = elem
+          }
+
+          function openPopupChangeTasks () {
+            popupMemberMenu.addClass("hide")
+            popupChangeTasks.removeClass("hide")
+            $('body').css("overflow", 'hidden')
+          }
+
+          function closePopupChangeTasks () {
+            popupChangeTasks.addClass('hide')
+            $('body').css("overflow-y", 'auto')
+          }
+          
+
+          let taskSearch = $("#taskSearch")
+          
+          $(popupChangeTasks[0].getElementsByClassName('popup_change-tasks__block-scroll')[0]).on("scroll", function (e) {
+            if (taskSearch.position().top <= 45 ){
+              taskSearch.css('width', '80%')
+            } else {
+              taskSearch.css('width', '100%')
+            }
+          })
+          
+          $('body').on('click', (e)=>{
+            const withinBoundaries = e.target == elementBtn ||  e.target.parentElement== elementBtn;
+            if ( ! withinBoundaries ) {
+              $(elementPopup).addClass("hide") // скрываем элемент т к клик был за его пределами
+              elementPopup = null;
+              elementBtn = null
+            }
+          })
+
+
+
+      </script>
+
+      <script src="teamChart.js" defer></script>
+
+
+
+    </body>
+</html>
