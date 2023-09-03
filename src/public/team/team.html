@@ -699,16 +699,15 @@
      <div class="popup" id="tooltip" style="max-width: 200px;"><div class="text">Задания будут появляться по&nbsp;мере прохождения занятий</div><div class="arrow"></div></div>
 
       <script>
-        let arrBTaskAllList = $(".members_item_resolved-task-value").find('.task-all')
-
-        for (var i=0; i < arrBTaskAllList.length; i++) {
+        let arrTaskAllList = $.merge($(".members_item_resolved-task-value").find('.task-all'), $(".members_item_resolved-task-value").find('.task-percent'))
+        for (var i=0; i < arrTaskAllList.length; i++) {
           onHoverIcon(i)
         }
 
         function onHoverIcon (i) {
           let taskTooltip = $("#tooltip")
-          arrBTaskAllList.eq(i).on("mouseenter", function (e) {
-            var left = arrBTaskAllList.eq(i).offset().left
+          arrTaskAllList.eq(i).on("mouseenter", function (e) {
+            var left = arrTaskAllList.eq(i).offset().left
             taskTooltip.css("display", "block")
             var taskTooltipWidth = taskTooltip.width()
             var bodyWidth = $("body").width()
@@ -717,7 +716,7 @@
               left += shift
               taskTooltip.find($(".arrow")).css("left", ((shift*(-1)) + 15))
             }
-            taskTooltip.css("top", (arrBTaskAllList.eq(i).offset().top  + 35))
+            taskTooltip.css("top", (arrTaskAllList.eq(i).offset().top  + 35))
             taskTooltip.css("left", (left - 15))
           }).on('mouseleave',function(){
             taskTooltip.css("display", "none")

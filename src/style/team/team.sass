@@ -381,6 +381,7 @@
               min-width: 30px
             &:hover::before
               background-color: #F9F9FB
+              border: 1px solid $black-100
           .popup_change-tasks_item_check input[type=checkbox]
             position: absolute
             z-index: -1
@@ -408,6 +409,32 @@
             left: 8px
             bottom: 28%
             transform: rotate(-45deg)
+          .popup_change-tasks_item_check:hover input[type=checkbox] + span::before
+            content: ""
+            position: absolute
+            display: inline-block
+            width: 2px
+            height: 17px
+            background-color: #007AFF
+            left: 17px
+            bottom: 27%
+            transform: rotate(45deg)
+            opacity: 0.1
+          .popup_change-tasks_item_check:hover input[type=checkbox]  + span::after
+            content: ""
+            position: absolute
+            display: inline-block
+            width: 2px
+            height: 9px
+            background-color: #007AFF
+            left: 8px
+            bottom: 28%
+            transform: rotate(-45deg)
+            opacity: 0.1
+          .popup_change-tasks_item_check:hover input[type=checkbox]:checked + span::after,
+          .popup_change-tasks_item_check:hover input[type=checkbox]:checked + span::before
+            opacity: 1
+
 
     .popup_change-tasks_footer
       display: flex
@@ -707,6 +734,7 @@
             .btn_add-members
               padding: 2px 16px
               height: 32px
+              font-size: 20px
               .btn-label
                 display: inline-block
                 padding-left: 10px
@@ -723,6 +751,7 @@
             flex-wrap: nowrap
             display: grid
             grid-template-columns: 30px 2fr 1fr 1fr 1fr 1fr 30px
+            align-items: center
             &_btn-check
               display: block
               .member_check
@@ -743,6 +772,7 @@
                   min-width: 30px
                 &:hover::before
                   background-color: #F9F9FB
+                  border: 1px solid $black-100
               .member_check input[type=checkbox]
                   position: absolute
                   z-index: -1
@@ -763,6 +793,28 @@
                   left: 17px
                   bottom: 27%
                   transform: rotate(45deg)
+              .member_check:hover input[type=checkbox] + span::before
+                  content: ""
+                  position: absolute
+                  display: inline-block
+                  width: 2px
+                  height: 17px
+                  background-color: #007AFF
+                  left: 17px
+                  bottom: 27%
+                  transform: rotate(45deg)
+                  opacity: 0.1
+              .member_check:hover input[type=checkbox] + span::after
+                  content: ""
+                  position: absolute
+                  display: inline-block
+                  width: 2px
+                  height: 9px
+                  background-color: #007AFF
+                  left: 8px
+                  bottom: 28%
+                  transform: rotate(-45deg)
+                  opacity: 0.1
               .member_check input[type=checkbox]:checked + span::after
                   content: ""
                   position: absolute
@@ -773,6 +825,9 @@
                   left: 8px
                   bottom: 28%
                   transform: rotate(-45deg)
+              .member_check:hover input[type=checkbox]:checked + span::before,
+              .member_check:hover input[type=checkbox]:checked + span::after
+                  opacity: 1
             &:not(.members_item-header):hover
               cursor: pointer
               background-color: $color-bg-block
@@ -790,6 +845,7 @@
               display: block
               font-size: 12px
               margin-left: auto
+              width: fit-content
             &_progress
               margin-left: 35px 
             &-header
@@ -844,6 +900,7 @@
               &-value
                 @include font(14px, 19px)
                 font-weight: 400
+                margin-top: 0
             &_resolved-task
               order: 3
               max-width: 210px
@@ -860,6 +917,7 @@
                 color: $grey-100
                 font-weight: 400
                 text-align: right
+                margin-top: 0
               &-title
                 display: none
             &_progress
@@ -918,6 +976,9 @@
 
 
 .dxc-tooltip
+  svg
+    path
+      opacity: 0.87
   .teamChart_tooltip 
     .teamChart_tooltip_item
       display: flex

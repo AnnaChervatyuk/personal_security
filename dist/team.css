@@ -39,9 +39,6 @@
     font-size: 14px;
     line-height: 19px;
   }
-  .team-menu_popup .team-menu_list .team-menu_item:first-child img {
-    margin-left: -7px;
-  }
   .team-menu_popup .team-menu_list .team-menu_item img {
     width: 114px;
   }
@@ -298,7 +295,7 @@
     position: absolute;
   }
   .container__team .content_landing_team .landing_team_steps .step__item {
-    width: 30%;
+    width: 33%;
   }
   .container__team .content_landing_team .landing_team_steps .step__item .step__text {
     top: 55px;
@@ -839,6 +836,7 @@
 }
 .popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check:hover::before {
   background-color: #F9F9FB;
+  border: 1px solid #17171C;
 }
 .popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check input[type=checkbox] {
   position: absolute;
@@ -869,6 +867,34 @@
   left: 8px;
   bottom: 28%;
   transform: rotate(-45deg);
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check:hover input[type=checkbox] + span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 17px;
+  background-color: #007AFF;
+  left: 17px;
+  bottom: 27%;
+  transform: rotate(45deg);
+  opacity: 0.1;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check:hover input[type=checkbox] + span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 9px;
+  background-color: #007AFF;
+  left: 8px;
+  bottom: 28%;
+  transform: rotate(-45deg);
+  opacity: 0.1;
+}
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check:hover input[type=checkbox]:checked + span::after,
+.popup_change-tasks .popup_team-full__inner .popup_change-tasks_list-wrapper .popup_change-tasks_list .popup_change-tasks_item .popup_change-tasks_item_check:hover input[type=checkbox]:checked + span::before {
+  opacity: 1;
 }
 .popup_change-tasks .popup_team-full__inner .popup_change-tasks_footer {
   display: flex;
@@ -1214,6 +1240,7 @@
   .container__team-page .content .members_top-panel__btns .btn_add-members {
     padding: 2px 16px;
     height: 32px;
+    font-size: 20px;
   }
   .container__team-page .content .members_top-panel__btns .btn_add-members .btn-label {
     display: inline-block;
@@ -1234,6 +1261,7 @@
     flex-wrap: nowrap;
     display: grid;
     grid-template-columns: 30px 2fr 1fr 1fr 1fr 1fr 30px;
+    align-items: center;
   }
   .container__team-page .content .members_list .members_item_btn-check {
     display: block;
@@ -1259,6 +1287,7 @@
   }
   .container__team-page .content .members_list .members_item_btn-check .member_check:hover::before {
     background-color: #F9F9FB;
+    border: 1px solid #17171C;
   }
   .container__team-page .content .members_list .members_item_btn-check .member_check input[type=checkbox] {
     position: absolute;
@@ -1283,6 +1312,30 @@
     bottom: 27%;
     transform: rotate(45deg);
   }
+  .container__team-page .content .members_list .members_item_btn-check .member_check:hover input[type=checkbox] + span::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 2px;
+    height: 17px;
+    background-color: #007AFF;
+    left: 17px;
+    bottom: 27%;
+    transform: rotate(45deg);
+    opacity: 0.1;
+  }
+  .container__team-page .content .members_list .members_item_btn-check .member_check:hover input[type=checkbox] + span::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 2px;
+    height: 9px;
+    background-color: #007AFF;
+    left: 8px;
+    bottom: 28%;
+    transform: rotate(-45deg);
+    opacity: 0.1;
+  }
   .container__team-page .content .members_list .members_item_btn-check .member_check input[type=checkbox]:checked + span::after {
     content: "";
     position: absolute;
@@ -1293,6 +1346,10 @@
     left: 8px;
     bottom: 28%;
     transform: rotate(-45deg);
+  }
+  .container__team-page .content .members_list .members_item_btn-check .member_check:hover input[type=checkbox]:checked + span::before,
+.container__team-page .content .members_list .members_item_btn-check .member_check:hover input[type=checkbox]:checked + span::after {
+    opacity: 1;
   }
   .container__team-page .content .members_list .members_item:not(.members_item-header):hover {
     cursor: pointer;
@@ -1315,6 +1372,7 @@
     display: block;
     font-size: 12px;
     margin-left: auto;
+    width: fit-content;
   }
   .container__team-page .content .members_list .members_item_progress {
     margin-left: 35px;
@@ -1382,6 +1440,7 @@
     font-size: 14px;
     line-height: 19px;
     font-weight: 400;
+    margin-top: 0;
   }
   .container__team-page .content .members_list .members_item_resolved-task {
     order: 3;
@@ -1403,6 +1462,7 @@
     color: #8D8D94;
     font-weight: 400;
     text-align: right;
+    margin-top: 0;
   }
   .container__team-page .content .members_list .members_item_exercise-title {
     display: none;
@@ -1468,6 +1528,9 @@
   cursor: pointer;
 }
 
+.dxc-tooltip svg path {
+  opacity: 0.87;
+}
 .dxc-tooltip .teamChart_tooltip .teamChart_tooltip_item {
   display: flex;
   flex-direction: row;
