@@ -191,6 +191,7 @@
                 border-radius: 3px
                 -webkit-transition: width 2s
                 transition: width 2s
+                max-width: 100%
           &_resolved-task
             &-value
               margin-top: 5px
@@ -739,7 +740,7 @@
                 display: inline-block
                 padding-left: 10px
                 color: $white
-                @include font(12px, 29px)
+                @include font(12px, 27px)
                 font-weight: 400
                 height: 100%
                 vertical-align: middle
@@ -973,6 +974,10 @@
       &:hover
         opacity: 0.8
         cursor: pointer
+.popup_menu-btn.popup_menu
+  top: 30px
+  right: 0
+  width: max-content
 
 
 .dxc-tooltip
@@ -1169,6 +1174,7 @@
               width: 30px
               height: 30px
               display: flex
+              position: relative
               svg
                 margin: auto
                 fill: $gray-80
@@ -1207,6 +1213,7 @@
           .btn-label
             display: block
             font-size: 18px
+            line-height: 29px
       .popup_member_info_block
         .popup_member_info_descr
           width: 50%

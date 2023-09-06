@@ -616,6 +616,7 @@
   border-radius: 3px;
   -webkit-transition: width 2s;
   transition: width 2s;
+  max-width: 100%;
 }
 .container__team-page .content .members_list .members_item_resolved-task-value {
   margin-top: 5px;
@@ -1247,7 +1248,7 @@
     padding-left: 10px;
     color: #fff;
     font-size: 12px;
-    line-height: 29px;
+    line-height: 27px;
     font-weight: 400;
     height: 100%;
     vertical-align: middle;
@@ -1528,6 +1529,12 @@
   cursor: pointer;
 }
 
+.popup_menu-btn.popup_menu {
+  top: 30px;
+  right: 0;
+  width: max-content;
+}
+
 .dxc-tooltip svg path {
   opacity: 0.87;
 }
@@ -1737,6 +1744,7 @@
   width: 30px;
   height: 30px;
   display: flex;
+  position: relative;
 }
 .content_member_info__inner .popup_member_info__content .popup_member_info_block .popup_member_info__list .popup_member_info__item .popup_member_info__item-menu svg {
   margin: auto;
@@ -1775,6 +1783,7 @@
   .content_member_info .popup_member_info__content .popup_member_info__content-header .btn_add-exercise .btn-label {
     display: block;
     font-size: 18px;
+    line-height: 29px;
   }
   .content_member_info .popup_member_info__content .popup_member_info_block .popup_member_info_descr {
     width: 50%;
