@@ -241,7 +241,7 @@
               </a>
             </div>
 
-            <div class="members_item_btn-menu" onclick="openNotRegistredMemberMenu(this)">
+            <div class="members_item_btn-menu" data-value="123123" onclick="openNotRegistredMemberMenu(this)">
               <svg class="icons icons--icon-smallmenu" width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <use xlink:href="./../sprite.svg#icon-smallmenu"></use>
               </svg>
@@ -702,6 +702,7 @@
      <div class="popup" id="tooltip" style="max-width: 200px;"><div class="text">Задания будут появляться по&nbsp;мере прохождения занятий</div><div class="arrow"></div></div>
 
       <script>
+         const teamMembers = document.querySelectorAll('.members_item > .members_item_btn-check')
         let arrTaskAllList = $.merge($(".members_item_resolved-task-value").find('.task-all'), $(".members_item_resolved-task-value").find('.task-percent'))
         for (var i=0; i < arrTaskAllList.length; i++) {
           onHoverIcon(i)
@@ -756,6 +757,198 @@
               })
             })
                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
+                  
+                  
+
+    
+
+    
+                  
+
+    
+
+    
                   
                   
                   
@@ -1047,7 +1240,7 @@
             popupMenuTeam.removeClass("hide")
 
             const left = $(e.target).offset().left - popupMenuTeam.innerWidth() + $(e.target).innerWidth()
-            const top = $(e.target).offset().top + $(e.target).innerHeight()
+            const top = $(e.target).closest('.members_top-panel__btns').offset().top + $(e.target).closest('.members_top-panel__btns').innerHeight() 
 
             popupMenuTeam.css("top", top)
             popupMenuTeam.css("left", left)
@@ -1067,6 +1260,8 @@
 
 
           function openNotRegistredMemberMenu (elem) {
+            // console.log('elem', elem.data('value'))
+            console.log('elem', elem.getAttribute('data-value'))
             $(elementPopup).addClass('hide')
             elementPopup = popupNotRegistredMember[0]
             elementBtn = elem

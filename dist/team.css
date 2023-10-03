@@ -10,43 +10,54 @@
 .container__team .navigator .nav_list .nav_team-menu:hover .icons {
   fill: #17171C;
 }
+.container__team .team-menu_popup {
+  position: absolute;
+  width: 100vw;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+  padding: 30px;
+  align-items: flex-start;
+  border-radius: 4px;
+  border-bottom: 1px solid #e9e8e8;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.container__team .team-menu_popup .team-menu_list {
+  display: flex;
+  flex-direction: column;
+}
+.container__team .team-menu_popup .team-menu_list .team-menu_item {
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: #787882;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+.container__team .team-menu_popup .team-menu_list .team-menu_item img {
+  width: 114px;
+}
+.container__team .team-menu_popup .team-menu_list .team-menu_item.active {
+  background: #F3F3F6;
+}
+.container__team .team-menu_popup .team-menu_list .team-menu_item .team-menu_item-link {
+  font-weight: 400;
+}
 
 @media (min-width: 640px) {
   .container__team .navigator .nav_logo {
     height: 36px;
     width: auto;
   }
-
-  .team-menu_popup {
+  .container__team .team-menu_popup {
     padding: 20px;
-    position: absolute;
     right: 0;
+    bottom: auto;
     top: 76px;
-    background: #fff;
     border: 1px solid #F3F3F6;
     box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
     width: 280px;
-  }
-  .team-menu_popup .team-menu_list {
-    display: flex;
-    flex-direction: column;
-  }
-  .team-menu_popup .team-menu_list .team-menu_item {
-    padding: 15px 20px;
-    border-radius: 10px;
-    color: #787882;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-  }
-  .team-menu_popup .team-menu_list .team-menu_item img {
-    width: 114px;
-  }
-  .team-menu_popup .team-menu_list .team-menu_item.active {
-    background: #F3F3F6;
-  }
-  .team-menu_popup .team-menu_list .team-menu_item .team-menu_item-link {
-    font-weight: 400;
   }
 }
 .container__team .content_landing_team {
