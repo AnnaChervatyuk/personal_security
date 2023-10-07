@@ -51,7 +51,7 @@ $(document).ready(function() {
 
   function onChangeWidth() { // меняет расположение меню
     var logoImg = $("#nav_logo");
-    if (windowWidth>=640) {
+    if (windowWidth>=830) {
       if (window.isTeamPage) {
         logoImg.attr("src", `${urlImage}logo_team.svg`);
       } else {
@@ -71,7 +71,7 @@ $(document).ready(function() {
   }
 
   function toggleMenuVisibility() { // меняет видимость меню. используется для мобилы
-      if(windowWidth < 640){
+      if(windowWidth < 830){
         if (menuNav.hasClass("hide")) {
           menuNav.removeClass("hide");
         } else {
@@ -81,7 +81,7 @@ $(document).ready(function() {
   }
 
   $('body').on("click", function (e) {
-      if(windowWidth < 640) {
+      if(windowWidth < 830) {
         if (!menuNav.hasClass("hide")) { //закрыть меню при клике в любое место. используется для мобилы
             toggleMenuVisibility()
           }
